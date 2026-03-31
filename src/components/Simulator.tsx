@@ -4,6 +4,7 @@ import {
 } from 'recharts';
 import { fmt, fmtCompact, fmtPct, DISTRIBUTION_LABELS } from '../data/branches';
 import type { Calculations } from '../data/branches';
+import { get } from '../data/content';
 
 interface SimulatorProps {
   totalCapital: number;
@@ -36,10 +37,10 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
     <section className="section">
       <div className="label" style={{ marginBottom: '12px' }}>Interactive Simulator</div>
       <h2 className="heading-lg" style={{ marginBottom: '8px' }}>
-        Deployment Architecture
+        {get('simulator', 'title')}
       </h2>
       <p className="body-text" style={{ marginBottom: '16px' }}>
-        Drag the slider to model different deployment sizes. All charts update in real time.
+        {get('simulator', 'body')}
       </p>
 
       {/* ── Capital Slider ──────────────────────────────── */}

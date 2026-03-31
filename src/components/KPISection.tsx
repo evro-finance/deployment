@@ -1,18 +1,13 @@
-const kpis = [
-  { label: 'Total Value Locked', target: '€5M → €25M', timeframe: '24 months' },
-  { label: 'Borrower Utilization', target: '>60%', timeframe: '6 months' },
-  { label: 'SP Yield', target: '3.5–5% APR', timeframe: 'Ongoing' },
-  { label: 'DAO Revenue', target: '€25k+/yr per €5M', timeframe: '12 months' },
-  { label: 'Peg Stability', target: '±0.5%', timeframe: 'Ongoing' },
-  { label: 'Unique Borrowers', target: '50+', timeframe: '6 months' },
-];
+import { get, getList } from '../data/content';
 
 export function KPISection() {
+  const kpis = getList('kpis', 'kpi', ['label', 'target', 'timeframe']);
+
   return (
     <section className="section">
       <div className="label" style={{ marginBottom: '12px' }}>Execution Metrics</div>
       <h2 className="heading-lg" style={{ marginBottom: '32px' }}>
-        How We Measure Success
+        {get('kpis', 'title')}
       </h2>
       <div className="kpi-grid">
         {kpis.map(kpi => (

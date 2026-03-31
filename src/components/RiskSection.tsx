@@ -1,40 +1,16 @@
-const risks = [
-  {
-    title: "Smart Contract Risk",
-    mitigation: "Immutable contracts forked from Liquity V2 audited codebase. No admin keys, no upgrade authority. Code governs all parameters immutably.",
-  },
-  {
-    title: "Collateral Volatility",
-    mitigation: "Six isolated branches ensure single-collateral drawdowns cannot cascade. Buffer headroom (CR minus MCR) monitored per branch with automated liquidation paths.",
-  },
-  {
-    title: "Oracle Dependency",
-    mitigation: "EVRO inherits Liquity V2 oracle architecture with chainlink feeds and fallback to Uniswap TWAP. Manipulation-resistant by design.",
-  },
-  {
-    title: "Liquidity Fragmentation",
-    mitigation: "Concentrated deployment into three MEV-protected venues (SP, Anchor, Bridge) prevents thin-market risk. Batch auction settlement eliminates frontrunning.",
-  },
-  {
-    title: "Regulatory Surface",
-    mitigation: "EVRO is a decentralized CDP protocol. No issuer, no custodian. Protocol operates autonomously once deployed. No single entity controls redemptions.",
-  },
-  {
-    title: "Peg Stability",
-    mitigation: "Hard redemption floor through arbitrage incentives. Borrowers above MCR cannot be undercut. Stability Pool acts as first-loss absorber.",
-  },
-];
+import { get, getList } from '../data/content';
 
 export function RiskSection() {
+  const risks = getList('risk', 'risk', ['title', 'mitigation']);
+
   return (
     <section className="section">
-      <div className="label" style={{ marginBottom: "12px" }}>Risk Architecture</div>
-      <h2 className="heading-lg" style={{ marginBottom: "8px" }}>
-        Isolation by Design
+      <div className="label" style={{ marginBottom: '12px' }}>Risk Architecture</div>
+      <h2 className="heading-lg" style={{ marginBottom: '8px' }}>
+        {get('risk', 'title')}
       </h2>
-      <p className="body-text" style={{ marginBottom: "32px" }}>
-        Every risk vector is structurally contained. The six-branch architecture ensures no single failure
-        mode can propagate across the system.
+      <p className="body-text" style={{ marginBottom: '32px' }}>
+        {get('risk', 'body')}
       </p>
       <div className="risk-grid">
         {risks.map(risk => (
@@ -44,6 +20,12 @@ export function RiskSection() {
           </div>
         ))}
       </div>
+      {get('risk', 'sp-note') && (
+        <div className="glass-card" style={{ padding: '20px', marginTop: '24px', borderLeft: '3px solid var(--evro-orange)' }}>
+          <p className="label" style={{ marginBottom: '8px', color: 'var(--evro-orange)' }}>Stability Pool as Acquisition Engine</p>
+          <p className="body-text" style={{ fontSize: '0.85rem' }}>{get('risk', 'sp-note')}</p>
+        </div>
+      )}
     </section>
   );
 }

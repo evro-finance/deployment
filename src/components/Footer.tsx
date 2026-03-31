@@ -1,15 +1,15 @@
+import { get } from '../data/content';
+
 export function Footer() {
   return (
     <footer className="footer section">
       <p className="footer-text">
-        EVRO Genesis · Capital Deployment Strategy · V5 · March 2026
+        {get('footer', 'line1')}
         <br />
-        Prepared for GnosisDAO · IDE-Assisted Research · Harness 3.5
+        {get('footer', 'line2')}
         <br />
         <br />
-        This document is an interactive deployment model. All projections are based on 
-        publicly available on-chain data and canonical protocol parameters. 
-        This is not financial advice.
+        {get('footer', 'line3')}
       </p>
     </footer>
   );
