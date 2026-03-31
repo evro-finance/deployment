@@ -1,0 +1,72 @@
+/* ═══════════════════════════════════════════════════════════
+   EVRO Genesis — Design Tokens
+   Hybrid: EVRO palette × Harness structural grammar
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── EVRO Brand Palette ─────────────────────────────────── */
+  --evro-purple: #A082F5;
+  --evro-purple-deep: #8060D0;
+  --evro-purple-light: #C4B0FF;
+  --evro-pink: #F5889B;
+  --evro-pink-light: #FFCDD2;
+  --evro-blue: #7176CA;
+  --evro-blue-light: #9CB1F4;
+  --evro-orange: #EFA960;
+  --evro-shark: #1D1C1F;
+  --evro-shark-400: #95929E;
+  --evro-shark-600: #625E6B;
+  --evro-green: #81C784;
+  --evro-page-bg: #F5F3FF;
+  --evro-surface: #FFFFFF;
+
+  /* ── Semantic Tokens ────────────────────────────────────── */
+  --background: var(--evro-page-bg);
+  --foreground: var(--evro-shark);
+  --card: var(--evro-surface);
+  --card-foreground: var(--evro-shark);
+  --muted: #EEEAF8;
+  --muted-foreground: var(--evro-shark-400);
+  --accent: var(--evro-purple);
+  --accent-foreground: #FFFFFF;
+  --border: rgba(160, 130, 245, 0.15);
+  --border-strong: rgba(160, 130, 245, 0.3);
+  --ring: var(--evro-purple);
+
+  /* ── Harness Structural Tokens ──────────────────────────── */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(160, 130, 245, 0.12);
+  --glass-shadow: 0 4px 24px rgba(160, 130, 245, 0.08);
+  --grain-opacity: 0.2;
+  --grid-color: rgba(113, 118, 202, 0.035);
+
+  /* ── Chart Colors ───────────────────────────────────────── */
+  --chart-sdai: #A082F5;
+  --chart-gno: #F5889B;
+  --chart-wsteth: #7176CA;
+  --chart-wxdai: #9CB1F4;
+  --chart-wbtc: #EFA960;
+  --chart-osgno: #625E6B;
+  --chart-sp: #A082F5;
+  --chart-anchor: #7176CA;
+  --chart-bridge: #F5889B;
+  --chart-dao: #EFA960;
+
+  /* ── Typography Scale ───────────────────────────────────── */
+  --font-heading: 'Oswald', sans-serif;
+  --font-data: 'Lexend Zetta', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* ── Spacing ────────────────────────────────────────────── */
+  --section-gap: 120px;
+  --content-max: 1100px;
+  --content-padding: 24px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 64px;
+    --content-padding: 16px;
+  }
+}
