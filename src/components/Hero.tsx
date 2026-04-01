@@ -3,13 +3,6 @@ import { get } from '../data/content';
 export function Hero() {
   return (
     <section className="section" style={{ paddingTop: '100px', paddingBottom: '32px', position: 'relative' }}>
-      <span className="marginalia marginalia-left">
-        EVRO-GEN-001 · V5 · MARCH 2026 · DEPLOYMENT GUIDE
-      </span>
-      <span className="marginalia marginalia-right">
-        {get('hero', 'meta')}
-      </span>
-
       <div className="animate-in">
         <p className="label" style={{ marginBottom: '16px', color: 'var(--accent)' }}>
           {get('hero', 'subtitle')}
