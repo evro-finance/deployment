@@ -1,11 +1,5 @@
 # EVRO Capital Deployment — Research Compendium
 
-**Mission:** evro-gnosis-deployment
-**Role:** research (reference)
-**Status:** draft
-**Audience:** GnosisDAO stakeholders, NOCA, external reviewers
-**Date:** 2026-04-01
-
 ---
 
 ## About this document
@@ -13,10 +7,6 @@
 This compendium collects and presents the research basis for the EVRO capital deployment plan. It is designed for stakeholders who want to review data sources, protocol mechanics, market context, and the assumptions underlying the plan — without commentary on what should be done with the information.
 
 All findings are attributed to their sources. Retrieval dates are noted. Where information is inferred rather than directly sourced, it is labeled.
-
-**Scope:** Protocol architecture, security audits, liquidity infrastructure, Gnosis ecosystem context, governance structures, market data, empirical venue performance, partnered protocols, and source methodology.
-
-**Out of scope:** Strategic recommendations, internal assessments, risk tolerance decisions, stakeholder positioning.
 
 ---
 

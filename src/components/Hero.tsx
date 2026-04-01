@@ -39,9 +39,9 @@ export function Hero() {
             letterSpacing: '0.04em',
             textTransform: 'uppercase' as const,
             color: 'var(--accent)',
-          }}>
-            {get('hero', 'body2')}
-          </p>
+          }}
+          dangerouslySetInnerHTML={{ __html: get('hero', 'body2').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: var(--accent); text-decoration: underline">$1</a>') }}
+          />
         )}
       </div>
     </section>

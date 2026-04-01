@@ -10,7 +10,7 @@ EVRO Genesis · Capital Deployment Guide
 EVRO is a CDP-issued Euro stablecoin on Gnosis Chain — asset-isolated minting, MEV-protected liquidity, real yield from day one. The architecture operates across two layers: **Layer 1 (Minting)** locks collateral across 6 isolated branches. **Layer 2 (Distribution)** deploys minted EVRO into 3 liquidity venues for market depth, peg stability, and swap routing.
 
 ## body2
-This is a deployment guide with interactive dashboards to model your position.
+This is a deployment guide with interactive dashboards to model your position. For the full evidentiary basis — protocol mechanics, audit reports, venue data, and source methodology — see the [Research Compendium](/research.html).
 
 ## meta
 Prepared for: GnosisDAO | Date: March 31, 2026 | Version: IDE-Assisted Final | Status: Ready for Submission Review

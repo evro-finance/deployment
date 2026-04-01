@@ -200,10 +200,10 @@ export function DeploymentPlan({
 
         {/* ── Output Summary (70%) ── */}
         <div className="glass-card" style={{ padding: '20px 24px', flex: 1, minWidth: 0, display: 'flex', gap: '20px' }}>
-          {/* Left: yield KPIs */}
+          {/* Left: Gnosis position KPIs */}
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             {/* Headline: APY */}
-            <div style={{ marginBottom: '16px' }}>
+            <div style={{ marginBottom: '14px' }}>
               <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>Annualized Yield</span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 700,
@@ -216,35 +216,35 @@ export function DeploymentPlan({
               </span>
             </div>
 
-            {/* Total Yield */}
+            {/* LP position yield (what Gnosis earns) */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Total yield ({yieldTotals.totalDays}d)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>LP position ({yieldTotals.totalDays}d)</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A082F5' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
             </div>
 
-            {/* Interest cost */}
+            {/* DAO fee — the only real cost that leaves Gnosis */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Interest cost</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>−{fmtCompact(results.totalInterest)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>DAO fee ({Math.round((1 - incentiveShare) * 25)}%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>−{fmtCompact(yieldTotals.daoRevenue)}</span>
             </div>
 
-            {/* Net */}
+            {/* Net to Gnosis */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '10px 0 0', borderTop: '1px solid rgba(160,130,245,0.15)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>Net revenue</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>Net to Gnosis</span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700,
                 color: '#EFA960',
               }}>
-                {(yieldTotals.evroTotal - results.totalInterest) > 0 ? '+' : ''}{fmtCompact(yieldTotals.evroTotal - results.totalInterest)}
+                {(yieldTotals.evroTotal - yieldTotals.daoRevenue) > 0 ? '+' : ''}{fmtCompact(yieldTotals.evroTotal - yieldTotals.daoRevenue)}
               </span>
             </div>
           </div>
