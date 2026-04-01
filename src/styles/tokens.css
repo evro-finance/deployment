@@ -53,6 +53,8 @@
   --chart-anchor: #7176CA;
   --chart-bridge: #F5889B;
   --chart-dao: #EFA960;
+  --chart-lvr: #81C784;
+  --chart-router: #C4B0FF;
 
   /* ── Typography Scale ───────────────────────────────────── */
   --font-heading: 'Oswald', sans-serif;

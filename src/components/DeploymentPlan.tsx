@@ -637,7 +637,7 @@ export function DeploymentPlan({
         <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
           {get('deploy', 'branch-hint')}
         </p>
-        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'center' }}>
           <BranchWeightPiePanel
             rows={results.branches}
             branchStates={branchStates}

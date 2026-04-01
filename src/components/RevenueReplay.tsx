@@ -72,28 +72,28 @@ export function RevenueReplay({
           <AreaChart data={chartData} margin={{ left: 16, right: 16, top: 8, bottom: 4 }}>
             <defs>
               <linearGradient id="spGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#A081F5" stopOpacity={0.35} />
-                <stop offset="95%" stopColor="#A081F5" stopOpacity={0.05} />
+                <stop offset="5%" stopColor="#A081F5" stopOpacity={0.60} />
+                <stop offset="95%" stopColor="#A081F5" stopOpacity={0.12} />
               </linearGradient>
               <linearGradient id="sdGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#7176CA" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#7176CA" stopOpacity={0.05} />
+                <stop offset="5%" stopColor="#7176CA" stopOpacity={0.55} />
+                <stop offset="95%" stopColor="#7176CA" stopOpacity={0.12} />
               </linearGradient>
               <linearGradient id="skGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#9CB1F4" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#9CB1F4" stopOpacity={0.05} />
+                <stop offset="5%" stopColor="#9CB1F4" stopOpacity={0.55} />
+                <stop offset="95%" stopColor="#9CB1F4" stopOpacity={0.12} />
               </linearGradient>
               <linearGradient id="cwGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#EFA960" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#EFA960" stopOpacity={0.05} />
+                <stop offset="5%" stopColor="#EFA960" stopOpacity={0.55} />
+                <stop offset="95%" stopColor="#EFA960" stopOpacity={0.12} />
               </linearGradient>
               <linearGradient id="lvGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4ADE80" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#4ADE80" stopOpacity={0.05} />
+                <stop offset="5%" stopColor="#81C784" stopOpacity={0.55} />
+                <stop offset="95%" stopColor="#81C784" stopOpacity={0.12} />
               </linearGradient>
               <linearGradient id="rdGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#C4B0FF" stopOpacity={0.35} />
-                <stop offset="95%" stopColor="#C4B0FF" stopOpacity={0.06} />
+                <stop offset="5%" stopColor="#C4B0FF" stopOpacity={0.60} />
+                <stop offset="95%" stopColor="#C4B0FF" stopOpacity={0.12} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(160,130,245,0.06)" />
@@ -102,30 +102,30 @@ export function RevenueReplay({
             <Tooltip
               formatter={(value: unknown, name: unknown) => [fmtEur(Number(value)), String(name)]}
               contentStyle={tooltipStyle}
-              labelFormatter={(label) => `Day: ${label}`}
+              labelFormatter={(label) => `${label}`}
             />
             <ReferenceLine y={0} stroke="rgba(160,160,160,0.3)" strokeDasharray="4 4" />
 
-            <Area type="monotone" dataKey="SP Yield" stackId="evro" stroke="#A081F5" fill="url(#spGrad)" strokeWidth={0} />
-            <Area type="monotone" dataKey="sDAI Yield" stackId="evro" stroke="#7176CA" fill="url(#sdGrad)" strokeWidth={0} />
-            <Area type="monotone" dataKey="Staking Yield" stackId="evro" stroke="#9CB1F4" fill="url(#skGrad)" strokeWidth={0} />
-            <Area type="monotone" dataKey="CoW AMM Fees" stackId="evro" stroke="#EFA960" fill="url(#cwGrad)" strokeWidth={0} />
-            <Area type="monotone" dataKey="LVR Captured" stackId="evro" stroke="#4ADE80" fill="url(#lvGrad)" strokeWidth={0} />
-            <Area type="monotone" dataKey="Router → LPs" stackId="evro" stroke="#C4B0FF" fill="url(#rdGrad)" strokeWidth={0} />
+            <Area type="monotone" dataKey="SP Yield" stackId="evro" stroke="#A081F5" fill="url(#spGrad)" strokeWidth={1.5} />
+            <Area type="monotone" dataKey="sDAI Yield" stackId="evro" stroke="#7176CA" fill="url(#sdGrad)" strokeWidth={1.5} />
+            <Area type="monotone" dataKey="Staking Yield" stackId="evro" stroke="#9CB1F4" fill="url(#skGrad)" strokeWidth={1.5} />
+            <Area type="monotone" dataKey="CoW AMM Fees" stackId="evro" stroke="#EFA960" fill="url(#cwGrad)" strokeWidth={1.5} />
+            <Area type="monotone" dataKey="LVR Captured" stackId="evro" stroke="#81C784" fill="url(#lvGrad)" strokeWidth={1.5} />
+            <Area type="monotone" dataKey="Router → LPs" stackId="evro" stroke="#C4B0FF" fill="url(#rdGrad)" strokeWidth={1.5} />
           </AreaChart>
         </ResponsiveContainer>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginTop: '12px' }}>
         {[
-          { label: 'SP', color: '#A081F5' },
-          { label: 'sDAI', color: '#7176CA' },
-          { label: 'Staking', color: '#9CB1F4' },
-          { label: 'CoW', color: '#EFA960' },
-          { label: 'LVR', color: '#4ADE80' },
           { label: 'Router→LPs', color: '#C4B0FF' },
+          { label: 'LVR', color: '#81C784' },
+          { label: 'CoW', color: '#EFA960' },
+          { label: 'Staking', color: '#9CB1F4' },
+          { label: 'sDAI', color: '#7176CA' },
+          { label: 'SP', color: '#A081F5' },
         ].map(d => (
           <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{ width: 12, height: 8, borderRadius: 2, background: d.color, opacity: 0.7 }} />
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: d.color, opacity: 0.85 }} />
             <span className="label-sm">{d.label}</span>
           </div>
         ))}
