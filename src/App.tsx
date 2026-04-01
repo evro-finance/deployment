@@ -38,6 +38,13 @@ function App() {
   const [totalCapital, setTotalCapital] = useState(DEFAULT_CAPITAL);
   const [incentiveShare, setIncentiveShare] = useState(0); // 0 = DAO gets 25%, 1 = all to LPs
   const [posture, setPosture] = useState(0.5); // 0 = conservative, 1 = aggressive
+  
+  const [lpName] = useState(() => {
+    if (typeof window === 'undefined') return 'Gnosis';
+    const params = new URLSearchParams(window.location.search);
+    return params.get('lp') || 'Gnosis';
+  });
+
   const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(
     Object.fromEntries(BRANCHES.map(b => [b.id, {
       weight: b.defaultWeight,
@@ -157,6 +164,7 @@ function App() {
         yieldResult={yieldResult}
         l2Shares={l2Shares}
         onAdjustL2Shares={onAdjustL2Shares}
+        lpName={lpName}
       />
       <Layer2Section />
       <CohortSection />

@@ -807,3 +807,234 @@ input[type="range"]::-webkit-slider-thumb:active {
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════════════════════
+   Narrative Showcase — "The Reason We Got Dressed"
+   ═══════════════════════════════════════════════════════════ */
+
+.narrative-showcase {
+  position: relative;
+  margin-top: 40px;
+  padding: 48px 40px 56px;
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(160,129,245,0.06) 0%, rgba(239,169,96,0.05) 50%, rgba(160,129,245,0.03) 100%);
+  border: 1px solid rgba(160,129,245,0.12);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.5) inset,
+    0 8px 48px rgba(160,129,245,0.06),
+    0 2px 8px rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+/* Decorative top-left accent bar */
+.narrative-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--evro-purple), var(--evro-orange));
+  border-radius: 0 0 3px 0;
+}
+
+/* Subtle glow behind the entire panel */
+.narrative-showcase::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160,129,245,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Section label — "If you deployed…" preamble ────────── */
+.narrative-showcase__label {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--evro-purple);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.narrative-showcase__label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(160,129,245,0.2), transparent);
+}
+
+/* ── Paragraph styles — staggered reveal ─────────────────── */
+.narrative-showcase__para {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--evro-shark-600);
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.narrative-showcase__para strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.narrative-showcase.revealed .narrative-showcase__para {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.narrative-showcase.revealed .narrative-showcase__para:nth-child(2) { transition-delay: 0.0s; }
+.narrative-showcase.revealed .narrative-showcase__para:nth-child(3) { transition-delay: 0.12s; }
+.narrative-showcase.revealed .narrative-showcase__para:nth-child(4) { transition-delay: 0.24s; }
+.narrative-showcase.revealed .narrative-showcase__para:nth-child(5) { transition-delay: 0.36s; }
+.narrative-showcase.revealed .narrative-showcase__para:nth-child(6) { transition-delay: 0.48s; }
+
+/* Paragraph 5 accent — yield sources get visual priority */
+.narrative-showcase__para--yield {
+  padding-left: 16px;
+  border-left: 2px solid rgba(160,129,245,0.25);
+}
+
+/* ── Bottom Line — the hero moment ──────────────────────── */
+.narrative-showcase__bottomline {
+  position: relative;
+  z-index: 1;
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(160,129,245,0.12);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.6s,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
+}
+
+.narrative-showcase.revealed .narrative-showcase__bottomline {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left side: prose summary */
+.narrative-showcase__bottomline-prose {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--evro-shark-600);
+}
+
+.narrative-showcase__bottomline-prose strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* Right side: APY callout */
+.narrative-showcase__apy-block {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.narrative-showcase__apy-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted-foreground);
+  margin-bottom: 4px;
+}
+
+.narrative-showcase__apy-value {
+  display: block;
+  font-family: var(--font-data);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--evro-purple), var(--evro-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.narrative-showcase__net-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-foreground);
+  margin-top: 10px;
+}
+
+.narrative-showcase__net-value {
+  display: block;
+  font-family: var(--font-data);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  color: var(--evro-orange);
+  line-height: 1.2;
+}
+
+/* ── Illustration rail ──────────────────────────────────── */
+.narrative-showcase__illu {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .narrative-showcase {
+    padding: 32px 20px 40px;
+  }
+
+  .narrative-showcase__para {
+    font-size: 0.95rem;
+  }
+
+  .narrative-showcase__bottomline {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .narrative-showcase__apy-block {
+    text-align: left;
+  }
+
+  .narrative-showcase__illu {
+    display: none;
+  }
+}
+

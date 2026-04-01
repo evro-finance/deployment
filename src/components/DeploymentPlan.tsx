@@ -739,7 +739,7 @@ export function DeploymentPlan({
         </div>
       </div>
 
-      {/* ── Reactive Prose ──────────────────────────── */}
+      {/* ── Narrative Showcase — "The Reason We Got Dressed" ─ */}
       {(() => {
         // ─ Dynamic branch list (zero-weight branches excluded) ─
         const activeBranches = results.branches.filter(b => b.rawWeight > 0);
@@ -748,7 +748,7 @@ export function DeploymentPlan({
           .map(b => `<strong>${b.name}</strong> (${totalW > 0 ? Math.round((b.rawWeight / totalW) * 100) : 0}%)`)
           .join(', ');
 
-        // ─ Collateral sources (only active branches, correct tokens) ─
+        // ─ Collateral sources (only active branches) ─
         const hasSDai  = (branchStates['sdai']?.weight  ?? 0) > 0 || (branchStates['wxdai']?.weight ?? 0) > 0;
         const hasWstEth = (branchStates['wsteth']?.weight ?? 0) > 0;
         const hasOsGno  = (branchStates['osgno']?.weight  ?? 0) > 0 || (branchStates['gno']?.weight ?? 0) > 0;
@@ -765,10 +765,10 @@ export function DeploymentPlan({
             : collateralPhrases.slice(0, -1).join(', ') + ' and ' + collateralPhrases[collateralPhrases.length - 1];
 
         // ─ Reserve conditional sentence ─
-        const reservePct = l2Shares.reserve;
-        const reserveKey = reservePct < 0.02
+        const reservePctVal = l2Shares.reserve;
+        const reserveKey = reservePctVal < 0.02
           ? 'prose-reserve-low'
-          : reservePct > 0.06
+          : reservePctVal > 0.06
             ? 'prose-reserve-high'
             : 'prose-reserve-mid';
         const reserveSentence = mdBold(fillTemplate(get('deploy', reserveKey), {
@@ -782,21 +782,31 @@ export function DeploymentPlan({
             ? get('deploy', 'posture-aggressive')
             : get('deploy', 'posture-balanced');
 
-        // ─ Shared vars ─
+        // ─ Computed values ─
         const clientName = 'liquidity provider';
         const collateralYield = yieldTotals.sdaiYield + yieldTotals.stakingYield;
         const cowYield = yieldTotals.cowFees + yieldTotals.lvrCaptured;
         const netGnosis = yieldTotals.evroTotal - yieldTotals.daoRevenue;
 
         return (
-          <div style={{
-            padding: '20px 24px', borderRadius: '8px',
-            background: 'linear-gradient(135deg, rgba(160,130,245,0.04), rgba(239,169,96,0.04))',
-            border: '1px solid rgba(160,130,245,0.08)',
-            lineHeight: 1.85,
-          }}>
-            {/* P1 */}
-            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+          <div
+            className="narrative-showcase"
+            ref={el => {
+              if (!el) return;
+              const obs = new IntersectionObserver(
+                ([entry]) => { if (entry.isIntersecting) { el.classList.add('revealed'); obs.disconnect(); } },
+                { threshold: 0.15 }
+              );
+              obs.observe(el);
+            }}
+          >
+            {/* Section label */}
+            <div className="narrative-showcase__label">
+              Deployment Narrative · Historical Replay
+            </div>
+
+            {/* P1 — Opening Bet */}
+            <p className="narrative-showcase__para"
               dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p1'), {
                 clientName,
                 capital: fmt(totalCapital),
@@ -805,8 +815,9 @@ export function DeploymentPlan({
                 branchListWithWeights,
               })) }}
             />
-            {/* P2 */}
-            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+
+            {/* P2 — Minting */}
+            <p className="narrative-showcase__para"
               dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p2'), {
                 minted: fmtCompact(results.totalMinted),
                 blendedRate: results.totalMinted > 0
@@ -815,8 +826,9 @@ export function DeploymentPlan({
                 totalInterest: fmtCompact(results.totalInterest),
               })) }}
             />
-            {/* P3 */}
-            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+
+            {/* P3 — Router Assumption */}
+            <p className="narrative-showcase__para"
               dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p3'), {
                 clientName,
                 spShare: fmtCompact(results.spShare),
@@ -824,8 +836,9 @@ export function DeploymentPlan({
                 daoShare: fmtCompact(results.daoShare),
               })) }}
             />
-            {/* P4 */}
-            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+
+            {/* P4 — Where EVRO Went */}
+            <p className="narrative-showcase__para"
               dangerouslySetInnerHTML={{ __html:
                 mdBold(fillTemplate(get('deploy', 'prose-p4-static'), {
                   minted: fmtCompact(results.totalMinted),
@@ -838,8 +851,9 @@ export function DeploymentPlan({
                 })) + ' ' + reserveSentence
               }}
             />
-            {/* P5 */}
-            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+
+            {/* P5 — What Happened — accent border */}
+            <p className="narrative-showcase__para narrative-showcase__para--yield"
               dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p5'), {
                 spYield: fmtCompact(yieldTotals.spYield),
                 collateralYield: fmtCompact(collateralYield),
@@ -848,16 +862,43 @@ export function DeploymentPlan({
                 redirectYield: fmtCompact(yieldTotals.redirectedToLp),
               })) }}
             />
-            {/* P6 */}
-            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '14px' }}
-              dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p6'), {
-                lpTotal: fmtCompact(yieldTotals.evroTotal),
-                clientName,
-                apy: yieldTotals.annualizedPct.toFixed(1),
-                daoRevenue: fmtCompact(yieldTotals.daoRevenue),
-                netGnosis: fmtCompact(netGnosis),
-              })) }}
-            />
+
+            {/* Bottom Line — APY hero moment */}
+            <div className="narrative-showcase__bottomline">
+              <div className="narrative-showcase__bottomline-prose"
+                dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(
+                  'Add it up: <strong>{{lpTotal}}</strong> cumulative to <strong>{{clientName}}</strong> as liquidity provider. The protocol took <strong>{{daoRevenue}}</strong> for the DAO treasury.',
+                  {
+                    lpTotal: fmtCompact(yieldTotals.evroTotal),
+                    clientName,
+                    daoRevenue: fmtCompact(yieldTotals.daoRevenue),
+                  }
+                )) }}
+              />
+              <div className="narrative-showcase__apy-block">
+                <span className="narrative-showcase__apy-label">Annualised</span>
+                <span className="narrative-showcase__apy-value">
+                  {yieldTotals.annualizedPct.toFixed(1)}%
+                </span>
+                <span className="narrative-showcase__net-label">Net to Gnosis</span>
+                <span className="narrative-showcase__net-value">
+                  +{fmtCompact(netGnosis)}
+                </span>
+              </div>
+            </div>
+
+            {/* Watermark illustration */}
+            <div className="narrative-showcase__illu" aria-hidden>
+              <svg viewBox="0 0 400 400" width="100%" height="100%">
+                <path d="M 120 200 L 280 100" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <path d="M 120 200 L 290 200" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <path d="M 120 200 L 280 300" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <circle cx="120" cy="200" r="14" fill="var(--evro-purple)" stroke="currentColor" strokeWidth="1" />
+                <circle cx="280" cy="100" r="9" fill="none" stroke="currentColor" strokeWidth="1" />
+                <circle cx="290" cy="200" r="9" fill="none" stroke="currentColor" strokeWidth="1" />
+                <circle cx="280" cy="300" r="9" fill="none" stroke="currentColor" strokeWidth="1" />
+              </svg>
+            </div>
           </div>
         );
       })()}
