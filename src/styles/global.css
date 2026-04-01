@@ -825,6 +825,42 @@ input[type="range"]::-webkit-slider-thumb:active {
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 
+/* ── Hero Scroll Nudge — bouncy text button ─────────────── */
+.hero-scroll-nudge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 40px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+  transition: color 0.2s ease;
+}
+
+.hero-scroll-nudge:hover {
+  color: var(--accent);
+}
+
+.hero-scroll-nudge__arrow {
+  display: block;
+  font-size: 1rem;
+  line-height: 1;
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
 /* ═══════════════════════════════════════════════════════════
    Narrative Showcase — "The Reason We Got Dressed"
    ═══════════════════════════════════════════════════════════ */

@@ -359,7 +359,7 @@ EVRO would be the European version. Instead of earning USD-denominated Aave yiel
 A Path to Multiplying TVL
 
 ## body
-Four phases from Genesis deployment to ecosystem scale. Each phase unlocks the next.
+Four phases from Genesis deployment to ecosystem scale. Each phase unlocks the next. (And what your reserve percentage will be used for.)
 
 ## phase-1-title
 The Infrastructure

@@ -36,17 +36,28 @@ export function Hero() {
           dangerouslySetInnerHTML={{ __html: get('hero', 'body2').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: var(--accent); text-decoration: underline">$1</a>') }}
           />
         )}
-        <div className="animate-in delay-3" style={{ marginTop: '32px' }}>
-          <button
+        <div className="animate-in delay-3" style={{ marginTop: '32px', display: 'flex', alignItems: 'center', gap: '24px' }}>
+          <a
             className="btn-ghost"
-            onClick={() => {
-              const el = document.querySelector('.section:nth-of-type(3)');
-              el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+            href="https://app.evro.finance"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            ↓ See the Simulation
-          </button>
+            app.evro.finance →
+          </a>
         </div>
+
+        {/* Bouncy scroll nudge */}
+        <button
+          className="animate-in delay-4 hero-scroll-nudge"
+          onClick={() => {
+            const el = document.querySelector('.section:nth-of-type(3)');
+            el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+        >
+          Simulate your positions
+          <span className="hero-scroll-nudge__arrow">↓</span>
+        </button>
       </div>
     </section>
   );
