@@ -56,6 +56,9 @@ Deployment Architecture
 ## body
 Drag the slider to model different deployment sizes.
 
+## methodology
+Historical replay — Apr 1 2025 to Mar 31 2026. Every number is computed from real on-chain data: BOLD Stability Pool APY (interest + liquidation gains), sDAI and wstETH compounding ratios, GNO staking yields, and CoW AMM batch-auction settlement fees. Not a projection.
+
 ## cr-strategy
 
 ## rate-strategy

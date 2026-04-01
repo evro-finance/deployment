@@ -115,6 +115,11 @@ export function DeploymentPlan({
       <p className="body-text" style={{ marginBottom: '8px' }}>
         {get('simulator', 'body')}
       </p>
+      {get('simulator', 'methodology') && (
+        <p className="body-text" style={{ marginBottom: '8px', fontSize: '0.82rem', color: 'var(--muted-foreground)', fontStyle: 'italic' }}>
+          {get('simulator', 'methodology')}
+        </p>
+      )}
       {get('simulator', 'cr-strategy') && (
         <p className="body-text" style={{ marginBottom: '8px', fontSize: '0.88rem' }}
            dangerouslySetInnerHTML={{ __html: get('simulator', 'cr-strategy').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
