@@ -1405,26 +1405,43 @@ input[type="range"]::-webkit-slider-thumb:active {
 .control-section {
   position: relative;
   padding: 10px 0;
-  border-radius: 8px;
-  transition: box-shadow 0.4s ease, opacity 0.3s ease;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
 }
 
+/* Active pane: pulsing neon hairline + glow */
 .control-section--active {
-  box-shadow: 0 0 0 1px rgba(160,129,245,0.2), 0 0 24px rgba(160,129,245,0.1);
-  border-radius: 8px;
   padding: 10px 8px;
   margin: 0 -8px;
+  animation: panePulse 1.8s ease-in-out infinite;
 }
 
+@keyframes panePulse {
+  0%, 100% {
+    border-color: rgba(160,129,245,0.15);
+    box-shadow: 0 0 12px rgba(160,129,245,0.06), 0 0 0 0 rgba(160,129,245,0);
+  }
+  50% {
+    border-color: rgba(160,129,245,0.45);
+    box-shadow: 0 0 28px rgba(160,129,245,0.12), 0 0 0 1px rgba(160,129,245,0.1);
+  }
+}
+
+/* Locked pane: freeze at peak glow — proud, not faded */
 .control-section--locked {
-  opacity: 0.45;
   pointer-events: none;
+  padding: 10px 8px;
+  margin: 0 -8px;
+  border-color: rgba(160,129,245,0.4);
+  box-shadow: 0 0 24px rgba(160,129,245,0.1), 0 0 0 1px rgba(160,129,245,0.08);
 }
 
 .control-section--locked .control-check {
   pointer-events: auto;
 }
 
+/* ── Check Circle ─────────────────────────────────────── */
 .control-check {
   display: inline-flex;
   align-items: center;
@@ -1440,19 +1457,20 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .control-check:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .control-check:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
 }
 
 .control-check svg {
   width: 26px;
   height: 26px;
+  overflow: visible;
 }
 
-/* Unchecked circle */
+/* Outer circle */
 .control-check__circle {
   fill: none;
   stroke: var(--accent);
@@ -1464,12 +1482,29 @@ input[type="range"]::-webkit-slider-thumb:active {
   fill: rgba(160,129,245,0.06);
 }
 
-/* Checked state */
+/* Pulsing inner dot — visible on ALL check circles (the trail) */
+.control-check__dot {
+  fill: var(--accent);
+  animation: dotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { r: 2; opacity: 0.25; }
+  50% { r: 3.5; opacity: 0.7; }
+}
+
+/* Checked state — filled circle */
 .control-check--checked .control-check__circle {
   fill: var(--accent);
   stroke: var(--accent);
 }
 
+/* Hide the dot when checked (replaced by tick) */
+.control-check--checked .control-check__dot {
+  display: none;
+}
+
+/* Tick path with draw-in animation */
 .control-check__tick {
   fill: none;
   stroke: #fff;
@@ -1483,16 +1518,6 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .control-check--checked .control-check__tick {
   stroke-dashoffset: 0;
-}
-
-/* Active section pulsing glow on the check */
-.control-section--active .control-check:not(.control-check--checked) svg {
-  animation: checkPulse 2s ease-in-out infinite;
-}
-
-@keyframes checkPulse {
-  0%, 100% { filter: drop-shadow(0 0 0px rgba(160,129,245,0)); }
-  50% { filter: drop-shadow(0 0 8px rgba(160,129,245,0.4)); }
 }
 
 /* ── Modal Animations ───────────────────────────────────── */

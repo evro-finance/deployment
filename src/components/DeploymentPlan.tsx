@@ -253,6 +253,7 @@ function ControlCheck({ checked, onClick }: { checked: boolean; onClick: () => v
     >
       <svg viewBox="0 0 24 24">
         <circle className="control-check__circle" cx="12" cy="12" r="10" />
+        <circle className="control-check__dot" cx="12" cy="12" r="2.5" />
         <path className="control-check__tick" d="M7 12.5l3 3 7-7" />
       </svg>
     </button>
