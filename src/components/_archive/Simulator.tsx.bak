@@ -1,3 +1,18 @@
+// ╔══════════════════════════════════════════════════════════════╗
+// ║  ARCHIVED — DO NOT MOUNT                                     ║
+// ║  This component has been superseded by DeploymentPlan.tsx    ║
+// ║  (Layer 1 table) + RevenueReplay.tsx (historical charts).    ║
+// ║                                                              ║
+// ║  Mounting this adds duplicate tables + a second capital      ║
+// ║  slider to the page. The export is intentionally renamed     ║
+// ║  SimulatorArchive so any import { Simulator } fails at       ║
+// ║  compile time.                                               ║
+// ║                                                              ║
+// ║  To reactivate: rename export → Simulator, move file out     ║
+// ║  of _archive/, wire calculateDeployment() in App.tsx.        ║
+// ║  Confirm with team before doing so.                          ║
+// ╚══════════════════════════════════════════════════════════════╝
+
 import { useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
@@ -27,7 +42,8 @@ const tooltipStyle = {
   backdropFilter: 'blur(8px)',
 };
 
-export function Simulator({ totalCapital, onCapitalChange, calculations, weights, crs }: SimulatorProps) {
+/** @deprecated Archived. Use DeploymentPlan + RevenueReplay instead. */
+export function SimulatorArchive({ totalCapital, onCapitalChange, calculations, weights, crs }: SimulatorProps) {
   const barData = calculations.branchResults.map(b => ({
     name: b.name,
     allocated: b.allocatedCapital,
@@ -364,6 +380,74 @@ export function Simulator({ totalCapital, onCapitalChange, calculations, weights
                     </span>
                   </td>
                   <td className="value">{fmtPct(r.interestRate)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* ── Layer 2: Liquidity Pool Allocation ───────────── */}
+      <div className="glass-card" style={{ padding: '24px', marginTop: '24px' }}>
+        <p className="label" style={{ marginBottom: '4px' }}>Liquidity Pool Allocation — Layer 2</p>
+        <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
+          Minted EVRO deployed into three venues. Fixed €-amounts per the genesis plan — remainder held as operational reserve.
+        </p>
+        <div style={{ overflowX: 'auto' }}>
+          <table className="data-table" style={{ minWidth: '640px' }}>
+            <thead>
+              <tr>
+                <th style={{ width: '160px' }}>Destination</th>
+                <th>Pair / Venue</th>
+                <th style={{ textAlign: 'right' }}>EVRO</th>
+                <th style={{ textAlign: 'right' }}>% Minted</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  name: 'Stability Pool', color: '#A082F5',
+                  pair: 'EVRO Protocol',
+                  value: calculations.distribution.sp,
+                  role: 'Liquidation backstop · earns 75% of all Trove interest',
+                },
+                {
+                  name: 'Anchor Pool', color: '#7176CA',
+                  pair: 'sDAI/EVRO · CoW AMM',
+                  value: calculations.distribution.anchor,
+                  role: 'FM-AMM primary depth · LVR surplus returned to LPs',
+                },
+                {
+                  name: 'Bridge Pool', color: '#EFA960',
+                  pair: 'EURe/EVRO · Curve StableSwap',
+                  value: calculations.distribution.bridge,
+                  role: 'EURe ↔ EVRO retail routing · size-capped cost-center',
+                },
+                ...(calculations.distribution.reserve > 0 ? [{
+                  name: 'Reserve', color: 'var(--muted-foreground)',
+                  pair: 'Operational buffer',
+                  value: calculations.distribution.reserve,
+                  role: 'Held undeployed · available for rebalancing or new venues',
+                }] : []),
+              ].map(row => (
+                <tr key={row.name} style={row.name === 'Reserve' ? { opacity: 0.7 } : {}}>
+                  <td>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: row.color, flexShrink: 0 }} />
+                      <strong style={{ color: 'var(--foreground)' }}>{row.name}</strong>
+                    </span>
+                  </td>
+                  <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
+                    {row.pair}
+                  </td>
+                  <td className="value" style={{ textAlign: 'right', color: row.color }}>{fmtCompact(row.value)}</td>
+                  <td className="value" style={{ textAlign: 'right' }}>
+                    {calculations.totalMinted > 0 ? ((row.value / calculations.totalMinted) * 100).toFixed(1) : '0'}%
+                  </td>
+                  <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
+                    {row.role}
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -56,11 +56,8 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
       <h2 className="heading-lg" style={{ marginBottom: '8px' }}>
         {t.totalDays}-Day Historical Yield Simulation
       </h2>
-      <p className="body-text" style={{ marginBottom: '24px' }}>
-        This is not a projection. Every number below is computed from <strong>real market data</strong>:
-        BOLD Stability Pool APY (interest + liquidation gains), sDAI/wstETH compounding ratios,
-        CoW AMM settlement fees, and LVR surplus from batch auctions. The texture you see — the spikes,
-        the calm stretches — is what actually happened on-chain.
+      <p className="body-text" style={{ marginBottom: '24px', fontSize: '0.85rem', color: 'var(--muted-foreground)' }}>
+        <strong>Methodology:</strong> Historical replay of {t.totalDays} days (Apr 1, 2025 — Mar 31, 2026). Computed directly from on-chain data: BOLD Stability Pool APY, sDAI/wstETH compounding, GNO staking yields, CoW AMM settlement fees, and LVR surplus.
       </p>
 
       {/* ── KPI row ──────────────────────────────── */}
@@ -237,9 +234,9 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
 
         {/* ── Opportunity Cost ──────────────────────── */}
         <div style={{ borderTop: '1px solid rgba(160,130,245,0.1)', paddingTop: '20px' }}>
-          <p className="label" style={{ marginBottom: '4px' }}>What If You Didn't Deploy With EVRO?</p>
+          <p className="label" style={{ marginBottom: '4px' }}>Euro-Denominated Alternatives</p>
           <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
-            Same {fmtEur(totalCapital)}, same {t.totalDays} days. Real market data. What would have happened.
+            Same {fmtEur(totalCapital)}, same {t.totalDays} days. Euro-denominated strategies only — the honest comparison set.
           </p>
           <table className="data-table" style={{ minWidth: '600px' }}>
             <thead>
@@ -279,18 +276,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
                     value: totalCapital * (1 + 0.028 * periodFraction),
                     isEvro: false,
                   },
-                  {
-                    name: 'Hold ETH',
-                    returnPct: -43.5,
-                    value: totalCapital * (1 - 0.435),
-                    isEvro: false,
-                  },
-                  {
-                    name: 'Hold GNO',
-                    returnPct: -20.3,
-                    value: totalCapital * (1 - 0.203),
-                    isEvro: false,
-                  },
+
                 ];
                 return strategies.map((s, i) => {
                   const delta = s.isEvro ? 0 : (evroReturn - (s.value - totalCapital));
@@ -329,9 +315,9 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
             marginTop: '12px', fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
             color: 'var(--muted-foreground)', lineHeight: 1.6,
           }}>
-            ETH and GNO holders lost <strong style={{ color: '#F5889B' }}>real capital</strong> to market drawdowns.
-            EUR holders earned nothing. Aave lenders earned a fraction.
-            EVRO deployment <strong style={{ color: '#A082F5' }}>preserves capital + generates compound yield</strong> across 4 independent revenue layers.
+            EUR holders earned nothing. sDAI captured the DSR but left 4 yield layers untapped.
+            Aave lenders earned a fraction at higher protocol risk.
+            EVRO stacks <strong style={{ color: '#A082F5' }}>four independent Euro-denominated yield sources</strong> in one deployment.
           </p>
         </div>
       </div>

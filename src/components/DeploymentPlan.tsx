@@ -106,6 +106,14 @@ export function DeploymentPlan({
     return { branches, totalMinted, totalInterest, spShare, daoShare, spApr };
   }, [branchStates, totalCapital, totalWeight, incentiveShare]);
 
+  // Layer 2: proportional split — 35/35/18/12% derived from genesis plan at conservative CR.
+  // Reserve is always the smallest allocation and always > 0.
+  const { totalMinted } = results;
+  const spAlloc     = totalMinted * 0.35;
+  const anchorAlloc = totalMinted * 0.35;
+  const bridgeAlloc = totalMinted * 0.18;
+  const reserveAlloc = totalMinted * 0.12;
+
   return (
     <section className="section">
       <div className="label" style={{ marginBottom: '12px' }}>Deployment Plan</div>
@@ -273,25 +281,34 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>　→ SP deposit · EVRO (40%)</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(results.totalMinted * 0.40)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>　→ Stability Pool</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(spAlloc)}</span>
             </div>
 
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#EFA960' }}>　→ CoW AMM · sDAI/EVRO (40%)</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#EFA960' }}>{fmtCompact(results.totalMinted * 0.40)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#7176CA' }}>　→ Anchor · CoW AMM</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#7176CA' }}>{fmtCompact(anchorAlloc)}</span>
             </div>
 
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>　→ Reserve · EVRO (20%)</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>{fmtCompact(results.totalMinted * 0.20)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#EFA960' }}>　→ Bridge · Curve · EURe/EVRO</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#EFA960' }}>{fmtCompact(bridgeAlloc)}</span>
             </div>
+
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>　→ Reserve · operational buffer</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>{fmtCompact(reserveAlloc)}</span>
+            </div>
+
           </div>
         </div>
       </div>
@@ -372,6 +389,96 @@ export function DeploymentPlan({
         )}
       </div>
 
+      {/* ── Layer 2: Liquidity Allocation Table ─────────── */}
+      <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
+        <p className="label" style={{ marginBottom: '4px' }}>Liquidity Pool Allocation — Layer 2</p>
+        <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
+          Minted EVRO deployed across three venues at fixed proportions.
+        </p>
+        <div style={{ overflowX: 'auto' }}>
+          <table className="data-table" style={{ minWidth: '640px' }}>
+            <thead>
+              <tr>
+                <th style={{ width: '160px' }}>Destination</th>
+                <th>Pair / Venue</th>
+                <th style={{ textAlign: 'right' }}>EVRO</th>
+                <th style={{ textAlign: 'right' }}>% Minted</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Stability Pool */}
+              <tr>
+                <td>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#A082F5', flexShrink: 0 }} />
+                    <strong style={{ color: 'var(--foreground)' }}>Stability Pool</strong>
+                  </span>
+                </td>
+                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
+                  EVRO Protocol
+                </td>
+                <td className="value" style={{ textAlign: 'right', color: '#A082F5' }}>{fmtCompact(spAlloc)}</td>
+                <td className="value" style={{ textAlign: 'right' }}>35%</td>
+                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
+                  Liquidation backstop · earns 75% of all Trove interest
+                </td>
+              </tr>
+              {/* Anchor Pool — CoW AMM */}
+              <tr>
+                <td>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#7176CA', flexShrink: 0 }} />
+                    <strong style={{ color: 'var(--foreground)' }}>Anchor Pool</strong>
+                  </span>
+                </td>
+                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
+                  sDAI/EVRO · CoW AMM
+                </td>
+                <td className="value" style={{ textAlign: 'right', color: '#7176CA' }}>{fmtCompact(anchorAlloc)}</td>
+                <td className="value" style={{ textAlign: 'right' }}>35%</td>
+                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
+                  FM-AMM primary depth · LVR surplus returned to LPs
+                </td>
+              </tr>
+              {/* Bridge Pool — Curve */}
+              <tr>
+                <td>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#EFA960', flexShrink: 0 }} />
+                    <strong style={{ color: 'var(--foreground)' }}>Bridge Pool</strong>
+                  </span>
+                </td>
+                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
+                  EURe/EVRO · Curve StableSwap
+                </td>
+                <td className="value" style={{ textAlign: 'right', color: '#EFA960' }}>{fmtCompact(bridgeAlloc)}</td>
+                <td className="value" style={{ textAlign: 'right' }}>18%</td>
+                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
+                  EURe ↔ EVRO retail routing · size-capped cost-center
+                </td>
+              </tr>
+              {/* Operational Reserve */}
+              <tr style={{ opacity: 0.75 }}>
+                <td>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--muted-foreground)', flexShrink: 0 }} />
+                    <strong style={{ color: 'var(--foreground)' }}>Reserve</strong>
+                  </span>
+                </td>
+                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
+                  Operational buffer
+                </td>
+                <td className="value" style={{ textAlign: 'right', color: 'var(--muted-foreground)' }}>{fmtCompact(reserveAlloc)}</td>
+                <td className="value" style={{ textAlign: 'right' }}>12%</td>
+                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
+                  Held undeployed · available for rebalancing or new venues
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       {/* ── Reactive Prose ──────────────────────────────── */}
       <div style={{

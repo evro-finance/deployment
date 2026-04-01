@@ -89,10 +89,10 @@ Anchor Pool
 sDAI/EVRO
 
 ## anchor-venue
-Balancer v3 + CoW Hooks
+CoW AMM
 
 ## anchor-desc
-Primary market depth and price discovery. LVR-protected via batch settlement — no value extracted by arb-bots. Stacks lending yield on idle pool tranches, creating two yield sources in one venue.
+Primary market depth and price discovery. LVR-protected via FM-AMM batch settlement — no value extracted by arb-bots. Arbitrage surplus is captured by the solver network and returned directly to LPs.
 
 ## bridge-title
 Bridge Pool
@@ -107,10 +107,10 @@ Curve StableSwap
 Retail spend routing. Enables direct EURe ↔ EVRO swaps for downstream applications including Gnosis Pay integration paths. Curve lacks native MEV protection, so this venue is size-capped as a controlled cost-center.
 
 ## balancer-title
-Why Balancer v3 + CoW Hooks?
+Why CoW AMM?
 
 ## balancer-body
-Balancer v3 with CoW Hooks combines LVR protection with lending yield on idle pool tranches — two yield sources in one venue, unique on Gnosis Chain. The CoW Hooks are immutable on-chain contracts; the protection persists regardless of Balancer governance.
+CoW AMM is the native FM-AMM implementation from CoW Protocol. Solvers compete in batch auctions to rebalance the pool — the arbitrage surplus that would otherwise go to bots is returned directly to LPs. No third-party protocol fee, no Balancer governance dependency. For a stablecoin pair like sDAI/EVRO with no existing depth, it is the structurally cleanest venue: LVR protection without wrapper overhead.
 
 ## curve-title
 Why Curve for the Bridge?
@@ -193,7 +193,7 @@ Interest rates are set defensively to avoid front-of-queue exposure.
 MEV / LVR Extraction
 
 ## risk-3-mitigation
-Batch settlement via CoW Hooks on the Anchor Pool.
+FM-AMM batch settlement via CoW AMM on the Anchor Pool.
 
 ## risk-4-title
 Curve LVR Bleed
@@ -242,7 +242,6 @@ This design resolves a specific structural failure. Legacy protocol DAOs that ea
 At €5M deployed with a ~3.8% blended interest rate: annual interest income ~€190,000. Stability Pool share (75%): ~€142,500/yr. DAO treasury share (25%): ~€47,500/yr.
 
 ## revenue-25m
-At €25M TVL (Phase 4 target), the 25% stream becomes ~€237,500/yr — a self-funding governance operation.
 
 ---
 

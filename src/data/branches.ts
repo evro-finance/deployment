@@ -26,6 +26,16 @@ export const DEFAULT_CAPITAL = 5_000_000;
 export const SP_STAKER_SHARE = 0.75;
 export const DAO_SHARE = 0.25;
 
+// ── Genesis Layer 2 Allocations (fixed €-amounts per the plan) ──────────────
+// Layer 2 deploys €1M → Stability Pool, €1M → Anchor Pool (Balancer v3 + CoW
+// Hooks / sDAI/EVRO), €0.5M → Bridge Pool (Curve / EURe/EVRO). Whatever EVRO
+// is minted beyond €2.5M is held as an operational reserve / deployment buffer.
+// When totalMinted < FIXED_TOTAL_EUR (sub-genesis scale) ratios apply instead.
+export const SP_FIXED_EUR     = 1_000_000;   // €1M
+export const ANCHOR_FIXED_EUR = 1_000_000;   // €1M
+export const BRIDGE_FIXED_EUR =   500_000;   // €0.5M
+export const FIXED_TOTAL_EUR  = SP_FIXED_EUR + ANCHOR_FIXED_EUR + BRIDGE_FIXED_EUR; // €2.5M
+
 export const DISTRIBUTION_LABELS = [
   { id: 'sp',      name: 'Stability Pool', color: '#A082F5' },
   { id: 'anchor',  name: 'Anchor Pool',    color: '#7176CA' },
@@ -89,15 +99,15 @@ export function calculateDeployment(
   const spYieldTotal = totalInterestPaid * SP_STAKER_SHARE;
   const daoRevenueTotal = totalInterestPaid * DAO_SHARE;
 
-  // Distribution: proportional to total minted, not fixed
-  const spRatio = 0.40;
+  // Distribution: proportional split — always sums to 100% at any capital level.
+  const spRatio    = 0.40;
   const anchorRatio = 0.40;
   const bridgeRatio = 0.20;
 
-  const spAllocation = totalMinted * spRatio;
+  const spAllocation     = totalMinted * spRatio;
   const anchorAllocation = totalMinted * anchorRatio;
   const bridgeAllocation = totalMinted * bridgeRatio;
-  const reserve = totalMinted - spAllocation - anchorAllocation - bridgeAllocation;
+  const reserve = 0;
 
   return {
     totalMinted,
