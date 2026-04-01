@@ -2,7 +2,7 @@
 // Content Parser — reads content.md into structured sections
 // ═══════════════════════════════════════════════════════════
 
-import rawContent from './content.md?raw';
+import rawContent from '../content.md?raw';
 
 export type ContentSection = Record<string, string>;
 export type Content = Record<string, ContentSection>;
