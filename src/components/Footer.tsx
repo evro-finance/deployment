@@ -45,7 +45,29 @@ function IconDiscord() {
   );
 }
 
-function SocialLink({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
+function SocialLink({ href, label, children, disabled }: { href: string; label: string; children: React.ReactNode; disabled?: boolean }) {
+  if (disabled) {
+    return (
+      <span
+        title="Coming soon"
+        aria-label={label}
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '32px',
+          height: '32px',
+          borderRadius: '6px',
+          border: '1px solid rgba(160,129,245,0.08)',
+          color: 'var(--muted-foreground)',
+          opacity: 0.3,
+          cursor: 'not-allowed',
+        }}
+      >
+        {children}
+      </span>
+    );
+  }
   return (
     <a
       href={href}
@@ -149,7 +171,7 @@ export function Footer() {
           }}>
             EVRO-GEN-001 · V5 · MARCH 2026<br />
             DEPLOYMENT GUIDE · GNOSIS CHAIN<br />
-            <a href={ELCO_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(160,129,245,0.25)', textUnderlineOffset: '3px', transition: 'text-decoration-color 0.15s ease' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.textDecorationColor = 'rgba(160,129,245,0.7)'; }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.textDecorationColor = 'rgba(160,129,245,0.25)'; }}>ELEMENTARY COMPLEXITY</a>{' / '}<a href={HARNESS_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(160,129,245,0.25)', textUnderlineOffset: '3px', transition: 'text-decoration-color 0.15s ease' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.textDecorationColor = 'rgba(160,129,245,0.7)'; }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.textDecorationColor = 'rgba(160,129,245,0.25)'; }}>HARNESS V3.5</a>
+            <a href={ELCO_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none', opacity: 0.7, transition: 'opacity 0.15s ease' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.7'; }}>ELEMENTARY COMPLEXITY</a>{' / '}<a href={HARNESS_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none', opacity: 0.7, transition: 'opacity 0.15s ease' }} onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }} onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.7'; }}>HARNESS V3.5</a>
           </div>
           {/* RaidGuild credit */}
           <div style={{

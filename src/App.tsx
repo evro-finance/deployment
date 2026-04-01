@@ -62,15 +62,48 @@ function App() {
     return params.get('lp') || 'Gnosis';
   });
 
-  const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(() => 
-    Object.fromEntries(BRANCHES.map(b => [b.id, {
-      weight: b.defaultWeight,
-      cr: b.defaultCR,
-      rate: b.interestRate,
-    }]))
-  );
+  const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(() => {
+    const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    return Object.fromEntries(BRANCHES.map(b => {
+      const urlW = params?.get(b.id);
+      return [b.id, {
+        weight: urlW != null ? Number(urlW) / 100 : b.defaultWeight,
+        cr: b.defaultCR,
+        rate: b.interestRate,
+      }];
+    }));
+  });
 
-  const [l2Shares, setL2Shares] = useState<L2Shares>(DEFAULT_L2_SHARES);
+  const [l2Shares, setL2Shares] = useState<L2Shares>(() => {
+    const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+    if (!params?.get('sp')) return DEFAULT_L2_SHARES;
+    return {
+      sp: Number(params.get('sp') || 40) / 100,
+      anchor: Number(params.get('anchor') || 35) / 100,
+      bridge: Number(params.get('bridge') || 20) / 100,
+      reserve: Number(params.get('reserve') || 5) / 100,
+    };
+  });
+
+  // Lock state — which control sections are frozen
+  const [locks, setLocks] = useState<Record<string, boolean>>({
+    capital: false, posture: false, branches: false, l2: false, router: false,
+  });
+
+  const toggleLock = useCallback((key: string) => {
+    setLocks(prev => ({ ...prev, [key]: !prev[key] }));
+  }, []);
+
+  const resetAll = useCallback(() => {
+    setTotalCapital(DEFAULT_CAPITAL);
+    setPosture(0.5);
+    setIncentiveShare(0);
+    setBranchStates(Object.fromEntries(BRANCHES.map(b => [b.id, {
+      weight: b.defaultWeight, cr: b.defaultCR, rate: b.interestRate,
+    }])));
+    setL2Shares(DEFAULT_L2_SHARES);
+    setLocks({ capital: false, posture: false, branches: false, l2: false, router: false });
+  }, []);
 
   // When posture changes, recompute all CRs and rates
   const applyPosture = useCallback((p: number) => {
@@ -146,6 +179,24 @@ function App() {
     [totalCapital, branchAllocations, incentiveShare, l2Shares]
   );
 
+  // Build share URL with all state serialised
+  const shareUrl = useMemo(() => {
+    const base = 'https://deployment.evro.finance';
+    const p = new URLSearchParams();
+    p.set('lp', lpName);
+    p.set('cap', String(totalCapital));
+    p.set('pst', String(posture));
+    p.set('inc', String(incentiveShare));
+    for (const b of BRANCHES) {
+      p.set(b.id, String(Math.round(branchStates[b.id].weight * 100)));
+    }
+    p.set('sp', String(Math.round(l2Shares.sp * 100)));
+    p.set('anchor', String(Math.round(l2Shares.anchor * 100)));
+    p.set('bridge', String(Math.round(l2Shares.bridge * 100)));
+    p.set('reserve', String(Math.round(l2Shares.reserve * 100)));
+    return `${base}?${p.toString()}`;
+  }, [lpName, totalCapital, posture, incentiveShare, branchStates, l2Shares]);
+
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(
@@ -192,6 +243,10 @@ function App() {
         l2Shares={l2Shares}
         onAdjustL2Shares={onAdjustL2Shares}
         lpName={lpName}
+        shareUrl={shareUrl}
+        locks={locks}
+        onToggleLock={toggleLock}
+        onReset={resetAll}
       />
       <Layer2Section />
       <CohortSection />

@@ -14,35 +14,37 @@ export function CTASection() {
       <p className="body-text" style={{ marginBottom: '32px', maxWidth: '480px', margin: '0 auto 32px' }}>
         {body}
       </p>
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'inline-block',
-          padding: '14px 32px',
-          background: 'var(--accent)',
-          color: '#fff',
-          fontFamily: 'var(--font-heading)',
-          fontSize: '0.85rem',
-          fontWeight: 600,
-          textTransform: 'uppercase',
-          letterSpacing: '0.08em',
-          borderRadius: '4px',
-          textDecoration: 'none',
-          transition: 'opacity 0.2s ease, transform 0.2s ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.opacity = '0.85';
-          e.currentTarget.style.transform = 'translateY(-1px)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.opacity = '1';
-          e.currentTarget.style.transform = 'translateY(0)';
-        }}
-      >
-        {buttonText}
-      </a>
+
+      {/* Primary — Schedule a Call */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+        <a
+          className="btn-primary"
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {buttonText}
+        </a>
+
+        {/* Ghost — Go to Platform */}
+        <a
+          className="btn-ghost"
+          href="https://app.evro.finance"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          app.evro.finance →
+        </a>
+
+        {/* Marginalia — Research Compendium */}
+        <a
+          className="btn-utility"
+          href="/research.html"
+          style={{ marginTop: '8px' }}
+        >
+          Read the Research Compendium
+        </a>
+      </div>
     </section>
   );
 }

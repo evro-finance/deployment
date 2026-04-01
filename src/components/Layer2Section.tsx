@@ -7,9 +7,9 @@ export function Layer2Section() {
   // Bridge: €0.5M EVRO + €0.5M EURe = 25% of venue capital
   // These will be rigged to the deployer dashboard later
   const venues = [
-    { key: 'sp', color: 'var(--chart-sp)', venueShort: null, pct: '25%', note: 'EVRO only' },
-    { key: 'anchor', color: 'var(--chart-anchor)', venueShort: 'Bal-V3 + CoW', pct: '50%', note: 'EVRO + sDAI' },
-    { key: 'bridge', color: 'var(--chart-bridge)', venueShort: 'Curve', pct: '25%', note: 'EVRO + EURe' },
+    { key: 'sp', color: 'var(--chart-sp)' },
+    { key: 'anchor', color: 'var(--chart-anchor)' },
+    { key: 'bridge', color: 'var(--chart-bridge)' },
   ];
 
   return (
@@ -29,47 +29,19 @@ export function Layer2Section() {
           const venue = get('layer2', `${v.key}-venue`);
           const pair = get('layer2', `${v.key}-pair`);
           const desc = get('layer2', `${v.key}-desc`);
-          const hasPair = !!pair && !!v.venueShort;
 
           return (
             <div key={v.key} className="glass-card" style={{ padding: '24px', borderTop: `3px solid ${v.color}`, position: 'relative' }}>
-              {/* ── Percentage marginalia ─────────────── */}
-              <div style={{
-                position: 'absolute',
-                top: '16px',
-                right: '16px',
-                textAlign: 'right',
-              }}>
-                <div style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  color: v.color,
-                  lineHeight: 1,
-                }}>
-                  {v.pct}
-                </div>
-                <div style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.6rem',
-                  color: 'var(--muted-foreground)',
-                  letterSpacing: '0.04em',
-                  marginTop: '2px',
-                }}>
-                  {v.note}
-                </div>
-              </div>
-
-              {hasPair ? (
+              {pair ? (
                 <>
-                  <div className="heading-md" style={{ color: v.color, marginBottom: '4px', paddingRight: '64px' }}>
-                    {pair} · {v.venueShort}
+                  <div className="heading-md" style={{ color: v.color, marginBottom: '4px' }}>
+                    {pair} · {venue}
                   </div>
                   <div className="label-sm" style={{ marginBottom: '12px' }}>{title}</div>
                 </>
               ) : (
                 <>
-                  <div className="heading-md" style={{ color: v.color, marginBottom: '4px', paddingRight: '64px' }}>{title}</div>
+                  <div className="heading-md" style={{ color: v.color, marginBottom: '4px' }}>{title}</div>
                   <div className="label-sm" style={{ marginBottom: '12px' }}>{venue}</div>
                 </>
               )}
@@ -79,6 +51,7 @@ export function Layer2Section() {
           );
         })}
       </div>
+
 
       {/* ── Rationale Cards ──────────────────────────── */}
       {get('layer2', 'balancer-body') && (

@@ -1,4 +1,4 @@
-import { useMemo, type CSSProperties, type ReactNode } from 'react';
+import { useState, useMemo, type CSSProperties, type ReactNode } from 'react';
 import {
   PieChart,
   Pie,
@@ -33,6 +33,10 @@ interface DeploymentPlanProps {
   l2Shares: L2Shares;
   onAdjustL2Shares: (key: keyof L2Shares, target: number) => void;
   lpName: string;
+  shareUrl: string;
+  locks: Record<string, boolean>;
+  onToggleLock: (key: string) => void;
+  onReset: () => void;
 }
 
 const STEP_RATE = 0.005;
@@ -238,6 +242,7 @@ function BranchWeightPiePanel({
     </div>
   );
 }
+import { ShareModal } from './ShareModal';
 
 export function DeploymentPlan({
   totalCapital, onCapitalChange,
@@ -249,7 +254,13 @@ export function DeploymentPlan({
   l2Shares,
   onAdjustL2Shares,
   lpName,
+  shareUrl,
+  locks,
+  onToggleLock,
+  onReset,
 }: DeploymentPlanProps) {
+
+  const [showShareModal, setShowShareModal] = useState(false);
 
   const totalWeight = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
 
@@ -455,16 +466,27 @@ export function DeploymentPlan({
       <div style={{ display: 'flex', gap: '20px', marginBottom: '24px', alignItems: 'stretch' }}>
         {/* ── Controls (30%) ── */}
         <div className="glass-card" style={{ padding: '14px 18px', flex: '0 0 30%', minWidth: 0 }}>
+          {/* Reset + header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+            <span className="label" style={{ fontSize: '0.55rem' }}>Controls</span>
+            <button className="btn-utility" onClick={onReset}>Reset to Defaults</button>
+          </div>
+
           {/* Capital */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
             <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'capital-label')}</span>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
+              <button className={`lock-toggle ${locks.capital ? 'lock-toggle--locked' : ''}`} onClick={() => onToggleLock('capital')} title={locks.capital ? 'Unlock' : 'Lock'}>{locks.capital ? '✓' : '🔓'}</button>
+            </div>
           </div>
           <input
             type="range" min={1_000_000} max={25_000_000} step={500_000}
             value={totalCapital}
             onChange={e => onCapitalChange(Number(e.target.value))}
             style={{ margin: 0 }}
+            disabled={locks.capital}
+            className={locks.capital ? 'locked-section' : ''}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px', marginBottom: '8px' }}>
             <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-min')}</span>
@@ -475,18 +497,23 @@ export function DeploymentPlan({
           <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'posture-label')}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <button className={`lock-toggle ${locks.posture ? 'lock-toggle--locked' : ''}`} onClick={() => onToggleLock('posture')} title={locks.posture ? 'Unlock' : 'Lock'}>{locks.posture ? '✓' : '🔓'}</button>
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
                 color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A081F5',
               }}>
                 {posture < 0.35 ? get('deploy', 'posture-conservative') : posture > 0.65 ? get('deploy', 'posture-aggressive') : get('deploy', 'posture-balanced')}
               </span>
+              </div>
             </div>
             <input
               type="range" min={0} max={1} step={0.05}
               value={posture}
               onChange={e => onPostureChange(Number(e.target.value))}
               style={{ margin: 0 }}
+              disabled={locks.posture}
+              className={locks.posture ? 'locked-section' : ''}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
               <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'posture-hint-left')}</span>
@@ -498,6 +525,8 @@ export function DeploymentPlan({
           <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px', marginTop: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'router-label')}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <button className={`lock-toggle ${locks.router ? 'lock-toggle--locked' : ''}`} onClick={() => onToggleLock('router')} title={locks.router ? 'Unlock' : 'Lock'}>{locks.router ? '✓' : '🔓'}</button>
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
                 color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A081F5',
@@ -508,12 +537,15 @@ export function DeploymentPlan({
                     ? get('deploy', 'router-summary-all-lps')
                     : fillTemplate(get('deploy', 'router-summary-partial'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
               </span>
+              </div>
             </div>
             <input
               type="range" min={0} max={1} step={0.05}
               value={incentiveShare}
               onChange={e => onIncentiveChange(Number(e.target.value))}
               style={{ margin: 0 }}
+              disabled={locks.router}
+              className={locks.router ? 'locked-section' : ''}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
               <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'router-end-dao')}</span>
@@ -890,6 +922,20 @@ export function DeploymentPlan({
               </div>
             </div>
 
+            {/* ── Action Bar ──────────────────────────── */}
+            <div className="narrative-action-bar">
+              <button className="btn-utility" onClick={() => setShowShareModal(true)}>
+                ↗ Share
+              </button>
+              <a className="btn-ghost" href="https://calendar.app.google/otE3KDr2rpppKGs39" target="_blank" rel="noopener noreferrer">
+                Let's Talk →
+              </a>
+              <button className="btn-disabled">
+                One-Click Deploy
+                <span className="btn-tooltip">Coming soon</span>
+              </button>
+            </div>
+
             {/* Watermark illustration */}
             <div className="narrative-showcase__illu" aria-hidden>
               <svg viewBox="0 0 400 400" width="100%" height="100%">
@@ -905,6 +951,15 @@ export function DeploymentPlan({
           </div>
         );
       })()}
+
+      {/* ── Share Modal ── */}
+      <ShareModal
+        isOpen={showShareModal}
+        onClose={() => setShowShareModal(false)}
+        shareUrl={shareUrl}
+        capital={totalCapital}
+        apy={yieldTotals.annualizedPct}
+      />
     </section>
   );
 }

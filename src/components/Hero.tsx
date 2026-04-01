@@ -36,6 +36,17 @@ export function Hero() {
           dangerouslySetInnerHTML={{ __html: get('hero', 'body2').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: var(--accent); text-decoration: underline">$1</a>') }}
           />
         )}
+        <div className="animate-in delay-3" style={{ marginTop: '32px' }}>
+          <button
+            className="btn-ghost"
+            onClick={() => {
+              const el = document.querySelector('.section:nth-of-type(3)');
+              el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          >
+            ↓ See the Simulation
+          </button>
+        </div>
       </div>
     </section>
   );
