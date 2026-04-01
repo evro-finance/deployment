@@ -43,7 +43,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
     'Staking Yield': d.stakingYield,
     'CoW AMM Fees': d.cowFees,
     'LVR Captured': d.lvrCaptured,
-    'EVRO Revenue': d.daoRevenue,
+    'DAO Revenue': d.daoRevenue,
     evroTotal: d.evroTotal,
     boldApy: d.boldSpApy,
   }));
@@ -71,7 +71,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
             { label: 'SP Yield (L1)', value: fmtEur(t.spYield), color: '#A082F5', sub: `Avg ${t.avgSpApy.toFixed(1)}% APY` },
             { label: 'Collateral (L2)', value: fmtEur(t.sdaiYield + t.stakingYield), color: '#7176CA', sub: 'sDAI + wstETH + GNO' },
             { label: 'LP Revenue (L3)', value: fmtEur(t.cowFees + t.lvrCaptured), color: '#EFA960', sub: 'CoW fees + LVR' },
-            { label: 'EVRO Share (L4)', value: incentiveShare > 0.85 ? '→ LPs' : fmtEur(t.daoRevenue), color: incentiveShare > 0.85 ? '#95929E' : '#4ADE80', sub: incentiveShare > 0.85 ? 'First Era' : '25% of interest' },
+            { label: 'DAO Share (L4)', value: incentiveShare > 0.85 ? '→ LPs' : fmtEur(t.daoRevenue), color: incentiveShare > 0.85 ? '#95929E' : '#4ADE80', sub: incentiveShare > 0.85 ? 'First Era' : '25% of interest' },
           ].map(kpi => (
             <div key={kpi.label}>
               <div className="label-sm" style={{ marginBottom: '6px' }}>{kpi.label}</div>
@@ -137,7 +137,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
               <Area type="monotone" dataKey="CoW AMM Fees" stackId="evro" stroke="#EFA960" fill="url(#cwGrad)" strokeWidth={0} />
               <Area type="monotone" dataKey="LVR Captured" stackId="evro" stroke="#4ADE80" fill="url(#lvGrad)" strokeWidth={0} />
               {!(incentiveShare > 0.85) && (
-                <Area type="monotone" dataKey="EVRO Revenue" stackId="evro" stroke="#F5889B" fill="url(#daGrad)" strokeWidth={0} />
+                <Area type="monotone" dataKey="DAO Revenue" stackId="evro" stroke="#F5889B" fill="url(#daGrad)" strokeWidth={0} />
               )}
 
               <Line type="monotone" dataKey="evroTotal" stroke="#A082F5" strokeWidth={2.5} dot={false} name="Total" />
@@ -152,7 +152,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
             { label: 'Staking', color: '#9CB1F4' },
             { label: 'CoW Fees', color: '#EFA960' },
             { label: 'LVR', color: '#4ADE80' },
-            ...(!(incentiveShare > 0.85) ? [{ label: 'EVRO', color: '#F5889B' }] : []),
+            ...(!(incentiveShare > 0.85) ? [{ label: 'DAO', color: '#F5889B' }] : []),
           ].map(d => (
             <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: 12, height: 8, borderRadius: 2, background: d.color, opacity: 0.6 }} />
@@ -214,7 +214,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
               LVR surplus captured: {fmtEur(t.lvrCaptured)}
             </div>
           </div>
-          {/* EVRO / Interest Router */}
+          {/* DAO / Interest Router */}
           <div style={{
             padding: '20px', borderRadius: '10px',
             background: incentiveShare > 0.85
@@ -223,7 +223,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
             border: `1px solid ${incentiveShare > 0.85 ? 'rgba(160,130,245,0.1)' : 'rgba(74,222,128,0.15)'}`,
           }}>
             <div className="label-sm" style={{ marginBottom: '4px', color: incentiveShare > 0.85 ? '#95929E' : '#4ADE80' }}>
-              ◆ {incentiveShare > 0.85 ? 'EVRO (First Era → LPs)' : 'EVRO Treasury'}
+              ◆ {incentiveShare > 0.85 ? 'DAO (First Era → LPs)' : 'DAO Treasury'}
             </div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: incentiveShare > 0.85 ? '#95929E' : '#4ADE80', marginBottom: '4px' }}>
               {incentiveShare > 0.85 ? '→ LPs' : fmtEur(t.daoRevenue)}
@@ -349,7 +349,7 @@ export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: Rev
           The Stability Pool alone contributed <strong>{fmtEur(t.spYield)}</strong> (avg {t.avgSpApy.toFixed(1)}% APY, including liquidation gains).
           Collateral staking added <strong>{fmtEur(t.sdaiYield + t.stakingYield)}</strong>,
           and CoW AMM liquidity earned <strong>{fmtEur(t.cowFees + t.lvrCaptured)}</strong> in fees + LVR surplus.
-          {!(incentiveShare > 0.85) && <> EVRO would have accumulated <strong style={{ color: '#4ADE80' }}>{fmtEur(t.daoRevenue)}</strong> via the interestRouter.</>}
+          {!(incentiveShare > 0.85) && <> The DAO would have accumulated <strong style={{ color: '#4ADE80' }}>{fmtEur(t.daoRevenue)}</strong> via the interestRouter.</>}
         </p>
       </div>
     </section>

@@ -177,7 +177,7 @@ export function DeploymentPlan({
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
                 color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A082F5',
               }}>
-                {incentiveShare < 0.15 ? '25% EVRO' : incentiveShare > 0.85 ? 'All LPs' : `${Math.round((1 - incentiveShare) * 25)}% EVRO`}
+                {incentiveShare < 0.15 ? '25% DAO' : incentiveShare > 0.85 ? 'All LPs' : `${Math.round((1 - incentiveShare) * 25)}% DAO`}
               </span>
             </div>
             <input
@@ -187,7 +187,7 @@ export function DeploymentPlan({
               style={{ margin: 0 }}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
-              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>EVRO</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>DAO</span>
               <span className="label-sm" style={{ fontSize: '0.5rem', color: '#EFA960' }}>LPs</span>
             </div>
           </div>
@@ -359,7 +359,7 @@ export function DeploymentPlan({
             </div>
           </div>
           <div>
-            <div className="label-sm" style={{ marginBottom: '6px' }}>EVRO Revenue ({Math.round((1 - incentiveShare) * 25)}%)</div>
+            <div className="label-sm" style={{ marginBottom: '6px' }}>DAO Revenue ({Math.round((1 - incentiveShare) * 25)}%)</div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: incentiveShare > 0.85 ? 'var(--muted-foreground)' : '#EFA960' }}>
               {incentiveShare > 0.85 ? (
                 <span style={{ textDecoration: 'line-through', opacity: 0.5 }}>{fmtCompact(results.totalInterest * 0.25)}</span>
@@ -392,7 +392,7 @@ export function DeploymentPlan({
             <> In the First Era, <strong style={{ color: '#A082F5' }}>100%</strong> of interest income flows to Stability Pool stakers — earning <strong style={{ color: '#A082F5' }}>{results.spApr.toFixed(2)}% APR</strong>.</>
           ) : (
             <> <strong style={{ color: '#A082F5' }}>{fmtCompact(results.spShare)}</strong>/yr flows to SP stakers ({results.spApr.toFixed(2)}% APR).{' '}
-            <strong style={{ color: '#EFA960' }}>{fmtCompact(results.daoShare)}</strong>/yr goes to EVRO via the interestRouter.</>
+            <strong style={{ color: '#EFA960' }}>{fmtCompact(results.daoShare)}</strong>/yr goes to the DAO via the interestRouter.</>
           )}
           {' '}<em style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>This is interest only. The full revenue replay below adds collateral yields, LP fees, and liquidation gains from real market data.</em>
         </p>
