@@ -49,8 +49,14 @@ function renderMarkdown(md: string): string {
     out = out.replace(/\*(.+?)\*/g, '<em>$1</em>');
     // 3. Inline code
     out = out.replace(/`([^`]+)`/g, '<code>$1</code>');
-    // 4. Auto-link bare URLs not already inside href=""
-    out = out.replace(/(?<!href="|">)(https?:\/\/[^\s<,)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    // 4. Auto-link bare https:// URLs not already inside an <a> tag
+    out = out.replace(/(?<!href="|">)(https?:\/\/[^\s<,)|]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    // 5. Auto-link bare domain names (word.word.tld patterns NOT already linked)
+    out = out.replace(/(?<!href="|">|\/\/)([a-z0-9][\w-]*\.(com|fi|io|org|net|app|xyz|money|fun|club)\b[^\s<,)|]*)/gi, (_m, domain) => {
+      // skip if it looks like it's already inside an anchor
+      if (/^<\/a>/.test(domain)) return domain;
+      return `<a href="https://${domain}" target="_blank" rel="noopener">${domain}</a>`;
+    });
     return out;
   };
 

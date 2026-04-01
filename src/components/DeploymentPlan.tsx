@@ -249,8 +249,49 @@ export function DeploymentPlan({
             </div>
           </div>
 
-          {/* Right: empty — next data points go here */}
-          <div style={{ flex: 1, borderLeft: '1px solid rgba(160,130,245,0.06)', paddingLeft: '20px' }}>
+          {/* Right: fee structure */}
+          <div style={{ flex: 1, borderLeft: '1px solid rgba(160,130,245,0.06)', paddingLeft: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <span className="label" style={{ fontSize: '0.55rem', display: 'block', marginBottom: '10px' }}>Fee Structure</span>
+
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>EVRO minted</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)' }}>{fmtCompact(results.totalMinted)}</span>
+            </div>
+
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>Interest income</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--foreground)' }}>{fmtCompact(results.totalInterest)}<span style={{ fontSize: '0.55em', color: 'var(--muted-foreground)' }}> /yr</span></span>
+            </div>
+
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>→ Stability Pool ({Math.round(75 + incentiveShare * 25)}%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(results.spShare)}</span>
+            </div>
+
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>→ DAO ({Math.round((1 - incentiveShare) * 25)}%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#EFA960' }}>{fmtCompact(results.daoShare)}</span>
+            </div>
+
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>SP APR on EVRO</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{results.spApr.toFixed(2)}%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -331,55 +372,6 @@ export function DeploymentPlan({
         )}
       </div>
 
-      {/* ── Results ─────────────────────────────────────── */}
-      <div className="glass-card" style={{ padding: '28px 32px', marginBottom: '24px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <p className="label">Fee Structure (Interest Only)</p>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
-          <div>
-            <div className="label-sm" style={{ marginBottom: '6px' }}>Total EVRO Minted</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: 'var(--accent)' }}>
-              {fmtCompact(results.totalMinted)}
-            </div>
-          </div>
-          <div>
-            <div className="label-sm" style={{ marginBottom: '6px' }}>Annual Interest Income</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: 'var(--foreground)' }}>
-              {fmtCompact(results.totalInterest)}
-              <span style={{ fontSize: '0.55em', color: 'var(--muted-foreground)', marginLeft: '4px' }}>/yr</span>
-            </div>
-          </div>
-          <div>
-            <div className="label-sm" style={{ marginBottom: '6px' }}>
-              Stability Pool ({Math.round(75 + incentiveShare * 25)}%)
-            </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: '#A082F5' }}>
-              {fmtCompact(results.spShare)}
-              <span style={{ fontSize: '0.55em', color: 'var(--muted-foreground)', marginLeft: '4px' }}>/yr</span>
-            </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: '#A082F5', marginTop: '4px' }}>
-              ≈ {results.spApr.toFixed(2)}% APR on minted EVRO
-            </div>
-          </div>
-          <div>
-            <div className="label-sm" style={{ marginBottom: '6px' }}>DAO Revenue ({Math.round((1 - incentiveShare) * 25)}%)</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: incentiveShare > 0.85 ? 'var(--muted-foreground)' : '#EFA960' }}>
-              {incentiveShare > 0.85 ? (
-                <span style={{ textDecoration: 'line-through', opacity: 0.5 }}>{fmtCompact(results.totalInterest * 0.25)}</span>
-              ) : (
-                <>{fmtCompact(results.daoShare)}<span style={{ fontSize: '0.55em', color: 'var(--muted-foreground)', marginLeft: '4px' }}>/yr</span></>
-              )}
-            </div>
-            {incentiveShare > 0.85 && (
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: '#A082F5', marginTop: '4px' }}>
-                → Redirected to SP stakers
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
 
       {/* ── Reactive Prose ──────────────────────────────── */}
       <div style={{
