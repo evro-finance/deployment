@@ -434,37 +434,72 @@ input[type="range"]::-webkit-slider-thumb:active {
   }
 }
 
+/* ─── DeployFlowSankey ────────────────────────────────────────────────────── */
 .deploy-flow-sankey {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
+  gap: 0;
 }
 
-/* React Flow needs an explicit height; rail grows with replay column */
+/* Isolation Doctrine — three tier labels above the canvas */
+.deploy-flow-sankey__tier-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px 4px;
+  margin-bottom: 4px;
+  border-bottom: 1px dashed rgba(160,129,245,0.13);
+}
+
+.deploy-flow-sankey__tier-labels span {
+  font-family: var(--font-mono);
+  font-size: 0.42rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(160,129,245,0.5);
+  user-select: none;
+}
+
+/* React Flow container — pastel surface, crisp border */
 .deploy-flow-sankey__flow {
   flex: 1;
-  min-height: 280px;
+  min-height: 360px;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: var(--card);
+  background: var(--evro-page-bg);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
-/* Tiny edge labels (collateral) — border + tint + text all one accent */
+/* Override ReactFlow default white bg to our pastel surface */
+.deploy-flow-sankey__flow .react-flow__renderer,
+.deploy-flow-sankey__flow .react-flow__background {
+  background: transparent;
+}
+
+/* Collateral edge pill labels */
 .deploy-flow-sankey__flow .deploy-flow-edge-pill {
   font-family: var(--font-body);
-  font-size: 0.48rem;
+  font-size: 0.46rem;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   pointer-events: none;
   white-space: nowrap;
 }
 
+/* Sankey glass card nodes */
+.sankey-card-node {
+  transition: box-shadow 0.2s ease;
+  cursor: default;
+}
+
 .deploy-flow-sankey__bottom {
   flex-shrink: 0;
+  padding-top: 2px;
 }
 
 .deploy-flow-sankey__sliders {
