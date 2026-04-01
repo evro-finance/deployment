@@ -273,7 +273,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>　→ Stability Pool (40%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>　→ SP deposit · EVRO (40%)</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(results.totalMinted * 0.40)}</span>
             </div>
 
@@ -281,7 +281,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#EFA960' }}>　→ Anchor Pool (40%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#EFA960' }}>　→ CoW AMM · sDAI/EVRO (40%)</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#EFA960' }}>{fmtCompact(results.totalMinted * 0.40)}</span>
             </div>
 
@@ -289,7 +289,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>　→ Reserve (20%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>　→ Reserve · EVRO (20%)</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>{fmtCompact(results.totalMinted * 0.20)}</span>
             </div>
           </div>
@@ -386,7 +386,7 @@ export function DeploymentPlan({
           Borrowers pay <strong>{fmtCompact(results.totalInterest)}</strong>/yr in interest
           at a blended rate of <strong>{results.totalMinted > 0 ? ((results.totalInterest / results.totalMinted) * 100).toFixed(1) : '0'}%</strong>.
           {incentiveShare > 0.85 ? (
-            <> In the First Era, <strong style={{ color: '#A082F5' }}>100%</strong> of interest income flows to Stability Pool stakers — earning <strong style={{ color: '#A082F5' }}>{results.spApr.toFixed(2)}% APR</strong>.</>
+            <> In the First Era, <strong style={{ color: '#A082F5' }}>100%</strong> of interest income flows to SP depositors (EVRO) — earning <strong style={{ color: '#A082F5' }}>{results.spApr.toFixed(2)}% APR</strong>.</>
           ) : (
             <> <strong style={{ color: '#A082F5' }}>{fmtCompact(results.spShare)}</strong>/yr flows to SP stakers ({results.spApr.toFixed(2)}% APR).{' '}
             <strong style={{ color: '#EFA960' }}>{fmtCompact(results.daoShare)}</strong>/yr goes to the DAO via the interestRouter.</>
