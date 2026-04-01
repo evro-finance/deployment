@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useId } from 'react';
+import evroTokenUrl from '../assets/evro-token.svg?url';
 import {
   Background,
   BaseEdge,
@@ -109,8 +110,8 @@ function EnergyEdge({
   });
 
   const cx = (laneCount - 1) / 2;
-  const pillX = labelX + (lane - cx) * 6;
-  const pillY = labelY + (lane - cx) * 3;
+  const pillX = labelX + (lane - cx) * 13;
+  const pillY = labelY;
 
   // Unique animation id per edge
   const animId = `flow-${id}`;
@@ -216,10 +217,10 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
 
   // Per-tier visual configuration
   const cfg = isCapital
-    ? { bg: C.shark,       fg: 'rgba(253,254,253,0.96)', border: 'rgba(253,254,253,0.10)', w: 148 }
+    ? { bg: C.surface,     fg: C.shark,                  border: C.border,               w: 200 }
     : isMint
     ? { bg: C.purple,      fg: 'rgba(253,254,253,0.96)', border: 'rgba(253,254,253,0.12)', w: 168 }
-    : { bg: C.surface,     fg: C.shark,                  border: C.border,               w: 80  };
+    : { bg: C.surface,     fg: C.shark,                  border: C.border,               w: 102 };
 
   const nSrc = sourceHandles?.length ?? 0;
   const nTgt = targetHandles?.length ?? 0;
@@ -231,6 +232,7 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
         background:  cfg.bg,
         color:       cfg.fg,
         border:      `1px solid ${cfg.border}`,
+        borderTop:   isCapital ? `2px solid ${C.purple}` : isMint ? '2px solid rgba(255,255,255,0.45)' : `1px solid ${cfg.border}`,
         borderRadius: isL2 ? 8 : 6,
         padding:     isL2 ? '7px 9px' : '8px 10px',
         width:       cfg.w,
@@ -238,8 +240,10 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
           ? `0 1px 8px rgba(160,129,245,0.08)`
           : `0 2px 14px rgba(0,0,0,0.10)`,
         position: 'relative',
+        overflow: 'visible',
       }}
     >
+
       {/* Status orb — top-right, capital + mint only */}
       {!isL2 && (
         <span
@@ -280,8 +284,39 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
         letterSpacing: isL2 ? '0' : '0.04em',
         lineHeight:    1.2,
         paddingRight:  !isL2 ? '10px' : 0,
+        textAlign:     isMint ? 'right' as const : undefined,
       }}>
-        {label}
+        {isMint ? (
+          <>
+            <style>{`
+              @keyframes evro-pulse {
+                0%   { transform: scale(1) translateY(-50%);    box-shadow: 0 0 0px 0px rgba(160,129,245,0); }
+                50%  { transform: scale(1.10) translateY(-50%); box-shadow: 0 0 14px 6px rgba(160,129,245,0.45); }
+                100% { transform: scale(1) translateY(-50%);    box-shadow: 0 0 0px 0px rgba(160,129,245,0); }
+              }
+            `}</style>
+            <img
+              src={evroTokenUrl}
+              alt="EVRO"
+              style={{
+                position:  'absolute',
+                left:      -20,
+                top:       '50%',
+                transform: 'translateY(-50%)',
+                width:     40,
+                height:    40,
+                borderRadius: '50%',
+                flexShrink: 0,
+                animation: 'evro-pulse 2.4s ease-in-out infinite',
+                pointerEvents: 'none',
+              }}
+            />
+            <span>
+              {label.split(' · ')[0]}
+              <span style={{ fontSize: '0.55rem', verticalAlign: 'middle', position: 'relative', top: '-0.1em' }}> · {label.split(' · ')[1]}</span>
+            </span>
+          </>
+        ) : label}
       </div>
 
       {/* Sublabel */}
@@ -360,14 +395,14 @@ function buildGraph(
   const edgeBase = { strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 
   // ── TIER 0: Capital ─────────────────────────────────────────────────────
-  const capW = 148;
+  const capW = 200;
   nodes.push({
     id: 'capital',
     type: 'sankeyCard',
     position: { x: (CANVAS_W - capW) / 2, y: TIER_CAPITAL },
     data: {
-      label:    'Genesis Capital',
-      sublabel: fmtEur(totalAllocated) + ' deployed',
+      label:    '$' + totalAllocated.toLocaleString('en-US', { maximumFractionDigits: 0 }),
+      sublabel: 'Your deployment',
       accent:   C.purple,
       tier:     'capital',
       health:   'ok',
@@ -385,8 +420,8 @@ function buildGraph(
     type: 'sankeyCard',
     position: { x: (CANVAS_W - mintW) / 2, y: TIER_MINT },
     data: {
-      label:    'Minted EVRO',
-      sublabel: fmtEur(totalMinted),
+      label:    '€' + Math.round(totalMinted).toLocaleString('en-US') + ' · EVRO MINTED',
+      sublabel: '',
       accent:   C.purpleLight,
       tier:     'mint',
       health:   'ok',
