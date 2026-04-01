@@ -153,6 +153,7 @@ function App() {
         l2Shares={l2Shares}
         onAdjustL2Shares={onAdjustL2Shares}
       />
+
       <Layer2Section />
       <CohortSection />
 

@@ -75,6 +75,18 @@ export function get(section: string, field: string, fallback = ''): string {
   return content[section]?.[field] ?? fallback;
 }
 
+/** Replace `{{key}}` placeholders — use for copy that includes dynamic numbers */
+export function fillTemplate(
+  template: string,
+  vars: Record<string, string | number>
+): string {
+  if (!template) return '';
+  return template.replace(/\{\{(\w+)\}\}/g, (_, key: string) => {
+    const v = vars[key];
+    return v !== undefined && v !== null ? String(v) : '';
+  });
+}
+
 /**
  * Get all fields matching a prefix pattern as an array.
  * Usage: getList('risk', 'risk', ['title', 'mitigation'])

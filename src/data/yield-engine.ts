@@ -10,6 +10,8 @@
 import boldSpYields from './historical/bold_sp_yields_365.json';
 import processedYields from './historical/processed_yields_365.json';
 import venueReport from './historical/venue_comparison_report.json';
+import type { L2Shares } from './branches';
+import { DEFAULT_L2_SHARES } from './branches';
 
 // ── Types ──────────────────────────────────────────────────
 
@@ -44,8 +46,11 @@ interface DayResult {
   daoRevenue: number;         // cumulative
   daoRevenueDaily: number;
 
+  /** Cumulative share of the 25% interest bucket routed back to LPs (not DAO) */
+  redirectYield: number;
+
   // Totals
-  evroTotal: number;          // cumulative all layers
+  evroTotal: number;          // cumulative LP-facing total (= sum of stacked chart bands incl. redirect)
   dailyTotal: number;
 
   // BOLD SP APY for the day (for display)
@@ -69,12 +74,15 @@ export interface YieldResult {
   days: DayResult[];
   months: MonthResult[];
   totals: {
+    totalMinted: number;
     spYield: number;
     sdaiYield: number;
     stakingYield: number;
     cowFees: number;
     lvrCaptured: number;
     daoRevenue: number;
+    /** LP share of interest router 25% bucket (cumulative) */
+    redirectedToLp: number;
     evroTotal: number;
     annualizedPct: number;
     totalDays: number;
@@ -148,6 +156,7 @@ export function computeYield(
   totalCapital: number,
   branches: BranchAlloc[],
   incentiveShare: number = 0, // 0 = EVRO gets 25%, 1 = all to LPs
+  l2: L2Shares = DEFAULT_L2_SHARES,
 ): YieldResult {
   // Compute allocations from branches
   const totalWeight = branches.reduce((s, b) => s + b.weight, 0);
@@ -171,8 +180,7 @@ export function computeYield(
   }
   blendedRate = totalMinted > 0 ? blendedRate / totalMinted : 0;
 
-  // LP allocation — assume 40% of minted goes to Anchor Pool (CoW AMM)
-  const anchorAlloc = totalMinted * 0.40;
+  const anchorAlloc = totalMinted * l2.anchor;
 
   // Generate sorted date list from SP data within our window
   const dates = spData.map(d => d.date).sort();
@@ -199,9 +207,8 @@ export function computeYield(
     // ── L1: Protocol revenue (BOLD SP APY proxy) ──
     const spApy = spApyMap.get(date) || 2.5; // fallback to conservative
     const spDailyRate = spApy / 100 / 365;
-    // Apply SP yield to the minted EVRO in the Stability Pool
-    // Assume 40% of minted goes to SP
-    const spAlloc = totalMinted * 0.40;
+    // Apply SP yield to EVRO in the Stability Pool (share of minted aligns with Layer 2 map).
+    const spAlloc = totalMinted * l2.sp;
     const spDaily = spAlloc * spDailyRate;
     cumSp += spDaily;
 
@@ -265,6 +272,7 @@ export function computeYield(
       lvrCapturedDaily: lvrDaily,
       daoRevenue: cumDao,
       daoRevenueDaily: daoDaily,
+      redirectYield: cumRedirected,
       evroTotal,
       dailyTotal,
       boldSpApy: spApy,
@@ -318,12 +326,14 @@ export function computeYield(
     days,
     months,
     totals: {
+      totalMinted,
       spYield: last?.spYield || 0,
       sdaiYield: last?.sdaiYield || 0,
       stakingYield: last?.stakingYield || 0,
       cowFees: last?.cowFees || 0,
       lvrCaptured: last?.lvrCaptured || 0,
       daoRevenue: last?.daoRevenue || 0,
+      redirectedToLp: last?.redirectYield || 0,
       evroTotal: last?.evroTotal || 0,
       annualizedPct,
       totalDays,

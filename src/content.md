@@ -1,3 +1,8 @@
+<!--
+  Genesis on-page copy. Edit here — Vite hot-reloads into components via get().
+  Confirm wording in the browser; numbers and controls still come from the app logic.
+-->
+
 # hero
 
 ## title
@@ -10,48 +15,36 @@ EVRO Genesis · Capital Deployment Guide
 EVRO is a CDP-issued Euro stablecoin on Gnosis Chain — asset-isolated minting, MEV-protected liquidity, real yield from day one. The architecture operates across two layers: **Layer 1 (Minting)** locks collateral across 6 isolated branches. **Layer 2 (Distribution)** deploys minted EVRO into 3 liquidity venues for market depth, peg stability, and swap routing.
 
 ## body2
-This is a deployment guide with interactive dashboards to model your position. For the full evidentiary basis — protocol mechanics, audit reports, venue data, and source methodology — see the [Research Compendium](/research.html).
+Use this deployment guide's dashboards to model your position. For the full evidentiary basis — see the [Research Compendium](/research.html).
 
 ## meta
-Prepared for: GnosisDAO | Date: March 31, 2026 | Version: IDE-Assisted Final | Status: Ready for Submission Review
+Prepared for: GnosisDAO | Date: March 31, 2026
 
 ---
 
 # problem
 
+## label
+The Problem
+
 ## title
-European Capital On-Chain Is Dead Capital
+European Capital On-Chain Shouldn't be Dead Capital
+
+## pullquote
+The decentralized Euro CDP market will be empty.
 
 ## body
-European capital on-chain is dead capital. EURe yields **0%**. USD stablecoin holders earn **4%+** through the DAI Savings Rate. The only other Euro CDP — Angle Protocol — is shutting down. The decentralized Euro CDP market will be empty.
+European capital on-chain is dead capital. EURe yields **0%**. USD stablecoin holders earn **4%+** through the DAI Savings Rate but remain exposed to FX. The only other Euro CDP — Angle Protocol — is shutting down.
 
 ## body2
-EVRO fills this gap: a Euro stablecoin backed by real yield — sDAI earning the Savings Rate, wstETH earning staking rewards, GNO earning validator income — with MEV protection through batch auction settlement.
-
-## stat-1-label
-Angle Protocol Supply (Peak)
-
-## stat-1-value
-$180M
-
-## stat-2-label
-Angle Protocol Supply (Now)
-
-## stat-2-value
-$4M
-
-## stat-3-label
-EURe Native Yield
-
-## stat-3-value
-~0%
+**EVRO fills this gap:** a Euro stablecoin backed by real yield — sDAI earning the Savings Rate, wstETH earning staking rewards, GNO earning validator income — with MEV protection through batch auction settlement (CoW Swap AMM).
 
 ---
 
 # simulator
 
 ## title
-Deployment Architecture
+Simulate your positions with 1 year of market data
 
 ## body
 Drag the slider to model different deployment sizes.
@@ -59,9 +52,162 @@ Drag the slider to model different deployment sizes.
 ## methodology
 Historical replay — Apr 1 2025 to Mar 31 2026. Every number is computed from real on-chain data: BOLD Stability Pool APY (interest + liquidation gains), sDAI and wstETH compounding ratios, GNO staking yields, and CoW AMM batch-auction settlement fees. Not a projection.
 
-## cr-strategy
+---
 
-## rate-strategy
+# deploy
+
+## section-label
+Deployment Plan
+
+## capital-label
+Capital
+
+## capital-min
+€1M
+
+## capital-max
+€25M
+
+## posture-label
+Posture
+
+## posture-conservative
+Conservative
+
+## posture-balanced
+Balanced
+
+## posture-aggressive
+Aggressive
+
+## posture-hint-left
+↑ CR ↓ Rate
+
+## posture-hint-right
+↓ CR ↑ Rate
+
+## router-label
+Interest Router
+
+## router-summary-dao25
+25% DAO
+
+## router-summary-all-lps
+All LPs
+
+## router-summary-partial
+{{pct}}% DAO
+
+## router-end-dao
+DAO
+
+## router-end-lps
+LPs
+
+## apy-label
+Annualized Yield
+
+## apy-footnote
+SP yield · Collateral staking · CoW AMM fees
+
+## lp-position-label
+LP position ({{days}}d)
+
+## dao-fee-label
+DAO fee ({{pct}}%)
+
+## net-gnosis-label
+Net to Gnosis
+
+## map-title
+Capital Map
+
+## map-collateral
+Collateral locked
+
+## map-minted
+EVRO minted
+
+## map-line-sp
+　→ Stability Pool
+
+## map-line-anchor
+　→ CoW AMM · sDAI/EVRO
+
+## map-line-bridge
+　→ Curve · EURe/EVRO
+
+## map-line-reserve
+　→ Reserve · operational buffer
+
+## branch-title
+Branch Allocation
+
+## branch-pie-caption
+Allocation mix
+
+## branch-hint
+Set allocation with the chart sliders (weights normalize to 100%). Posture sets CR and buffer; adjust interest rate per branch in the table.
+
+## weight-warning
+Weights sum to {{pct}}% — values are normalized to 100%.
+
+## l2-card-title
+Liquidity Pool Allocation — Layer 2
+
+## l2-card-hint
+Shares below match the Layer 2 split next to the replay chart (sliders normalize to 100%).
+
+## col-branch
+Branch
+
+## col-weight
+Weight
+
+## col-capital
+Capital
+
+## col-cr
+CR
+
+## col-minted
+Minted
+
+## col-rate
+Rate
+
+## col-interest
+Interest/yr
+
+## col-buffer
+Buffer
+
+## l2-col-destination
+Destination
+
+## l2-col-pair
+Pair / Venue
+
+## l2-col-evro
+EVRO
+
+## l2-col-pct
+% Minted
+
+## l2-col-role
+Role
+
+## prose-line1
+At **{{capital}}** deployed, the protocol mints **{{minted}}** EVRO across **{{branchCount}}** branches. Borrowers pay **{{interest}}**/yr in interest at a blended rate of **{{blendedRate}}%**.
+
+## prose-era-first
+ In the First Era, **100%** of interest income flows to SP depositors (EVRO) — earning **{{apr}}% APR**.
+
+## prose-era-split
+ **{{spShare}}**/yr flows to SP stakers ({{apr}}% APR). **{{daoShare}}**/yr goes to the DAO via the interestRouter.
+
+## prose-footnote
+Deployment narrative above is borrower interest only. The replay adds collateral, LP, and router yields from historical data.
 
 ---
 
@@ -118,6 +264,24 @@ Why Curve for the Bridge?
 ## curve-body
 Curve lacks native MEV protection, meaning arb-bots extract value from the pool. By capping the allocation, this bleed is contained as a fixed cost-center — the price of enabling EURe/EVRO retail swap routing on Gnosis Chain.
 
+## sp-table-role
+Liquidation backstop · earns 75% of all Trove interest
+
+## anchor-table-role
+FM-AMM primary depth · LVR surplus returned to LPs
+
+## bridge-table-role
+EURe ↔ EVRO retail routing · size-capped cost-center
+
+## reserve-title
+Reserve
+
+## reserve-venue
+Operational buffer
+
+## reserve-table-role
+Held undeployed · available for rebalancing or new venues
+
 ---
 
 # cohorts
@@ -169,82 +333,6 @@ EVRO would be the European version. Instead of earning USD-denominated Aave yiel
 
 ---
 
-# risk
-
-## title
-Isolation by Design
-
-## body
-The EVRO protocol enforces contagion prevention at the smart contract layer. Every risk vector is structurally contained.
-
-## risk-1-title
-Collateral Crash
-
-## risk-1-mitigation
-Each branch is an isolated vault. A GNO crash cannot trigger sDAI liquidation.
-
-## risk-2-title
-Redemption Queue
-
-## risk-2-mitigation
-Interest rates are set defensively to avoid front-of-queue exposure.
-
-## risk-3-title
-MEV / LVR Extraction
-
-## risk-3-mitigation
-FM-AMM batch settlement via CoW AMM on the Anchor Pool.
-
-## risk-4-title
-Curve LVR Bleed
-
-## risk-4-mitigation
-Allocation capped to contain bleed as a controlled cost-center.
-
-## risk-5-title
-Oracle Lag
-
-## risk-5-mitigation
-CR buffers absorb moderate oracle lag.
-
-## risk-6-title
-FX Risk (EUR/USD)
-
-## risk-6-mitigation
-Stablecoin branches (sDAI, wXDAI) exposed to EUR/USD pricing. CR buffers absorb moderate FX moves.
-
----
-
-# sustainability
-
-## title
-Protocol Sustainability
-
-## body
-The EVRO protocol generates revenue from borrowing interest — not from trading fees, not from token emissions, not from external incentive programs. Every basis point of interest paid by a Trove borrower splits into two streams, hardcoded in the protocol's smart contracts:
-
-## sp-share
-**75%** flows to the Stability Pool. This is the base yield — the economic reason to hold EVRO. At the Genesis deployment's blended interest rate (~3.8%), Stability Pool stakers earn approximately **2.85% APR** from interest income alone, before any liquidation discount gains.
-
-## dao-share
-**25%** flows to the EVRO DAO via the interestRouter. The DAO — a Moloch v3 (Baal) instance on Gnosis Chain — governs how this stream is allocated: LP incentives, ecosystem partnerships, and protocol growth initiatives.
-
-## sp-note
-The Stability Pool also functions as a counter-cyclical asset acquisition engine. When a Trove in any branch is liquidated, SP stakers absorb the debt and receive the liquidated collateral at a protocol discount. During market stress — precisely when other yield sources compress — the Stability Pool activates, capturing discounted GNO, wstETH, sDAI, and other collateral across all 6 branches. This is not a secondary benefit. It is the structural reason the Stability Pool outperforms during volatility.
-
-## token-body
-The governance token, **RETVRN**, has a fixed supply of **100,000,000** tokens distributed at launch across RaidGuild (30%), GnosisDAO (15%), and the DAO treasury (55%). RETVRN is not an emissions token. It is a governance token with revenue alignment. The name is the mandate: manage the interestRouter — the stream that turns deployed capital into sustained ecosystem depth.
-
-## alignment
-This design resolves a specific structural failure. Legacy protocol DAOs that earn from DEX trading fees are positively correlated with bot extraction volume — the DAO profits when LPs are harmed. EVRO's revenue comes from borrowing rates set by borrowers themselves. LP retention drives borrowing depth, which drives DAO revenue. The DAO is aligned with LP protection — not extraction. This is the incentive architecture that Angle's agEUR lacked when it collapsed from $180M to $4M in circulating supply.
-
-## revenue-5m
-At €5M deployed with a ~3.8% blended interest rate: annual interest income ~€190,000. Stability Pool share (75%): ~€142,500/yr. DAO treasury share (25%): ~€47,500/yr.
-
-## revenue-25m
-
----
-
 # growth
 
 ## title
@@ -274,8 +362,6 @@ Organic Migration
 LPs on legacy venues realize they're being extracted by bots. EVRO offers what they can't get elsewhere: real yield, rate sovereignty, and MEV protection.
 
 *The team: BD with extracted LPs, money market listings, partnership pipeline.*
-
-
 
 ## phase-3-title
 Treasury Adoption

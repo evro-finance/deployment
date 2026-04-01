@@ -1,10 +1,23 @@
-import { useMemo } from 'react';
-import { BRANCHES, fmt, fmtCompact, fmtPct } from '../data/branches';
-import type { Branch } from '../data/branches';
-import { get } from '../data/content';
+import { useMemo, type CSSProperties, type ReactNode } from 'react';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+import {
+  BRANCHES,
+  fmt,
+  fmtCompact,
+  fmtPct,
+} from '../data/branches';
+import type { Branch, L2Shares } from '../data/branches';
+import { get, fillTemplate } from '../data/content';
 import type { BranchState } from '../App';
 
 import type { YieldResult } from '../data/yield-engine';
+import { RevenueReplay } from './RevenueReplay';
 
 interface DeploymentPlanProps {
   totalCapital: number;
@@ -16,11 +29,115 @@ interface DeploymentPlanProps {
   posture: number;
   onPostureChange: (val: number) => void;
   yieldTotals: YieldResult['totals'];
+  yieldResult: YieldResult;
+  l2Shares: L2Shares;
+  onAdjustL2Shares: (key: keyof L2Shares, target: number) => void;
 }
 
-const STEP_WEIGHT = 0.01;
-const STEP_CR = 0.05;
 const STEP_RATE = 0.005;
+
+function mdBold(html: string) {
+  return html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+}
+
+/** Row shape from compute block — single source for column renderers */
+type BranchPlanRow = Branch & {
+  normalizedWeight: number;
+  allocated: number;
+  minted: number;
+  interest: number;
+  cr: number;
+  rate: number;
+  rawWeight: number;
+  buffer: number;
+};
+
+type BranchColumnAlign = 'left' | 'center' | 'right';
+
+interface BranchTableColumn {
+  id: string;
+  header: string;
+  align: BranchColumnAlign;
+  headerStyle?: CSSProperties;
+  tdClassName?: string;
+  cell: (b: BranchPlanRow) => ReactNode;
+}
+
+/** Layer 2 venue row — reorder `layer2Rows` data to reorder rows; columns are `LAYER2_TABLE_COLUMNS` */
+interface Layer2VenueRow {
+  id: string;
+  dotColor: string;
+  name: string;
+  pairVenue: string;
+  evroValue: number;
+  evroTextColor: string;
+  pctMinted: string;
+  role: string;
+  rowOpacity?: number;
+}
+
+interface Layer2TableColumn {
+  id: string;
+  header: string;
+  align: BranchColumnAlign;
+  headerStyle?: CSSProperties;
+  tdClassName?: string;
+  cell: (row: Layer2VenueRow) => ReactNode;
+}
+
+/** Column layout for Layer 2 deploy table — headers from content.md `# deploy` */
+function buildLayer2TableColumns(): Layer2TableColumn[] {
+  return [
+    {
+      id: 'destination',
+      header: get('deploy', 'l2-col-destination'),
+      align: 'left',
+      headerStyle: { width: '160px' },
+      cell: (row) => (
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: row.dotColor, flexShrink: 0 }} />
+          <strong style={{ color: 'var(--foreground)' }}>{row.name}</strong>
+        </span>
+      ),
+    },
+    {
+      id: 'pair',
+      header: get('deploy', 'l2-col-pair'),
+      align: 'left',
+      cell: (row) => (
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
+          {row.pairVenue}
+        </span>
+      ),
+    },
+    {
+      id: 'evro',
+      header: get('deploy', 'l2-col-evro'),
+      align: 'right',
+      tdClassName: 'value',
+      cell: (row) => (
+        <span style={{ color: row.evroTextColor }}>{fmtCompact(row.evroValue)}</span>
+      ),
+    },
+    {
+      id: 'pct',
+      header: get('deploy', 'l2-col-pct'),
+      align: 'right',
+      tdClassName: 'value',
+      cell: (row) => row.pctMinted,
+    },
+    {
+      id: 'role',
+      header: get('deploy', 'l2-col-role'),
+      align: 'left',
+      cell: (row) => (
+        <span style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
+          {row.role}
+        </span>
+      ),
+    },
+  ];
+}
 
 function Stepper({ value, onUp, onDown, format }: {
   value: number;
@@ -29,35 +146,94 @@ function Stepper({ value, onUp, onDown, format }: {
   format: (v: number) => string;
 }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-      <button
-        onClick={onDown}
-        style={{
-          width: 22, height: 22, borderRadius: 4, border: '1px solid rgba(160,130,245,0.2)',
-          background: 'transparent', color: 'var(--muted-foreground)', cursor: 'pointer',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem',
-          fontFamily: 'var(--font-mono)', transition: 'all 0.15s',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(160,130,245,0.08)'; }}
-        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
-      >▾</button>
-      <span style={{
-        fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600,
-        minWidth: '52px', textAlign: 'center', color: 'var(--foreground)',
-      }}>
-        {format(value)}
-      </span>
-      <button
-        onClick={onUp}
-        style={{
-          width: 22, height: 22, borderRadius: 4, border: '1px solid rgba(160,130,245,0.2)',
-          background: 'transparent', color: 'var(--muted-foreground)', cursor: 'pointer',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem',
-          fontFamily: 'var(--font-mono)', transition: 'all 0.15s',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(160,130,245,0.08)'; }}
-        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
-      >▴</button>
+    <div className="stepper">
+      <button type="button" className="stepper__btn" onClick={onDown} aria-label="Decrease">▾</button>
+      <span className="stepper__value">{format(value)}</span>
+      <button type="button" className="stepper__btn" onClick={onUp} aria-label="Increase">▴</button>
+    </div>
+  );
+}
+
+function BranchWeightPiePanel({
+  rows,
+  branchStates,
+  onUpdateBranch,
+}: {
+  rows: BranchPlanRow[];
+  branchStates: Record<string, BranchState>;
+  onUpdateBranch: (id: string, field: keyof BranchState, delta: number) => void;
+}) {
+  const totalW = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
+  const pieData = rows.map(b => ({
+    id: b.id,
+    name: b.name,
+    value: Math.max(b.normalizedWeight * 100, 0.0001),
+    fill: b.color,
+  }));
+
+  return (
+    <div className="glass-card" style={{ padding: '16px 16px 18px', flex: '0 0 auto', width: 'min(100%, 280px)' }}>
+      <p className="branch-weight-pie__caption">{get('deploy', 'branch-pie-caption')}</p>
+      <div style={{ height: 200, width: '100%', marginBottom: 14 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              data={pieData}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              innerRadius={54}
+              outerRadius={82}
+              paddingAngle={2}
+              stroke="rgba(29,28,31,0.08)"
+              strokeWidth={1}
+            >
+              {pieData.map(entry => (
+                <Cell key={entry.id} fill={entry.fill} />
+              ))}
+            </Pie>
+            <Tooltip
+              formatter={(value: unknown) => {
+                const v = Array.isArray(value) ? value[0] : value;
+                return [`${Number(v).toFixed(1)}%`, 'Share'];
+              }}
+              contentStyle={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.7rem',
+                background: 'rgba(29,28,31,0.95)',
+                border: '1px solid rgba(160,130,245,0.25)',
+                borderRadius: 6,
+                color: '#E8E6ED',
+              }}
+            />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+      {rows.map(b => {
+        const w = branchStates[b.id].weight;
+        const pct = totalW > 0 ? (w / totalW) * 100 : 0;
+        return (
+          <div key={b.id} className="branch-weight-pie__slider-row">
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: b.color, flexShrink: 0 }} aria-hidden />
+            <span className="branch-weight-pie__slider-label" title={b.name}>{b.name}</span>
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step={0.01}
+              value={w}
+              onChange={e => {
+                const v = Number(e.target.value);
+                const cur = branchStates[b.id].weight;
+                onUpdateBranch(b.id, 'weight', v - cur);
+              }}
+              aria-label={`${b.name} allocation weight`}
+            />
+            <span className="branch-weight-pie__slider-pct">{pct.toFixed(0)}%</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -68,6 +244,9 @@ export function DeploymentPlan({
   incentiveShare, onIncentiveChange,
   posture, onPostureChange,
   yieldTotals,
+  yieldResult,
+  l2Shares,
+  onAdjustL2Shares,
 }: DeploymentPlanProps) {
 
   const totalWeight = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
@@ -106,17 +285,148 @@ export function DeploymentPlan({
     return { branches, totalMinted, totalInterest, spShare, daoShare, spApr };
   }, [branchStates, totalCapital, totalWeight, incentiveShare]);
 
-  // Layer 2: proportional split — 35/35/18/12% derived from genesis plan at conservative CR.
-  // Reserve is always the smallest allocation and always > 0.
   const { totalMinted } = results;
-  const spAlloc     = totalMinted * 0.35;
-  const anchorAlloc = totalMinted * 0.35;
-  const bridgeAlloc = totalMinted * 0.18;
-  const reserveAlloc = totalMinted * 0.12;
+  const spAlloc      = totalMinted * l2Shares.sp;
+  const anchorAlloc  = totalMinted * l2Shares.anchor;
+  const bridgeAlloc  = totalMinted * l2Shares.bridge;
+  const reserveAlloc = totalMinted * l2Shares.reserve;
+
+  /** Reorder this array to reorder columns — header + body stay in sync */
+  const branchTableColumns = useMemo((): BranchTableColumn[] => [
+    {
+      id: 'branch',
+      header: get('deploy', 'col-branch'),
+      align: 'left',
+      headerStyle: { width: '100px' },
+      cell: (b) => (
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ width: 8, height: 8, borderRadius: '50%', background: b.color, flexShrink: 0 }} />
+          <strong style={{ color: 'var(--foreground)' }}>{b.name}</strong>
+        </span>
+      ),
+    },
+    {
+      id: 'weight',
+      header: get('deploy', 'col-weight'),
+      align: 'center',
+      cell: (b) => (
+        <span className="deploy-pill">
+          {totalWeight > 0 ? `${((b.rawWeight / totalWeight) * 100).toFixed(0)}%` : '—'}
+        </span>
+      ),
+    },
+    {
+      id: 'capital',
+      header: get('deploy', 'col-capital'),
+      align: 'right',
+      tdClassName: 'value',
+      cell: (b) => fmtCompact(b.allocated),
+    },
+    {
+      id: 'cr',
+      header: get('deploy', 'col-cr'),
+      align: 'center',
+      cell: (b) => (
+        <span className="deploy-pill deploy-pill--cr">{`${(b.cr * 100).toFixed(0)}%`}</span>
+      ),
+    },
+    {
+      id: 'minted',
+      header: get('deploy', 'col-minted'),
+      align: 'right',
+      tdClassName: 'value',
+      cell: (b) => <span style={{ color: 'var(--accent)' }}>{fmtCompact(b.minted)}</span>,
+    },
+    {
+      id: 'rate',
+      header: get('deploy', 'col-rate'),
+      align: 'center',
+      cell: (b) => (
+        <Stepper
+          value={b.rate}
+          onUp={() => onUpdateBranch(b.id, 'rate', STEP_RATE)}
+          onDown={() => onUpdateBranch(b.id, 'rate', -STEP_RATE)}
+          format={v => `${(v * 100).toFixed(1)}%`}
+        />
+      ),
+    },
+    {
+      id: 'interest',
+      header: get('deploy', 'col-interest'),
+      align: 'right',
+      tdClassName: 'value',
+      cell: (b) => fmtCompact(b.interest),
+    },
+    {
+      id: 'buffer',
+      header: get('deploy', 'col-buffer'),
+      align: 'center',
+      cell: (b) => {
+        const buf = b.buffer;
+        const color = buf < 0.15 ? 'var(--evro-pink)' : buf < 0.30 ? 'var(--evro-orange)' : 'var(--evro-green)';
+        const bg = buf < 0.15 ? 'rgba(245,136,155,0.06)' : buf < 0.30 ? 'rgba(239,169,96,0.06)' : 'rgba(74,222,128,0.06)';
+        return (
+          <span
+            className="deploy-pill deploy-pill--buffer"
+            style={{ color, borderColor: color, background: bg }}
+          >
+            {fmtPct(buf)}
+          </span>
+        );
+      },
+    },
+  ], [onUpdateBranch, totalWeight]);
+
+  /** Reorder this array to reorder Layer 2 rows — names/roles from content.md `# layer2` */
+  const layer2Rows = useMemo((): Layer2VenueRow[] => [
+    {
+      id: 'sp',
+      dotColor: 'var(--evro-purple)',
+      name: get('layer2', 'sp-title'),
+      pairVenue: get('layer2', 'sp-venue'),
+      evroValue: spAlloc,
+      evroTextColor: 'var(--evro-purple)',
+      pctMinted: `${Math.round(l2Shares.sp * 100)}%`,
+      role: get('layer2', 'sp-table-role'),
+    },
+    {
+      id: 'anchor',
+      dotColor: 'var(--evro-blue)',
+      name: get('layer2', 'anchor-title'),
+      pairVenue: `${get('layer2', 'anchor-pair')} · ${get('layer2', 'anchor-venue')}`,
+      evroValue: anchorAlloc,
+      evroTextColor: 'var(--evro-blue)',
+      pctMinted: `${Math.round(l2Shares.anchor * 100)}%`,
+      role: get('layer2', 'anchor-table-role'),
+    },
+    {
+      id: 'bridge',
+      dotColor: 'var(--evro-orange)',
+      name: get('layer2', 'bridge-title'),
+      pairVenue: `${get('layer2', 'bridge-pair')} · ${get('layer2', 'bridge-venue')}`,
+      evroValue: bridgeAlloc,
+      evroTextColor: 'var(--evro-orange)',
+      pctMinted: `${Math.round(l2Shares.bridge * 100)}%`,
+      role: get('layer2', 'bridge-table-role'),
+    },
+    {
+      id: 'reserve',
+      dotColor: 'var(--muted-foreground)',
+      name: get('layer2', 'reserve-title'),
+      pairVenue: get('layer2', 'reserve-venue'),
+      evroValue: reserveAlloc,
+      evroTextColor: 'var(--muted-foreground)',
+      pctMinted: `${Math.round(l2Shares.reserve * 100)}%`,
+      role: get('layer2', 'reserve-table-role'),
+      rowOpacity: 0.75,
+    },
+  ], [spAlloc, anchorAlloc, bridgeAlloc, reserveAlloc, l2Shares]);
+
+  const layer2Columns = buildLayer2TableColumns();
 
   return (
     <section className="section">
-      <div className="label" style={{ marginBottom: '12px' }}>Deployment Plan</div>
+      <div className="label" style={{ marginBottom: '12px' }}>{get('deploy', 'section-label')}</div>
       <h2 className="heading-lg" style={{ marginBottom: '8px' }}>
         {get('simulator', 'title')}
       </h2>
@@ -145,7 +455,7 @@ export function DeploymentPlan({
         <div className="glass-card" style={{ padding: '14px 18px', flex: '0 0 30%', minWidth: 0 }}>
           {/* Capital */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-            <span className="label" style={{ fontSize: '0.6rem' }}>Capital</span>
+            <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'capital-label')}</span>
             <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
           </div>
           <input
@@ -155,19 +465,19 @@ export function DeploymentPlan({
             style={{ margin: 0 }}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px', marginBottom: '8px' }}>
-            <span className="label-sm" style={{ fontSize: '0.5rem' }}>€1M</span>
-            <span className="label-sm" style={{ fontSize: '0.5rem' }}>€25M</span>
+            <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-min')}</span>
+            <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-max')}</span>
           </div>
 
           {/* Posture */}
           <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-              <span className="label" style={{ fontSize: '0.6rem' }}>Posture</span>
+              <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'posture-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
                 color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A082F5',
               }}>
-                {posture < 0.35 ? 'Conservative' : posture > 0.65 ? 'Aggressive' : 'Balanced'}
+                {posture < 0.35 ? get('deploy', 'posture-conservative') : posture > 0.65 ? get('deploy', 'posture-aggressive') : get('deploy', 'posture-balanced')}
               </span>
             </div>
             <input
@@ -177,20 +487,24 @@ export function DeploymentPlan({
               style={{ margin: 0 }}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
-              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>↑ CR ↓ Rate</span>
-              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#EFA960' }}>↓ CR ↑ Rate</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'posture-hint-left')}</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#EFA960' }}>{get('deploy', 'posture-hint-right')}</span>
             </div>
           </div>
 
           {/* Interest Router */}
           <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px', marginTop: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-              <span className="label" style={{ fontSize: '0.6rem' }}>Interest Router</span>
+              <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'router-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
                 color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A082F5',
               }}>
-                {incentiveShare < 0.15 ? '25% DAO' : incentiveShare > 0.85 ? 'All LPs' : `${Math.round((1 - incentiveShare) * 25)}% DAO`}
+                {incentiveShare < 0.15
+                  ? get('deploy', 'router-summary-dao25')
+                  : incentiveShare > 0.85
+                    ? get('deploy', 'router-summary-all-lps')
+                    : fillTemplate(get('deploy', 'router-summary-partial'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
               </span>
             </div>
             <input
@@ -200,8 +514,8 @@ export function DeploymentPlan({
               style={{ margin: 0 }}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
-              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>DAO</span>
-              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#EFA960' }}>LPs</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'router-end-dao')}</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#EFA960' }}>{get('deploy', 'router-end-lps')}</span>
             </div>
           </div>
         </div>
@@ -212,7 +526,7 @@ export function DeploymentPlan({
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             {/* Headline: APY */}
             <div style={{ marginBottom: '14px' }}>
-              <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>Annualized Yield</span>
+              <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>{get('deploy', 'apy-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 700,
                 color: '#A082F5', lineHeight: 1,
@@ -220,7 +534,7 @@ export function DeploymentPlan({
                 {yieldTotals.annualizedPct.toFixed(1)}%
               </span>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)', marginTop: '6px', lineHeight: 1.7 }}>
-                SP yield · Collateral staking · CoW AMM fees
+                {get('deploy', 'apy-footnote')}
               </div>
             </div>
 
@@ -229,7 +543,9 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>LP position ({yieldTotals.totalDays}d)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>
+                {fillTemplate(get('deploy', 'lp-position-label'), { days: String(yieldTotals.totalDays) })}
+              </span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A082F5' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
             </div>
 
@@ -238,7 +554,9 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>DAO fee ({Math.round((1 - incentiveShare) * 25)}%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>
+                {fillTemplate(get('deploy', 'dao-fee-label'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
+              </span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>−{fmtCompact(yieldTotals.daoRevenue)}</span>
             </div>
 
@@ -247,7 +565,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '10px 0 0', borderTop: '1px solid rgba(160,130,245,0.15)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>Net to Gnosis</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>{get('deploy', 'net-gnosis-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700,
                 color: '#EFA960',
@@ -259,13 +577,13 @@ export function DeploymentPlan({
 
           {/* Right: capital deployment map */}
           <div style={{ flex: 1, borderLeft: '1px solid rgba(160,130,245,0.06)', paddingLeft: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <span className="label" style={{ fontSize: '0.55rem', display: 'block', marginBottom: '10px' }}>Capital Map</span>
+            <span className="label" style={{ fontSize: '0.55rem', display: 'block', marginBottom: '10px' }}>{get('deploy', 'map-title')}</span>
 
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>Collateral locked</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>{get('deploy', 'map-collateral')}</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--foreground)' }}>{fmtCompact(totalCapital)}</span>
             </div>
 
@@ -273,7 +591,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>EVRO minted</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>{get('deploy', 'map-minted')}</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)' }}>{fmtCompact(results.totalMinted)}</span>
             </div>
 
@@ -281,7 +599,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>　→ Stability Pool</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>{get('deploy', 'map-line-sp')}</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(spAlloc)}</span>
             </div>
 
@@ -289,7 +607,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#7176CA' }}>　→ Anchor · CoW AMM</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#7176CA' }}>{get('deploy', 'map-line-anchor')}</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#7176CA' }}>{fmtCompact(anchorAlloc)}</span>
             </div>
 
@@ -297,7 +615,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#EFA960' }}>　→ Bridge · Curve · EURe/EVRO</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#EFA960' }}>{get('deploy', 'map-line-bridge')}</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#EFA960' }}>{fmtCompact(bridgeAlloc)}</span>
             </div>
 
@@ -305,7 +623,7 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>　→ Reserve · operational buffer</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>{get('deploy', 'map-line-reserve')}</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>{fmtCompact(reserveAlloc)}</span>
             </div>
 
@@ -315,166 +633,106 @@ export function DeploymentPlan({
 
       {/* ── Branch Allocation Table ─────────────────────── */}
       <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
-        <p className="label" style={{ marginBottom: '8px' }}>Branch Allocation</p>
+        <p className="label" style={{ marginBottom: '8px' }}>{get('deploy', 'branch-title')}</p>
         <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
-          Use the arrows to adjust weights, collateral ratios, and interest rates per branch.
+          {get('deploy', 'branch-hint')}
         </p>
-        <div style={{ overflowX: 'auto' }}>
-          <table className="data-table" style={{ minWidth: '780px' }}>
-            <thead>
-              <tr>
-                <th style={{ width: '100px' }}>Branch</th>
-                <th style={{ textAlign: 'center' }}>Weight</th>
-                <th style={{ textAlign: 'right' }}>Capital</th>
-                <th style={{ textAlign: 'center' }}>CR</th>
-                <th style={{ textAlign: 'right' }}>Minted</th>
-                <th style={{ textAlign: 'center' }}>Rate</th>
-                <th style={{ textAlign: 'right' }}>Interest/yr</th>
-                <th style={{ textAlign: 'center' }}>Buffer</th>
-              </tr>
-            </thead>
-            <tbody>
-              {results.branches.map(b => (
-                <tr key={b.id}>
-                  <td>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ width: 8, height: 8, borderRadius: '50%', background: b.color, flexShrink: 0 }} />
-                      <strong style={{ color: 'var(--foreground)' }}>{b.name}</strong>
-                    </span>
-                  </td>
-                  <td style={{ textAlign: 'center' }}>
-                    <Stepper
-                      value={b.rawWeight}
-                      onUp={() => onUpdateBranch(b.id, 'weight', STEP_WEIGHT)}
-                      onDown={() => onUpdateBranch(b.id, 'weight', -STEP_WEIGHT)}
-                      format={v => `${(v * 100).toFixed(0)}%`}
-                    />
-                  </td>
-                  <td className="value" style={{ textAlign: 'right' }}>{fmtCompact(b.allocated)}</td>
-                  <td style={{ textAlign: 'center' }}>
-                    <Stepper
-                      value={b.cr}
-                      onUp={() => onUpdateBranch(b.id, 'cr', STEP_CR)}
-                      onDown={() => onUpdateBranch(b.id, 'cr', -STEP_CR)}
-                      format={v => `${(v * 100).toFixed(0)}%`}
-                    />
-                  </td>
-                  <td className="value" style={{ textAlign: 'right', color: 'var(--accent)' }}>{fmtCompact(b.minted)}</td>
-                  <td style={{ textAlign: 'center' }}>
-                    <Stepper
-                      value={b.rate}
-                      onUp={() => onUpdateBranch(b.id, 'rate', STEP_RATE)}
-                      onDown={() => onUpdateBranch(b.id, 'rate', -STEP_RATE)}
-                      format={v => `${(v * 100).toFixed(1)}%`}
-                    />
-                  </td>
-                  <td className="value" style={{ textAlign: 'right' }}>{fmtCompact(b.interest)}</td>
-                  <td style={{ textAlign: 'center' }}>
-                    <span style={{
-                      fontFamily: 'var(--font-mono)', fontSize: '0.82rem', fontWeight: 600,
-                      color: b.buffer < 0.15 ? 'var(--evro-pink)' : b.buffer < 0.30 ? 'var(--evro-orange)' : 'var(--evro-green)',
-                    }}>
-                      {fmtPct(b.buffer)}
-                    </span>
-                  </td>
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          <BranchWeightPiePanel
+            rows={results.branches}
+            branchStates={branchStates}
+            onUpdateBranch={onUpdateBranch}
+          />
+          <div style={{ flex: '1 1 320px', minWidth: 0, overflowX: 'auto' }}>
+            <table className="data-table" style={{ minWidth: '520px' }}>
+              <thead>
+                <tr>
+                  {branchTableColumns.map(col => (
+                    <th
+                      key={col.id}
+                      style={{ textAlign: col.align, ...col.headerStyle }}
+                    >
+                      {col.header}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {results.branches.map(b => (
+                  <tr key={b.id}>
+                    {branchTableColumns.map(col => (
+                      <td
+                        key={col.id}
+                        className={col.tdClassName}
+                        style={{ textAlign: col.align }}
+                      >
+                        {col.cell(b)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
         {totalWeight !== 1 && (
           <p style={{ marginTop: '8px', fontSize: '0.72rem', color: 'var(--evro-orange)', fontFamily: 'var(--font-mono)' }}>
-            Weights sum to {(totalWeight * 100).toFixed(0)}% — values are normalized to 100%.
+            {fillTemplate(get('deploy', 'weight-warning'), { pct: (totalWeight * 100).toFixed(0) })}
           </p>
         )}
       </div>
 
+      <RevenueReplay
+        embedded
+        yieldResult={yieldResult}
+        deployFlow={{
+          branches: results.branches.map(b => ({
+            id: b.id,
+            name: b.name,
+            color: b.color,
+            allocated: b.allocated,
+            minted: b.minted,
+          })),
+          totalMinted: results.totalMinted,
+          l2Shares,
+          onAdjustL2: onAdjustL2Shares,
+        }}
+      />
+
       {/* ── Layer 2: Liquidity Allocation Table ─────────── */}
       <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
-        <p className="label" style={{ marginBottom: '4px' }}>Liquidity Pool Allocation — Layer 2</p>
+        <p className="label" style={{ marginBottom: '4px' }}>{get('deploy', 'l2-card-title')}</p>
         <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
-          Minted EVRO deployed across three venues at fixed proportions.
+          {get('deploy', 'l2-card-hint')}
         </p>
         <div style={{ overflowX: 'auto' }}>
           <table className="data-table" style={{ minWidth: '640px' }}>
             <thead>
               <tr>
-                <th style={{ width: '160px' }}>Destination</th>
-                <th>Pair / Venue</th>
-                <th style={{ textAlign: 'right' }}>EVRO</th>
-                <th style={{ textAlign: 'right' }}>% Minted</th>
-                <th>Role</th>
+                {layer2Columns.map(col => (
+                  <th
+                    key={col.id}
+                    style={{ textAlign: col.align, ...col.headerStyle }}
+                  >
+                    {col.header}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              {/* Stability Pool */}
-              <tr>
-                <td>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#A082F5', flexShrink: 0 }} />
-                    <strong style={{ color: 'var(--foreground)' }}>Stability Pool</strong>
-                  </span>
-                </td>
-                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
-                  EVRO Protocol
-                </td>
-                <td className="value" style={{ textAlign: 'right', color: '#A082F5' }}>{fmtCompact(spAlloc)}</td>
-                <td className="value" style={{ textAlign: 'right' }}>35%</td>
-                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
-                  Liquidation backstop · earns 75% of all Trove interest
-                </td>
-              </tr>
-              {/* Anchor Pool — CoW AMM */}
-              <tr>
-                <td>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#7176CA', flexShrink: 0 }} />
-                    <strong style={{ color: 'var(--foreground)' }}>Anchor Pool</strong>
-                  </span>
-                </td>
-                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
-                  sDAI/EVRO · CoW AMM
-                </td>
-                <td className="value" style={{ textAlign: 'right', color: '#7176CA' }}>{fmtCompact(anchorAlloc)}</td>
-                <td className="value" style={{ textAlign: 'right' }}>35%</td>
-                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
-                  FM-AMM primary depth · LVR surplus returned to LPs
-                </td>
-              </tr>
-              {/* Bridge Pool — Curve */}
-              <tr>
-                <td>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#EFA960', flexShrink: 0 }} />
-                    <strong style={{ color: 'var(--foreground)' }}>Bridge Pool</strong>
-                  </span>
-                </td>
-                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
-                  EURe/EVRO · Curve StableSwap
-                </td>
-                <td className="value" style={{ textAlign: 'right', color: '#EFA960' }}>{fmtCompact(bridgeAlloc)}</td>
-                <td className="value" style={{ textAlign: 'right' }}>18%</td>
-                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
-                  EURe ↔ EVRO retail routing · size-capped cost-center
-                </td>
-              </tr>
-              {/* Operational Reserve */}
-              <tr style={{ opacity: 0.75 }}>
-                <td>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--muted-foreground)', flexShrink: 0 }} />
-                    <strong style={{ color: 'var(--foreground)' }}>Reserve</strong>
-                  </span>
-                </td>
-                <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
-                  Operational buffer
-                </td>
-                <td className="value" style={{ textAlign: 'right', color: 'var(--muted-foreground)' }}>{fmtCompact(reserveAlloc)}</td>
-                <td className="value" style={{ textAlign: 'right' }}>12%</td>
-                <td style={{ fontSize: '0.78rem', color: 'var(--evro-shark-400)', lineHeight: 1.45 }}>
-                  Held undeployed · available for rebalancing or new venues
-                </td>
-              </tr>
+              {layer2Rows.map(row => (
+                <tr key={row.id} style={{ opacity: row.rowOpacity ?? 1 }}>
+                  {layer2Columns.map(col => (
+                    <td
+                      key={col.id}
+                      className={col.tdClassName}
+                      style={{ textAlign: col.align }}
+                    >
+                      {col.cell(row)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -487,18 +745,50 @@ export function DeploymentPlan({
         border: '1px solid rgba(160,130,245,0.08)',
         lineHeight: 1.85,
       }}>
-        <p className="body-text" style={{ fontSize: '0.92rem' }}>
-          At <strong style={{ color: 'var(--accent)' }}>{fmt(totalCapital)}</strong> deployed,
-          the protocol mints <strong>{fmtCompact(results.totalMinted)}</strong> EVRO across {results.branches.filter(b => b.allocated > 0).length} branches.
-          Borrowers pay <strong>{fmtCompact(results.totalInterest)}</strong>/yr in interest
-          at a blended rate of <strong>{results.totalMinted > 0 ? ((results.totalInterest / results.totalMinted) * 100).toFixed(1) : '0'}%</strong>.
+        <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '14px' }}>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: mdBold(fillTemplate(get('deploy', 'prose-line1'), {
+                capital: fmt(totalCapital),
+                minted: fmtCompact(results.totalMinted),
+                branchCount: String(results.branches.filter(b => b.allocated > 0).length),
+                interest: fmtCompact(results.totalInterest),
+                blendedRate: results.totalMinted > 0
+                  ? ((results.totalInterest / results.totalMinted) * 100).toFixed(1)
+                  : '0',
+              })),
+            }}
+          />
           {incentiveShare > 0.85 ? (
-            <> In the First Era, <strong style={{ color: '#A082F5' }}>100%</strong> of interest income flows to SP depositors (EVRO) — earning <strong style={{ color: '#A082F5' }}>{results.spApr.toFixed(2)}% APR</strong>.</>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: mdBold(fillTemplate(get('deploy', 'prose-era-first'), { apr: results.spApr.toFixed(2) })),
+              }}
+            />
           ) : (
-            <> <strong style={{ color: '#A082F5' }}>{fmtCompact(results.spShare)}</strong>/yr flows to SP stakers ({results.spApr.toFixed(2)}% APR).{' '}
-            <strong style={{ color: '#EFA960' }}>{fmtCompact(results.daoShare)}</strong>/yr goes to the DAO via the interestRouter.</>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: mdBold(fillTemplate(get('deploy', 'prose-era-split'), {
+                  spShare: fmtCompact(results.spShare),
+                  apr: results.spApr.toFixed(2),
+                  daoShare: fmtCompact(results.daoShare),
+                })),
+              }}
+            />
           )}
-          {' '}<em style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>This is interest only. The full revenue replay below adds collateral yields, LP fees, and liquidation gains from real market data.</em>
+        </p>
+        <p className="body-text" style={{ fontSize: '0.88rem', marginBottom: '12px', color: 'var(--evro-shark-600)' }}>
+          Over {yieldTotals.totalDays} days, {fmt(totalCapital)} deployed →{' '}
+          <strong style={{ color: '#A082F5', fontWeight: 600 }}>{fmtCompact(yieldTotals.evroTotal)}</strong> cumulative to LPs
+          {' '}({yieldTotals.annualizedPct.toFixed(1)}% annualized): SP {fmtCompact(yieldTotals.spYield)}, collateral{' '}
+          {fmtCompact(yieldTotals.sdaiYield + yieldTotals.stakingYield)}, CoW/LVR{' '}
+          {fmtCompact(yieldTotals.cowFees + yieldTotals.lvrCaptured)}, router→LP {fmtCompact(yieldTotals.redirectedToLp)}.
+          {incentiveShare <= 0.85 && (
+            <> DAO accrual {fmtCompact(yieldTotals.daoRevenue)}.</>
+          )}
+        </p>
+        <p style={{ margin: 0 }}>
+          <em style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)', lineHeight: 1.65 }}>{get('deploy', 'prose-footnote')}</em>
         </p>
       </div>
     </section>

@@ -36,6 +36,27 @@ export const ANCHOR_FIXED_EUR = 1_000_000;   // €1M
 export const BRIDGE_FIXED_EUR =   500_000;   // €0.5M
 export const FIXED_TOTAL_EUR  = SP_FIXED_EUR + ANCHOR_FIXED_EUR + BRIDGE_FIXED_EUR; // €2.5M
 
+/** Share of minted EVRO to each Layer 2 venue (sums to 1). Used by DeploymentPlan, yield replay, and distribution math. */
+export const L2_MINTED_SHARE_SP = 0.35;
+export const L2_MINTED_SHARE_ANCHOR = 0.35;
+export const L2_MINTED_SHARE_BRIDGE = 0.18;
+export const L2_MINTED_SHARE_RESERVE = 0.12;
+
+/** User-controlled Layer 2 split (must sum to 1). Defaults match PRD constants above. */
+export interface L2Shares {
+  sp: number;
+  anchor: number;
+  bridge: number;
+  reserve: number;
+}
+
+export const DEFAULT_L2_SHARES: L2Shares = {
+  sp: L2_MINTED_SHARE_SP,
+  anchor: L2_MINTED_SHARE_ANCHOR,
+  bridge: L2_MINTED_SHARE_BRIDGE,
+  reserve: L2_MINTED_SHARE_RESERVE,
+};
+
 export const DISTRIBUTION_LABELS = [
   { id: 'sp',      name: 'Stability Pool', color: '#A082F5' },
   { id: 'anchor',  name: 'Anchor Pool',    color: '#7176CA' },
@@ -71,7 +92,8 @@ export interface Calculations {
 export function calculateDeployment(
   totalCapital: number,
   weights: Record<string, number>,
-  crs: Record<string, number>
+  crs: Record<string, number>,
+  l2: L2Shares = DEFAULT_L2_SHARES,
 ): Calculations {
   let totalMinted = 0;
   let totalInterestPaid = 0;
@@ -99,15 +121,10 @@ export function calculateDeployment(
   const spYieldTotal = totalInterestPaid * SP_STAKER_SHARE;
   const daoRevenueTotal = totalInterestPaid * DAO_SHARE;
 
-  // Distribution: proportional split — always sums to 100% at any capital level.
-  const spRatio    = 0.40;
-  const anchorRatio = 0.40;
-  const bridgeRatio = 0.20;
-
-  const spAllocation     = totalMinted * spRatio;
-  const anchorAllocation = totalMinted * anchorRatio;
-  const bridgeAllocation = totalMinted * bridgeRatio;
-  const reserve = 0;
+  const spAllocation     = totalMinted * l2.sp;
+  const anchorAllocation = totalMinted * l2.anchor;
+  const bridgeAllocation = totalMinted * l2.bridge;
+  const reserve          = totalMinted * l2.reserve;
 
   return {
     totalMinted,
