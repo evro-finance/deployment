@@ -1,7 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import './styles/tokens.css';
 import './styles/global.css';
 import { DEFAULT_CAPITAL, BRANCHES } from './data/branches';
+import { computeYield } from './data/yield-engine';
+import type { YieldResult } from './data/yield-engine';
 import { Hero } from './components/Hero';
 import { Problem } from './components/Problem';
 import { DeploymentPlan } from './components/DeploymentPlan';
@@ -81,6 +83,12 @@ function App() {
     rate: branchStates[b.id].rate,
   }));
 
+  // Compute yield once, share between DeploymentPlan and RevenueReplay
+  const yieldResult: YieldResult = useMemo(
+    () => computeYield(totalCapital, branchAllocations, incentivesToLps),
+    [totalCapital, branchAllocations, incentivesToLps]
+  );
+
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(
@@ -122,11 +130,13 @@ function App() {
         onToggleIncentives={setIncentivesToLps}
         posture={posture}
         onPostureChange={applyPosture}
+        yieldTotals={yieldResult.totals}
       />
       <RevenueReplay
         totalCapital={totalCapital}
         branches={branchAllocations}
         incentivesToLps={incentivesToLps}
+        yieldResult={yieldResult}
       />
       <Layer2Section />
       <CohortSection />

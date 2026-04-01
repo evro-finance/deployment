@@ -4,6 +4,8 @@ import type { Branch } from '../data/branches';
 import { get } from '../data/content';
 import type { BranchState } from '../App';
 
+import type { YieldResult } from '../data/yield-engine';
+
 interface DeploymentPlanProps {
   totalCapital: number;
   onCapitalChange: (val: number) => void;
@@ -11,6 +13,9 @@ interface DeploymentPlanProps {
   onUpdateBranch: (id: string, field: keyof BranchState, delta: number) => void;
   incentivesToLps: boolean;
   onToggleIncentives: (val: boolean) => void;
+  posture: number;
+  onPostureChange: (val: number) => void;
+  yieldTotals: YieldResult['totals'];
 }
 
 const STEP_WEIGHT = 0.01;
@@ -61,6 +66,8 @@ export function DeploymentPlan({
   totalCapital, onCapitalChange,
   branchStates, onUpdateBranch,
   incentivesToLps, onToggleIncentives,
+  posture, onPostureChange,
+  yieldTotals,
 }: DeploymentPlanProps) {
 
   const totalWeight = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
@@ -118,20 +125,95 @@ export function DeploymentPlan({
         />
       )}
 
-      {/* ── Capital Slider ──────────────────────────────── */}
-      <div className="glass-card" style={{ padding: '28px 32px', marginBottom: '24px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '14px' }}>
-          <span className="label">Total Capital Deployed</span>
-          <span className="data-xl" style={{ color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
+      {/* ── Controls + Output Row ── */}
+      <div style={{ display: 'flex', gap: '20px', marginBottom: '24px', alignItems: 'stretch' }}>
+        {/* ── Controls (30%) ── */}
+        <div className="glass-card" style={{ padding: '16px 20px', flex: '0 0 30%', minWidth: 0 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <span className="label" style={{ fontSize: '0.65rem' }}>Capital</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
+          </div>
+          <input
+            type="range" min={1_000_000} max={25_000_000} step={500_000}
+            value={totalCapital}
+            onChange={e => onCapitalChange(Number(e.target.value))}
+            style={{ margin: 0 }}
+          />
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', marginBottom: '12px' }}>
+            <span className="label-sm" style={{ fontSize: '0.55rem' }}>€1M</span>
+            <span className="label-sm" style={{ fontSize: '0.55rem' }}>€25M</span>
+          </div>
+
+          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '10px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <span className="label" style={{ fontSize: '0.65rem' }}>Posture</span>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600,
+                color: posture < 0.35 ? '#4ADE80' : posture > 0.65 ? '#F5889B' : '#A082F5',
+              }}>
+                {posture < 0.35 ? 'Conservative' : posture > 0.65 ? 'Aggressive' : 'Balanced'}
+              </span>
+            </div>
+            <input
+              type="range" min={0} max={1} step={0.05}
+              value={posture}
+              onChange={e => onPostureChange(Number(e.target.value))}
+              style={{ margin: 0 }}
+            />
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
+              <span className="label-sm" style={{ fontSize: '0.55rem', color: '#4ADE80' }}>Conservative</span>
+              <span className="label-sm" style={{ fontSize: '0.55rem', color: '#F5889B' }}>Aggressive</span>
+            </div>
+          </div>
         </div>
-        <input
-          type="range" min={1_000_000} max={25_000_000} step={500_000}
-          value={totalCapital}
-          onChange={e => onCapitalChange(Number(e.target.value))}
-        />
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px' }}>
-          <span className="label-sm">€1M</span>
-          <span className="label-sm">€25M</span>
+
+        {/* ── Output Summary (70%) ── */}
+        <div className="glass-card" style={{ padding: '20px 24px', flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          {/* Headline: APY */}
+          <div style={{ marginBottom: '16px' }}>
+            <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>Annualized Yield</span>
+            <span style={{
+              fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 700,
+              color: '#A082F5', lineHeight: 1,
+            }}>
+              {yieldTotals.annualizedPct.toFixed(1)}%
+            </span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--muted-foreground)', marginLeft: '8px' }}>
+              on {fmt(totalCapital)}
+            </span>
+          </div>
+
+          {/* Total Yield */}
+          <div style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+            padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+          }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Total yield ({yieldTotals.totalDays}d)</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#4ADE80' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
+          </div>
+
+          {/* Interest cost */}
+          <div style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+            padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+          }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Interest cost</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#F5889B' }}>−{fmtCompact(results.totalInterest)}</span>
+          </div>
+
+          {/* Net */}
+          <div style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+            padding: '10px 0 0', borderTop: '1px solid rgba(160,130,245,0.15)',
+          }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>Net revenue</span>
+            <span style={{
+              fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700,
+              color: (yieldTotals.evroTotal - results.totalInterest) > 0 ? '#4ADE80' : '#F5889B',
+            }}>
+              {(yieldTotals.evroTotal - results.totalInterest) > 0 ? '+' : ''}{fmtCompact(yieldTotals.evroTotal - results.totalInterest)}
+            </span>
+          </div>
         </div>
       </div>
 

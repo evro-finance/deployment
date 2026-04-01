@@ -1,9 +1,7 @@
-import { useMemo } from 'react';
 import {
   AreaChart, Area, Line, XAxis, YAxis, Tooltip,
   ResponsiveContainer, CartesianGrid, ReferenceLine
 } from 'recharts';
-import { computeYield } from '../data/yield-engine';
 import type { YieldResult } from '../data/yield-engine';
 
 interface BranchAlloc {
@@ -17,6 +15,7 @@ interface RevenueReplayProps {
   totalCapital: number;
   branches: BranchAlloc[];
   incentivesToLps: boolean;
+  yieldResult: YieldResult;
 }
 
 const tooltipStyle: React.CSSProperties = {
@@ -31,11 +30,8 @@ const fmtEur = (v: number) => {
   return `€${v.toFixed(0)}`;
 };
 
-export function RevenueReplay({ totalCapital, branches, incentivesToLps }: RevenueReplayProps) {
-  const result: YieldResult = useMemo(
-    () => computeYield(totalCapital, branches, incentivesToLps),
-    [totalCapital, branches, incentivesToLps]
-  );
+export function RevenueReplay({ totalCapital, incentivesToLps, yieldResult }: RevenueReplayProps) {
+  const result = yieldResult;
 
   const sampled = result.days.filter((_, i) => i % 2 === 0 || i === result.days.length - 1);
   const tickInterval = Math.floor(sampled.length / 7);
