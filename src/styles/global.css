@@ -164,7 +164,6 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--evro-shark-600);
-  max-width: 680px;
 }
 
 .body-text strong {

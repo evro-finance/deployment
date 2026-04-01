@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-26T12:07:54.600Z",
+    "totalDeployment": "€5.000.000,00",
+    "periodDays": 182,
+    "periodFraction": 0.4986,
+    "dataSource": "Gnosis Chain HyperSync (block-level)"
+  },
+  "summary": {
+    "winner_by_net_yield": "Scenario A (CoW AMM)",
+    "note": "Scenario B (Curve) serves Gnosis Pay / card UX — optimised for spendability, not yield."
+  },
+  "scenarios": {
+    "A": {
+      "name": "Scenario A — CoW AMM Standalone (sDAI/EVRO)",
+      "deployment_eur": 3000000,
+      "gross_fees_eur": 326258.09155809425,
+      "lvr_captured_eur": 4697.071956164384,
+      "sdai_yield_eur": 97232.87671232877,
+      "lvr_exposed_eur": 0,
+      "data_source": "HyperSync CoW Settlement (161,384 EURe trades, 181 days, Gnosis)",
+      "net_yield_eur": 428188.04,
+      "net_return_pct": "14.27%",
+      "annualised_return_pct": "28.62%",
+      "hodl_delta_eur": "€428.188,04",
+      "breakdown": {
+        "gross_fees": "€326.258,09",
+        "lvr_captured": "€4.697,07",
+        "sdai_yield": "€97.232,88",
+        "lending_yield": "€0,00",
+        "lvr_exposed": "€-0,00",
+        "net": "€428.188,04"
+      }
+    },
+    "B": {
+      "name": "Scenario B — Curve EURe/EURC.e (stableswap)",
+      "deployment_eur": 1000000,
+      "gross_fees_eur": 546.6476779847058,
+      "lvr_captured_eur": 0,
+      "sdai_yield_eur": 0,
+      "lvr_exposed_eur": 3506.8557808219175,
+      "data_source": "HyperSync Curve factory-stable-ng-14 (228 swaps, 181 days, Gnosis)",
+      "net_yield_eur": -2960.21,
+      "net_return_pct": "-0.30%",
+      "annualised_return_pct": "-0.59%",
+      "hodl_delta_eur": "€-2.960,21",
+      "breakdown": {
+        "gross_fees": "€546,65",
+        "lvr_captured": "€0,00",
+        "sdai_yield": "€0,00",
+        "lending_yield": "€0,00",
+        "lvr_exposed": "€-3.506,86",
+        "net": "€-2.960,21"
+      }
+    },
+    "C": {
+      "name": "Scenario C — Balancer v3 + CoW Hooks (boosted pool) [estimated]",
+      "deployment_eur": 1000000,
+      "gross_fees_eur": 108752.69718603147,
+      "lvr_captured_eur": 1565.6906520547946,
+      "sdai_yield_eur": 0,
+      "lending_yield_eur": 22438.35616438356,
+      "lvr_exposed_eur": 0,
+      "vebal_risk": "HIGH — veBAL gauge continuity uncertain under OpCo restructuring",
+      "data_source": "CoW AMM mechanism (estimated via scale) + Aave Gnosis lending yield (verified)",
+      "net_yield_eur": 132756.74,
+      "net_return_pct": "13.28%",
+      "annualised_return_pct": "26.62%",
+      "hodl_delta_eur": "€132.756,74",
+      "breakdown": {
+        "gross_fees": "€108.752,70",
+        "lvr_captured": "€1.565,69",
+        "sdai_yield": "€0,00",
+        "lending_yield": "€22.438,36",
+        "lvr_exposed": "€-0,00",
+        "net": "€132.756,74"
+      }
+    }
+  }
+}

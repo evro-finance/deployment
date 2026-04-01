@@ -1,0 +1,3466 @@
+[
+  {
+    "date": "2025-01-23",
+    "timestamp": 1737590400,
+    "daily_fees_usd": 12916,
+    "tvl_usd": 3519823,
+    "daily_fee_rate": 0.0036695,
+    "annualized_fee_rate_pct": 133.9368
+  },
+  {
+    "date": "2025-01-24",
+    "timestamp": 1737676800,
+    "daily_fees_usd": 5071,
+    "tvl_usd": 13590530,
+    "daily_fee_rate": 0.00037313,
+    "annualized_fee_rate_pct": 13.6192
+  },
+  {
+    "date": "2025-01-25",
+    "timestamp": 1737763200,
+    "daily_fees_usd": 7134,
+    "tvl_usd": 16351520,
+    "daily_fee_rate": 0.00043629,
+    "annualized_fee_rate_pct": 15.9246
+  },
+  {
+    "date": "2025-01-26",
+    "timestamp": 1737849600,
+    "daily_fees_usd": 4083,
+    "tvl_usd": 23904253,
+    "daily_fee_rate": 0.00017081,
+    "annualized_fee_rate_pct": 6.2344
+  },
+  {
+    "date": "2025-01-27",
+    "timestamp": 1737936000,
+    "daily_fees_usd": 5781,
+    "tvl_usd": 26275479,
+    "daily_fee_rate": 0.00022002,
+    "annualized_fee_rate_pct": 8.0305
+  },
+  {
+    "date": "2025-01-28",
+    "timestamp": 1738022400,
+    "daily_fees_usd": 10880,
+    "tvl_usd": 29825160,
+    "daily_fee_rate": 0.00036479,
+    "annualized_fee_rate_pct": 13.3149
+  },
+  {
+    "date": "2025-01-29",
+    "timestamp": 1738108800,
+    "daily_fees_usd": 6619,
+    "tvl_usd": 34158883,
+    "daily_fee_rate": 0.00019377,
+    "annualized_fee_rate_pct": 7.0726
+  },
+  {
+    "date": "2025-01-30",
+    "timestamp": 1738195200,
+    "daily_fees_usd": 4032,
+    "tvl_usd": 39886895,
+    "daily_fee_rate": 0.00010109,
+    "annualized_fee_rate_pct": 3.6896
+  },
+  {
+    "date": "2025-01-31",
+    "timestamp": 1738281600,
+    "daily_fees_usd": 5166,
+    "tvl_usd": 41682731,
+    "daily_fee_rate": 0.00012394,
+    "annualized_fee_rate_pct": 4.5237
+  },
+  {
+    "date": "2025-02-01",
+    "timestamp": 1738368000,
+    "daily_fees_usd": 11824,
+    "tvl_usd": 44777692,
+    "daily_fee_rate": 0.00026406,
+    "annualized_fee_rate_pct": 9.6382
+  },
+  {
+    "date": "2025-02-02",
+    "timestamp": 1738454400,
+    "daily_fees_usd": 5344,
+    "tvl_usd": 72882313,
+    "daily_fee_rate": 7.332e-05,
+    "annualized_fee_rate_pct": 2.6763
+  },
+  {
+    "date": "2025-02-03",
+    "timestamp": 1738540800,
+    "daily_fees_usd": 16359,
+    "tvl_usd": 71365530,
+    "daily_fee_rate": 0.00022923,
+    "annualized_fee_rate_pct": 8.3668
+  },
+  {
+    "date": "2025-02-04",
+    "timestamp": 1738627200,
+    "daily_fees_usd": 6795,
+    "tvl_usd": 75440144,
+    "daily_fee_rate": 9.007e-05,
+    "annualized_fee_rate_pct": 3.2876
+  },
+  {
+    "date": "2025-02-05",
+    "timestamp": 1738713600,
+    "daily_fees_usd": 4283,
+    "tvl_usd": 77860812,
+    "daily_fee_rate": 5.501e-05,
+    "annualized_fee_rate_pct": 2.0078
+  },
+  {
+    "date": "2025-02-06",
+    "timestamp": 1738800000,
+    "daily_fees_usd": 5354,
+    "tvl_usd": 79719062,
+    "daily_fee_rate": 6.716e-05,
+    "annualized_fee_rate_pct": 2.4514
+  },
+  {
+    "date": "2025-02-07",
+    "timestamp": 1738886400,
+    "daily_fees_usd": 7014,
+    "tvl_usd": 80946354,
+    "daily_fee_rate": 8.665e-05,
+    "annualized_fee_rate_pct": 3.1627
+  },
+  {
+    "date": "2025-02-08",
+    "timestamp": 1738972800,
+    "daily_fees_usd": 5464,
+    "tvl_usd": 82526953,
+    "daily_fee_rate": 6.621e-05,
+    "annualized_fee_rate_pct": 2.4166
+  },
+  {
+    "date": "2025-02-09",
+    "timestamp": 1739059200,
+    "daily_fees_usd": 4661,
+    "tvl_usd": 83033544,
+    "daily_fee_rate": 5.613e-05,
+    "annualized_fee_rate_pct": 2.0489
+  },
+  {
+    "date": "2025-02-10",
+    "timestamp": 1739145600,
+    "daily_fees_usd": 3577,
+    "tvl_usd": 83462188,
+    "daily_fee_rate": 4.286e-05,
+    "annualized_fee_rate_pct": 1.5643
+  },
+  {
+    "date": "2025-02-11",
+    "timestamp": 1739232000,
+    "daily_fees_usd": 3693,
+    "tvl_usd": 84906081,
+    "daily_fee_rate": 4.35e-05,
+    "annualized_fee_rate_pct": 1.5876
+  },
+  {
+    "date": "2025-02-12",
+    "timestamp": 1739318400,
+    "daily_fees_usd": 8732,
+    "tvl_usd": 82773868,
+    "daily_fee_rate": 0.00010549,
+    "annualized_fee_rate_pct": 3.8505
+  },
+  {
+    "date": "2025-02-13",
+    "timestamp": 1739404800,
+    "daily_fees_usd": 4463,
+    "tvl_usd": 73521280,
+    "daily_fee_rate": 6.07e-05,
+    "annualized_fee_rate_pct": 2.2157
+  },
+  {
+    "date": "2025-02-14",
+    "timestamp": 1739491200,
+    "daily_fees_usd": 2356,
+    "tvl_usd": 49289476,
+    "daily_fee_rate": 4.78e-05,
+    "annualized_fee_rate_pct": 1.7447
+  },
+  {
+    "date": "2025-02-15",
+    "timestamp": 1739577600,
+    "daily_fees_usd": 2382,
+    "tvl_usd": 49062381,
+    "daily_fee_rate": 4.855e-05,
+    "annualized_fee_rate_pct": 1.7721
+  },
+  {
+    "date": "2025-02-16",
+    "timestamp": 1739664000,
+    "daily_fees_usd": 1522,
+    "tvl_usd": 45394699,
+    "daily_fee_rate": 3.353e-05,
+    "annualized_fee_rate_pct": 1.2238
+  },
+  {
+    "date": "2025-02-17",
+    "timestamp": 1739750400,
+    "daily_fees_usd": 2027,
+    "tvl_usd": 40629527,
+    "daily_fee_rate": 4.989e-05,
+    "annualized_fee_rate_pct": 1.821
+  },
+  {
+    "date": "2025-02-18",
+    "timestamp": 1739836800,
+    "daily_fees_usd": 1508,
+    "tvl_usd": 42378685,
+    "daily_fee_rate": 3.558e-05,
+    "annualized_fee_rate_pct": 1.2988
+  },
+  {
+    "date": "2025-02-19",
+    "timestamp": 1739923200,
+    "daily_fees_usd": 1350,
+    "tvl_usd": 41130794,
+    "daily_fee_rate": 3.282e-05,
+    "annualized_fee_rate_pct": 1.198
+  },
+  {
+    "date": "2025-02-20",
+    "timestamp": 1740009600,
+    "daily_fees_usd": 1698,
+    "tvl_usd": 41756431,
+    "daily_fee_rate": 4.066e-05,
+    "annualized_fee_rate_pct": 1.4843
+  },
+  {
+    "date": "2025-02-21",
+    "timestamp": 1740096000,
+    "daily_fees_usd": 2199,
+    "tvl_usd": 38039664,
+    "daily_fee_rate": 5.781e-05,
+    "annualized_fee_rate_pct": 2.11
+  },
+  {
+    "date": "2025-02-22",
+    "timestamp": 1740182400,
+    "daily_fees_usd": 2685,
+    "tvl_usd": 36488594,
+    "daily_fee_rate": 7.358e-05,
+    "annualized_fee_rate_pct": 2.6858
+  },
+  {
+    "date": "2025-02-23",
+    "timestamp": 1740268800,
+    "daily_fees_usd": 6522,
+    "tvl_usd": 37701576,
+    "daily_fee_rate": 0.00017299,
+    "annualized_fee_rate_pct": 6.3141
+  },
+  {
+    "date": "2025-02-24",
+    "timestamp": 1740355200,
+    "daily_fees_usd": 5296,
+    "tvl_usd": 38065962,
+    "daily_fee_rate": 0.00013913,
+    "annualized_fee_rate_pct": 5.0781
+  },
+  {
+    "date": "2025-02-25",
+    "timestamp": 1740441600,
+    "daily_fees_usd": 2103,
+    "tvl_usd": 28325141,
+    "daily_fee_rate": 7.424e-05,
+    "annualized_fee_rate_pct": 2.7099
+  },
+  {
+    "date": "2025-02-26",
+    "timestamp": 1740528000,
+    "daily_fees_usd": 1556,
+    "tvl_usd": 27774794,
+    "daily_fee_rate": 5.602e-05,
+    "annualized_fee_rate_pct": 2.0448
+  },
+  {
+    "date": "2025-02-27",
+    "timestamp": 1740614400,
+    "daily_fees_usd": 1427,
+    "tvl_usd": 25536682,
+    "daily_fee_rate": 5.588e-05,
+    "annualized_fee_rate_pct": 2.0396
+  },
+  {
+    "date": "2025-02-28",
+    "timestamp": 1740700800,
+    "daily_fees_usd": 3000,
+    "tvl_usd": 25223930,
+    "daily_fee_rate": 0.00011893,
+    "annualized_fee_rate_pct": 4.3411
+  },
+  {
+    "date": "2025-03-01",
+    "timestamp": 1740787200,
+    "daily_fees_usd": 603,
+    "tvl_usd": 24482183,
+    "daily_fee_rate": 2.463e-05,
+    "annualized_fee_rate_pct": 0.899
+  },
+  {
+    "date": "2025-03-02",
+    "timestamp": 1740873600,
+    "daily_fees_usd": 2582,
+    "tvl_usd": 24209540,
+    "daily_fee_rate": 0.00010665,
+    "annualized_fee_rate_pct": 3.8928
+  },
+  {
+    "date": "2025-03-03",
+    "timestamp": 1740960000,
+    "daily_fees_usd": 2625,
+    "tvl_usd": 27154818,
+    "daily_fee_rate": 9.667e-05,
+    "annualized_fee_rate_pct": 3.5284
+  },
+  {
+    "date": "2025-03-04",
+    "timestamp": 1741046400,
+    "daily_fees_usd": 3295,
+    "tvl_usd": 23500321,
+    "daily_fee_rate": 0.00014021,
+    "annualized_fee_rate_pct": 5.1177
+  },
+  {
+    "date": "2025-03-05",
+    "timestamp": 1741132800,
+    "daily_fees_usd": 2652,
+    "tvl_usd": 23066595,
+    "daily_fee_rate": 0.00011497,
+    "annualized_fee_rate_pct": 4.1965
+  },
+  {
+    "date": "2025-03-06",
+    "timestamp": 1741219200,
+    "daily_fees_usd": 2031,
+    "tvl_usd": 24296349,
+    "daily_fee_rate": 8.359e-05,
+    "annualized_fee_rate_pct": 3.0511
+  },
+  {
+    "date": "2025-03-07",
+    "timestamp": 1741305600,
+    "daily_fees_usd": 1029,
+    "tvl_usd": 23137461,
+    "daily_fee_rate": 4.447e-05,
+    "annualized_fee_rate_pct": 1.6233
+  },
+  {
+    "date": "2025-03-08",
+    "timestamp": 1741392000,
+    "daily_fees_usd": 111,
+    "tvl_usd": 17431043,
+    "daily_fee_rate": 6.37e-06,
+    "annualized_fee_rate_pct": 0.2324
+  },
+  {
+    "date": "2025-03-09",
+    "timestamp": 1741478400,
+    "daily_fees_usd": 1247,
+    "tvl_usd": 17999873,
+    "daily_fee_rate": 6.928e-05,
+    "annualized_fee_rate_pct": 2.5287
+  },
+  {
+    "date": "2025-03-10",
+    "timestamp": 1741564800,
+    "daily_fees_usd": 6415,
+    "tvl_usd": 16293644,
+    "daily_fee_rate": 0.00039371,
+    "annualized_fee_rate_pct": 14.3705
+  },
+  {
+    "date": "2025-03-11",
+    "timestamp": 1741651200,
+    "daily_fees_usd": 292,
+    "tvl_usd": 14646277,
+    "daily_fee_rate": 1.994e-05,
+    "annualized_fee_rate_pct": 0.7277
+  },
+  {
+    "date": "2025-03-12",
+    "timestamp": 1741737600,
+    "daily_fees_usd": 607,
+    "tvl_usd": 14450908,
+    "daily_fee_rate": 4.2e-05,
+    "annualized_fee_rate_pct": 1.5332
+  },
+  {
+    "date": "2025-03-13",
+    "timestamp": 1741824000,
+    "daily_fees_usd": 188,
+    "tvl_usd": 14014294,
+    "daily_fee_rate": 1.341e-05,
+    "annualized_fee_rate_pct": 0.4896
+  },
+  {
+    "date": "2025-03-14",
+    "timestamp": 1741910400,
+    "daily_fees_usd": 678,
+    "tvl_usd": 13733923,
+    "daily_fee_rate": 4.937e-05,
+    "annualized_fee_rate_pct": 1.8019
+  },
+  {
+    "date": "2025-03-15",
+    "timestamp": 1741996800,
+    "daily_fees_usd": 179,
+    "tvl_usd": 14023072,
+    "daily_fee_rate": 1.276e-05,
+    "annualized_fee_rate_pct": 0.4659
+  },
+  {
+    "date": "2025-03-16",
+    "timestamp": 1742083200,
+    "daily_fees_usd": 40,
+    "tvl_usd": 14223374,
+    "daily_fee_rate": 2.81e-06,
+    "annualized_fee_rate_pct": 0.1026
+  },
+  {
+    "date": "2025-03-17",
+    "timestamp": 1742169600,
+    "daily_fees_usd": 36,
+    "tvl_usd": 13911063,
+    "daily_fee_rate": 2.59e-06,
+    "annualized_fee_rate_pct": 0.0945
+  },
+  {
+    "date": "2025-03-18",
+    "timestamp": 1742256000,
+    "daily_fees_usd": 1301,
+    "tvl_usd": 14099970,
+    "daily_fee_rate": 9.227e-05,
+    "annualized_fee_rate_pct": 3.3678
+  },
+  {
+    "date": "2025-03-19",
+    "timestamp": 1742342400,
+    "daily_fees_usd": 1181,
+    "tvl_usd": 14137899,
+    "daily_fee_rate": 8.353e-05,
+    "annualized_fee_rate_pct": 3.049
+  },
+  {
+    "date": "2025-03-20",
+    "timestamp": 1742428800,
+    "daily_fees_usd": 0,
+    "tvl_usd": 14924074,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-03-21",
+    "timestamp": 1742515200,
+    "daily_fees_usd": 81,
+    "tvl_usd": 14488896,
+    "daily_fee_rate": 5.59e-06,
+    "annualized_fee_rate_pct": 0.2041
+  },
+  {
+    "date": "2025-03-22",
+    "timestamp": 1742601600,
+    "daily_fees_usd": 40,
+    "tvl_usd": 14356594,
+    "daily_fee_rate": 2.79e-06,
+    "annualized_fee_rate_pct": 0.1017
+  },
+  {
+    "date": "2025-03-23",
+    "timestamp": 1742688000,
+    "daily_fees_usd": 0,
+    "tvl_usd": 14435726,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-03-24",
+    "timestamp": 1742774400,
+    "daily_fees_usd": 1781,
+    "tvl_usd": 14631147,
+    "daily_fee_rate": 0.00012173,
+    "annualized_fee_rate_pct": 4.443
+  },
+  {
+    "date": "2025-03-25",
+    "timestamp": 1742860800,
+    "daily_fees_usd": 43,
+    "tvl_usd": 15248483,
+    "daily_fee_rate": 2.82e-06,
+    "annualized_fee_rate_pct": 0.1029
+  },
+  {
+    "date": "2025-03-26",
+    "timestamp": 1742947200,
+    "daily_fees_usd": 1054,
+    "tvl_usd": 15032895,
+    "daily_fee_rate": 7.011e-05,
+    "annualized_fee_rate_pct": 2.5591
+  },
+  {
+    "date": "2025-03-27",
+    "timestamp": 1743033600,
+    "daily_fees_usd": 0,
+    "tvl_usd": 14654219,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-03-28",
+    "timestamp": 1743120000,
+    "daily_fees_usd": 59,
+    "tvl_usd": 14564795,
+    "daily_fee_rate": 4.05e-06,
+    "annualized_fee_rate_pct": 0.1479
+  },
+  {
+    "date": "2025-03-29",
+    "timestamp": 1743206400,
+    "daily_fees_usd": 0,
+    "tvl_usd": 13795756,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-03-30",
+    "timestamp": 1743292800,
+    "daily_fees_usd": 1682,
+    "tvl_usd": 13199443,
+    "daily_fee_rate": 0.00012743,
+    "annualized_fee_rate_pct": 4.6512
+  },
+  {
+    "date": "2025-03-31",
+    "timestamp": 1743379200,
+    "daily_fees_usd": 392,
+    "tvl_usd": 13110930,
+    "daily_fee_rate": 2.99e-05,
+    "annualized_fee_rate_pct": 1.0913
+  },
+  {
+    "date": "2025-04-01",
+    "timestamp": 1743465600,
+    "daily_fees_usd": 0,
+    "tvl_usd": 13204179,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-04-02",
+    "timestamp": 1743552000,
+    "daily_fees_usd": 983,
+    "tvl_usd": 13802067,
+    "daily_fee_rate": 7.122e-05,
+    "annualized_fee_rate_pct": 2.5996
+  },
+  {
+    "date": "2025-04-03",
+    "timestamp": 1743638400,
+    "daily_fees_usd": 259,
+    "tvl_usd": 13018318,
+    "daily_fee_rate": 1.99e-05,
+    "annualized_fee_rate_pct": 0.7262
+  },
+  {
+    "date": "2025-04-04",
+    "timestamp": 1743724800,
+    "daily_fees_usd": 39,
+    "tvl_usd": 13163578,
+    "daily_fee_rate": 2.96e-06,
+    "annualized_fee_rate_pct": 0.1081
+  },
+  {
+    "date": "2025-04-05",
+    "timestamp": 1743811200,
+    "daily_fees_usd": 820,
+    "tvl_usd": 13180770,
+    "daily_fee_rate": 6.221e-05,
+    "annualized_fee_rate_pct": 2.2707
+  },
+  {
+    "date": "2025-04-06",
+    "timestamp": 1743897600,
+    "daily_fees_usd": 391,
+    "tvl_usd": 13052450,
+    "daily_fee_rate": 2.996e-05,
+    "annualized_fee_rate_pct": 1.0934
+  },
+  {
+    "date": "2025-04-07",
+    "timestamp": 1743984000,
+    "daily_fees_usd": 468,
+    "tvl_usd": 9150021,
+    "daily_fee_rate": 5.115e-05,
+    "annualized_fee_rate_pct": 1.8669
+  },
+  {
+    "date": "2025-04-08",
+    "timestamp": 1744070400,
+    "daily_fees_usd": 0,
+    "tvl_usd": 7397927,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-04-09",
+    "timestamp": 1744156800,
+    "daily_fees_usd": 972,
+    "tvl_usd": 7048612,
+    "daily_fee_rate": 0.0001379,
+    "annualized_fee_rate_pct": 5.0333
+  },
+  {
+    "date": "2025-04-10",
+    "timestamp": 1744243200,
+    "daily_fees_usd": 7,
+    "tvl_usd": 7918764,
+    "daily_fee_rate": 8.8e-07,
+    "annualized_fee_rate_pct": 0.0323
+  },
+  {
+    "date": "2025-04-11",
+    "timestamp": 1744329600,
+    "daily_fees_usd": 725,
+    "tvl_usd": 7277236,
+    "daily_fee_rate": 9.963e-05,
+    "annualized_fee_rate_pct": 3.6363
+  },
+  {
+    "date": "2025-04-12",
+    "timestamp": 1744416000,
+    "daily_fees_usd": 134,
+    "tvl_usd": 7456457,
+    "daily_fee_rate": 1.797e-05,
+    "annualized_fee_rate_pct": 0.6559
+  },
+  {
+    "date": "2025-04-13",
+    "timestamp": 1744502400,
+    "daily_fees_usd": 803,
+    "tvl_usd": 7813509,
+    "daily_fee_rate": 0.00010277,
+    "annualized_fee_rate_pct": 3.7511
+  },
+  {
+    "date": "2025-04-14",
+    "timestamp": 1744588800,
+    "daily_fees_usd": 14,
+    "tvl_usd": 7569396,
+    "daily_fee_rate": 1.85e-06,
+    "annualized_fee_rate_pct": 0.0675
+  },
+  {
+    "date": "2025-04-15",
+    "timestamp": 1744675200,
+    "daily_fees_usd": 21,
+    "tvl_usd": 7695810,
+    "daily_fee_rate": 2.73e-06,
+    "annualized_fee_rate_pct": 0.0996
+  },
+  {
+    "date": "2025-04-16",
+    "timestamp": 1744761600,
+    "daily_fees_usd": 838,
+    "tvl_usd": 7560404,
+    "daily_fee_rate": 0.00011084,
+    "annualized_fee_rate_pct": 4.0457
+  },
+  {
+    "date": "2025-04-17",
+    "timestamp": 1744848000,
+    "daily_fees_usd": 9,
+    "tvl_usd": 7511931,
+    "daily_fee_rate": 1.2e-06,
+    "annualized_fee_rate_pct": 0.0437
+  },
+  {
+    "date": "2025-04-18",
+    "timestamp": 1744934400,
+    "daily_fees_usd": 0,
+    "tvl_usd": 7511505,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-04-19",
+    "timestamp": 1745020800,
+    "daily_fees_usd": 0,
+    "tvl_usd": 7537987,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-04-20",
+    "timestamp": 1745107200,
+    "daily_fees_usd": 0,
+    "tvl_usd": 7671976,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-04-21",
+    "timestamp": 1745193600,
+    "daily_fees_usd": 1326,
+    "tvl_usd": 7573264,
+    "daily_fee_rate": 0.00017509,
+    "annualized_fee_rate_pct": 6.3908
+  },
+  {
+    "date": "2025-04-22",
+    "timestamp": 1745280000,
+    "daily_fees_usd": 530,
+    "tvl_usd": 7470956,
+    "daily_fee_rate": 7.094e-05,
+    "annualized_fee_rate_pct": 2.5894
+  },
+  {
+    "date": "2025-04-23",
+    "timestamp": 1745366400,
+    "daily_fees_usd": 501,
+    "tvl_usd": 8297560,
+    "daily_fee_rate": 6.038e-05,
+    "annualized_fee_rate_pct": 2.2038
+  },
+  {
+    "date": "2025-04-24",
+    "timestamp": 1745452800,
+    "daily_fees_usd": 257,
+    "tvl_usd": 8487656,
+    "daily_fee_rate": 3.028e-05,
+    "annualized_fee_rate_pct": 1.1052
+  },
+  {
+    "date": "2025-04-25",
+    "timestamp": 1745539200,
+    "daily_fees_usd": 0,
+    "tvl_usd": 8354130,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-04-26",
+    "timestamp": 1745625600,
+    "daily_fees_usd": 461,
+    "tvl_usd": 8459082,
+    "daily_fee_rate": 5.45e-05,
+    "annualized_fee_rate_pct": 1.9892
+  },
+  {
+    "date": "2025-04-27",
+    "timestamp": 1745712000,
+    "daily_fees_usd": 277,
+    "tvl_usd": 8682860,
+    "daily_fee_rate": 3.19e-05,
+    "annualized_fee_rate_pct": 1.1644
+  },
+  {
+    "date": "2025-04-28",
+    "timestamp": 1745798400,
+    "daily_fees_usd": 23,
+    "tvl_usd": 8454427,
+    "daily_fee_rate": 2.72e-06,
+    "annualized_fee_rate_pct": 0.0993
+  },
+  {
+    "date": "2025-04-29",
+    "timestamp": 1745884800,
+    "daily_fees_usd": 0,
+    "tvl_usd": 8479951,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-04-30",
+    "timestamp": 1745971200,
+    "daily_fees_usd": 1093,
+    "tvl_usd": 8450700,
+    "daily_fee_rate": 0.00012934,
+    "annualized_fee_rate_pct": 4.7209
+  },
+  {
+    "date": "2025-05-01",
+    "timestamp": 1746057600,
+    "daily_fees_usd": 271,
+    "tvl_usd": 8477531,
+    "daily_fee_rate": 3.197e-05,
+    "annualized_fee_rate_pct": 1.1668
+  },
+  {
+    "date": "2025-05-02",
+    "timestamp": 1746144000,
+    "daily_fees_usd": 14,
+    "tvl_usd": 8676637,
+    "daily_fee_rate": 1.61e-06,
+    "annualized_fee_rate_pct": 0.0589
+  },
+  {
+    "date": "2025-05-03",
+    "timestamp": 1746230400,
+    "daily_fees_usd": 0,
+    "tvl_usd": 8698608,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-05-04",
+    "timestamp": 1746316800,
+    "daily_fees_usd": 894,
+    "tvl_usd": 8662026,
+    "daily_fee_rate": 0.00010321,
+    "annualized_fee_rate_pct": 3.7671
+  },
+  {
+    "date": "2025-05-05",
+    "timestamp": 1746403200,
+    "daily_fees_usd": 287,
+    "tvl_usd": 8550726,
+    "daily_fee_rate": 3.356e-05,
+    "annualized_fee_rate_pct": 1.2251
+  },
+  {
+    "date": "2025-05-06",
+    "timestamp": 1746489600,
+    "daily_fees_usd": 296,
+    "tvl_usd": 8545806,
+    "daily_fee_rate": 3.464e-05,
+    "annualized_fee_rate_pct": 1.2642
+  },
+  {
+    "date": "2025-05-07",
+    "timestamp": 1746576000,
+    "daily_fees_usd": 310,
+    "tvl_usd": 8646450,
+    "daily_fee_rate": 3.585e-05,
+    "annualized_fee_rate_pct": 1.3086
+  },
+  {
+    "date": "2025-05-08",
+    "timestamp": 1746662400,
+    "daily_fees_usd": 343,
+    "tvl_usd": 8561394,
+    "daily_fee_rate": 4.006e-05,
+    "annualized_fee_rate_pct": 1.4623
+  },
+  {
+    "date": "2025-05-09",
+    "timestamp": 1746748800,
+    "daily_fees_usd": 242,
+    "tvl_usd": 10349631,
+    "daily_fee_rate": 2.338e-05,
+    "annualized_fee_rate_pct": 0.8535
+  },
+  {
+    "date": "2025-05-10",
+    "timestamp": 1746835200,
+    "daily_fees_usd": 85,
+    "tvl_usd": 11014881,
+    "daily_fee_rate": 7.72e-06,
+    "annualized_fee_rate_pct": 0.2817
+  },
+  {
+    "date": "2025-05-11",
+    "timestamp": 1746921600,
+    "daily_fees_usd": 186,
+    "tvl_usd": 11921777,
+    "daily_fee_rate": 1.56e-05,
+    "annualized_fee_rate_pct": 0.5695
+  },
+  {
+    "date": "2025-05-12",
+    "timestamp": 1747008000,
+    "daily_fees_usd": 24,
+    "tvl_usd": 11758426,
+    "daily_fee_rate": 2.04e-06,
+    "annualized_fee_rate_pct": 0.0745
+  },
+  {
+    "date": "2025-05-13",
+    "timestamp": 1747094400,
+    "daily_fees_usd": 164,
+    "tvl_usd": 11699147,
+    "daily_fee_rate": 1.402e-05,
+    "annualized_fee_rate_pct": 0.5117
+  },
+  {
+    "date": "2025-05-14",
+    "timestamp": 1747180800,
+    "daily_fees_usd": 140,
+    "tvl_usd": 12545714,
+    "daily_fee_rate": 1.116e-05,
+    "annualized_fee_rate_pct": 0.4073
+  },
+  {
+    "date": "2025-05-15",
+    "timestamp": 1747267200,
+    "daily_fees_usd": 207,
+    "tvl_usd": 12169599,
+    "daily_fee_rate": 1.701e-05,
+    "annualized_fee_rate_pct": 0.6209
+  },
+  {
+    "date": "2025-05-16",
+    "timestamp": 1747353600,
+    "daily_fees_usd": 19,
+    "tvl_usd": 11841265,
+    "daily_fee_rate": 1.6e-06,
+    "annualized_fee_rate_pct": 0.0586
+  },
+  {
+    "date": "2025-05-17",
+    "timestamp": 1747440000,
+    "daily_fees_usd": 129,
+    "tvl_usd": 11880206,
+    "daily_fee_rate": 1.086e-05,
+    "annualized_fee_rate_pct": 0.3963
+  },
+  {
+    "date": "2025-05-18",
+    "timestamp": 1747526400,
+    "daily_fees_usd": 119,
+    "tvl_usd": 11582629,
+    "daily_fee_rate": 1.027e-05,
+    "annualized_fee_rate_pct": 0.375
+  },
+  {
+    "date": "2025-05-19",
+    "timestamp": 1747612800,
+    "daily_fees_usd": 128,
+    "tvl_usd": 11271678,
+    "daily_fee_rate": 1.136e-05,
+    "annualized_fee_rate_pct": 0.4145
+  },
+  {
+    "date": "2025-05-20",
+    "timestamp": 1747699200,
+    "daily_fees_usd": 132,
+    "tvl_usd": 52635931,
+    "daily_fee_rate": 2.51e-06,
+    "annualized_fee_rate_pct": 0.0915
+  },
+  {
+    "date": "2025-05-21",
+    "timestamp": 1747785600,
+    "daily_fees_usd": 99,
+    "tvl_usd": 57268098,
+    "daily_fee_rate": 1.73e-06,
+    "annualized_fee_rate_pct": 0.0631
+  },
+  {
+    "date": "2025-05-22",
+    "timestamp": 1747872000,
+    "daily_fees_usd": 470,
+    "tvl_usd": 59737244,
+    "daily_fee_rate": 7.87e-06,
+    "annualized_fee_rate_pct": 0.2872
+  },
+  {
+    "date": "2025-05-23",
+    "timestamp": 1747958400,
+    "daily_fees_usd": 254,
+    "tvl_usd": 64559354,
+    "daily_fee_rate": 3.93e-06,
+    "annualized_fee_rate_pct": 0.1436
+  },
+  {
+    "date": "2025-05-24",
+    "timestamp": 1748044800,
+    "daily_fees_usd": 0,
+    "tvl_usd": 62779817,
+    "daily_fee_rate": 0.0,
+    "annualized_fee_rate_pct": 0.0
+  },
+  {
+    "date": "2025-05-25",
+    "timestamp": 1748131200,
+    "daily_fees_usd": 3446,
+    "tvl_usd": 62365711,
+    "daily_fee_rate": 5.525e-05,
+    "annualized_fee_rate_pct": 2.0168
+  },
+  {
+    "date": "2025-05-26",
+    "timestamp": 1748217600,
+    "daily_fees_usd": 3100,
+    "tvl_usd": 62953856,
+    "daily_fee_rate": 4.924e-05,
+    "annualized_fee_rate_pct": 1.7973
+  },
+  {
+    "date": "2025-05-27",
+    "timestamp": 1748304000,
+    "daily_fees_usd": 2953,
+    "tvl_usd": 63977786,
+    "daily_fee_rate": 4.616e-05,
+    "annualized_fee_rate_pct": 1.6847
+  },
+  {
+    "date": "2025-05-28",
+    "timestamp": 1748390400,
+    "daily_fees_usd": 5127,
+    "tvl_usd": 66367101,
+    "daily_fee_rate": 7.725e-05,
+    "annualized_fee_rate_pct": 2.8197
+  },
+  {
+    "date": "2025-05-29",
+    "timestamp": 1748476800,
+    "daily_fees_usd": 2950,
+    "tvl_usd": 74556496,
+    "daily_fee_rate": 3.957e-05,
+    "annualized_fee_rate_pct": 1.4442
+  },
+  {
+    "date": "2025-05-30",
+    "timestamp": 1748563200,
+    "daily_fees_usd": 3419,
+    "tvl_usd": 73228806,
+    "daily_fee_rate": 4.669e-05,
+    "annualized_fee_rate_pct": 1.7042
+  },
+  {
+    "date": "2025-05-31",
+    "timestamp": 1748649600,
+    "daily_fees_usd": 3041,
+    "tvl_usd": 70022454,
+    "daily_fee_rate": 4.343e-05,
+    "annualized_fee_rate_pct": 1.5852
+  },
+  {
+    "date": "2025-06-01",
+    "timestamp": 1748736000,
+    "daily_fees_usd": 3039,
+    "tvl_usd": 70665101,
+    "daily_fee_rate": 4.301e-05,
+    "annualized_fee_rate_pct": 1.5697
+  },
+  {
+    "date": "2025-06-02",
+    "timestamp": 1748822400,
+    "daily_fees_usd": 6417,
+    "tvl_usd": 71142800,
+    "daily_fee_rate": 9.02e-05,
+    "annualized_fee_rate_pct": 3.2923
+  },
+  {
+    "date": "2025-06-03",
+    "timestamp": 1748908800,
+    "daily_fees_usd": 4676,
+    "tvl_usd": 75969910,
+    "daily_fee_rate": 6.155e-05,
+    "annualized_fee_rate_pct": 2.2466
+  },
+  {
+    "date": "2025-06-04",
+    "timestamp": 1748995200,
+    "daily_fees_usd": 5170,
+    "tvl_usd": 85775353,
+    "daily_fee_rate": 6.027e-05,
+    "annualized_fee_rate_pct": 2.2
+  },
+  {
+    "date": "2025-06-05",
+    "timestamp": 1749081600,
+    "daily_fees_usd": 7177,
+    "tvl_usd": 84266747,
+    "daily_fee_rate": 8.517e-05,
+    "annualized_fee_rate_pct": 3.1087
+  },
+  {
+    "date": "2025-06-06",
+    "timestamp": 1749168000,
+    "daily_fees_usd": 7989,
+    "tvl_usd": 77776640,
+    "daily_fee_rate": 0.00010272,
+    "annualized_fee_rate_pct": 3.7492
+  },
+  {
+    "date": "2025-06-07",
+    "timestamp": 1749254400,
+    "daily_fees_usd": 8885,
+    "tvl_usd": 80019926,
+    "daily_fee_rate": 0.00011103,
+    "annualized_fee_rate_pct": 4.0528
+  },
+  {
+    "date": "2025-06-08",
+    "timestamp": 1749340800,
+    "daily_fees_usd": 5026,
+    "tvl_usd": 82240579,
+    "daily_fee_rate": 6.111e-05,
+    "annualized_fee_rate_pct": 2.2306
+  },
+  {
+    "date": "2025-06-09",
+    "timestamp": 1749427200,
+    "daily_fees_usd": 8249,
+    "tvl_usd": 81350986,
+    "daily_fee_rate": 0.0001014,
+    "annualized_fee_rate_pct": 3.7011
+  },
+  {
+    "date": "2025-06-10",
+    "timestamp": 1749513600,
+    "daily_fees_usd": 10700,
+    "tvl_usd": 93512437,
+    "daily_fee_rate": 0.00011442,
+    "annualized_fee_rate_pct": 4.1764
+  },
+  {
+    "date": "2025-06-11",
+    "timestamp": 1749600000,
+    "daily_fees_usd": 8257,
+    "tvl_usd": 97181416,
+    "daily_fee_rate": 8.496e-05,
+    "annualized_fee_rate_pct": 3.1012
+  },
+  {
+    "date": "2025-06-12",
+    "timestamp": 1749686400,
+    "daily_fees_usd": 6257,
+    "tvl_usd": 95094771,
+    "daily_fee_rate": 6.58e-05,
+    "annualized_fee_rate_pct": 2.4016
+  },
+  {
+    "date": "2025-06-13",
+    "timestamp": 1749772800,
+    "daily_fees_usd": 5321,
+    "tvl_usd": 88171789,
+    "daily_fee_rate": 6.035e-05,
+    "annualized_fee_rate_pct": 2.2027
+  },
+  {
+    "date": "2025-06-14",
+    "timestamp": 1749859200,
+    "daily_fees_usd": 4033,
+    "tvl_usd": 87731172,
+    "daily_fee_rate": 4.597e-05,
+    "annualized_fee_rate_pct": 1.6779
+  },
+  {
+    "date": "2025-06-15",
+    "timestamp": 1749945600,
+    "daily_fees_usd": 10416,
+    "tvl_usd": 86350185,
+    "daily_fee_rate": 0.00012063,
+    "annualized_fee_rate_pct": 4.4028
+  },
+  {
+    "date": "2025-06-16",
+    "timestamp": 1750032000,
+    "daily_fees_usd": 9046,
+    "tvl_usd": 90530652,
+    "daily_fee_rate": 9.992e-05,
+    "annualized_fee_rate_pct": 3.6472
+  },
+  {
+    "date": "2025-06-17",
+    "timestamp": 1750118400,
+    "daily_fees_usd": 5394,
+    "tvl_usd": 95329425,
+    "daily_fee_rate": 5.658e-05,
+    "annualized_fee_rate_pct": 2.0653
+  },
+  {
+    "date": "2025-06-18",
+    "timestamp": 1750204800,
+    "daily_fees_usd": 6226,
+    "tvl_usd": 93603052,
+    "daily_fee_rate": 6.651e-05,
+    "annualized_fee_rate_pct": 2.4278
+  },
+  {
+    "date": "2025-06-19",
+    "timestamp": 1750291200,
+    "daily_fees_usd": 7577,
+    "tvl_usd": 97043809,
+    "daily_fee_rate": 7.808e-05,
+    "annualized_fee_rate_pct": 2.8499
+  },
+  {
+    "date": "2025-06-20",
+    "timestamp": 1750377600,
+    "daily_fees_usd": 5466,
+    "tvl_usd": 100026420,
+    "daily_fee_rate": 5.465e-05,
+    "annualized_fee_rate_pct": 1.9946
+  },
+  {
+    "date": "2025-06-21",
+    "timestamp": 1750464000,
+    "daily_fees_usd": 5786,
+    "tvl_usd": 95688281,
+    "daily_fee_rate": 6.047e-05,
+    "annualized_fee_rate_pct": 2.2071
+  },
+  {
+    "date": "2025-06-22",
+    "timestamp": 1750550400,
+    "daily_fees_usd": 6292,
+    "tvl_usd": 89956205,
+    "daily_fee_rate": 6.995e-05,
+    "annualized_fee_rate_pct": 2.553
+  },
+  {
+    "date": "2025-06-23",
+    "timestamp": 1750636800,
+    "daily_fees_usd": 5587,
+    "tvl_usd": 93377313,
+    "daily_fee_rate": 5.983e-05,
+    "annualized_fee_rate_pct": 2.1839
+  },
+  {
+    "date": "2025-06-24",
+    "timestamp": 1750723200,
+    "daily_fees_usd": 6414,
+    "tvl_usd": 100905022,
+    "daily_fee_rate": 6.356e-05,
+    "annualized_fee_rate_pct": 2.3201
+  },
+  {
+    "date": "2025-06-25",
+    "timestamp": 1750809600,
+    "daily_fees_usd": 4034,
+    "tvl_usd": 103361525,
+    "daily_fee_rate": 3.903e-05,
+    "annualized_fee_rate_pct": 1.4245
+  },
+  {
+    "date": "2025-06-26",
+    "timestamp": 1750896000,
+    "daily_fees_usd": 6736,
+    "tvl_usd": 102294890,
+    "daily_fee_rate": 6.585e-05,
+    "annualized_fee_rate_pct": 2.4035
+  },
+  {
+    "date": "2025-06-27",
+    "timestamp": 1750982400,
+    "daily_fees_usd": 4563,
+    "tvl_usd": 102175971,
+    "daily_fee_rate": 4.466e-05,
+    "annualized_fee_rate_pct": 1.63
+  },
+  {
+    "date": "2025-06-28",
+    "timestamp": 1751068800,
+    "daily_fees_usd": 5492,
+    "tvl_usd": 102478763,
+    "daily_fee_rate": 5.359e-05,
+    "annualized_fee_rate_pct": 1.9561
+  },
+  {
+    "date": "2025-06-29",
+    "timestamp": 1751155200,
+    "daily_fees_usd": 5142,
+    "tvl_usd": 102614142,
+    "daily_fee_rate": 5.011e-05,
+    "annualized_fee_rate_pct": 1.829
+  },
+  {
+    "date": "2025-06-30",
+    "timestamp": 1751241600,
+    "daily_fees_usd": 5160,
+    "tvl_usd": 105334651,
+    "daily_fee_rate": 4.899e-05,
+    "annualized_fee_rate_pct": 1.788
+  },
+  {
+    "date": "2025-07-01",
+    "timestamp": 1751328000,
+    "daily_fees_usd": 4826,
+    "tvl_usd": 104964745,
+    "daily_fee_rate": 4.598e-05,
+    "annualized_fee_rate_pct": 1.6782
+  },
+  {
+    "date": "2025-07-02",
+    "timestamp": 1751414400,
+    "daily_fees_usd": 5104,
+    "tvl_usd": 101282956,
+    "daily_fee_rate": 5.039e-05,
+    "annualized_fee_rate_pct": 1.8394
+  },
+  {
+    "date": "2025-07-03",
+    "timestamp": 1751500800,
+    "daily_fees_usd": 5297,
+    "tvl_usd": 108634945,
+    "daily_fee_rate": 4.876e-05,
+    "annualized_fee_rate_pct": 1.7797
+  },
+  {
+    "date": "2025-07-04",
+    "timestamp": 1751587200,
+    "daily_fees_usd": 5081,
+    "tvl_usd": 109615321,
+    "daily_fee_rate": 4.635e-05,
+    "annualized_fee_rate_pct": 1.6919
+  },
+  {
+    "date": "2025-07-05",
+    "timestamp": 1751673600,
+    "daily_fees_usd": 4730,
+    "tvl_usd": 106087048,
+    "daily_fee_rate": 4.459e-05,
+    "annualized_fee_rate_pct": 1.6274
+  },
+  {
+    "date": "2025-07-06",
+    "timestamp": 1751760000,
+    "daily_fees_usd": 6505,
+    "tvl_usd": 106458304,
+    "daily_fee_rate": 6.11e-05,
+    "annualized_fee_rate_pct": 2.2303
+  },
+  {
+    "date": "2025-07-07",
+    "timestamp": 1751846400,
+    "daily_fees_usd": 5480,
+    "tvl_usd": 108990976,
+    "daily_fee_rate": 5.028e-05,
+    "annualized_fee_rate_pct": 1.8352
+  },
+  {
+    "date": "2025-07-08",
+    "timestamp": 1751932800,
+    "daily_fees_usd": 4946,
+    "tvl_usd": 107735295,
+    "daily_fee_rate": 4.591e-05,
+    "annualized_fee_rate_pct": 1.6757
+  },
+  {
+    "date": "2025-07-09",
+    "timestamp": 1752019200,
+    "daily_fees_usd": 4914,
+    "tvl_usd": 110669330,
+    "daily_fee_rate": 4.44e-05,
+    "annualized_fee_rate_pct": 1.6207
+  },
+  {
+    "date": "2025-07-10",
+    "timestamp": 1752105600,
+    "daily_fees_usd": 7721,
+    "tvl_usd": 117855487,
+    "daily_fee_rate": 6.551e-05,
+    "annualized_fee_rate_pct": 2.3912
+  },
+  {
+    "date": "2025-07-11",
+    "timestamp": 1752192000,
+    "daily_fees_usd": 6074,
+    "tvl_usd": 125835559,
+    "daily_fee_rate": 4.827e-05,
+    "annualized_fee_rate_pct": 1.7618
+  },
+  {
+    "date": "2025-07-12",
+    "timestamp": 1752278400,
+    "daily_fees_usd": 4768,
+    "tvl_usd": 126626339,
+    "daily_fee_rate": 3.765e-05,
+    "annualized_fee_rate_pct": 1.3744
+  },
+  {
+    "date": "2025-07-13",
+    "timestamp": 1752364800,
+    "daily_fees_usd": 5703,
+    "tvl_usd": 125935093,
+    "daily_fee_rate": 4.529e-05,
+    "annualized_fee_rate_pct": 1.6529
+  },
+  {
+    "date": "2025-07-14",
+    "timestamp": 1752451200,
+    "daily_fees_usd": 6106,
+    "tvl_usd": 128244709,
+    "daily_fee_rate": 4.761e-05,
+    "annualized_fee_rate_pct": 1.7378
+  },
+  {
+    "date": "2025-07-15",
+    "timestamp": 1752537600,
+    "daily_fees_usd": 8940,
+    "tvl_usd": 131556116,
+    "daily_fee_rate": 6.796e-05,
+    "annualized_fee_rate_pct": 2.4804
+  },
+  {
+    "date": "2025-07-16",
+    "timestamp": 1752624000,
+    "daily_fees_usd": 5528,
+    "tvl_usd": 135059634,
+    "daily_fee_rate": 4.093e-05,
+    "annualized_fee_rate_pct": 1.4939
+  },
+  {
+    "date": "2025-07-17",
+    "timestamp": 1752710400,
+    "daily_fees_usd": 9281,
+    "tvl_usd": 144837011,
+    "daily_fee_rate": 6.408e-05,
+    "annualized_fee_rate_pct": 2.3389
+  },
+  {
+    "date": "2025-07-18",
+    "timestamp": 1752796800,
+    "daily_fees_usd": 8095,
+    "tvl_usd": 149528916,
+    "daily_fee_rate": 5.414e-05,
+    "annualized_fee_rate_pct": 1.976
+  },
+  {
+    "date": "2025-07-19",
+    "timestamp": 1752883200,
+    "daily_fees_usd": 7068,
+    "tvl_usd": 151438949,
+    "daily_fee_rate": 4.667e-05,
+    "annualized_fee_rate_pct": 1.7035
+  },
+  {
+    "date": "2025-07-20",
+    "timestamp": 1752969600,
+    "daily_fees_usd": 8641,
+    "tvl_usd": 153674467,
+    "daily_fee_rate": 5.623e-05,
+    "annualized_fee_rate_pct": 2.0524
+  },
+  {
+    "date": "2025-07-21",
+    "timestamp": 1753056000,
+    "daily_fees_usd": 7245,
+    "tvl_usd": 159991506,
+    "daily_fee_rate": 4.528e-05,
+    "annualized_fee_rate_pct": 1.6529
+  },
+  {
+    "date": "2025-07-22",
+    "timestamp": 1753142400,
+    "daily_fees_usd": 6328,
+    "tvl_usd": 158795896,
+    "daily_fee_rate": 3.985e-05,
+    "annualized_fee_rate_pct": 1.4545
+  },
+  {
+    "date": "2025-07-23",
+    "timestamp": 1753228800,
+    "daily_fees_usd": 5376,
+    "tvl_usd": 142889306,
+    "daily_fee_rate": 3.762e-05,
+    "annualized_fee_rate_pct": 1.3733
+  },
+  {
+    "date": "2025-07-24",
+    "timestamp": 1753315200,
+    "daily_fees_usd": 17420,
+    "tvl_usd": 138511592,
+    "daily_fee_rate": 0.00012577,
+    "annualized_fee_rate_pct": 4.5904
+  },
+  {
+    "date": "2025-07-25",
+    "timestamp": 1753401600,
+    "daily_fees_usd": 7353,
+    "tvl_usd": 147567920,
+    "daily_fee_rate": 4.983e-05,
+    "annualized_fee_rate_pct": 1.8187
+  },
+  {
+    "date": "2025-07-26",
+    "timestamp": 1753488000,
+    "daily_fees_usd": 5310,
+    "tvl_usd": 149444950,
+    "daily_fee_rate": 3.553e-05,
+    "annualized_fee_rate_pct": 1.2969
+  },
+  {
+    "date": "2025-07-27",
+    "timestamp": 1753574400,
+    "daily_fees_usd": 5248,
+    "tvl_usd": 150370580,
+    "daily_fee_rate": 3.49e-05,
+    "annualized_fee_rate_pct": 1.2739
+  },
+  {
+    "date": "2025-07-28",
+    "timestamp": 1753660800,
+    "daily_fees_usd": 4103,
+    "tvl_usd": 143367452,
+    "daily_fee_rate": 2.862e-05,
+    "annualized_fee_rate_pct": 1.0446
+  },
+  {
+    "date": "2025-07-29",
+    "timestamp": 1753747200,
+    "daily_fees_usd": 6066,
+    "tvl_usd": 140347108,
+    "daily_fee_rate": 4.322e-05,
+    "annualized_fee_rate_pct": 1.5776
+  },
+  {
+    "date": "2025-07-30",
+    "timestamp": 1753833600,
+    "daily_fees_usd": 4432,
+    "tvl_usd": 139888229,
+    "daily_fee_rate": 3.168e-05,
+    "annualized_fee_rate_pct": 1.1564
+  },
+  {
+    "date": "2025-07-31",
+    "timestamp": 1753920000,
+    "daily_fees_usd": 5168,
+    "tvl_usd": 140398224,
+    "daily_fee_rate": 3.681e-05,
+    "annualized_fee_rate_pct": 1.3435
+  },
+  {
+    "date": "2025-08-01",
+    "timestamp": 1754006400,
+    "daily_fees_usd": 6991,
+    "tvl_usd": 136294075,
+    "daily_fee_rate": 5.129e-05,
+    "annualized_fee_rate_pct": 1.8722
+  },
+  {
+    "date": "2025-08-02",
+    "timestamp": 1754092800,
+    "daily_fees_usd": 4968,
+    "tvl_usd": 128857794,
+    "daily_fee_rate": 3.855e-05,
+    "annualized_fee_rate_pct": 1.4072
+  },
+  {
+    "date": "2025-08-03",
+    "timestamp": 1754179200,
+    "daily_fees_usd": 5556,
+    "tvl_usd": 125551337,
+    "daily_fee_rate": 4.425e-05,
+    "annualized_fee_rate_pct": 1.6152
+  },
+  {
+    "date": "2025-08-04",
+    "timestamp": 1754265600,
+    "daily_fees_usd": 6132,
+    "tvl_usd": 130197903,
+    "daily_fee_rate": 4.71e-05,
+    "annualized_fee_rate_pct": 1.7191
+  },
+  {
+    "date": "2025-08-05",
+    "timestamp": 1754352000,
+    "daily_fees_usd": 5388,
+    "tvl_usd": 137771325,
+    "daily_fee_rate": 3.911e-05,
+    "annualized_fee_rate_pct": 1.4275
+  },
+  {
+    "date": "2025-08-06",
+    "timestamp": 1754438400,
+    "daily_fees_usd": 6967,
+    "tvl_usd": 134523569,
+    "daily_fee_rate": 5.179e-05,
+    "annualized_fee_rate_pct": 1.8903
+  },
+  {
+    "date": "2025-08-07",
+    "timestamp": 1754524800,
+    "daily_fees_usd": 6419,
+    "tvl_usd": 136779524,
+    "daily_fee_rate": 4.693e-05,
+    "annualized_fee_rate_pct": 1.7129
+  },
+  {
+    "date": "2025-08-08",
+    "timestamp": 1754611200,
+    "daily_fees_usd": 9628,
+    "tvl_usd": 144788313,
+    "daily_fee_rate": 6.65e-05,
+    "annualized_fee_rate_pct": 2.4271
+  },
+  {
+    "date": "2025-08-09",
+    "timestamp": 1754697600,
+    "daily_fees_usd": 6709,
+    "tvl_usd": 148529718,
+    "daily_fee_rate": 4.517e-05,
+    "annualized_fee_rate_pct": 1.6487
+  },
+  {
+    "date": "2025-08-10",
+    "timestamp": 1754784000,
+    "daily_fees_usd": 7932,
+    "tvl_usd": 158150352,
+    "daily_fee_rate": 5.015e-05,
+    "annualized_fee_rate_pct": 1.8307
+  },
+  {
+    "date": "2025-08-11",
+    "timestamp": 1754870400,
+    "daily_fees_usd": 6167,
+    "tvl_usd": 157034438,
+    "daily_fee_rate": 3.927e-05,
+    "annualized_fee_rate_pct": 1.4334
+  },
+  {
+    "date": "2025-08-12",
+    "timestamp": 1754956800,
+    "daily_fees_usd": 9518,
+    "tvl_usd": 156518539,
+    "daily_fee_rate": 6.081e-05,
+    "annualized_fee_rate_pct": 2.2196
+  },
+  {
+    "date": "2025-08-13",
+    "timestamp": 1755043200,
+    "daily_fees_usd": 6674,
+    "tvl_usd": 170050553,
+    "daily_fee_rate": 3.925e-05,
+    "annualized_fee_rate_pct": 1.4325
+  },
+  {
+    "date": "2025-08-14",
+    "timestamp": 1755129600,
+    "daily_fees_usd": 6869,
+    "tvl_usd": 171632135,
+    "daily_fee_rate": 4.002e-05,
+    "annualized_fee_rate_pct": 1.4608
+  },
+  {
+    "date": "2025-08-15",
+    "timestamp": 1755216000,
+    "daily_fees_usd": 5719,
+    "tvl_usd": 164741495,
+    "daily_fee_rate": 3.471e-05,
+    "annualized_fee_rate_pct": 1.2671
+  },
+  {
+    "date": "2025-08-16",
+    "timestamp": 1755302400,
+    "daily_fees_usd": 4951,
+    "tvl_usd": 159376290,
+    "daily_fee_rate": 3.106e-05,
+    "annualized_fee_rate_pct": 1.1339
+  },
+  {
+    "date": "2025-08-17",
+    "timestamp": 1755388800,
+    "daily_fees_usd": 6967,
+    "tvl_usd": 159335434,
+    "daily_fee_rate": 4.373e-05,
+    "annualized_fee_rate_pct": 1.596
+  },
+  {
+    "date": "2025-08-18",
+    "timestamp": 1755475200,
+    "daily_fees_usd": 5562,
+    "tvl_usd": 159452254,
+    "daily_fee_rate": 3.488e-05,
+    "annualized_fee_rate_pct": 1.2732
+  },
+  {
+    "date": "2025-08-19",
+    "timestamp": 1755561600,
+    "daily_fees_usd": 5221,
+    "tvl_usd": 152101831,
+    "daily_fee_rate": 3.433e-05,
+    "annualized_fee_rate_pct": 1.2529
+  },
+  {
+    "date": "2025-08-20",
+    "timestamp": 1755648000,
+    "daily_fees_usd": 7680,
+    "tvl_usd": 143693294,
+    "daily_fee_rate": 5.345e-05,
+    "annualized_fee_rate_pct": 1.9508
+  },
+  {
+    "date": "2025-08-21",
+    "timestamp": 1755734400,
+    "daily_fees_usd": 4485,
+    "tvl_usd": 153288103,
+    "daily_fee_rate": 2.926e-05,
+    "annualized_fee_rate_pct": 1.0679
+  },
+  {
+    "date": "2025-08-22",
+    "timestamp": 1755820800,
+    "daily_fees_usd": 12019,
+    "tvl_usd": 149682475,
+    "daily_fee_rate": 8.03e-05,
+    "annualized_fee_rate_pct": 2.9308
+  },
+  {
+    "date": "2025-08-23",
+    "timestamp": 1755907200,
+    "daily_fees_usd": 4516,
+    "tvl_usd": 174742091,
+    "daily_fee_rate": 2.584e-05,
+    "annualized_fee_rate_pct": 0.9433
+  },
+  {
+    "date": "2025-08-24",
+    "timestamp": 1755993600,
+    "daily_fees_usd": 7413,
+    "tvl_usd": 174436515,
+    "daily_fee_rate": 4.25e-05,
+    "annualized_fee_rate_pct": 1.5511
+  },
+  {
+    "date": "2025-08-25",
+    "timestamp": 1756080000,
+    "daily_fees_usd": 6763,
+    "tvl_usd": 173920572,
+    "daily_fee_rate": 3.889e-05,
+    "annualized_fee_rate_pct": 1.4193
+  },
+  {
+    "date": "2025-08-26",
+    "timestamp": 1756166400,
+    "daily_fees_usd": 11847,
+    "tvl_usd": 157319930,
+    "daily_fee_rate": 7.531e-05,
+    "annualized_fee_rate_pct": 2.7486
+  },
+  {
+    "date": "2025-08-27",
+    "timestamp": 1756252800,
+    "daily_fees_usd": 5606,
+    "tvl_usd": 171085284,
+    "daily_fee_rate": 3.277e-05,
+    "annualized_fee_rate_pct": 1.196
+  },
+  {
+    "date": "2025-08-28",
+    "timestamp": 1756339200,
+    "daily_fees_usd": 5743,
+    "tvl_usd": 167901318,
+    "daily_fee_rate": 3.42e-05,
+    "annualized_fee_rate_pct": 1.2485
+  },
+  {
+    "date": "2025-08-29",
+    "timestamp": 1756425600,
+    "daily_fees_usd": 7477,
+    "tvl_usd": 167236574,
+    "daily_fee_rate": 4.471e-05,
+    "annualized_fee_rate_pct": 1.6319
+  },
+  {
+    "date": "2025-08-30",
+    "timestamp": 1756512000,
+    "daily_fees_usd": 5264,
+    "tvl_usd": 162337814,
+    "daily_fee_rate": 3.243e-05,
+    "annualized_fee_rate_pct": 1.1836
+  },
+  {
+    "date": "2025-08-31",
+    "timestamp": 1756598400,
+    "daily_fees_usd": 5372,
+    "tvl_usd": 164142974,
+    "daily_fee_rate": 3.273e-05,
+    "annualized_fee_rate_pct": 1.1946
+  },
+  {
+    "date": "2025-09-01",
+    "timestamp": 1756684800,
+    "daily_fees_usd": 10968,
+    "tvl_usd": 164326494,
+    "daily_fee_rate": 6.675e-05,
+    "annualized_fee_rate_pct": 2.4362
+  },
+  {
+    "date": "2025-09-02",
+    "timestamp": 1756771200,
+    "daily_fees_usd": 15906,
+    "tvl_usd": 160309827,
+    "daily_fee_rate": 9.922e-05,
+    "annualized_fee_rate_pct": 3.6215
+  },
+  {
+    "date": "2025-09-03",
+    "timestamp": 1756857600,
+    "daily_fees_usd": 13898,
+    "tvl_usd": 160664292,
+    "daily_fee_rate": 8.65e-05,
+    "annualized_fee_rate_pct": 3.1574
+  },
+  {
+    "date": "2025-09-04",
+    "timestamp": 1756944000,
+    "daily_fees_usd": 4947,
+    "tvl_usd": 163816550,
+    "daily_fee_rate": 3.02e-05,
+    "annualized_fee_rate_pct": 1.1022
+  },
+  {
+    "date": "2025-09-05",
+    "timestamp": 1757030400,
+    "daily_fees_usd": 13480,
+    "tvl_usd": 158437744,
+    "daily_fee_rate": 8.508e-05,
+    "annualized_fee_rate_pct": 3.1054
+  },
+  {
+    "date": "2025-09-06",
+    "timestamp": 1757116800,
+    "daily_fees_usd": 4562,
+    "tvl_usd": 157523058,
+    "daily_fee_rate": 2.896e-05,
+    "annualized_fee_rate_pct": 1.0571
+  },
+  {
+    "date": "2025-09-07",
+    "timestamp": 1757203200,
+    "daily_fees_usd": 11270,
+    "tvl_usd": 156650607,
+    "daily_fee_rate": 7.194e-05,
+    "annualized_fee_rate_pct": 2.6259
+  },
+  {
+    "date": "2025-09-08",
+    "timestamp": 1757289600,
+    "daily_fees_usd": 5173,
+    "tvl_usd": 157157508,
+    "daily_fee_rate": 3.292e-05,
+    "annualized_fee_rate_pct": 1.2014
+  },
+  {
+    "date": "2025-09-09",
+    "timestamp": 1757376000,
+    "daily_fees_usd": 6394,
+    "tvl_usd": 157446374,
+    "daily_fee_rate": 4.061e-05,
+    "annualized_fee_rate_pct": 1.4823
+  },
+  {
+    "date": "2025-09-10",
+    "timestamp": 1757462400,
+    "daily_fees_usd": 11387,
+    "tvl_usd": 157451830,
+    "daily_fee_rate": 7.232e-05,
+    "annualized_fee_rate_pct": 2.6397
+  },
+  {
+    "date": "2025-09-11",
+    "timestamp": 1757548800,
+    "daily_fees_usd": 5930,
+    "tvl_usd": 157793162,
+    "daily_fee_rate": 3.758e-05,
+    "annualized_fee_rate_pct": 1.3717
+  },
+  {
+    "date": "2025-09-12",
+    "timestamp": 1757635200,
+    "daily_fees_usd": 6418,
+    "tvl_usd": 162142973,
+    "daily_fee_rate": 3.958e-05,
+    "annualized_fee_rate_pct": 1.4448
+  },
+  {
+    "date": "2025-09-13",
+    "timestamp": 1757721600,
+    "daily_fees_usd": 5254,
+    "tvl_usd": 171703384,
+    "daily_fee_rate": 3.06e-05,
+    "annualized_fee_rate_pct": 1.1169
+  },
+  {
+    "date": "2025-09-14",
+    "timestamp": 1757808000,
+    "daily_fees_usd": 5247,
+    "tvl_usd": 173067198,
+    "daily_fee_rate": 3.032e-05,
+    "annualized_fee_rate_pct": 1.1066
+  },
+  {
+    "date": "2025-09-15",
+    "timestamp": 1757894400,
+    "daily_fees_usd": 4599,
+    "tvl_usd": 170883407,
+    "daily_fee_rate": 2.691e-05,
+    "annualized_fee_rate_pct": 0.9823
+  },
+  {
+    "date": "2025-09-16",
+    "timestamp": 1757980800,
+    "daily_fees_usd": 6341,
+    "tvl_usd": 167745509,
+    "daily_fee_rate": 3.78e-05,
+    "annualized_fee_rate_pct": 1.3797
+  },
+  {
+    "date": "2025-09-17",
+    "timestamp": 1758067200,
+    "daily_fees_usd": 6783,
+    "tvl_usd": 167429607,
+    "daily_fee_rate": 4.051e-05,
+    "annualized_fee_rate_pct": 1.4787
+  },
+  {
+    "date": "2025-09-18",
+    "timestamp": 1758153600,
+    "daily_fees_usd": 5554,
+    "tvl_usd": 170805014,
+    "daily_fee_rate": 3.252e-05,
+    "annualized_fee_rate_pct": 1.1869
+  },
+  {
+    "date": "2025-09-19",
+    "timestamp": 1758240000,
+    "daily_fees_usd": 5571,
+    "tvl_usd": 170337307,
+    "daily_fee_rate": 3.271e-05,
+    "annualized_fee_rate_pct": 1.1938
+  },
+  {
+    "date": "2025-09-20",
+    "timestamp": 1758326400,
+    "daily_fees_usd": 5011,
+    "tvl_usd": 166006407,
+    "daily_fee_rate": 3.019e-05,
+    "annualized_fee_rate_pct": 1.1018
+  },
+  {
+    "date": "2025-09-21",
+    "timestamp": 1758412800,
+    "daily_fees_usd": 5912,
+    "tvl_usd": 166309715,
+    "daily_fee_rate": 3.555e-05,
+    "annualized_fee_rate_pct": 1.2975
+  },
+  {
+    "date": "2025-09-22",
+    "timestamp": 1758499200,
+    "daily_fees_usd": 6304,
+    "tvl_usd": 161982978,
+    "daily_fee_rate": 3.892e-05,
+    "annualized_fee_rate_pct": 1.4205
+  },
+  {
+    "date": "2025-09-23",
+    "timestamp": 1758585600,
+    "daily_fees_usd": 5387,
+    "tvl_usd": 157152020,
+    "daily_fee_rate": 3.428e-05,
+    "annualized_fee_rate_pct": 1.2512
+  },
+  {
+    "date": "2025-09-24",
+    "timestamp": 1758672000,
+    "daily_fees_usd": 6261,
+    "tvl_usd": 156330207,
+    "daily_fee_rate": 4.005e-05,
+    "annualized_fee_rate_pct": 1.4618
+  },
+  {
+    "date": "2025-09-25",
+    "timestamp": 1758758400,
+    "daily_fees_usd": 14347,
+    "tvl_usd": 155421306,
+    "daily_fee_rate": 9.231e-05,
+    "annualized_fee_rate_pct": 3.3693
+  },
+  {
+    "date": "2025-09-26",
+    "timestamp": 1758844800,
+    "daily_fees_usd": 11345,
+    "tvl_usd": 145434792,
+    "daily_fee_rate": 7.801e-05,
+    "annualized_fee_rate_pct": 2.8473
+  },
+  {
+    "date": "2025-09-27",
+    "timestamp": 1758931200,
+    "daily_fees_usd": 5736,
+    "tvl_usd": 151095406,
+    "daily_fee_rate": 3.796e-05,
+    "annualized_fee_rate_pct": 1.3856
+  },
+  {
+    "date": "2025-09-28",
+    "timestamp": 1759017600,
+    "daily_fees_usd": 6025,
+    "tvl_usd": 150330318,
+    "daily_fee_rate": 4.008e-05,
+    "annualized_fee_rate_pct": 1.4629
+  },
+  {
+    "date": "2025-09-29",
+    "timestamp": 1759104000,
+    "daily_fees_usd": 6545,
+    "tvl_usd": 154641568,
+    "daily_fee_rate": 4.232e-05,
+    "annualized_fee_rate_pct": 1.5448
+  },
+  {
+    "date": "2025-09-30",
+    "timestamp": 1759190400,
+    "daily_fees_usd": 6140,
+    "tvl_usd": 159156714,
+    "daily_fee_rate": 3.858e-05,
+    "annualized_fee_rate_pct": 1.4081
+  },
+  {
+    "date": "2025-10-01",
+    "timestamp": 1759276800,
+    "daily_fees_usd": 6669,
+    "tvl_usd": 156576040,
+    "daily_fee_rate": 4.259e-05,
+    "annualized_fee_rate_pct": 1.5546
+  },
+  {
+    "date": "2025-10-02",
+    "timestamp": 1759363200,
+    "daily_fees_usd": 5692,
+    "tvl_usd": 163801140,
+    "daily_fee_rate": 3.475e-05,
+    "annualized_fee_rate_pct": 1.2684
+  },
+  {
+    "date": "2025-10-03",
+    "timestamp": 1759449600,
+    "daily_fees_usd": 8082,
+    "tvl_usd": 168988447,
+    "daily_fee_rate": 4.783e-05,
+    "annualized_fee_rate_pct": 1.7456
+  },
+  {
+    "date": "2025-10-04",
+    "timestamp": 1759536000,
+    "daily_fees_usd": 6337,
+    "tvl_usd": 170102844,
+    "daily_fee_rate": 3.725e-05,
+    "annualized_fee_rate_pct": 1.3598
+  },
+  {
+    "date": "2025-10-05",
+    "timestamp": 1759622400,
+    "daily_fees_usd": 6835,
+    "tvl_usd": 171235343,
+    "daily_fee_rate": 3.992e-05,
+    "annualized_fee_rate_pct": 1.4569
+  },
+  {
+    "date": "2025-10-06",
+    "timestamp": 1759708800,
+    "daily_fees_usd": 6551,
+    "tvl_usd": 173282565,
+    "daily_fee_rate": 3.781e-05,
+    "annualized_fee_rate_pct": 1.3799
+  },
+  {
+    "date": "2025-10-07",
+    "timestamp": 1759795200,
+    "daily_fees_usd": 5865,
+    "tvl_usd": 180025138,
+    "daily_fee_rate": 3.258e-05,
+    "annualized_fee_rate_pct": 1.1891
+  },
+  {
+    "date": "2025-10-08",
+    "timestamp": 1759881600,
+    "daily_fees_usd": 6456,
+    "tvl_usd": 172648968,
+    "daily_fee_rate": 3.739e-05,
+    "annualized_fee_rate_pct": 1.3649
+  },
+  {
+    "date": "2025-10-09",
+    "timestamp": 1759968000,
+    "daily_fees_usd": 5836,
+    "tvl_usd": 175541964,
+    "daily_fee_rate": 3.325e-05,
+    "annualized_fee_rate_pct": 1.2135
+  },
+  {
+    "date": "2025-10-10",
+    "timestamp": 1760054400,
+    "daily_fees_usd": 17485,
+    "tvl_usd": 167405517,
+    "daily_fee_rate": 0.00010445,
+    "annualized_fee_rate_pct": 3.8123
+  },
+  {
+    "date": "2025-10-11",
+    "timestamp": 1760140800,
+    "daily_fees_usd": 5892,
+    "tvl_usd": 144087284,
+    "daily_fee_rate": 4.089e-05,
+    "annualized_fee_rate_pct": 1.4926
+  },
+  {
+    "date": "2025-10-12",
+    "timestamp": 1760227200,
+    "daily_fees_usd": 6213,
+    "tvl_usd": 140163017,
+    "daily_fee_rate": 4.433e-05,
+    "annualized_fee_rate_pct": 1.6179
+  },
+  {
+    "date": "2025-10-13",
+    "timestamp": 1760313600,
+    "daily_fees_usd": 5504,
+    "tvl_usd": 155779841,
+    "daily_fee_rate": 3.533e-05,
+    "annualized_fee_rate_pct": 1.2896
+  },
+  {
+    "date": "2025-10-14",
+    "timestamp": 1760400000,
+    "daily_fees_usd": 6913,
+    "tvl_usd": 159324181,
+    "daily_fee_rate": 4.339e-05,
+    "annualized_fee_rate_pct": 1.5837
+  },
+  {
+    "date": "2025-10-15",
+    "timestamp": 1760486400,
+    "daily_fees_usd": 5584,
+    "tvl_usd": 156955315,
+    "daily_fee_rate": 3.558e-05,
+    "annualized_fee_rate_pct": 1.2986
+  },
+  {
+    "date": "2025-10-16",
+    "timestamp": 1760572800,
+    "daily_fees_usd": 7165,
+    "tvl_usd": 152527320,
+    "daily_fee_rate": 4.698e-05,
+    "annualized_fee_rate_pct": 1.7146
+  },
+  {
+    "date": "2025-10-17",
+    "timestamp": 1760659200,
+    "daily_fees_usd": 5828,
+    "tvl_usd": 148273002,
+    "daily_fee_rate": 3.931e-05,
+    "annualized_fee_rate_pct": 1.4347
+  },
+  {
+    "date": "2025-10-18",
+    "timestamp": 1760745600,
+    "daily_fees_usd": 9139,
+    "tvl_usd": 148052741,
+    "daily_fee_rate": 6.173e-05,
+    "annualized_fee_rate_pct": 2.2531
+  },
+  {
+    "date": "2025-10-19",
+    "timestamp": 1760832000,
+    "daily_fees_usd": 6701,
+    "tvl_usd": 149891713,
+    "daily_fee_rate": 4.471e-05,
+    "annualized_fee_rate_pct": 1.6318
+  },
+  {
+    "date": "2025-10-20",
+    "timestamp": 1760918400,
+    "daily_fees_usd": 6175,
+    "tvl_usd": 153893911,
+    "daily_fee_rate": 4.013e-05,
+    "annualized_fee_rate_pct": 1.4646
+  },
+  {
+    "date": "2025-10-21",
+    "timestamp": 1761004800,
+    "daily_fees_usd": 5922,
+    "tvl_usd": 153866192,
+    "daily_fee_rate": 3.849e-05,
+    "annualized_fee_rate_pct": 1.4048
+  },
+  {
+    "date": "2025-10-22",
+    "timestamp": 1761091200,
+    "daily_fees_usd": 5769,
+    "tvl_usd": 149995070,
+    "daily_fee_rate": 3.846e-05,
+    "annualized_fee_rate_pct": 1.4038
+  },
+  {
+    "date": "2025-10-23",
+    "timestamp": 1761177600,
+    "daily_fees_usd": 9016,
+    "tvl_usd": 147615281,
+    "daily_fee_rate": 6.108e-05,
+    "annualized_fee_rate_pct": 2.2293
+  },
+  {
+    "date": "2025-10-24",
+    "timestamp": 1761264000,
+    "daily_fees_usd": 7490,
+    "tvl_usd": 149469177,
+    "daily_fee_rate": 5.011e-05,
+    "annualized_fee_rate_pct": 1.829
+  },
+  {
+    "date": "2025-10-25",
+    "timestamp": 1761350400,
+    "daily_fees_usd": 14955,
+    "tvl_usd": 152221870,
+    "daily_fee_rate": 9.824e-05,
+    "annualized_fee_rate_pct": 3.5859
+  },
+  {
+    "date": "2025-10-26",
+    "timestamp": 1761436800,
+    "daily_fees_usd": 7350,
+    "tvl_usd": 152995551,
+    "daily_fee_rate": 4.804e-05,
+    "annualized_fee_rate_pct": 1.7535
+  },
+  {
+    "date": "2025-10-27",
+    "timestamp": 1761523200,
+    "daily_fees_usd": 7990,
+    "tvl_usd": 161478316,
+    "daily_fee_rate": 4.948e-05,
+    "annualized_fee_rate_pct": 1.806
+  },
+  {
+    "date": "2025-10-28",
+    "timestamp": 1761609600,
+    "daily_fees_usd": 5874,
+    "tvl_usd": 159251021,
+    "daily_fee_rate": 3.689e-05,
+    "annualized_fee_rate_pct": 1.3463
+  },
+  {
+    "date": "2025-10-29",
+    "timestamp": 1761696000,
+    "daily_fees_usd": 6347,
+    "tvl_usd": 154487132,
+    "daily_fee_rate": 4.108e-05,
+    "annualized_fee_rate_pct": 1.4996
+  },
+  {
+    "date": "2025-10-30",
+    "timestamp": 1761782400,
+    "daily_fees_usd": 6023,
+    "tvl_usd": 153393575,
+    "daily_fee_rate": 3.927e-05,
+    "annualized_fee_rate_pct": 1.4332
+  },
+  {
+    "date": "2025-10-31",
+    "timestamp": 1761868800,
+    "daily_fees_usd": 5554,
+    "tvl_usd": 149541162,
+    "daily_fee_rate": 3.714e-05,
+    "annualized_fee_rate_pct": 1.3556
+  },
+  {
+    "date": "2025-11-01",
+    "timestamp": 1761955200,
+    "daily_fees_usd": 5443,
+    "tvl_usd": 150556978,
+    "daily_fee_rate": 3.615e-05,
+    "annualized_fee_rate_pct": 1.3196
+  },
+  {
+    "date": "2025-11-02",
+    "timestamp": 1762041600,
+    "daily_fees_usd": 5263,
+    "tvl_usd": 151321619,
+    "daily_fee_rate": 3.478e-05,
+    "annualized_fee_rate_pct": 1.2695
+  },
+  {
+    "date": "2025-11-03",
+    "timestamp": 1762128000,
+    "daily_fees_usd": 6978,
+    "tvl_usd": 150327605,
+    "daily_fee_rate": 4.642e-05,
+    "annualized_fee_rate_pct": 1.6943
+  },
+  {
+    "date": "2025-11-04",
+    "timestamp": 1762214400,
+    "daily_fees_usd": 7573,
+    "tvl_usd": 137859534,
+    "daily_fee_rate": 5.493e-05,
+    "annualized_fee_rate_pct": 2.005
+  },
+  {
+    "date": "2025-11-05",
+    "timestamp": 1762300800,
+    "daily_fees_usd": 8762,
+    "tvl_usd": 129464155,
+    "daily_fee_rate": 6.768e-05,
+    "annualized_fee_rate_pct": 2.4703
+  },
+  {
+    "date": "2025-11-06",
+    "timestamp": 1762387200,
+    "daily_fees_usd": 4891,
+    "tvl_usd": 134510138,
+    "daily_fee_rate": 3.636e-05,
+    "annualized_fee_rate_pct": 1.3272
+  },
+  {
+    "date": "2025-11-07",
+    "timestamp": 1762473600,
+    "daily_fees_usd": 5259,
+    "tvl_usd": 130941788,
+    "daily_fee_rate": 4.016e-05,
+    "annualized_fee_rate_pct": 1.4659
+  },
+  {
+    "date": "2025-11-08",
+    "timestamp": 1762560000,
+    "daily_fees_usd": 5094,
+    "tvl_usd": 135630884,
+    "daily_fee_rate": 3.756e-05,
+    "annualized_fee_rate_pct": 1.3709
+  },
+  {
+    "date": "2025-11-09",
+    "timestamp": 1762646400,
+    "daily_fees_usd": 5438,
+    "tvl_usd": 134241278,
+    "daily_fee_rate": 4.051e-05,
+    "annualized_fee_rate_pct": 1.4786
+  },
+  {
+    "date": "2025-11-10",
+    "timestamp": 1762732800,
+    "daily_fees_usd": 5011,
+    "tvl_usd": 143427473,
+    "daily_fee_rate": 3.494e-05,
+    "annualized_fee_rate_pct": 1.2752
+  },
+  {
+    "date": "2025-11-11",
+    "timestamp": 1762819200,
+    "daily_fees_usd": 4777,
+    "tvl_usd": 141254520,
+    "daily_fee_rate": 3.382e-05,
+    "annualized_fee_rate_pct": 1.2344
+  },
+  {
+    "date": "2025-11-12",
+    "timestamp": 1762905600,
+    "daily_fees_usd": 5110,
+    "tvl_usd": 135550014,
+    "daily_fee_rate": 3.77e-05,
+    "annualized_fee_rate_pct": 1.376
+  },
+  {
+    "date": "2025-11-13",
+    "timestamp": 1762992000,
+    "daily_fees_usd": 5156,
+    "tvl_usd": 134284996,
+    "daily_fee_rate": 3.84e-05,
+    "annualized_fee_rate_pct": 1.4015
+  },
+  {
+    "date": "2025-11-14",
+    "timestamp": 1763078400,
+    "daily_fees_usd": 5319,
+    "tvl_usd": 126116750,
+    "daily_fee_rate": 4.218e-05,
+    "annualized_fee_rate_pct": 1.5394
+  },
+  {
+    "date": "2025-11-15",
+    "timestamp": 1763164800,
+    "daily_fees_usd": 5053,
+    "tvl_usd": 127808046,
+    "daily_fee_rate": 3.954e-05,
+    "annualized_fee_rate_pct": 1.4431
+  },
+  {
+    "date": "2025-11-16",
+    "timestamp": 1763251200,
+    "daily_fees_usd": 5875,
+    "tvl_usd": 129204213,
+    "daily_fee_rate": 4.547e-05,
+    "annualized_fee_rate_pct": 1.6597
+  },
+  {
+    "date": "2025-11-17",
+    "timestamp": 1763337600,
+    "daily_fees_usd": 5092,
+    "tvl_usd": 126482663,
+    "daily_fee_rate": 4.026e-05,
+    "annualized_fee_rate_pct": 1.4694
+  },
+  {
+    "date": "2025-11-18",
+    "timestamp": 1763424000,
+    "daily_fees_usd": 4969,
+    "tvl_usd": 123268105,
+    "daily_fee_rate": 4.031e-05,
+    "annualized_fee_rate_pct": 1.4713
+  },
+  {
+    "date": "2025-11-19",
+    "timestamp": 1763510400,
+    "daily_fees_usd": 5886,
+    "tvl_usd": 128276661,
+    "daily_fee_rate": 4.589e-05,
+    "annualized_fee_rate_pct": 1.6748
+  },
+  {
+    "date": "2025-11-20",
+    "timestamp": 1763596800,
+    "daily_fees_usd": 8802,
+    "tvl_usd": 127495178,
+    "daily_fee_rate": 6.904e-05,
+    "annualized_fee_rate_pct": 2.5199
+  },
+  {
+    "date": "2025-11-21",
+    "timestamp": 1763683200,
+    "daily_fees_usd": 6271,
+    "tvl_usd": 126997663,
+    "daily_fee_rate": 4.938e-05,
+    "annualized_fee_rate_pct": 1.8023
+  },
+  {
+    "date": "2025-11-22",
+    "timestamp": 1763769600,
+    "daily_fees_usd": 4642,
+    "tvl_usd": 123162052,
+    "daily_fee_rate": 3.769e-05,
+    "annualized_fee_rate_pct": 1.3757
+  },
+  {
+    "date": "2025-11-23",
+    "timestamp": 1763856000,
+    "daily_fees_usd": 6441,
+    "tvl_usd": 123466209,
+    "daily_fee_rate": 5.217e-05,
+    "annualized_fee_rate_pct": 1.9041
+  },
+  {
+    "date": "2025-11-24",
+    "timestamp": 1763942400,
+    "daily_fees_usd": 6405,
+    "tvl_usd": 125118792,
+    "daily_fee_rate": 5.119e-05,
+    "annualized_fee_rate_pct": 1.8685
+  },
+  {
+    "date": "2025-11-25",
+    "timestamp": 1764028800,
+    "daily_fees_usd": 4456,
+    "tvl_usd": 131457420,
+    "daily_fee_rate": 3.39e-05,
+    "annualized_fee_rate_pct": 1.2372
+  },
+  {
+    "date": "2025-11-26",
+    "timestamp": 1764115200,
+    "daily_fees_usd": 4802,
+    "tvl_usd": 131660303,
+    "daily_fee_rate": 3.647e-05,
+    "annualized_fee_rate_pct": 1.3313
+  },
+  {
+    "date": "2025-11-27",
+    "timestamp": 1764201600,
+    "daily_fees_usd": 7079,
+    "tvl_usd": 134586652,
+    "daily_fee_rate": 5.26e-05,
+    "annualized_fee_rate_pct": 1.9198
+  },
+  {
+    "date": "2025-11-28",
+    "timestamp": 1764288000,
+    "daily_fees_usd": 5817,
+    "tvl_usd": 134560074,
+    "daily_fee_rate": 4.323e-05,
+    "annualized_fee_rate_pct": 1.5779
+  },
+  {
+    "date": "2025-11-29",
+    "timestamp": 1764374400,
+    "daily_fees_usd": 3623,
+    "tvl_usd": 135161380,
+    "daily_fee_rate": 2.68e-05,
+    "annualized_fee_rate_pct": 0.9784
+  },
+  {
+    "date": "2025-11-30",
+    "timestamp": 1764460800,
+    "daily_fees_usd": 3961,
+    "tvl_usd": 133142819,
+    "daily_fee_rate": 2.975e-05,
+    "annualized_fee_rate_pct": 1.0859
+  },
+  {
+    "date": "2025-12-01",
+    "timestamp": 1764547200,
+    "daily_fees_usd": 3512,
+    "tvl_usd": 133018388,
+    "daily_fee_rate": 2.64e-05,
+    "annualized_fee_rate_pct": 0.9637
+  },
+  {
+    "date": "2025-12-02",
+    "timestamp": 1764633600,
+    "daily_fees_usd": 4310,
+    "tvl_usd": 124395293,
+    "daily_fee_rate": 3.465e-05,
+    "annualized_fee_rate_pct": 1.2646
+  },
+  {
+    "date": "2025-12-03",
+    "timestamp": 1764720000,
+    "daily_fees_usd": 6795,
+    "tvl_usd": 133447271,
+    "daily_fee_rate": 5.092e-05,
+    "annualized_fee_rate_pct": 1.8585
+  },
+  {
+    "date": "2025-12-04",
+    "timestamp": 1764806400,
+    "daily_fees_usd": 4323,
+    "tvl_usd": 141670493,
+    "daily_fee_rate": 3.051e-05,
+    "annualized_fee_rate_pct": 1.1138
+  },
+  {
+    "date": "2025-12-05",
+    "timestamp": 1764892800,
+    "daily_fees_usd": 5358,
+    "tvl_usd": 138832451,
+    "daily_fee_rate": 3.859e-05,
+    "annualized_fee_rate_pct": 1.4087
+  },
+  {
+    "date": "2025-12-06",
+    "timestamp": 1764979200,
+    "daily_fees_usd": 3634,
+    "tvl_usd": 132705069,
+    "daily_fee_rate": 2.738e-05,
+    "annualized_fee_rate_pct": 0.9995
+  },
+  {
+    "date": "2025-12-07",
+    "timestamp": 1765065600,
+    "daily_fees_usd": 12016,
+    "tvl_usd": 133539182,
+    "daily_fee_rate": 8.998e-05,
+    "annualized_fee_rate_pct": 3.2843
+  },
+  {
+    "date": "2025-12-08",
+    "timestamp": 1765152000,
+    "daily_fees_usd": 6906,
+    "tvl_usd": 134470252,
+    "daily_fee_rate": 5.136e-05,
+    "annualized_fee_rate_pct": 1.8745
+  },
+  {
+    "date": "2025-12-09",
+    "timestamp": 1765238400,
+    "daily_fees_usd": 11587,
+    "tvl_usd": 136158673,
+    "daily_fee_rate": 8.51e-05,
+    "annualized_fee_rate_pct": 3.1061
+  },
+  {
+    "date": "2025-12-10",
+    "timestamp": 1765324800,
+    "daily_fees_usd": 5880,
+    "tvl_usd": 143833922,
+    "daily_fee_rate": 4.088e-05,
+    "annualized_fee_rate_pct": 1.4921
+  },
+  {
+    "date": "2025-12-11",
+    "timestamp": 1765411200,
+    "daily_fees_usd": 6284,
+    "tvl_usd": 144110574,
+    "daily_fee_rate": 4.361e-05,
+    "annualized_fee_rate_pct": 1.5916
+  },
+  {
+    "date": "2025-12-12",
+    "timestamp": 1765497600,
+    "daily_fees_usd": 7310,
+    "tvl_usd": 140345422,
+    "daily_fee_rate": 5.209e-05,
+    "annualized_fee_rate_pct": 1.9011
+  },
+  {
+    "date": "2025-12-13",
+    "timestamp": 1765584000,
+    "daily_fees_usd": 7758,
+    "tvl_usd": 133682613,
+    "daily_fee_rate": 5.803e-05,
+    "annualized_fee_rate_pct": 2.1182
+  },
+  {
+    "date": "2025-12-14",
+    "timestamp": 1765670400,
+    "daily_fees_usd": 6821,
+    "tvl_usd": 134898360,
+    "daily_fee_rate": 5.056e-05,
+    "annualized_fee_rate_pct": 1.8456
+  },
+  {
+    "date": "2025-12-15",
+    "timestamp": 1765756800,
+    "daily_fees_usd": 7425,
+    "tvl_usd": 133124754,
+    "daily_fee_rate": 5.577e-05,
+    "annualized_fee_rate_pct": 2.0358
+  },
+  {
+    "date": "2025-12-16",
+    "timestamp": 1765843200,
+    "daily_fees_usd": 6172,
+    "tvl_usd": 128265165,
+    "daily_fee_rate": 4.812e-05,
+    "annualized_fee_rate_pct": 1.7563
+  },
+  {
+    "date": "2025-12-17",
+    "timestamp": 1765929600,
+    "daily_fees_usd": 8018,
+    "tvl_usd": 127368282,
+    "daily_fee_rate": 6.295e-05,
+    "annualized_fee_rate_pct": 2.2977
+  },
+  {
+    "date": "2025-12-18",
+    "timestamp": 1766016000,
+    "daily_fees_usd": 4956,
+    "tvl_usd": 122065743,
+    "daily_fee_rate": 4.06e-05,
+    "annualized_fee_rate_pct": 1.4819
+  },
+  {
+    "date": "2025-12-19",
+    "timestamp": 1766102400,
+    "daily_fees_usd": 11498,
+    "tvl_usd": 121705005,
+    "daily_fee_rate": 9.447e-05,
+    "annualized_fee_rate_pct": 3.4483
+  },
+  {
+    "date": "2025-12-20",
+    "timestamp": 1766188800,
+    "daily_fees_usd": 10134,
+    "tvl_usd": 127448590,
+    "daily_fee_rate": 7.951e-05,
+    "annualized_fee_rate_pct": 2.9023
+  },
+  {
+    "date": "2025-12-21",
+    "timestamp": 1766275200,
+    "daily_fees_usd": 7448,
+    "tvl_usd": 127330849,
+    "daily_fee_rate": 5.849e-05,
+    "annualized_fee_rate_pct": 2.135
+  },
+  {
+    "date": "2025-12-22",
+    "timestamp": 1766361600,
+    "daily_fees_usd": 6387,
+    "tvl_usd": 129028985,
+    "daily_fee_rate": 4.95e-05,
+    "annualized_fee_rate_pct": 1.8068
+  },
+  {
+    "date": "2025-12-23",
+    "timestamp": 1766448000,
+    "daily_fees_usd": 4653,
+    "tvl_usd": 128865930,
+    "daily_fee_rate": 3.611e-05,
+    "annualized_fee_rate_pct": 1.3179
+  },
+  {
+    "date": "2025-12-24",
+    "timestamp": 1766534400,
+    "daily_fees_usd": 4388,
+    "tvl_usd": 126952621,
+    "daily_fee_rate": 3.456e-05,
+    "annualized_fee_rate_pct": 1.2616
+  },
+  {
+    "date": "2025-12-25",
+    "timestamp": 1766620800,
+    "daily_fees_usd": 4099,
+    "tvl_usd": 126330749,
+    "daily_fee_rate": 3.245e-05,
+    "annualized_fee_rate_pct": 1.1843
+  },
+  {
+    "date": "2025-12-26",
+    "timestamp": 1766707200,
+    "daily_fees_usd": 4503,
+    "tvl_usd": 124251906,
+    "daily_fee_rate": 3.624e-05,
+    "annualized_fee_rate_pct": 1.3228
+  },
+  {
+    "date": "2025-12-27",
+    "timestamp": 1766793600,
+    "daily_fees_usd": 4401,
+    "tvl_usd": 125523575,
+    "daily_fee_rate": 3.506e-05,
+    "annualized_fee_rate_pct": 1.2797
+  },
+  {
+    "date": "2025-12-28",
+    "timestamp": 1766880000,
+    "daily_fees_usd": 6365,
+    "tvl_usd": 126354029,
+    "daily_fee_rate": 5.037e-05,
+    "annualized_fee_rate_pct": 1.8387
+  },
+  {
+    "date": "2025-12-29",
+    "timestamp": 1766966400,
+    "daily_fees_usd": 12302,
+    "tvl_usd": 126887428,
+    "daily_fee_rate": 9.695e-05,
+    "annualized_fee_rate_pct": 3.5388
+  },
+  {
+    "date": "2025-12-30",
+    "timestamp": 1767052800,
+    "daily_fees_usd": 4999,
+    "tvl_usd": 125177365,
+    "daily_fee_rate": 3.994e-05,
+    "annualized_fee_rate_pct": 1.4576
+  },
+  {
+    "date": "2025-12-31",
+    "timestamp": 1767139200,
+    "daily_fees_usd": 5194,
+    "tvl_usd": 126258339,
+    "daily_fee_rate": 4.114e-05,
+    "annualized_fee_rate_pct": 1.5015
+  },
+  {
+    "date": "2026-01-01",
+    "timestamp": 1767225600,
+    "daily_fees_usd": 3690,
+    "tvl_usd": 126556308,
+    "daily_fee_rate": 2.916e-05,
+    "annualized_fee_rate_pct": 1.0642
+  },
+  {
+    "date": "2026-01-02",
+    "timestamp": 1767312000,
+    "daily_fees_usd": 5810,
+    "tvl_usd": 127827916,
+    "daily_fee_rate": 4.545e-05,
+    "annualized_fee_rate_pct": 1.659
+  },
+  {
+    "date": "2026-01-03",
+    "timestamp": 1767398400,
+    "daily_fees_usd": 4495,
+    "tvl_usd": 132932560,
+    "daily_fee_rate": 3.381e-05,
+    "annualized_fee_rate_pct": 1.2342
+  },
+  {
+    "date": "2026-01-04",
+    "timestamp": 1767484800,
+    "daily_fees_usd": 5685,
+    "tvl_usd": 133710271,
+    "daily_fee_rate": 4.252e-05,
+    "annualized_fee_rate_pct": 1.5519
+  },
+  {
+    "date": "2026-01-05",
+    "timestamp": 1767571200,
+    "daily_fees_usd": 6664,
+    "tvl_usd": 133717644,
+    "daily_fee_rate": 4.984e-05,
+    "annualized_fee_rate_pct": 1.819
+  },
+  {
+    "date": "2026-01-06",
+    "timestamp": 1767657600,
+    "daily_fees_usd": 4850,
+    "tvl_usd": 137350372,
+    "daily_fee_rate": 3.531e-05,
+    "annualized_fee_rate_pct": 1.2889
+  },
+  {
+    "date": "2026-01-07",
+    "timestamp": 1767744000,
+    "daily_fees_usd": 4713,
+    "tvl_usd": 139911691,
+    "daily_fee_rate": 3.369e-05,
+    "annualized_fee_rate_pct": 1.2295
+  },
+  {
+    "date": "2026-01-08",
+    "timestamp": 1767830400,
+    "daily_fees_usd": 4790,
+    "tvl_usd": 133421960,
+    "daily_fee_rate": 3.59e-05,
+    "annualized_fee_rate_pct": 1.3104
+  },
+  {
+    "date": "2026-01-09",
+    "timestamp": 1767916800,
+    "daily_fees_usd": 4332,
+    "tvl_usd": 131350460,
+    "daily_fee_rate": 3.298e-05,
+    "annualized_fee_rate_pct": 1.2038
+  },
+  {
+    "date": "2026-01-10",
+    "timestamp": 1768003200,
+    "daily_fees_usd": 3905,
+    "tvl_usd": 130548958,
+    "daily_fee_rate": 2.991e-05,
+    "annualized_fee_rate_pct": 1.0918
+  },
+  {
+    "date": "2026-01-11",
+    "timestamp": 1768089600,
+    "daily_fees_usd": 5000,
+    "tvl_usd": 130487644,
+    "daily_fee_rate": 3.832e-05,
+    "annualized_fee_rate_pct": 1.3986
+  },
+  {
+    "date": "2026-01-12",
+    "timestamp": 1768176000,
+    "daily_fees_usd": 5327,
+    "tvl_usd": 131392465,
+    "daily_fee_rate": 4.054e-05,
+    "annualized_fee_rate_pct": 1.4798
+  },
+  {
+    "date": "2026-01-13",
+    "timestamp": 1768262400,
+    "daily_fees_usd": 8438,
+    "tvl_usd": 131185047,
+    "daily_fee_rate": 6.432e-05,
+    "annualized_fee_rate_pct": 2.3477
+  },
+  {
+    "date": "2026-01-14",
+    "timestamp": 1768348800,
+    "daily_fees_usd": 4709,
+    "tvl_usd": 140374631,
+    "daily_fee_rate": 3.355e-05,
+    "annualized_fee_rate_pct": 1.2244
+  },
+  {
+    "date": "2026-01-15",
+    "timestamp": 1768435200,
+    "daily_fees_usd": 4510,
+    "tvl_usd": 140908844,
+    "daily_fee_rate": 3.201e-05,
+    "annualized_fee_rate_pct": 1.1682
+  },
+  {
+    "date": "2026-01-16",
+    "timestamp": 1768521600,
+    "daily_fees_usd": 3550,
+    "tvl_usd": 139339269,
+    "daily_fee_rate": 2.548e-05,
+    "annualized_fee_rate_pct": 0.9299
+  },
+  {
+    "date": "2026-01-17",
+    "timestamp": 1768608000,
+    "daily_fees_usd": 5433,
+    "tvl_usd": 138728784,
+    "daily_fee_rate": 3.916e-05,
+    "annualized_fee_rate_pct": 1.4294
+  },
+  {
+    "date": "2026-01-18",
+    "timestamp": 1768694400,
+    "daily_fees_usd": 3982,
+    "tvl_usd": 139826094,
+    "daily_fee_rate": 2.848e-05,
+    "annualized_fee_rate_pct": 1.0395
+  },
+  {
+    "date": "2026-01-19",
+    "timestamp": 1768780800,
+    "daily_fees_usd": 4466,
+    "tvl_usd": 137129588,
+    "daily_fee_rate": 3.257e-05,
+    "annualized_fee_rate_pct": 1.1887
+  },
+  {
+    "date": "2026-01-20",
+    "timestamp": 1768867200,
+    "daily_fees_usd": 4237,
+    "tvl_usd": 134637487,
+    "daily_fee_rate": 3.147e-05,
+    "annualized_fee_rate_pct": 1.1486
+  },
+  {
+    "date": "2026-01-21",
+    "timestamp": 1768953600,
+    "daily_fees_usd": 5443,
+    "tvl_usd": 124906086,
+    "daily_fee_rate": 4.358e-05,
+    "annualized_fee_rate_pct": 1.5906
+  },
+  {
+    "date": "2026-01-22",
+    "timestamp": 1769040000,
+    "daily_fees_usd": 4353,
+    "tvl_usd": 127416778,
+    "daily_fee_rate": 3.416e-05,
+    "annualized_fee_rate_pct": 1.247
+  },
+  {
+    "date": "2026-01-23",
+    "timestamp": 1769126400,
+    "daily_fees_usd": 4291,
+    "tvl_usd": 125275291,
+    "daily_fee_rate": 3.425e-05,
+    "annualized_fee_rate_pct": 1.2502
+  },
+  {
+    "date": "2026-01-24",
+    "timestamp": 1769212800,
+    "daily_fees_usd": 4664,
+    "tvl_usd": 116655612,
+    "daily_fee_rate": 3.998e-05,
+    "annualized_fee_rate_pct": 1.4593
+  },
+  {
+    "date": "2026-01-25",
+    "timestamp": 1769299200,
+    "daily_fees_usd": 4291,
+    "tvl_usd": 116589761,
+    "daily_fee_rate": 3.68e-05,
+    "annualized_fee_rate_pct": 1.3434
+  },
+  {
+    "date": "2026-01-26",
+    "timestamp": 1769385600,
+    "daily_fees_usd": 4975,
+    "tvl_usd": 110815187,
+    "daily_fee_rate": 4.489e-05,
+    "annualized_fee_rate_pct": 1.6387
+  },
+  {
+    "date": "2026-01-27",
+    "timestamp": 1769472000,
+    "daily_fees_usd": 4360,
+    "tvl_usd": 115831235,
+    "daily_fee_rate": 3.764e-05,
+    "annualized_fee_rate_pct": 1.3739
+  },
+  {
+    "date": "2026-01-28",
+    "timestamp": 1769558400,
+    "daily_fees_usd": 4343,
+    "tvl_usd": 119423048,
+    "daily_fee_rate": 3.637e-05,
+    "annualized_fee_rate_pct": 1.3274
+  },
+  {
+    "date": "2026-01-29",
+    "timestamp": 1769644800,
+    "daily_fees_usd": 5440,
+    "tvl_usd": 118680018,
+    "daily_fee_rate": 4.584e-05,
+    "annualized_fee_rate_pct": 1.6731
+  },
+  {
+    "date": "2026-01-30",
+    "timestamp": 1769731200,
+    "daily_fees_usd": 5513,
+    "tvl_usd": 113363416,
+    "daily_fee_rate": 4.863e-05,
+    "annualized_fee_rate_pct": 1.775
+  },
+  {
+    "date": "2026-01-31",
+    "timestamp": 1769817600,
+    "daily_fees_usd": 6141,
+    "tvl_usd": 108528452,
+    "daily_fee_rate": 5.658e-05,
+    "annualized_fee_rate_pct": 2.0653
+  },
+  {
+    "date": "2026-02-01",
+    "timestamp": 1769904000,
+    "daily_fees_usd": 6035,
+    "tvl_usd": 100083542,
+    "daily_fee_rate": 6.03e-05,
+    "annualized_fee_rate_pct": 2.2009
+  },
+  {
+    "date": "2026-02-02",
+    "timestamp": 1769990400,
+    "daily_fees_usd": 5922,
+    "tvl_usd": 92130000,
+    "daily_fee_rate": 6.428e-05,
+    "annualized_fee_rate_pct": 2.3462
+  },
+  {
+    "date": "2026-02-03",
+    "timestamp": 1770076800,
+    "daily_fees_usd": 16763,
+    "tvl_usd": 96336963,
+    "daily_fee_rate": 0.000174,
+    "annualized_fee_rate_pct": 6.3511
+  },
+  {
+    "date": "2026-02-04",
+    "timestamp": 1770163200,
+    "daily_fees_usd": 8780,
+    "tvl_usd": 92100390,
+    "daily_fee_rate": 9.533e-05,
+    "annualized_fee_rate_pct": 3.4796
+  },
+  {
+    "date": "2026-02-05",
+    "timestamp": 1770249600,
+    "daily_fees_usd": 42545,
+    "tvl_usd": 87150906,
+    "daily_fee_rate": 0.00048818,
+    "annualized_fee_rate_pct": 17.8184
+  },
+  {
+    "date": "2026-02-06",
+    "timestamp": 1770336000,
+    "daily_fees_usd": 9794,
+    "tvl_usd": 77823416,
+    "daily_fee_rate": 0.00012585,
+    "annualized_fee_rate_pct": 4.5935
+  },
+  {
+    "date": "2026-02-07",
+    "timestamp": 1770422400,
+    "daily_fees_usd": 10259,
+    "tvl_usd": 89780794,
+    "daily_fee_rate": 0.00011427,
+    "annualized_fee_rate_pct": 4.1708
+  },
+  {
+    "date": "2026-02-08",
+    "timestamp": 1770508800,
+    "daily_fees_usd": 3923,
+    "tvl_usd": 91845408,
+    "daily_fee_rate": 4.271e-05,
+    "annualized_fee_rate_pct": 1.559
+  },
+  {
+    "date": "2026-02-09",
+    "timestamp": 1770595200,
+    "daily_fees_usd": 7203,
+    "tvl_usd": 91787469,
+    "daily_fee_rate": 7.847e-05,
+    "annualized_fee_rate_pct": 2.8643
+  },
+  {
+    "date": "2026-02-10",
+    "timestamp": 1770681600,
+    "daily_fees_usd": 4358,
+    "tvl_usd": 92954154,
+    "daily_fee_rate": 4.688e-05,
+    "annualized_fee_rate_pct": 1.7112
+  },
+  {
+    "date": "2026-02-11",
+    "timestamp": 1770768000,
+    "daily_fees_usd": 4968,
+    "tvl_usd": 89135169,
+    "daily_fee_rate": 5.574e-05,
+    "annualized_fee_rate_pct": 2.0343
+  },
+  {
+    "date": "2026-02-12",
+    "timestamp": 1770854400,
+    "daily_fees_usd": 6653,
+    "tvl_usd": 87157042,
+    "daily_fee_rate": 7.633e-05,
+    "annualized_fee_rate_pct": 2.7862
+  },
+  {
+    "date": "2026-02-13",
+    "timestamp": 1770940800,
+    "daily_fees_usd": 4034,
+    "tvl_usd": 86588878,
+    "daily_fee_rate": 4.659e-05,
+    "annualized_fee_rate_pct": 1.7005
+  },
+  {
+    "date": "2026-02-14",
+    "timestamp": 1771027200,
+    "daily_fees_usd": 4592,
+    "tvl_usd": 91668867,
+    "daily_fee_rate": 5.009e-05,
+    "annualized_fee_rate_pct": 1.8284
+  },
+  {
+    "date": "2026-02-15",
+    "timestamp": 1771113600,
+    "daily_fees_usd": 3546,
+    "tvl_usd": 91830433,
+    "daily_fee_rate": 3.861e-05,
+    "annualized_fee_rate_pct": 1.4094
+  },
+  {
+    "date": "2026-02-16",
+    "timestamp": 1771200000,
+    "daily_fees_usd": 3237,
+    "tvl_usd": 86686545,
+    "daily_fee_rate": 3.734e-05,
+    "annualized_fee_rate_pct": 1.363
+  },
+  {
+    "date": "2026-02-17",
+    "timestamp": 1771286400,
+    "daily_fees_usd": 3336,
+    "tvl_usd": 87286161,
+    "daily_fee_rate": 3.822e-05,
+    "annualized_fee_rate_pct": 1.395
+  },
+  {
+    "date": "2026-02-18",
+    "timestamp": 1771372800,
+    "daily_fees_usd": 3106,
+    "tvl_usd": 86771021,
+    "daily_fee_rate": 3.58e-05,
+    "annualized_fee_rate_pct": 1.3065
+  },
+  {
+    "date": "2026-02-19",
+    "timestamp": 1771459200,
+    "daily_fees_usd": 2686,
+    "tvl_usd": 84015745,
+    "daily_fee_rate": 3.197e-05,
+    "annualized_fee_rate_pct": 1.1669
+  },
+  {
+    "date": "2026-02-20",
+    "timestamp": 1771545600,
+    "daily_fees_usd": 1820,
+    "tvl_usd": 84104613,
+    "daily_fee_rate": 2.164e-05,
+    "annualized_fee_rate_pct": 0.7898
+  },
+  {
+    "date": "2026-02-21",
+    "timestamp": 1771632000,
+    "daily_fees_usd": 3452,
+    "tvl_usd": 84826355,
+    "daily_fee_rate": 4.069e-05,
+    "annualized_fee_rate_pct": 1.4854
+  },
+  {
+    "date": "2026-02-22",
+    "timestamp": 1771718400,
+    "daily_fees_usd": 2395,
+    "tvl_usd": 85160219,
+    "daily_fee_rate": 2.812e-05,
+    "annualized_fee_rate_pct": 1.0265
+  },
+  {
+    "date": "2026-02-23",
+    "timestamp": 1771804800,
+    "daily_fees_usd": 2320,
+    "tvl_usd": 84222988,
+    "daily_fee_rate": 2.755e-05,
+    "annualized_fee_rate_pct": 1.0054
+  },
+  {
+    "date": "2026-02-24",
+    "timestamp": 1771891200,
+    "daily_fees_usd": 2327,
+    "tvl_usd": 80430402,
+    "daily_fee_rate": 2.893e-05,
+    "annualized_fee_rate_pct": 1.056
+  },
+  {
+    "date": "2026-02-25",
+    "timestamp": 1771977600,
+    "daily_fees_usd": 4309,
+    "tvl_usd": 80064236,
+    "daily_fee_rate": 5.382e-05,
+    "annualized_fee_rate_pct": 1.9644
+  },
+  {
+    "date": "2026-02-26",
+    "timestamp": 1772064000,
+    "daily_fees_usd": 2339,
+    "tvl_usd": 89880422,
+    "daily_fee_rate": 2.602e-05,
+    "annualized_fee_rate_pct": 0.9499
+  },
+  {
+    "date": "2026-02-27",
+    "timestamp": 1772150400,
+    "daily_fees_usd": 3327,
+    "tvl_usd": 88914057,
+    "daily_fee_rate": 3.742e-05,
+    "annualized_fee_rate_pct": 1.3658
+  },
+  {
+    "date": "2026-02-28",
+    "timestamp": 1772236800,
+    "daily_fees_usd": 2368,
+    "tvl_usd": 84859439,
+    "daily_fee_rate": 2.79e-05,
+    "annualized_fee_rate_pct": 1.0185
+  },
+  {
+    "date": "2026-03-01",
+    "timestamp": 1772323200,
+    "daily_fees_usd": 3118,
+    "tvl_usd": 86326750,
+    "daily_fee_rate": 3.612e-05,
+    "annualized_fee_rate_pct": 1.3183
+  },
+  {
+    "date": "2026-03-02",
+    "timestamp": 1772409600,
+    "daily_fees_usd": 1977,
+    "tvl_usd": 85510784,
+    "daily_fee_rate": 2.312e-05,
+    "annualized_fee_rate_pct": 0.8439
+  },
+  {
+    "date": "2026-03-03",
+    "timestamp": 1772496000,
+    "daily_fees_usd": 1932,
+    "tvl_usd": 89535128,
+    "daily_fee_rate": 2.158e-05,
+    "annualized_fee_rate_pct": 0.7876
+  },
+  {
+    "date": "2026-03-04",
+    "timestamp": 1772582400,
+    "daily_fees_usd": 4178,
+    "tvl_usd": 87369648,
+    "daily_fee_rate": 4.782e-05,
+    "annualized_fee_rate_pct": 1.7454
+  },
+  {
+    "date": "2026-03-05",
+    "timestamp": 1772668800,
+    "daily_fees_usd": 1978,
+    "tvl_usd": 94508138,
+    "daily_fee_rate": 2.093e-05,
+    "annualized_fee_rate_pct": 0.7639
+  },
+  {
+    "date": "2026-03-06",
+    "timestamp": 1772755200,
+    "daily_fees_usd": 6435,
+    "tvl_usd": 91883061,
+    "daily_fee_rate": 7.003e-05,
+    "annualized_fee_rate_pct": 2.5563
+  },
+  {
+    "date": "2026-03-07",
+    "timestamp": 1772841600,
+    "daily_fees_usd": 2186,
+    "tvl_usd": 86118258,
+    "daily_fee_rate": 2.538e-05,
+    "annualized_fee_rate_pct": 0.9265
+  },
+  {
+    "date": "2026-03-08",
+    "timestamp": 1772928000,
+    "daily_fees_usd": 1929,
+    "tvl_usd": 85740069,
+    "daily_fee_rate": 2.25e-05,
+    "annualized_fee_rate_pct": 0.8212
+  },
+  {
+    "date": "2026-03-09",
+    "timestamp": 1773014400,
+    "daily_fees_usd": 2414,
+    "tvl_usd": 84471447,
+    "daily_fee_rate": 2.858e-05,
+    "annualized_fee_rate_pct": 1.0431
+  },
+  {
+    "date": "2026-03-10",
+    "timestamp": 1773100800,
+    "daily_fees_usd": 2897,
+    "tvl_usd": 87187884,
+    "daily_fee_rate": 3.323e-05,
+    "annualized_fee_rate_pct": 1.2128
+  },
+  {
+    "date": "2026-03-11",
+    "timestamp": 1773187200,
+    "daily_fees_usd": 1884,
+    "tvl_usd": 88477108,
+    "daily_fee_rate": 2.129e-05,
+    "annualized_fee_rate_pct": 0.7772
+  },
+  {
+    "date": "2026-03-12",
+    "timestamp": 1773273600,
+    "daily_fees_usd": 3535,
+    "tvl_usd": 89591451,
+    "daily_fee_rate": 3.946e-05,
+    "annualized_fee_rate_pct": 1.4402
+  },
+  {
+    "date": "2026-03-13",
+    "timestamp": 1773360000,
+    "daily_fees_usd": 2190,
+    "tvl_usd": 91588174,
+    "daily_fee_rate": 2.391e-05,
+    "annualized_fee_rate_pct": 0.8728
+  },
+  {
+    "date": "2026-03-14",
+    "timestamp": 1773446400,
+    "daily_fees_usd": 1696,
+    "tvl_usd": 91570198,
+    "daily_fee_rate": 1.852e-05,
+    "annualized_fee_rate_pct": 0.676
+  },
+  {
+    "date": "2026-03-15",
+    "timestamp": 1773532800,
+    "daily_fees_usd": 1771,
+    "tvl_usd": 91668781,
+    "daily_fee_rate": 1.932e-05,
+    "annualized_fee_rate_pct": 0.7052
+  },
+  {
+    "date": "2026-03-16",
+    "timestamp": 1773619200,
+    "daily_fees_usd": 2136,
+    "tvl_usd": 95589149,
+    "daily_fee_rate": 2.235e-05,
+    "annualized_fee_rate_pct": 0.8156
+  },
+  {
+    "date": "2026-03-17",
+    "timestamp": 1773705600,
+    "daily_fees_usd": 2054,
+    "tvl_usd": 103356247,
+    "daily_fee_rate": 1.987e-05,
+    "annualized_fee_rate_pct": 0.7254
+  },
+  {
+    "date": "2026-03-18",
+    "timestamp": 1773792000,
+    "daily_fees_usd": 2004,
+    "tvl_usd": 102090161,
+    "daily_fee_rate": 1.963e-05,
+    "annualized_fee_rate_pct": 0.7165
+  },
+  {
+    "date": "2026-03-19",
+    "timestamp": 1773878400,
+    "daily_fees_usd": 2288,
+    "tvl_usd": 96986533,
+    "daily_fee_rate": 2.359e-05,
+    "annualized_fee_rate_pct": 0.8611
+  },
+  {
+    "date": "2026-03-20",
+    "timestamp": 1773964800,
+    "daily_fees_usd": 1851,
+    "tvl_usd": 94196654,
+    "daily_fee_rate": 1.965e-05,
+    "annualized_fee_rate_pct": 0.7172
+  },
+  {
+    "date": "2026-03-21",
+    "timestamp": 1774051200,
+    "daily_fees_usd": 1539,
+    "tvl_usd": 94451458,
+    "daily_fee_rate": 1.629e-05,
+    "annualized_fee_rate_pct": 0.5947
+  },
+  {
+    "date": "2026-03-22",
+    "timestamp": 1774137600,
+    "daily_fees_usd": 1984,
+    "tvl_usd": 91595093,
+    "daily_fee_rate": 2.166e-05,
+    "annualized_fee_rate_pct": 0.7906
+  },
+  {
+    "date": "2026-03-23",
+    "timestamp": 1774224000,
+    "daily_fees_usd": 14117,
+    "tvl_usd": 89314348,
+    "daily_fee_rate": 0.00015806,
+    "annualized_fee_rate_pct": 5.7692
+  },
+  {
+    "date": "2026-03-24",
+    "timestamp": 1774310400,
+    "daily_fees_usd": 1913,
+    "tvl_usd": 93128421,
+    "daily_fee_rate": 2.054e-05,
+    "annualized_fee_rate_pct": 0.7498
+  },
+  {
+    "date": "2026-03-25",
+    "timestamp": 1774396800,
+    "daily_fees_usd": 1901,
+    "tvl_usd": 93670272,
+    "daily_fee_rate": 2.029e-05,
+    "annualized_fee_rate_pct": 0.7408
+  },
+  {
+    "date": "2026-03-26",
+    "timestamp": 1774483200,
+    "daily_fees_usd": 1801,
+    "tvl_usd": 94096476,
+    "daily_fee_rate": 1.914e-05,
+    "annualized_fee_rate_pct": 0.6986
+  },
+  {
+    "date": "2026-03-27",
+    "timestamp": 1774569600,
+    "daily_fees_usd": 2086,
+    "tvl_usd": 89236423,
+    "daily_fee_rate": 2.338e-05,
+    "annualized_fee_rate_pct": 0.8532
+  },
+  {
+    "date": "2026-03-28",
+    "timestamp": 1774656000,
+    "daily_fees_usd": 2144,
+    "tvl_usd": 86848406,
+    "daily_fee_rate": 2.469e-05,
+    "annualized_fee_rate_pct": 0.9011
+  },
+  {
+    "date": "2026-03-29",
+    "timestamp": 1774742400,
+    "daily_fees_usd": 1839,
+    "tvl_usd": 87173877,
+    "daily_fee_rate": 2.11e-05,
+    "annualized_fee_rate_pct": 0.77
+  },
+  {
+    "date": "2026-03-30",
+    "timestamp": 1774828800,
+    "daily_fees_usd": 2877,
+    "tvl_usd": 87410969,
+    "daily_fee_rate": 3.291e-05,
+    "annualized_fee_rate_pct": 1.2013
+  },
+  {
+    "date": "2026-03-31",
+    "timestamp": 1774915200,
+    "daily_fees_usd": 2222,
+    "tvl_usd": 89364961,
+    "daily_fee_rate": 2.486e-05,
+    "annualized_fee_rate_pct": 0.9075
+  }
+]

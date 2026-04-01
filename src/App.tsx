@@ -1,30 +1,54 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './styles/tokens.css';
 import './styles/global.css';
-import { BRANCHES, DEFAULT_CAPITAL, calculateDeployment } from './data/branches';
+import { DEFAULT_CAPITAL, BRANCHES } from './data/branches';
 import { Hero } from './components/Hero';
 import { Problem } from './components/Problem';
-import { Simulator } from './components/Simulator';
+import { DeploymentPlan } from './components/DeploymentPlan';
+import { RevenueReplay } from './components/RevenueReplay';
 import { Layer2Section } from './components/Layer2Section';
-import { RiskSection } from './components/RiskSection';
+
 import { CohortSection } from './components/CohortSection';
-import { SustainabilitySection } from './components/SustainabilitySection';
+
 import { GrowthTimeline } from './components/GrowthTimeline';
+import { GovernanceSection } from './components/GovernanceSection';
 import { Footer } from './components/Footer';
+
+export interface BranchState {
+  weight: number;
+  cr: number;
+  rate: number;
+}
 
 function App() {
   const [totalCapital, setTotalCapital] = useState(DEFAULT_CAPITAL);
-  const [weights] = useState<Record<string, number>>(
-    Object.fromEntries(BRANCHES.map(b => [b.id, b.defaultWeight]))
-  );
-  const [crs] = useState<Record<string, number>>(
-    Object.fromEntries(BRANCHES.map(b => [b.id, b.defaultCR]))
+  const [incentivesToLps, setIncentivesToLps] = useState(false);
+  const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(
+    Object.fromEntries(BRANCHES.map(b => [b.id, {
+      weight: b.defaultWeight,
+      cr: b.defaultCR,
+      rate: b.interestRate,
+    }]))
   );
 
-  const calculations = useMemo(
-    () => calculateDeployment(totalCapital, weights, crs),
-    [totalCapital, weights, crs]
-  );
+  const updateBranch = useCallback((id: string, field: keyof BranchState, delta: number) => {
+    setBranchStates(prev => {
+      const cur = prev[id];
+      let newVal = cur[field] + delta;
+      if (field === 'weight') newVal = Math.max(0, Math.min(1, newVal));
+      if (field === 'cr') newVal = Math.max(1.05, Math.min(5, newVal));
+      if (field === 'rate') newVal = Math.max(0, Math.min(0.20, newVal));
+      return { ...prev, [id]: { ...cur, [field]: newVal } };
+    });
+  }, []);
+
+  // Build branch allocations array for yield engine
+  const branchAllocations = BRANCHES.map(b => ({
+    id: b.id,
+    weight: branchStates[b.id].weight,
+    cr: branchStates[b.id].cr,
+    rate: branchStates[b.id].rate,
+  }));
 
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
@@ -58,16 +82,25 @@ function App() {
 
       <Hero />
       <Problem />
-      <Simulator
+      <DeploymentPlan
         totalCapital={totalCapital}
         onCapitalChange={setTotalCapital}
-        calculations={calculations}
+        branchStates={branchStates}
+        onUpdateBranch={updateBranch}
+        incentivesToLps={incentivesToLps}
+        onToggleIncentives={setIncentivesToLps}
+      />
+      <RevenueReplay
+        totalCapital={totalCapital}
+        branches={branchAllocations}
+        incentivesToLps={incentivesToLps}
       />
       <Layer2Section />
-      <RiskSection />
       <CohortSection />
-      <SustainabilitySection />
+
       <GrowthTimeline />
+      <GovernanceSection />
+
       <Footer />
     </>
   );

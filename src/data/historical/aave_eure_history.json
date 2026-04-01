@@ -1,0 +1,3952 @@
+[
+  {
+    "timestamp": 1706223667060,
+    "variableBorrowApy": 0.0179659,
+    "tvl": 194207
+  },
+  {
+    "timestamp": 1706310070587,
+    "variableBorrowApy": 0.0179934,
+    "tvl": 193354
+  },
+  {
+    "timestamp": 1706396465973,
+    "variableBorrowApy": 0.0185488,
+    "tvl": 186597
+  },
+  {
+    "timestamp": 1706482936375,
+    "variableBorrowApy": 0.0186785,
+    "tvl": 185853
+  },
+  {
+    "timestamp": 1706569270680,
+    "variableBorrowApy": 0.0186828,
+    "tvl": 185130
+  },
+  {
+    "timestamp": 1706655720267,
+    "variableBorrowApy": 0.0180423,
+    "tvl": 196019
+  },
+  {
+    "timestamp": 1706742081398,
+    "variableBorrowApy": 0.0180815,
+    "tvl": 195378
+  },
+  {
+    "timestamp": 1706828480851,
+    "variableBorrowApy": 0.0184809,
+    "tvl": 191806
+  },
+  {
+    "timestamp": 1706914880947,
+    "variableBorrowApy": 0.018568499999999998,
+    "tvl": 189362
+  },
+  {
+    "timestamp": 1707001259952,
+    "variableBorrowApy": 0.0186103,
+    "tvl": 188347
+  },
+  {
+    "timestamp": 1707087680864,
+    "variableBorrowApy": 0.0187966,
+    "tvl": 186144
+  },
+  {
+    "timestamp": 1707174068710,
+    "variableBorrowApy": 0.018755,
+    "tvl": 186996
+  },
+  {
+    "timestamp": 1707260480747,
+    "variableBorrowApy": 0.0173443,
+    "tvl": 211438
+  },
+  {
+    "timestamp": 1707346880849,
+    "variableBorrowApy": 0.0168339,
+    "tvl": 221401
+  },
+  {
+    "timestamp": 1707433280643,
+    "variableBorrowApy": 0.0180559,
+    "tvl": 206553
+  },
+  {
+    "timestamp": 1707519657908,
+    "variableBorrowApy": 0.018166,
+    "tvl": 205273
+  },
+  {
+    "timestamp": 1707606081653,
+    "variableBorrowApy": 0.0184299,
+    "tvl": 202492
+  },
+  {
+    "timestamp": 1707692480640,
+    "variableBorrowApy": 0.0215998,
+    "tvl": 163613
+  },
+  {
+    "timestamp": 1707778868938,
+    "variableBorrowApy": 0.0217789,
+    "tvl": 161174
+  },
+  {
+    "timestamp": 1707865288768,
+    "variableBorrowApy": 0.019329700000000002,
+    "tvl": 202984
+  },
+  {
+    "timestamp": 1707951680807,
+    "variableBorrowApy": 0.0194997,
+    "tvl": 200383
+  },
+  {
+    "timestamp": 1708038080846,
+    "variableBorrowApy": 0.027208100000000002,
+    "tvl": 94111
+  },
+  {
+    "timestamp": 1708124459907,
+    "variableBorrowApy": 0.0282638,
+    "tvl": 83813
+  },
+  {
+    "timestamp": 1708210909604,
+    "variableBorrowApy": 0.0285521,
+    "tvl": 85698
+  },
+  {
+    "timestamp": 1708297320120,
+    "variableBorrowApy": 0.0288364,
+    "tvl": 83047
+  },
+  {
+    "timestamp": 1708383681049,
+    "variableBorrowApy": 0.0298916,
+    "tvl": 72790
+  },
+  {
+    "timestamp": 1708470092464,
+    "variableBorrowApy": 0.028136199999999997,
+    "tvl": 93814
+  },
+  {
+    "timestamp": 1708557126825,
+    "variableBorrowApy": 0.020780599999999996,
+    "tvl": 209574
+  },
+  {
+    "timestamp": 1708642880761,
+    "variableBorrowApy": 0.020502600000000003,
+    "tvl": 214503
+  },
+  {
+    "timestamp": 1708729280788,
+    "variableBorrowApy": 0.020616,
+    "tvl": 212512
+  },
+  {
+    "timestamp": 1708815719970,
+    "variableBorrowApy": 0.0205657,
+    "tvl": 213127
+  },
+  {
+    "timestamp": 1708902083882,
+    "variableBorrowApy": 0.0174634,
+    "tvl": 247573
+  },
+  {
+    "timestamp": 1708988520532,
+    "variableBorrowApy": 0.0203969,
+    "tvl": 204113
+  },
+  {
+    "timestamp": 1709074903123,
+    "variableBorrowApy": 0.018069599999999998,
+    "tvl": 254539
+  },
+  {
+    "timestamp": 1709161281084,
+    "variableBorrowApy": 0.0185219,
+    "tvl": 245161
+  },
+  {
+    "timestamp": 1709247680253,
+    "variableBorrowApy": 0.0196121,
+    "tvl": 229250
+  },
+  {
+    "timestamp": 1709334119713,
+    "variableBorrowApy": 0.0201023,
+    "tvl": 222130
+  },
+  {
+    "timestamp": 1709420480760,
+    "variableBorrowApy": 0.0204435,
+    "tvl": 217491
+  },
+  {
+    "timestamp": 1709506881177,
+    "variableBorrowApy": 0.0207936,
+    "tvl": 211261
+  },
+  {
+    "timestamp": 1709568080702,
+    "variableBorrowApy": 0.016982,
+    "tvl": 286202
+  },
+  {
+    "timestamp": 1709679680547,
+    "variableBorrowApy": 0.0148666,
+    "tvl": 357320
+  },
+  {
+    "timestamp": 1709766081042,
+    "variableBorrowApy": 0.0148807,
+    "tvl": 358017
+  },
+  {
+    "timestamp": 1709852539036,
+    "variableBorrowApy": 0.014984299999999999,
+    "tvl": 353422
+  },
+  {
+    "timestamp": 1709938880583,
+    "variableBorrowApy": 0.0154382,
+    "tvl": 344937
+  },
+  {
+    "timestamp": 1710025280932,
+    "variableBorrowApy": 0.0155108,
+    "tvl": 340404
+  },
+  {
+    "timestamp": 1710111680944,
+    "variableBorrowApy": 0.0159933,
+    "tvl": 331067
+  },
+  {
+    "timestamp": 1710198080711,
+    "variableBorrowApy": 0.0182394,
+    "tvl": 280349
+  },
+  {
+    "timestamp": 1710284484197,
+    "variableBorrowApy": 0.0182324,
+    "tvl": 284335
+  },
+  {
+    "timestamp": 1710370922434,
+    "variableBorrowApy": 0.021878500000000002,
+    "tvl": 223086
+  },
+  {
+    "timestamp": 1710457270934,
+    "variableBorrowApy": 0.0223298,
+    "tvl": 214647
+  },
+  {
+    "timestamp": 1710543671985,
+    "variableBorrowApy": 0.0171636,
+    "tvl": 300886
+  },
+  {
+    "timestamp": 1710630070241,
+    "variableBorrowApy": 0.0181182,
+    "tvl": 281736
+  },
+  {
+    "timestamp": 1710716466577,
+    "variableBorrowApy": 0.0192902,
+    "tvl": 260082
+  },
+  {
+    "timestamp": 1710802868164,
+    "variableBorrowApy": 0.024775900000000003,
+    "tvl": 175549
+  },
+  {
+    "timestamp": 1710889267499,
+    "variableBorrowApy": 0.025106000000000003,
+    "tvl": 166873
+  },
+  {
+    "timestamp": 1710975672201,
+    "variableBorrowApy": 0.017787999999999998,
+    "tvl": 377588
+  },
+  {
+    "timestamp": 1711062082869,
+    "variableBorrowApy": 0.0224802,
+    "tvl": 267559
+  },
+  {
+    "timestamp": 1711148477277,
+    "variableBorrowApy": 0.0199262,
+    "tvl": 340085
+  },
+  {
+    "timestamp": 1711234871287,
+    "variableBorrowApy": 0.0237814,
+    "tvl": 235950
+  },
+  {
+    "timestamp": 1711321270978,
+    "variableBorrowApy": 0.0273547,
+    "tvl": 170969
+  },
+  {
+    "timestamp": 1711407678920,
+    "variableBorrowApy": 0.028752800000000002,
+    "tvl": 146735
+  },
+  {
+    "timestamp": 1711436470149,
+    "variableBorrowApy": 0.0287608,
+    "tvl": 146872
+  },
+  {
+    "timestamp": 1711569670495,
+    "variableBorrowApy": 0.0209241,
+    "tvl": 304180
+  },
+  {
+    "timestamp": 1711666870432,
+    "variableBorrowApy": 0.0892159,
+    "tvl": 116458
+  },
+  {
+    "timestamp": 1711753275591,
+    "variableBorrowApy": 0.07014809999999999,
+    "tvl": 122066
+  },
+  {
+    "timestamp": 1711839670736,
+    "variableBorrowApy": 0.0273152,
+    "tvl": 170563
+  },
+  {
+    "timestamp": 1711926067437,
+    "variableBorrowApy": 0.0285649,
+    "tvl": 142605
+  },
+  {
+    "timestamp": 1712012479262,
+    "variableBorrowApy": 0.0283636,
+    "tvl": 146562
+  },
+  {
+    "timestamp": 1712098873089,
+    "variableBorrowApy": 0.0213571,
+    "tvl": 308659
+  },
+  {
+    "timestamp": 1712185274714,
+    "variableBorrowApy": 0.0245603,
+    "tvl": 236813
+  },
+  {
+    "timestamp": 1712271680567,
+    "variableBorrowApy": 0.0283487,
+    "tvl": 144859
+  },
+  {
+    "timestamp": 1712358075712,
+    "variableBorrowApy": 0.0286,
+    "tvl": 140852
+  },
+  {
+    "timestamp": 1712444474012,
+    "variableBorrowApy": 0.0737121,
+    "tvl": 125458
+  },
+  {
+    "timestamp": 1712530877452,
+    "variableBorrowApy": 0.0444967,
+    "tvl": 134161
+  },
+  {
+    "timestamp": 1712617272753,
+    "variableBorrowApy": 0.043315799999999995,
+    "tvl": 135038
+  },
+  {
+    "timestamp": 1712703672866,
+    "variableBorrowApy": 0.0150558,
+    "tvl": 689322
+  },
+  {
+    "timestamp": 1712790075633,
+    "variableBorrowApy": 0.0479587,
+    "tvl": 644128
+  },
+  {
+    "timestamp": 1712876475673,
+    "variableBorrowApy": 0.0282844,
+    "tvl": 1271012
+  },
+  {
+    "timestamp": 1712962874244,
+    "variableBorrowApy": 0.026924800000000002,
+    "tvl": 1289651
+  },
+  {
+    "timestamp": 1713049273107,
+    "variableBorrowApy": 0.0261705,
+    "tvl": 1329324
+  },
+  {
+    "timestamp": 1713135673582,
+    "variableBorrowApy": 0.0263736,
+    "tvl": 1317373
+  },
+  {
+    "timestamp": 1713222070778,
+    "variableBorrowApy": 0.0264152,
+    "tvl": 1317562
+  },
+  {
+    "timestamp": 1713310417339,
+    "variableBorrowApy": 0.0170881,
+    "tvl": 2029950
+  },
+  {
+    "timestamp": 1713394877856,
+    "variableBorrowApy": 0.0184474,
+    "tvl": 1988394
+  },
+  {
+    "timestamp": 1713482233218,
+    "variableBorrowApy": 0.02015,
+    "tvl": 1912342
+  },
+  {
+    "timestamp": 1713567669938,
+    "variableBorrowApy": 0.020242800000000002,
+    "tvl": 1910088
+  },
+  {
+    "timestamp": 1713654074527,
+    "variableBorrowApy": 0.025652599999999998,
+    "tvl": 1731141
+  },
+  {
+    "timestamp": 1713740475040,
+    "variableBorrowApy": 0.0257523,
+    "tvl": 1725233
+  },
+  {
+    "timestamp": 1713826884689,
+    "variableBorrowApy": 0.0282585,
+    "tvl": 1640522
+  },
+  {
+    "timestamp": 1713913290076,
+    "variableBorrowApy": 0.027717299999999997,
+    "tvl": 1665947
+  },
+  {
+    "timestamp": 1713999695471,
+    "variableBorrowApy": 0.027246100000000002,
+    "tvl": 1699138
+  },
+  {
+    "timestamp": 1714086088064,
+    "variableBorrowApy": 0.0274634,
+    "tvl": 1692242
+  },
+  {
+    "timestamp": 1714172487334,
+    "variableBorrowApy": 0.028304100000000002,
+    "tvl": 1659645
+  },
+  {
+    "timestamp": 1714258890231,
+    "variableBorrowApy": 0.0279949,
+    "tvl": 1666403
+  },
+  {
+    "timestamp": 1714345310649,
+    "variableBorrowApy": 0.028987799999999998,
+    "tvl": 1641286
+  },
+  {
+    "timestamp": 1714431691464,
+    "variableBorrowApy": 0.0291665,
+    "tvl": 1649784
+  },
+  {
+    "timestamp": 1714518093510,
+    "variableBorrowApy": 0.0171608,
+    "tvl": 2053732
+  },
+  {
+    "timestamp": 1714604484215,
+    "variableBorrowApy": 0.0173241,
+    "tvl": 2050610
+  },
+  {
+    "timestamp": 1714690891832,
+    "variableBorrowApy": 0.0176944,
+    "tvl": 2033770
+  },
+  {
+    "timestamp": 1714777295622,
+    "variableBorrowApy": 0.0178197,
+    "tvl": 2040102
+  },
+  {
+    "timestamp": 1714863690345,
+    "variableBorrowApy": 0.0179109,
+    "tvl": 2035014
+  },
+  {
+    "timestamp": 1714950105953,
+    "variableBorrowApy": 0.0180906,
+    "tvl": 2033690
+  },
+  {
+    "timestamp": 1715014889654,
+    "variableBorrowApy": 0.013653,
+    "tvl": 2026500
+  },
+  {
+    "timestamp": 1715122887362,
+    "variableBorrowApy": 0.0137721,
+    "tvl": 2001595
+  },
+  {
+    "timestamp": 1715209288606,
+    "variableBorrowApy": 0.012862,
+    "tvl": 2060240
+  },
+  {
+    "timestamp": 1715295689378,
+    "variableBorrowApy": 0.0130945,
+    "tvl": 2036743
+  },
+  {
+    "timestamp": 1715382095324,
+    "variableBorrowApy": 0.013117,
+    "tvl": 2028156
+  },
+  {
+    "timestamp": 1715468599463,
+    "variableBorrowApy": 0.0131157,
+    "tvl": 2022478
+  },
+  {
+    "timestamp": 1715554919332,
+    "variableBorrowApy": 0.013119700000000001,
+    "tvl": 2031696
+  },
+  {
+    "timestamp": 1715641281947,
+    "variableBorrowApy": 0.0133054,
+    "tvl": 2018176
+  },
+  {
+    "timestamp": 1715727689495,
+    "variableBorrowApy": 0.0137329,
+    "tvl": 1997348
+  },
+  {
+    "timestamp": 1715814141688,
+    "variableBorrowApy": 0.0140037,
+    "tvl": 1993923
+  },
+  {
+    "timestamp": 1715900486736,
+    "variableBorrowApy": 0.014297599999999999,
+    "tvl": 1981725
+  },
+  {
+    "timestamp": 1715986882366,
+    "variableBorrowApy": 0.0144825,
+    "tvl": 1972316
+  },
+  {
+    "timestamp": 1716073297609,
+    "variableBorrowApy": 0.014574499999999999,
+    "tvl": 1965667
+  },
+  {
+    "timestamp": 1716159696178,
+    "variableBorrowApy": 0.0146542,
+    "tvl": 1964719
+  },
+  {
+    "timestamp": 1716246109000,
+    "variableBorrowApy": 0.0151466,
+    "tvl": 1944998
+  },
+  {
+    "timestamp": 1716332480059,
+    "variableBorrowApy": 0.0149853,
+    "tvl": 1949433
+  },
+  {
+    "timestamp": 1716418892269,
+    "variableBorrowApy": 0.0142161,
+    "tvl": 1987744
+  },
+  {
+    "timestamp": 1716505294678,
+    "variableBorrowApy": 0.0145289,
+    "tvl": 1956182
+  },
+  {
+    "timestamp": 1716591699784,
+    "variableBorrowApy": 0.014544600000000001,
+    "tvl": 1985568
+  },
+  {
+    "timestamp": 1716678086703,
+    "variableBorrowApy": 0.0147996,
+    "tvl": 1963576
+  },
+  {
+    "timestamp": 1716764518521,
+    "variableBorrowApy": 0.0148793,
+    "tvl": 1963066
+  },
+  {
+    "timestamp": 1716850880465,
+    "variableBorrowApy": 0.0151655,
+    "tvl": 1962461
+  },
+  {
+    "timestamp": 1716937279821,
+    "variableBorrowApy": 0.0155325,
+    "tvl": 1946108
+  },
+  {
+    "timestamp": 1717023706895,
+    "variableBorrowApy": 0.0154915,
+    "tvl": 1940646
+  },
+  {
+    "timestamp": 1717110081991,
+    "variableBorrowApy": 0.015352900000000001,
+    "tvl": 1965225
+  },
+  {
+    "timestamp": 1717196496859,
+    "variableBorrowApy": 0.0161526,
+    "tvl": 1917055
+  },
+  {
+    "timestamp": 1717282880784,
+    "variableBorrowApy": 0.016109500000000002,
+    "tvl": 1920483
+  },
+  {
+    "timestamp": 1717369282840,
+    "variableBorrowApy": 0.0176833,
+    "tvl": 1845104
+  },
+  {
+    "timestamp": 1717455660726,
+    "variableBorrowApy": 0.023265699999999997,
+    "tvl": 1612906
+  },
+  {
+    "timestamp": 1717542077676,
+    "variableBorrowApy": 0.0259177,
+    "tvl": 1498269
+  },
+  {
+    "timestamp": 1717628487264,
+    "variableBorrowApy": 0.0256426,
+    "tvl": 1521385
+  },
+  {
+    "timestamp": 1717714881390,
+    "variableBorrowApy": 0.0259789,
+    "tvl": 1505851
+  },
+  {
+    "timestamp": 1717801272334,
+    "variableBorrowApy": 0.0260557,
+    "tvl": 1490354
+  },
+  {
+    "timestamp": 1717887669360,
+    "variableBorrowApy": 0.026591200000000002,
+    "tvl": 1462211
+  },
+  {
+    "timestamp": 1717974059891,
+    "variableBorrowApy": 0.0273015,
+    "tvl": 1431139
+  },
+  {
+    "timestamp": 1718060531390,
+    "variableBorrowApy": 0.027364700000000002,
+    "tvl": 1423829
+  },
+  {
+    "timestamp": 1718146860618,
+    "variableBorrowApy": 0.0271903,
+    "tvl": 1430891
+  },
+  {
+    "timestamp": 1718233279543,
+    "variableBorrowApy": 0.0277517,
+    "tvl": 1415715
+  },
+  {
+    "timestamp": 1718319667485,
+    "variableBorrowApy": 0.0283196,
+    "tvl": 1395014
+  },
+  {
+    "timestamp": 1718406057123,
+    "variableBorrowApy": 0.0288829,
+    "tvl": 1366755
+  },
+  {
+    "timestamp": 1718492479634,
+    "variableBorrowApy": 0.0318583,
+    "tvl": 1266569
+  },
+  {
+    "timestamp": 1718578878682,
+    "variableBorrowApy": 0.0314759,
+    "tvl": 1278299
+  },
+  {
+    "timestamp": 1718665266872,
+    "variableBorrowApy": 0.0315585,
+    "tvl": 1276690
+  },
+  {
+    "timestamp": 1718751658384,
+    "variableBorrowApy": 0.0316906,
+    "tvl": 1270986
+  },
+  {
+    "timestamp": 1718838066333,
+    "variableBorrowApy": 0.0317239,
+    "tvl": 1274072
+  },
+  {
+    "timestamp": 1718924474144,
+    "variableBorrowApy": 0.0316865,
+    "tvl": 1277557
+  },
+  {
+    "timestamp": 1719010897156,
+    "variableBorrowApy": 0.0313284,
+    "tvl": 1290399
+  },
+  {
+    "timestamp": 1719097331146,
+    "variableBorrowApy": 0.032048,
+    "tvl": 1270630
+  },
+  {
+    "timestamp": 1719183675899,
+    "variableBorrowApy": 0.0317934,
+    "tvl": 1272345
+  },
+  {
+    "timestamp": 1719270060479,
+    "variableBorrowApy": 0.03292,
+    "tvl": 1220104
+  },
+  {
+    "timestamp": 1719356475036,
+    "variableBorrowApy": 0.0342294,
+    "tvl": 1173925
+  },
+  {
+    "timestamp": 1719442897015,
+    "variableBorrowApy": 0.0322602,
+    "tvl": 1282037
+  },
+  {
+    "timestamp": 1719529264022,
+    "variableBorrowApy": 0.0327855,
+    "tvl": 1261832
+  },
+  {
+    "timestamp": 1719615667187,
+    "variableBorrowApy": 0.0328191,
+    "tvl": 1255068
+  },
+  {
+    "timestamp": 1719702065582,
+    "variableBorrowApy": 0.0340184,
+    "tvl": 1219213
+  },
+  {
+    "timestamp": 1719788471926,
+    "variableBorrowApy": 0.0344622,
+    "tvl": 1219144
+  },
+  {
+    "timestamp": 1719874859686,
+    "variableBorrowApy": 0.0347238,
+    "tvl": 1195518
+  },
+  {
+    "timestamp": 1719961320746,
+    "variableBorrowApy": 0.0347915,
+    "tvl": 1190333
+  },
+  {
+    "timestamp": 1720047717510,
+    "variableBorrowApy": 0.0351303,
+    "tvl": 1190409
+  },
+  {
+    "timestamp": 1720134135639,
+    "variableBorrowApy": 0.0339143,
+    "tvl": 1226523
+  },
+  {
+    "timestamp": 1720220521013,
+    "variableBorrowApy": 0.030435900000000002,
+    "tvl": 1351855
+  },
+  {
+    "timestamp": 1720306916347,
+    "variableBorrowApy": 0.031126499999999998,
+    "tvl": 1337955
+  },
+  {
+    "timestamp": 1720393317643,
+    "variableBorrowApy": 0.0304266,
+    "tvl": 1355336
+  },
+  {
+    "timestamp": 1720479716839,
+    "variableBorrowApy": 0.03101,
+    "tvl": 1332212
+  },
+  {
+    "timestamp": 1720566115937,
+    "variableBorrowApy": 0.0306914,
+    "tvl": 1352575
+  },
+  {
+    "timestamp": 1720652519205,
+    "variableBorrowApy": 0.030634199999999997,
+    "tvl": 1352206
+  },
+  {
+    "timestamp": 1720738916951,
+    "variableBorrowApy": 0.0308619,
+    "tvl": 1351770
+  },
+  {
+    "timestamp": 1720825319724,
+    "variableBorrowApy": 0.0312676,
+    "tvl": 1344761
+  },
+  {
+    "timestamp": 1720911720676,
+    "variableBorrowApy": 0.031546,
+    "tvl": 1338643
+  },
+  {
+    "timestamp": 1720998119456,
+    "variableBorrowApy": 0.031627,
+    "tvl": 1332223
+  },
+  {
+    "timestamp": 1721084559168,
+    "variableBorrowApy": 0.0315333,
+    "tvl": 1342545
+  },
+  {
+    "timestamp": 1721170923129,
+    "variableBorrowApy": 0.0309172,
+    "tvl": 1370015
+  },
+  {
+    "timestamp": 1721257333381,
+    "variableBorrowApy": 0.0307794,
+    "tvl": 1383841
+  },
+  {
+    "timestamp": 1721343750450,
+    "variableBorrowApy": 0.031009699999999998,
+    "tvl": 1384346
+  },
+  {
+    "timestamp": 1721430153043,
+    "variableBorrowApy": 0.0312259,
+    "tvl": 1363252
+  },
+  {
+    "timestamp": 1721516524847,
+    "variableBorrowApy": 0.0313384,
+    "tvl": 1361282
+  },
+  {
+    "timestamp": 1721602967387,
+    "variableBorrowApy": 0.0313876,
+    "tvl": 1360874
+  },
+  {
+    "timestamp": 1721689324995,
+    "variableBorrowApy": 0.0318404,
+    "tvl": 1350474
+  },
+  {
+    "timestamp": 1721775725297,
+    "variableBorrowApy": 0.0323831,
+    "tvl": 1320413
+  },
+  {
+    "timestamp": 1721862150644,
+    "variableBorrowApy": 0.0236367,
+    "tvl": 1301333
+  },
+  {
+    "timestamp": 1721948558721,
+    "variableBorrowApy": 0.0236495,
+    "tvl": 1315524
+  },
+  {
+    "timestamp": 1722034925839,
+    "variableBorrowApy": 0.022620900000000003,
+    "tvl": 1368960
+  },
+  {
+    "timestamp": 1722122302735,
+    "variableBorrowApy": 0.022680199999999998,
+    "tvl": 1357426
+  },
+  {
+    "timestamp": 1722207758484,
+    "variableBorrowApy": 0.0226613,
+    "tvl": 1357254
+  },
+  {
+    "timestamp": 1722294116852,
+    "variableBorrowApy": 0.0263768,
+    "tvl": 1173863
+  },
+  {
+    "timestamp": 1722380581214,
+    "variableBorrowApy": 0.026562299999999997,
+    "tvl": 1161361
+  },
+  {
+    "timestamp": 1722466918304,
+    "variableBorrowApy": 0.026729,
+    "tvl": 1160702
+  },
+  {
+    "timestamp": 1722553348780,
+    "variableBorrowApy": 0.0270831,
+    "tvl": 1128992
+  },
+  {
+    "timestamp": 1722639719249,
+    "variableBorrowApy": 0.027631700000000002,
+    "tvl": 1114604
+  },
+  {
+    "timestamp": 1722726119323,
+    "variableBorrowApy": 0.0277157,
+    "tvl": 1117379
+  },
+  {
+    "timestamp": 1722812521476,
+    "variableBorrowApy": 0.0221532,
+    "tvl": 1371207
+  },
+  {
+    "timestamp": 1722898918765,
+    "variableBorrowApy": 0.0172384,
+    "tvl": 1621075
+  },
+  {
+    "timestamp": 1722985317505,
+    "variableBorrowApy": 0.017412300000000002,
+    "tvl": 1608551
+  },
+  {
+    "timestamp": 1723071719460,
+    "variableBorrowApy": 0.0172572,
+    "tvl": 1614614
+  },
+  {
+    "timestamp": 1723158117749,
+    "variableBorrowApy": 0.017055400000000002,
+    "tvl": 1638090
+  },
+  {
+    "timestamp": 1723244526113,
+    "variableBorrowApy": 0.0177099,
+    "tvl": 1596193
+  },
+  {
+    "timestamp": 1723330919180,
+    "variableBorrowApy": 0.0177073,
+    "tvl": 1600865
+  },
+  {
+    "timestamp": 1723417319505,
+    "variableBorrowApy": 0.0177237,
+    "tvl": 1589503
+  },
+  {
+    "timestamp": 1723503716049,
+    "variableBorrowApy": 0.017761700000000002,
+    "tvl": 1585922
+  },
+  {
+    "timestamp": 1723590129124,
+    "variableBorrowApy": 0.0188433,
+    "tvl": 1488320
+  },
+  {
+    "timestamp": 1723676540164,
+    "variableBorrowApy": 0.018750100000000002,
+    "tvl": 1490979
+  },
+  {
+    "timestamp": 1723762919652,
+    "variableBorrowApy": 0.018680699999999998,
+    "tvl": 1493345
+  },
+  {
+    "timestamp": 1723849319517,
+    "variableBorrowApy": 0.0190928,
+    "tvl": 1458093
+  },
+  {
+    "timestamp": 1723935661048,
+    "variableBorrowApy": 0.0191441,
+    "tvl": 1454944
+  },
+  {
+    "timestamp": 1724022086817,
+    "variableBorrowApy": 0.0192512,
+    "tvl": 1449639
+  },
+  {
+    "timestamp": 1724108481589,
+    "variableBorrowApy": 0.0182949,
+    "tvl": 1499517
+  },
+  {
+    "timestamp": 1724194875117,
+    "variableBorrowApy": 0.018322099999999997,
+    "tvl": 1500532
+  },
+  {
+    "timestamp": 1724281270577,
+    "variableBorrowApy": 0.0196769,
+    "tvl": 1441128
+  },
+  {
+    "timestamp": 1724367676083,
+    "variableBorrowApy": 0.0195854,
+    "tvl": 1447591
+  },
+  {
+    "timestamp": 1724454059158,
+    "variableBorrowApy": 0.0184893,
+    "tvl": 1519182
+  },
+  {
+    "timestamp": 1724540472454,
+    "variableBorrowApy": 0.0187399,
+    "tvl": 1505014
+  },
+  {
+    "timestamp": 1724626871998,
+    "variableBorrowApy": 0.0204387,
+    "tvl": 1418300
+  },
+  {
+    "timestamp": 1724713269156,
+    "variableBorrowApy": 0.019567,
+    "tvl": 1481934
+  },
+  {
+    "timestamp": 1724799662744,
+    "variableBorrowApy": 0.019707099999999998,
+    "tvl": 1499993
+  },
+  {
+    "timestamp": 1724886060680,
+    "variableBorrowApy": 0.0205919,
+    "tvl": 1401006
+  },
+  {
+    "timestamp": 1724972465533,
+    "variableBorrowApy": 0.021968200000000004,
+    "tvl": 1333000
+  },
+  {
+    "timestamp": 1725058858859,
+    "variableBorrowApy": 0.0193107,
+    "tvl": 1460785
+  },
+  {
+    "timestamp": 1725145264042,
+    "variableBorrowApy": 0.0200798,
+    "tvl": 1421368
+  },
+  {
+    "timestamp": 1725232614773,
+    "variableBorrowApy": 0.0201262,
+    "tvl": 1406579
+  },
+  {
+    "timestamp": 1725318077121,
+    "variableBorrowApy": 0.020093,
+    "tvl": 1424928
+  },
+  {
+    "timestamp": 1725404465514,
+    "variableBorrowApy": 0.020139999999999998,
+    "tvl": 1409577
+  },
+  {
+    "timestamp": 1725490886948,
+    "variableBorrowApy": 0.0189192,
+    "tvl": 1484910
+  },
+  {
+    "timestamp": 1725577268995,
+    "variableBorrowApy": 0.018991499999999998,
+    "tvl": 1481666
+  },
+  {
+    "timestamp": 1725663658467,
+    "variableBorrowApy": 0.0189136,
+    "tvl": 1472684
+  },
+  {
+    "timestamp": 1725750059597,
+    "variableBorrowApy": 0.0189687,
+    "tvl": 1469651
+  },
+  {
+    "timestamp": 1725836458769,
+    "variableBorrowApy": 0.0188658,
+    "tvl": 1492809
+  },
+  {
+    "timestamp": 1725922858258,
+    "variableBorrowApy": 0.019115899999999998,
+    "tvl": 1471398
+  },
+  {
+    "timestamp": 1726009257434,
+    "variableBorrowApy": 0.0162084,
+    "tvl": 1456554
+  },
+  {
+    "timestamp": 1726095668589,
+    "variableBorrowApy": 0.0163977,
+    "tvl": 1440725
+  },
+  {
+    "timestamp": 1726182057499,
+    "variableBorrowApy": 0.016502,
+    "tvl": 1447821
+  },
+  {
+    "timestamp": 1726268477267,
+    "variableBorrowApy": 0.0176386,
+    "tvl": 1335126
+  },
+  {
+    "timestamp": 1726354885393,
+    "variableBorrowApy": 0.0177197,
+    "tvl": 1330579
+  },
+  {
+    "timestamp": 1726441273036,
+    "variableBorrowApy": 0.01776,
+    "tvl": 1328378
+  },
+  {
+    "timestamp": 1726527658370,
+    "variableBorrowApy": 0.0178695,
+    "tvl": 1322390
+  },
+  {
+    "timestamp": 1726614069989,
+    "variableBorrowApy": 0.0179834,
+    "tvl": 1315276
+  },
+  {
+    "timestamp": 1726700459246,
+    "variableBorrowApy": 0.018290900000000002,
+    "tvl": 1309756
+  },
+  {
+    "timestamp": 1726786859984,
+    "variableBorrowApy": 0.0185504,
+    "tvl": 1278031
+  },
+  {
+    "timestamp": 1726873261679,
+    "variableBorrowApy": 0.0184937,
+    "tvl": 1280779
+  },
+  {
+    "timestamp": 1726959667956,
+    "variableBorrowApy": 0.017132099999999997,
+    "tvl": 1373718
+  },
+  {
+    "timestamp": 1727046083906,
+    "variableBorrowApy": 0.0171854,
+    "tvl": 1370660
+  },
+  {
+    "timestamp": 1727132460965,
+    "variableBorrowApy": 0.0171822,
+    "tvl": 1371120
+  },
+  {
+    "timestamp": 1727218884543,
+    "variableBorrowApy": 0.017112000000000002,
+    "tvl": 1385558
+  },
+  {
+    "timestamp": 1727305268204,
+    "variableBorrowApy": 0.0170585,
+    "tvl": 1370968
+  },
+  {
+    "timestamp": 1727392629447,
+    "variableBorrowApy": 0.0171107,
+    "tvl": 1370172
+  },
+  {
+    "timestamp": 1727478064595,
+    "variableBorrowApy": 0.0176002,
+    "tvl": 1355461
+  },
+  {
+    "timestamp": 1727564464638,
+    "variableBorrowApy": 0.0176272,
+    "tvl": 1353332
+  },
+  {
+    "timestamp": 1727650878138,
+    "variableBorrowApy": 0.017686900000000002,
+    "tvl": 1349453
+  },
+  {
+    "timestamp": 1727737321444,
+    "variableBorrowApy": 0.0177843,
+    "tvl": 1334226
+  },
+  {
+    "timestamp": 1727823693000,
+    "variableBorrowApy": 0.0176444,
+    "tvl": 1342080
+  },
+  {
+    "timestamp": 1727910069951,
+    "variableBorrowApy": 0.0185187,
+    "tvl": 1288063
+  },
+  {
+    "timestamp": 1727996469720,
+    "variableBorrowApy": 0.0187331,
+    "tvl": 1272347
+  },
+  {
+    "timestamp": 1728083832107,
+    "variableBorrowApy": 0.0185279,
+    "tvl": 1287451
+  },
+  {
+    "timestamp": 1728169297874,
+    "variableBorrowApy": 0.0186296,
+    "tvl": 1283161
+  },
+  {
+    "timestamp": 1728255660132,
+    "variableBorrowApy": 0.0187756,
+    "tvl": 1274827
+  },
+  {
+    "timestamp": 1728342068839,
+    "variableBorrowApy": 0.0191573,
+    "tvl": 1241097
+  },
+  {
+    "timestamp": 1728388941989,
+    "variableBorrowApy": 0.0191298,
+    "tvl": 1245110
+  },
+  {
+    "timestamp": 1728514928464,
+    "variableBorrowApy": 0.0330161,
+    "tvl": 592946
+  },
+  {
+    "timestamp": 1728601329714,
+    "variableBorrowApy": 0.0324787,
+    "tvl": 612706
+  },
+  {
+    "timestamp": 1728687726867,
+    "variableBorrowApy": 0.0328762,
+    "tvl": 596065
+  },
+  {
+    "timestamp": 1728774124305,
+    "variableBorrowApy": 0.0332029,
+    "tvl": 582510
+  },
+  {
+    "timestamp": 1728860521741,
+    "variableBorrowApy": 0.0330129,
+    "tvl": 592507
+  },
+  {
+    "timestamp": 1728946915741,
+    "variableBorrowApy": 0.0327936,
+    "tvl": 605030
+  },
+  {
+    "timestamp": 1729033323704,
+    "variableBorrowApy": 0.0328631,
+    "tvl": 599924
+  },
+  {
+    "timestamp": 1729119716189,
+    "variableBorrowApy": 0.033126699999999995,
+    "tvl": 590434
+  },
+  {
+    "timestamp": 1729206132222,
+    "variableBorrowApy": 0.0332521,
+    "tvl": 581739
+  },
+  {
+    "timestamp": 1729292522878,
+    "variableBorrowApy": 0.0333201,
+    "tvl": 582465
+  },
+  {
+    "timestamp": 1729378924427,
+    "variableBorrowApy": 0.0333095,
+    "tvl": 583315
+  },
+  {
+    "timestamp": 1729465336629,
+    "variableBorrowApy": 0.0333226,
+    "tvl": 583980
+  },
+  {
+    "timestamp": 1729551723685,
+    "variableBorrowApy": 0.0319977,
+    "tvl": 648917
+  },
+  {
+    "timestamp": 1729638116502,
+    "variableBorrowApy": 0.032181,
+    "tvl": 643032
+  },
+  {
+    "timestamp": 1729724515425,
+    "variableBorrowApy": 0.031141299999999997,
+    "tvl": 698849
+  },
+  {
+    "timestamp": 1729810915378,
+    "variableBorrowApy": 0.030952700000000003,
+    "tvl": 715229
+  },
+  {
+    "timestamp": 1729897385579,
+    "variableBorrowApy": 0.0309078,
+    "tvl": 709163
+  },
+  {
+    "timestamp": 1729983714898,
+    "variableBorrowApy": 0.0286959,
+    "tvl": 851970
+  },
+  {
+    "timestamp": 1730070115823,
+    "variableBorrowApy": 0.028789500000000003,
+    "tvl": 843164
+  },
+  {
+    "timestamp": 1730156531456,
+    "variableBorrowApy": 0.0286274,
+    "tvl": 859144
+  },
+  {
+    "timestamp": 1730242921158,
+    "variableBorrowApy": 0.0269767,
+    "tvl": 995890
+  },
+  {
+    "timestamp": 1730329378977,
+    "variableBorrowApy": 0.0268683,
+    "tvl": 1006014
+  },
+  {
+    "timestamp": 1730415719076,
+    "variableBorrowApy": 0.0268015,
+    "tvl": 1015978
+  },
+  {
+    "timestamp": 1730502118288,
+    "variableBorrowApy": 0.026338499999999997,
+    "tvl": 1042341
+  },
+  {
+    "timestamp": 1730588520726,
+    "variableBorrowApy": 0.0263165,
+    "tvl": 1045140
+  },
+  {
+    "timestamp": 1730674918501,
+    "variableBorrowApy": 0.0264036,
+    "tvl": 1040888
+  },
+  {
+    "timestamp": 1730761319662,
+    "variableBorrowApy": 0.0252707,
+    "tvl": 1135385
+  },
+  {
+    "timestamp": 1730847719696,
+    "variableBorrowApy": 0.0255733,
+    "tvl": 1113582
+  },
+  {
+    "timestamp": 1730934148119,
+    "variableBorrowApy": 0.0255627,
+    "tvl": 1094497
+  },
+  {
+    "timestamp": 1731020515433,
+    "variableBorrowApy": 0.0256733,
+    "tvl": 1102281
+  },
+  {
+    "timestamp": 1731106919265,
+    "variableBorrowApy": 0.0257795,
+    "tvl": 1085221
+  },
+  {
+    "timestamp": 1731193332503,
+    "variableBorrowApy": 0.0254387,
+    "tvl": 1116478
+  },
+  {
+    "timestamp": 1731279716418,
+    "variableBorrowApy": 0.0255575,
+    "tvl": 1086525
+  },
+  {
+    "timestamp": 1731366119436,
+    "variableBorrowApy": 0.0262646,
+    "tvl": 1060281
+  },
+  {
+    "timestamp": 1731452516461,
+    "variableBorrowApy": 0.0259534,
+    "tvl": 1085538
+  },
+  {
+    "timestamp": 1731538919074,
+    "variableBorrowApy": 0.026183,
+    "tvl": 1064611
+  },
+  {
+    "timestamp": 1731625317266,
+    "variableBorrowApy": 0.0257825,
+    "tvl": 1084506
+  },
+  {
+    "timestamp": 1731711718530,
+    "variableBorrowApy": 0.025994700000000003,
+    "tvl": 1071199
+  },
+  {
+    "timestamp": 1731798113929,
+    "variableBorrowApy": 0.026577899999999998,
+    "tvl": 1041889
+  },
+  {
+    "timestamp": 1731884522944,
+    "variableBorrowApy": 0.0267844,
+    "tvl": 1027689
+  },
+  {
+    "timestamp": 1731970918194,
+    "variableBorrowApy": 0.0270012,
+    "tvl": 1022436
+  },
+  {
+    "timestamp": 1732057321645,
+    "variableBorrowApy": 0.0269113,
+    "tvl": 1034898
+  },
+  {
+    "timestamp": 1732143726193,
+    "variableBorrowApy": 0.0289027,
+    "tvl": 912884
+  },
+  {
+    "timestamp": 1732230119487,
+    "variableBorrowApy": 0.0296277,
+    "tvl": 867258
+  },
+  {
+    "timestamp": 1732316518018,
+    "variableBorrowApy": 0.0289563,
+    "tvl": 884298
+  },
+  {
+    "timestamp": 1732402917616,
+    "variableBorrowApy": 0.027388499999999996,
+    "tvl": 1005757
+  },
+  {
+    "timestamp": 1732489315150,
+    "variableBorrowApy": 0.027275,
+    "tvl": 1016234
+  },
+  {
+    "timestamp": 1732575715596,
+    "variableBorrowApy": 0.0282714,
+    "tvl": 948865
+  },
+  {
+    "timestamp": 1732662114559,
+    "variableBorrowApy": 0.028468,
+    "tvl": 926558
+  },
+  {
+    "timestamp": 1732748517164,
+    "variableBorrowApy": 0.028709799999999997,
+    "tvl": 926799
+  },
+  {
+    "timestamp": 1732834916458,
+    "variableBorrowApy": 0.0289392,
+    "tvl": 911285
+  },
+  {
+    "timestamp": 1732921343996,
+    "variableBorrowApy": 0.0292148,
+    "tvl": 923521
+  },
+  {
+    "timestamp": 1733007716193,
+    "variableBorrowApy": 0.0293764,
+    "tvl": 916238
+  },
+  {
+    "timestamp": 1733094115279,
+    "variableBorrowApy": 0.0296795,
+    "tvl": 901659
+  },
+  {
+    "timestamp": 1733180516772,
+    "variableBorrowApy": 0.0287013,
+    "tvl": 963967
+  },
+  {
+    "timestamp": 1733266914937,
+    "variableBorrowApy": 0.028041399999999998,
+    "tvl": 1017962
+  },
+  {
+    "timestamp": 1733353314461,
+    "variableBorrowApy": 0.027934800000000003,
+    "tvl": 1029132
+  },
+  {
+    "timestamp": 1733439714653,
+    "variableBorrowApy": 0.028037999999999997,
+    "tvl": 1025906
+  },
+  {
+    "timestamp": 1733526115014,
+    "variableBorrowApy": 0.0313177,
+    "tvl": 821422
+  },
+  {
+    "timestamp": 1733612519259,
+    "variableBorrowApy": 0.0313099,
+    "tvl": 823636
+  },
+  {
+    "timestamp": 1733698915576,
+    "variableBorrowApy": 0.0327833,
+    "tvl": 733420
+  },
+  {
+    "timestamp": 1733785316942,
+    "variableBorrowApy": 0.0317548,
+    "tvl": 779538
+  },
+  {
+    "timestamp": 1733871715091,
+    "variableBorrowApy": 0.030746000000000002,
+    "tvl": 830263
+  },
+  {
+    "timestamp": 1733958116056,
+    "variableBorrowApy": 0.0346973,
+    "tvl": 637723
+  },
+  {
+    "timestamp": 1734044515060,
+    "variableBorrowApy": 0.034845799999999996,
+    "tvl": 630486
+  },
+  {
+    "timestamp": 1734130925391,
+    "variableBorrowApy": 0.0342398,
+    "tvl": 667638
+  },
+  {
+    "timestamp": 1734217315672,
+    "variableBorrowApy": 0.0346075,
+    "tvl": 644633
+  },
+  {
+    "timestamp": 1734303715914,
+    "variableBorrowApy": 0.0346953,
+    "tvl": 641831
+  },
+  {
+    "timestamp": 1734390123993,
+    "variableBorrowApy": 0.075514,
+    "tvl": 739359
+  },
+  {
+    "timestamp": 1734476590299,
+    "variableBorrowApy": 0.0748508,
+    "tvl": 744895
+  },
+  {
+    "timestamp": 1734563050431,
+    "variableBorrowApy": 0.0729207,
+    "tvl": 792514
+  },
+  {
+    "timestamp": 1734606123210,
+    "variableBorrowApy": 0.0700661,
+    "tvl": 865846
+  },
+  {
+    "timestamp": 1734735716063,
+    "variableBorrowApy": 0.0372749,
+    "tvl": 2422234
+  },
+  {
+    "timestamp": 1734822116954,
+    "variableBorrowApy": 0.033815,
+    "tvl": 2593887
+  },
+  {
+    "timestamp": 1734908516409,
+    "variableBorrowApy": 0.0343045,
+    "tvl": 2552892
+  },
+  {
+    "timestamp": 1734994981388,
+    "variableBorrowApy": 0.035329,
+    "tvl": 2519811
+  },
+  {
+    "timestamp": 1735081359015,
+    "variableBorrowApy": 0.0341908,
+    "tvl": 2551713
+  },
+  {
+    "timestamp": 1735167792604,
+    "variableBorrowApy": 0.034617800000000004,
+    "tvl": 2532618
+  },
+  {
+    "timestamp": 1735254132333,
+    "variableBorrowApy": 0.0354984,
+    "tvl": 2498138
+  },
+  {
+    "timestamp": 1735340521220,
+    "variableBorrowApy": 0.035559099999999996,
+    "tvl": 2489333
+  },
+  {
+    "timestamp": 1735426924004,
+    "variableBorrowApy": 0.0353893,
+    "tvl": 2509643
+  },
+  {
+    "timestamp": 1735513338335,
+    "variableBorrowApy": 0.035695000000000005,
+    "tvl": 2484134
+  },
+  {
+    "timestamp": 1735599718923,
+    "variableBorrowApy": 0.035836,
+    "tvl": 2463146
+  },
+  {
+    "timestamp": 1735686205946,
+    "variableBorrowApy": 0.035304,
+    "tvl": 2475601
+  },
+  {
+    "timestamp": 1735772519847,
+    "variableBorrowApy": 0.0354645,
+    "tvl": 2469135
+  },
+  {
+    "timestamp": 1735858982253,
+    "variableBorrowApy": 0.0344727,
+    "tvl": 2550731
+  },
+  {
+    "timestamp": 1735945476551,
+    "variableBorrowApy": 0.0344654,
+    "tvl": 2556245
+  },
+  {
+    "timestamp": 1736031776761,
+    "variableBorrowApy": 0.034786700000000004,
+    "tvl": 2553538
+  },
+  {
+    "timestamp": 1736118206666,
+    "variableBorrowApy": 0.0350209,
+    "tvl": 2558452
+  },
+  {
+    "timestamp": 1736204709401,
+    "variableBorrowApy": 0.0350609,
+    "tvl": 2580537
+  },
+  {
+    "timestamp": 1736291014384,
+    "variableBorrowApy": 0.0347404,
+    "tvl": 2611218
+  },
+  {
+    "timestamp": 1736377381897,
+    "variableBorrowApy": 0.0382433,
+    "tvl": 2605974
+  },
+  {
+    "timestamp": 1736463715186,
+    "variableBorrowApy": 0.0373328,
+    "tvl": 2745657
+  },
+  {
+    "timestamp": 1736550176045,
+    "variableBorrowApy": 0.0376479,
+    "tvl": 2706538
+  },
+  {
+    "timestamp": 1736636527076,
+    "variableBorrowApy": 0.0376881,
+    "tvl": 2713867
+  },
+  {
+    "timestamp": 1736722947756,
+    "variableBorrowApy": 0.0370599,
+    "tvl": 2739108
+  },
+  {
+    "timestamp": 1736809320370,
+    "variableBorrowApy": 0.0373632,
+    "tvl": 2748016
+  },
+  {
+    "timestamp": 1736895717624,
+    "variableBorrowApy": 0.0378634,
+    "tvl": 2730779
+  },
+  {
+    "timestamp": 1736982121050,
+    "variableBorrowApy": 0.044160700000000004,
+    "tvl": 2514670
+  },
+  {
+    "timestamp": 1737068524987,
+    "variableBorrowApy": 0.0442154,
+    "tvl": 2512141
+  },
+  {
+    "timestamp": 1737154929045,
+    "variableBorrowApy": 0.0471939,
+    "tvl": 2358790
+  },
+  {
+    "timestamp": 1737241355569,
+    "variableBorrowApy": 0.04582,
+    "tvl": 2414731
+  },
+  {
+    "timestamp": 1737327781492,
+    "variableBorrowApy": 0.045226800000000004,
+    "tvl": 2423826
+  },
+  {
+    "timestamp": 1737414121708,
+    "variableBorrowApy": 0.0458896,
+    "tvl": 2442652
+  },
+  {
+    "timestamp": 1737500522203,
+    "variableBorrowApy": 0.0412846,
+    "tvl": 2646503
+  },
+  {
+    "timestamp": 1737586919809,
+    "variableBorrowApy": 0.0412891,
+    "tvl": 2683835
+  },
+  {
+    "timestamp": 1737673319430,
+    "variableBorrowApy": 0.0406404,
+    "tvl": 2706853
+  },
+  {
+    "timestamp": 1737759720042,
+    "variableBorrowApy": 0.042341199999999996,
+    "tvl": 2630945
+  },
+  {
+    "timestamp": 1737846127925,
+    "variableBorrowApy": 0.042695800000000006,
+    "tvl": 2624039
+  },
+  {
+    "timestamp": 1737932525499,
+    "variableBorrowApy": 0.04500899999999999,
+    "tvl": 2519318
+  },
+  {
+    "timestamp": 1738018927602,
+    "variableBorrowApy": 0.045881,
+    "tvl": 2517549
+  },
+  {
+    "timestamp": 1738105319241,
+    "variableBorrowApy": 0.045430200000000004,
+    "tvl": 2546481
+  },
+  {
+    "timestamp": 1738191748188,
+    "variableBorrowApy": 0.0461149,
+    "tvl": 2497017
+  },
+  {
+    "timestamp": 1738278063210,
+    "variableBorrowApy": 0.0411403,
+    "tvl": 2735984
+  },
+  {
+    "timestamp": 1738364461012,
+    "variableBorrowApy": 0.0414104,
+    "tvl": 2621570
+  },
+  {
+    "timestamp": 1738450869524,
+    "variableBorrowApy": 0.041335199999999996,
+    "tvl": 2639213
+  },
+  {
+    "timestamp": 1738537265230,
+    "variableBorrowApy": 0.041726400000000004,
+    "tvl": 2579572
+  },
+  {
+    "timestamp": 1738623663758,
+    "variableBorrowApy": 0.0402249,
+    "tvl": 2698675
+  },
+  {
+    "timestamp": 1738710069060,
+    "variableBorrowApy": 0.041352099999999996,
+    "tvl": 2624702
+  },
+  {
+    "timestamp": 1738796464726,
+    "variableBorrowApy": 0.0411003,
+    "tvl": 2656812
+  },
+  {
+    "timestamp": 1738882870416,
+    "variableBorrowApy": 0.0411404,
+    "tvl": 2646582
+  },
+  {
+    "timestamp": 1738969266103,
+    "variableBorrowApy": 0.0400258,
+    "tvl": 2737794
+  },
+  {
+    "timestamp": 1739055670046,
+    "variableBorrowApy": 0.0388995,
+    "tvl": 2828581
+  },
+  {
+    "timestamp": 1739142059565,
+    "variableBorrowApy": 0.039698699999999996,
+    "tvl": 2782980
+  },
+  {
+    "timestamp": 1739228516344,
+    "variableBorrowApy": 0.0388411,
+    "tvl": 2870215
+  },
+  {
+    "timestamp": 1739314875474,
+    "variableBorrowApy": 0.0316866,
+    "tvl": 2910870
+  },
+  {
+    "timestamp": 1739401263189,
+    "variableBorrowApy": 0.029241000000000003,
+    "tvl": 3205241
+  },
+  {
+    "timestamp": 1739487720622,
+    "variableBorrowApy": 0.029056799999999997,
+    "tvl": 3282355
+  },
+  {
+    "timestamp": 1739574073247,
+    "variableBorrowApy": 0.0294291,
+    "tvl": 3258365
+  },
+  {
+    "timestamp": 1739660463616,
+    "variableBorrowApy": 0.029608500000000003,
+    "tvl": 3247777
+  },
+  {
+    "timestamp": 1739746868590,
+    "variableBorrowApy": 0.029440300000000003,
+    "tvl": 3282943
+  },
+  {
+    "timestamp": 1739833277706,
+    "variableBorrowApy": 0.0290711,
+    "tvl": 3285589
+  },
+  {
+    "timestamp": 1739919672948,
+    "variableBorrowApy": 0.0283575,
+    "tvl": 3332398
+  },
+  {
+    "timestamp": 1739988071710,
+    "variableBorrowApy": 0.0277174,
+    "tvl": 3406972
+  },
+  {
+    "timestamp": 1740092530427,
+    "variableBorrowApy": 0.0264639,
+    "tvl": 3594758
+  },
+  {
+    "timestamp": 1740178894533,
+    "variableBorrowApy": 0.025491,
+    "tvl": 3714176
+  },
+  {
+    "timestamp": 1740265273018,
+    "variableBorrowApy": 0.0260085,
+    "tvl": 3615068
+  },
+  {
+    "timestamp": 1740351679803,
+    "variableBorrowApy": 0.0262471,
+    "tvl": 3611734
+  },
+  {
+    "timestamp": 1740438101789,
+    "variableBorrowApy": 0.026116999999999998,
+    "tvl": 3614596
+  },
+  {
+    "timestamp": 1740524518959,
+    "variableBorrowApy": 0.027435,
+    "tvl": 3443219
+  },
+  {
+    "timestamp": 1740610918929,
+    "variableBorrowApy": 0.028067099999999998,
+    "tvl": 3397541
+  },
+  {
+    "timestamp": 1740697319655,
+    "variableBorrowApy": 0.0274891,
+    "tvl": 3462197
+  },
+  {
+    "timestamp": 1740783717297,
+    "variableBorrowApy": 0.0264974,
+    "tvl": 3518206
+  },
+  {
+    "timestamp": 1740870104873,
+    "variableBorrowApy": 0.0263399,
+    "tvl": 3541500
+  },
+  {
+    "timestamp": 1740956516419,
+    "variableBorrowApy": 0.0263259,
+    "tvl": 3540424
+  },
+  {
+    "timestamp": 1741042915963,
+    "variableBorrowApy": 0.0282239,
+    "tvl": 3420206
+  },
+  {
+    "timestamp": 1741129319251,
+    "variableBorrowApy": 0.0282938,
+    "tvl": 3471879
+  },
+  {
+    "timestamp": 1741215717902,
+    "variableBorrowApy": 0.026840199999999998,
+    "tvl": 3755884
+  },
+  {
+    "timestamp": 1741302116101,
+    "variableBorrowApy": 0.0269192,
+    "tvl": 3752831
+  },
+  {
+    "timestamp": 1741388519289,
+    "variableBorrowApy": 0.0252185,
+    "tvl": 3812021
+  },
+  {
+    "timestamp": 1741474907472,
+    "variableBorrowApy": 0.0250578,
+    "tvl": 3837978
+  },
+  {
+    "timestamp": 1741561324955,
+    "variableBorrowApy": 0.0248597,
+    "tvl": 3838913
+  },
+  {
+    "timestamp": 1741647719089,
+    "variableBorrowApy": 0.0155539,
+    "tvl": 5742009
+  },
+  {
+    "timestamp": 1741734118667,
+    "variableBorrowApy": 0.0162236,
+    "tvl": 5673533
+  },
+  {
+    "timestamp": 1741820533424,
+    "variableBorrowApy": 0.0165848,
+    "tvl": 5634241
+  },
+  {
+    "timestamp": 1741906932570,
+    "variableBorrowApy": 0.0169168,
+    "tvl": 5491586
+  },
+  {
+    "timestamp": 1741993323503,
+    "variableBorrowApy": 0.0169921,
+    "tvl": 5480073
+  },
+  {
+    "timestamp": 1742079735136,
+    "variableBorrowApy": 0.0170919,
+    "tvl": 5462201
+  },
+  {
+    "timestamp": 1742166120945,
+    "variableBorrowApy": 0.0175992,
+    "tvl": 5040353
+  },
+  {
+    "timestamp": 1742252515369,
+    "variableBorrowApy": 0.0174762,
+    "tvl": 5079047
+  },
+  {
+    "timestamp": 1742338916104,
+    "variableBorrowApy": 0.0175352,
+    "tvl": 5083269
+  },
+  {
+    "timestamp": 1742425315603,
+    "variableBorrowApy": 0.014050700000000001,
+    "tvl": 4873881
+  },
+  {
+    "timestamp": 1742511699796,
+    "variableBorrowApy": 0.0152055,
+    "tvl": 4473531
+  },
+  {
+    "timestamp": 1742598119796,
+    "variableBorrowApy": 0.015265800000000001,
+    "tvl": 4457054
+  },
+  {
+    "timestamp": 1742684520484,
+    "variableBorrowApy": 0.0152266,
+    "tvl": 4469300
+  },
+  {
+    "timestamp": 1742770917188,
+    "variableBorrowApy": 0.0173927,
+    "tvl": 3942370
+  },
+  {
+    "timestamp": 1742857325814,
+    "variableBorrowApy": 0.017466699999999998,
+    "tvl": 3909286
+  },
+  {
+    "timestamp": 1742943715915,
+    "variableBorrowApy": 0.0182088,
+    "tvl": 3851067
+  },
+  {
+    "timestamp": 1743030115509,
+    "variableBorrowApy": 0.01845,
+    "tvl": 3770025
+  },
+  {
+    "timestamp": 1743116515568,
+    "variableBorrowApy": 0.0184893,
+    "tvl": 3799736
+  },
+  {
+    "timestamp": 1743202923303,
+    "variableBorrowApy": 0.019928500000000002,
+    "tvl": 3630831
+  },
+  {
+    "timestamp": 1743289321541,
+    "variableBorrowApy": 0.018369200000000002,
+    "tvl": 3660787
+  },
+  {
+    "timestamp": 1743375720043,
+    "variableBorrowApy": 0.0183859,
+    "tvl": 3635007
+  },
+  {
+    "timestamp": 1743462123743,
+    "variableBorrowApy": 0.0182385,
+    "tvl": 3681292
+  },
+  {
+    "timestamp": 1743548510990,
+    "variableBorrowApy": 0.0188579,
+    "tvl": 3538852
+  },
+  {
+    "timestamp": 1743634907088,
+    "variableBorrowApy": 0.0199908,
+    "tvl": 3316959
+  },
+  {
+    "timestamp": 1743721316852,
+    "variableBorrowApy": 0.0194825,
+    "tvl": 3504872
+  },
+  {
+    "timestamp": 1743807719617,
+    "variableBorrowApy": 0.0194195,
+    "tvl": 3473245
+  },
+  {
+    "timestamp": 1743894083903,
+    "variableBorrowApy": 0.0194653,
+    "tvl": 3480276
+  },
+  {
+    "timestamp": 1743980472208,
+    "variableBorrowApy": 0.0186061,
+    "tvl": 3563468
+  },
+  {
+    "timestamp": 1744066868211,
+    "variableBorrowApy": 0.0170857,
+    "tvl": 3890843
+  },
+  {
+    "timestamp": 1744153268899,
+    "variableBorrowApy": 0.0170504,
+    "tvl": 3873338
+  },
+  {
+    "timestamp": 1744239673593,
+    "variableBorrowApy": 0.0166456,
+    "tvl": 3939769
+  },
+  {
+    "timestamp": 1744326072340,
+    "variableBorrowApy": 0.0167717,
+    "tvl": 3988831
+  },
+  {
+    "timestamp": 1744412473723,
+    "variableBorrowApy": 0.010846199999999999,
+    "tvl": 4786135
+  },
+  {
+    "timestamp": 1744498873408,
+    "variableBorrowApy": 0.0096853,
+    "tvl": 5024599
+  },
+  {
+    "timestamp": 1744585272616,
+    "variableBorrowApy": 0.0099036,
+    "tvl": 4906647
+  },
+  {
+    "timestamp": 1744671681818,
+    "variableBorrowApy": 0.011038399999999999,
+    "tvl": 4707504
+  },
+  {
+    "timestamp": 1744758070054,
+    "variableBorrowApy": 0.0126395,
+    "tvl": 4492219
+  },
+  {
+    "timestamp": 1744844478065,
+    "variableBorrowApy": 0.0173496,
+    "tvl": 3852409
+  },
+  {
+    "timestamp": 1744930869054,
+    "variableBorrowApy": 0.020847400000000002,
+    "tvl": 3507288
+  },
+  {
+    "timestamp": 1745018269437,
+    "variableBorrowApy": 0.020886599999999998,
+    "tvl": 3664343
+  },
+  {
+    "timestamp": 1745103695896,
+    "variableBorrowApy": 0.0208432,
+    "tvl": 3678525
+  },
+  {
+    "timestamp": 1745190068744,
+    "variableBorrowApy": 0.0209072,
+    "tvl": 3668217
+  },
+  {
+    "timestamp": 1745276471270,
+    "variableBorrowApy": 0.0208194,
+    "tvl": 3738455
+  },
+  {
+    "timestamp": 1745362870745,
+    "variableBorrowApy": 0.0226085,
+    "tvl": 3850468
+  },
+  {
+    "timestamp": 1745449282613,
+    "variableBorrowApy": 0.0234125,
+    "tvl": 3715710
+  },
+  {
+    "timestamp": 1745535672603,
+    "variableBorrowApy": 0.029741,
+    "tvl": 2626069
+  },
+  {
+    "timestamp": 1745622072300,
+    "variableBorrowApy": 0.0302528,
+    "tvl": 2593160
+  },
+  {
+    "timestamp": 1745708468481,
+    "variableBorrowApy": 0.0301654,
+    "tvl": 2599635
+  },
+  {
+    "timestamp": 1745794877486,
+    "variableBorrowApy": 0.027656100000000003,
+    "tvl": 2630966
+  },
+  {
+    "timestamp": 1745881316856,
+    "variableBorrowApy": 0.0278065,
+    "tvl": 2614383
+  },
+  {
+    "timestamp": 1745967675225,
+    "variableBorrowApy": 0.0265013,
+    "tvl": 2749258
+  },
+  {
+    "timestamp": 1746054077205,
+    "variableBorrowApy": 0.0275142,
+    "tvl": 2580167
+  },
+  {
+    "timestamp": 1746140475858,
+    "variableBorrowApy": 0.0247946,
+    "tvl": 3111413
+  },
+  {
+    "timestamp": 1746226878043,
+    "variableBorrowApy": 0.0237523,
+    "tvl": 3309343
+  },
+  {
+    "timestamp": 1746313270932,
+    "variableBorrowApy": 0.024219400000000002,
+    "tvl": 3269602
+  },
+  {
+    "timestamp": 1746399680874,
+    "variableBorrowApy": 0.024254500000000002,
+    "tvl": 3303135
+  },
+  {
+    "timestamp": 1746486073981,
+    "variableBorrowApy": 0.0298789,
+    "tvl": 2562436
+  },
+  {
+    "timestamp": 1746572469516,
+    "variableBorrowApy": 0.0293981,
+    "tvl": 2659774
+  },
+  {
+    "timestamp": 1746658872326,
+    "variableBorrowApy": 0.0260466,
+    "tvl": 2796232
+  },
+  {
+    "timestamp": 1746745272023,
+    "variableBorrowApy": 0.025346999999999998,
+    "tvl": 2923843
+  },
+  {
+    "timestamp": 1746831663510,
+    "variableBorrowApy": 0.0260922,
+    "tvl": 2813571
+  },
+  {
+    "timestamp": 1746918063535,
+    "variableBorrowApy": 0.0254641,
+    "tvl": 2930823
+  },
+  {
+    "timestamp": 1747004478401,
+    "variableBorrowApy": 0.0264251,
+    "tvl": 2779777
+  },
+  {
+    "timestamp": 1747090862422,
+    "variableBorrowApy": 0.0265151,
+    "tvl": 2738508
+  },
+  {
+    "timestamp": 1747177259733,
+    "variableBorrowApy": 0.0268477,
+    "tvl": 2719539
+  },
+  {
+    "timestamp": 1747263671318,
+    "variableBorrowApy": 0.0275336,
+    "tvl": 2612126
+  },
+  {
+    "timestamp": 1747350060161,
+    "variableBorrowApy": 0.027258,
+    "tvl": 2675992
+  },
+  {
+    "timestamp": 1747436468342,
+    "variableBorrowApy": 0.0275326,
+    "tvl": 2604487
+  },
+  {
+    "timestamp": 1747522912518,
+    "variableBorrowApy": 0.028693,
+    "tvl": 2489431
+  },
+  {
+    "timestamp": 1747609287956,
+    "variableBorrowApy": 0.0283032,
+    "tvl": 2544330
+  },
+  {
+    "timestamp": 1747695675140,
+    "variableBorrowApy": 0.0245101,
+    "tvl": 3235912
+  },
+  {
+    "timestamp": 1747782063828,
+    "variableBorrowApy": 0.0252454,
+    "tvl": 3122111
+  },
+  {
+    "timestamp": 1747868505179,
+    "variableBorrowApy": 0.024692699999999998,
+    "tvl": 3250230
+  },
+  {
+    "timestamp": 1747954866906,
+    "variableBorrowApy": 0.0251252,
+    "tvl": 3205088
+  },
+  {
+    "timestamp": 1748041279885,
+    "variableBorrowApy": 0.025329100000000004,
+    "tvl": 3238610
+  },
+  {
+    "timestamp": 1748127660461,
+    "variableBorrowApy": 0.025899899999999997,
+    "tvl": 3165374
+  },
+  {
+    "timestamp": 1748214085867,
+    "variableBorrowApy": 0.026251899999999998,
+    "tvl": 3118991
+  },
+  {
+    "timestamp": 1748300463732,
+    "variableBorrowApy": 0.026080700000000002,
+    "tvl": 3166423
+  },
+  {
+    "timestamp": 1748386864929,
+    "variableBorrowApy": 0.0327421,
+    "tvl": 2067364
+  },
+  {
+    "timestamp": 1748473282869,
+    "variableBorrowApy": 0.0332622,
+    "tvl": 2009163
+  },
+  {
+    "timestamp": 1748559676190,
+    "variableBorrowApy": 0.033577499999999996,
+    "tvl": 2016536
+  },
+  {
+    "timestamp": 1748646073578,
+    "variableBorrowApy": 0.0344621,
+    "tvl": 1912543
+  },
+  {
+    "timestamp": 1748732482545,
+    "variableBorrowApy": 0.034456799999999996,
+    "tvl": 1932526
+  },
+  {
+    "timestamp": 1748818898324,
+    "variableBorrowApy": 0.0345996,
+    "tvl": 1912180
+  },
+  {
+    "timestamp": 1748905259646,
+    "variableBorrowApy": 0.0337828,
+    "tvl": 2057917
+  },
+  {
+    "timestamp": 1748991678361,
+    "variableBorrowApy": 0.0332761,
+    "tvl": 2133055
+  },
+  {
+    "timestamp": 1749078083463,
+    "variableBorrowApy": 0.0340668,
+    "tvl": 2028280
+  },
+  {
+    "timestamp": 1749164483227,
+    "variableBorrowApy": 0.033134000000000004,
+    "tvl": 2162310
+  },
+  {
+    "timestamp": 1749250865735,
+    "variableBorrowApy": 0.033641700000000004,
+    "tvl": 2116842
+  },
+  {
+    "timestamp": 1749338235452,
+    "variableBorrowApy": 0.034218,
+    "tvl": 2080697
+  },
+  {
+    "timestamp": 1749423679328,
+    "variableBorrowApy": 0.030251999999999998,
+    "tvl": 2708574
+  },
+  {
+    "timestamp": 1749510081332,
+    "variableBorrowApy": 0.0297902,
+    "tvl": 2801305
+  },
+  {
+    "timestamp": 1749596467679,
+    "variableBorrowApy": 0.0303015,
+    "tvl": 2718526
+  },
+  {
+    "timestamp": 1749682892552,
+    "variableBorrowApy": 0.029569899999999996,
+    "tvl": 2879718
+  },
+  {
+    "timestamp": 1749769260934,
+    "variableBorrowApy": 0.0293905,
+    "tvl": 2948500
+  },
+  {
+    "timestamp": 1749855660181,
+    "variableBorrowApy": 0.0282929,
+    "tvl": 3154788
+  },
+  {
+    "timestamp": 1749942062389,
+    "variableBorrowApy": 0.0255343,
+    "tvl": 3748055
+  },
+  {
+    "timestamp": 1750028458858,
+    "variableBorrowApy": 0.025655,
+    "tvl": 3729824
+  },
+  {
+    "timestamp": 1750114864633,
+    "variableBorrowApy": 0.035762800000000004,
+    "tvl": 1916281
+  },
+  {
+    "timestamp": 1750201260678,
+    "variableBorrowApy": 0.0361591,
+    "tvl": 1865693
+  },
+  {
+    "timestamp": 1750287658945,
+    "variableBorrowApy": 0.0358698,
+    "tvl": 1900836
+  },
+  {
+    "timestamp": 1750375026442,
+    "variableBorrowApy": 0.035629,
+    "tvl": 1931971
+  },
+  {
+    "timestamp": 1750460489512,
+    "variableBorrowApy": 0.040256600000000003,
+    "tvl": 1361885
+  },
+  {
+    "timestamp": 1750546889141,
+    "variableBorrowApy": 0.0386334,
+    "tvl": 1554139
+  },
+  {
+    "timestamp": 1750633267693,
+    "variableBorrowApy": 0.0379171,
+    "tvl": 1638035
+  },
+  {
+    "timestamp": 1750719664247,
+    "variableBorrowApy": 0.0382328,
+    "tvl": 1642081
+  },
+  {
+    "timestamp": 1750806062341,
+    "variableBorrowApy": 0.0395125,
+    "tvl": 1502725
+  },
+  {
+    "timestamp": 1750892466934,
+    "variableBorrowApy": 0.0391139,
+    "tvl": 1568466
+  },
+  {
+    "timestamp": 1750978880931,
+    "variableBorrowApy": 0.040209,
+    "tvl": 1453334
+  },
+  {
+    "timestamp": 1751065262239,
+    "variableBorrowApy": 0.038992,
+    "tvl": 1621598
+  },
+  {
+    "timestamp": 1751151666652,
+    "variableBorrowApy": 0.0390822,
+    "tvl": 1609395
+  },
+  {
+    "timestamp": 1751238158028,
+    "variableBorrowApy": 0.03915,
+    "tvl": 1618074
+  },
+  {
+    "timestamp": 1751324524286,
+    "variableBorrowApy": 0.0378822,
+    "tvl": 1798275
+  },
+  {
+    "timestamp": 1751411101959,
+    "variableBorrowApy": 0.036586,
+    "tvl": 1985661
+  },
+  {
+    "timestamp": 1751497320101,
+    "variableBorrowApy": 0.037119,
+    "tvl": 1976639
+  },
+  {
+    "timestamp": 1751583715849,
+    "variableBorrowApy": 0.0375019,
+    "tvl": 1923218
+  },
+  {
+    "timestamp": 1751670117411,
+    "variableBorrowApy": 0.0370598,
+    "tvl": 1990676
+  },
+  {
+    "timestamp": 1751756520557,
+    "variableBorrowApy": 0.0366958,
+    "tvl": 2047340
+  },
+  {
+    "timestamp": 1751842927027,
+    "variableBorrowApy": 0.0367419,
+    "tvl": 2053077
+  },
+  {
+    "timestamp": 1751929317182,
+    "variableBorrowApy": 0.0318414,
+    "tvl": 2873730
+  },
+  {
+    "timestamp": 1752015789381,
+    "variableBorrowApy": 0.0334691,
+    "tvl": 2674170
+  },
+  {
+    "timestamp": 1752102126933,
+    "variableBorrowApy": 0.0368118,
+    "tvl": 2766522
+  },
+  {
+    "timestamp": 1752188516781,
+    "variableBorrowApy": 0.0388684,
+    "tvl": 2423569
+  },
+  {
+    "timestamp": 1752274986709,
+    "variableBorrowApy": 0.0392396,
+    "tvl": 2442290
+  },
+  {
+    "timestamp": 1752361323671,
+    "variableBorrowApy": 0.0382826,
+    "tvl": 2664254
+  },
+  {
+    "timestamp": 1752447721029,
+    "variableBorrowApy": 0.038891800000000004,
+    "tvl": 2701723
+  },
+  {
+    "timestamp": 1752534183343,
+    "variableBorrowApy": 0.0398914,
+    "tvl": 2776823
+  },
+  {
+    "timestamp": 1752620516452,
+    "variableBorrowApy": 0.0393896,
+    "tvl": 2852995
+  },
+  {
+    "timestamp": 1752706918696,
+    "variableBorrowApy": 0.0394647,
+    "tvl": 2838229
+  },
+  {
+    "timestamp": 1752793318181,
+    "variableBorrowApy": 0.039372500000000005,
+    "tvl": 2856622
+  },
+  {
+    "timestamp": 1752879724294,
+    "variableBorrowApy": 0.0361523,
+    "tvl": 3672802
+  },
+  {
+    "timestamp": 1752966120155,
+    "variableBorrowApy": 0.0361355,
+    "tvl": 3683725
+  },
+  {
+    "timestamp": 1753052516939,
+    "variableBorrowApy": 0.0284414,
+    "tvl": 3704637
+  },
+  {
+    "timestamp": 1753138916155,
+    "variableBorrowApy": 0.0285806,
+    "tvl": 3702245
+  },
+  {
+    "timestamp": 1753225317874,
+    "variableBorrowApy": 0.0321942,
+    "tvl": 3171533
+  },
+  {
+    "timestamp": 1753311842622,
+    "variableBorrowApy": 0.040228,
+    "tvl": 1971194
+  },
+  {
+    "timestamp": 1753398117200,
+    "variableBorrowApy": 0.0410694,
+    "tvl": 1843465
+  },
+  {
+    "timestamp": 1753484581036,
+    "variableBorrowApy": 0.0403013,
+    "tvl": 1959574
+  },
+  {
+    "timestamp": 1753571107381,
+    "variableBorrowApy": 0.0406135,
+    "tvl": 1906322
+  },
+  {
+    "timestamp": 1753657382245,
+    "variableBorrowApy": 0.0406589,
+    "tvl": 1907058
+  },
+  {
+    "timestamp": 1753743720761,
+    "variableBorrowApy": 0.040541400000000005,
+    "tvl": 1900741
+  },
+  {
+    "timestamp": 1753830126258,
+    "variableBorrowApy": 0.0408343,
+    "tvl": 1867788
+  },
+  {
+    "timestamp": 1753916528604,
+    "variableBorrowApy": 0.0396397,
+    "tvl": 2012162
+  },
+  {
+    "timestamp": 1754003054559,
+    "variableBorrowApy": 0.0398757,
+    "tvl": 1974264
+  },
+  {
+    "timestamp": 1754089316667,
+    "variableBorrowApy": 0.0393754,
+    "tvl": 2091280
+  },
+  {
+    "timestamp": 1754175720038,
+    "variableBorrowApy": 0.040823,
+    "tvl": 1882513
+  },
+  {
+    "timestamp": 1754262132732,
+    "variableBorrowApy": 0.0406069,
+    "tvl": 1920676
+  },
+  {
+    "timestamp": 1754348521276,
+    "variableBorrowApy": 0.0388914,
+    "tvl": 2196256
+  },
+  {
+    "timestamp": 1754434917375,
+    "variableBorrowApy": 0.0372424,
+    "tvl": 2529070
+  },
+  {
+    "timestamp": 1754521320334,
+    "variableBorrowApy": 0.0372098,
+    "tvl": 2565095
+  },
+  {
+    "timestamp": 1754607779936,
+    "variableBorrowApy": 0.037092299999999995,
+    "tvl": 2594886
+  },
+  {
+    "timestamp": 1754694119490,
+    "variableBorrowApy": 0.037487,
+    "tvl": 2526719
+  },
+  {
+    "timestamp": 1754780519518,
+    "variableBorrowApy": 0.0376866,
+    "tvl": 2490192
+  },
+  {
+    "timestamp": 1754866978151,
+    "variableBorrowApy": 0.036489,
+    "tvl": 2694693
+  },
+  {
+    "timestamp": 1754953319942,
+    "variableBorrowApy": 0.0366174,
+    "tvl": 2659471
+  },
+  {
+    "timestamp": 1755039720441,
+    "variableBorrowApy": 0.0370437,
+    "tvl": 2610380
+  },
+  {
+    "timestamp": 1755126117568,
+    "variableBorrowApy": 0.0368946,
+    "tvl": 2692504
+  },
+  {
+    "timestamp": 1755212518558,
+    "variableBorrowApy": 0.0373926,
+    "tvl": 2591397
+  },
+  {
+    "timestamp": 1755298926191,
+    "variableBorrowApy": 0.041537,
+    "tvl": 3032448
+  },
+  {
+    "timestamp": 1755385325517,
+    "variableBorrowApy": 0.041110100000000004,
+    "tvl": 3117695
+  },
+  {
+    "timestamp": 1755471720647,
+    "variableBorrowApy": 0.0413186,
+    "tvl": 3083626
+  },
+  {
+    "timestamp": 1755559080863,
+    "variableBorrowApy": 0.041533499999999994,
+    "tvl": 3013099
+  },
+  {
+    "timestamp": 1755644519552,
+    "variableBorrowApy": 0.0401042,
+    "tvl": 3301767
+  },
+  {
+    "timestamp": 1755730986650,
+    "variableBorrowApy": 0.040194299999999995,
+    "tvl": 3531042
+  },
+  {
+    "timestamp": 1755817318812,
+    "variableBorrowApy": 0.0401363,
+    "tvl": 3539526
+  },
+  {
+    "timestamp": 1755904099997,
+    "variableBorrowApy": 0.0394144,
+    "tvl": 3757006
+  },
+  {
+    "timestamp": 1755990118391,
+    "variableBorrowApy": 0.0364618,
+    "tvl": 4347564
+  },
+  {
+    "timestamp": 1756076518154,
+    "variableBorrowApy": 0.036687,
+    "tvl": 4315731
+  },
+  {
+    "timestamp": 1756162993155,
+    "variableBorrowApy": 0.0336206,
+    "tvl": 4981309
+  },
+  {
+    "timestamp": 1756249377625,
+    "variableBorrowApy": 0.0335457,
+    "tvl": 5018164
+  },
+  {
+    "timestamp": 1756335722093,
+    "variableBorrowApy": 0.0341058,
+    "tvl": 4922109
+  },
+  {
+    "timestamp": 1756422117333,
+    "variableBorrowApy": 0.035476299999999995,
+    "tvl": 4729829
+  },
+  {
+    "timestamp": 1756508519791,
+    "variableBorrowApy": 0.0364402,
+    "tvl": 4497190
+  },
+  {
+    "timestamp": 1756594922851,
+    "variableBorrowApy": 0.036410200000000004,
+    "tvl": 4509660
+  },
+  {
+    "timestamp": 1756681320740,
+    "variableBorrowApy": 0.0363747,
+    "tvl": 4526418
+  },
+  {
+    "timestamp": 1756767718852,
+    "variableBorrowApy": 0.0477651,
+    "tvl": 2244538
+  },
+  {
+    "timestamp": 1756854118818,
+    "variableBorrowApy": 0.045638500000000005,
+    "tvl": 2585793
+  },
+  {
+    "timestamp": 1756940520920,
+    "variableBorrowApy": 0.044999000000000004,
+    "tvl": 2675321
+  },
+  {
+    "timestamp": 1757026918027,
+    "variableBorrowApy": 0.045548000000000005,
+    "tvl": 2594321
+  },
+  {
+    "timestamp": 1757113320120,
+    "variableBorrowApy": 0.0454825,
+    "tvl": 2619978
+  },
+  {
+    "timestamp": 1757199721693,
+    "variableBorrowApy": 0.04367479999999999,
+    "tvl": 2914795
+  },
+  {
+    "timestamp": 1757286118792,
+    "variableBorrowApy": 0.0454108,
+    "tvl": 2633469
+  },
+  {
+    "timestamp": 1757372520500,
+    "variableBorrowApy": 0.0458958,
+    "tvl": 2583199
+  },
+  {
+    "timestamp": 1757458934131,
+    "variableBorrowApy": 0.046007,
+    "tvl": 2581907
+  },
+  {
+    "timestamp": 1757545322315,
+    "variableBorrowApy": 0.0457782,
+    "tvl": 2613954
+  },
+  {
+    "timestamp": 1757631848010,
+    "variableBorrowApy": 0.045808299999999996,
+    "tvl": 2615882
+  },
+  {
+    "timestamp": 1757718120058,
+    "variableBorrowApy": 0.0455073,
+    "tvl": 2692153
+  },
+  {
+    "timestamp": 1757804519371,
+    "variableBorrowApy": 0.0459247,
+    "tvl": 2624744
+  },
+  {
+    "timestamp": 1757890919261,
+    "variableBorrowApy": 0.0450004,
+    "tvl": 2772909
+  },
+  {
+    "timestamp": 1757977324877,
+    "variableBorrowApy": 0.04559319999999999,
+    "tvl": 2716066
+  },
+  {
+    "timestamp": 1758063720165,
+    "variableBorrowApy": 0.046563999999999994,
+    "tvl": 2624335
+  },
+  {
+    "timestamp": 1758150244379,
+    "variableBorrowApy": 0.0353741,
+    "tvl": 5124251
+  },
+  {
+    "timestamp": 1758236580124,
+    "variableBorrowApy": 0.0364641,
+    "tvl": 4910698
+  },
+  {
+    "timestamp": 1758323045370,
+    "variableBorrowApy": 0.037090399999999996,
+    "tvl": 4735001
+  },
+  {
+    "timestamp": 1758409318159,
+    "variableBorrowApy": 0.0373294,
+    "tvl": 4721498
+  },
+  {
+    "timestamp": 1758495719670,
+    "variableBorrowApy": 0.0374577,
+    "tvl": 4654343
+  },
+  {
+    "timestamp": 1758582117633,
+    "variableBorrowApy": 0.037763399999999996,
+    "tvl": 4624542
+  },
+  {
+    "timestamp": 1758668529598,
+    "variableBorrowApy": 0.0371919,
+    "tvl": 4781067
+  },
+  {
+    "timestamp": 1758754917492,
+    "variableBorrowApy": 0.0382814,
+    "tvl": 4542528
+  },
+  {
+    "timestamp": 1758841318096,
+    "variableBorrowApy": 0.0384182,
+    "tvl": 4439555
+  },
+  {
+    "timestamp": 1758927844876,
+    "variableBorrowApy": 0.0392222,
+    "tvl": 4282445
+  },
+  {
+    "timestamp": 1759014187833,
+    "variableBorrowApy": 0.040305999999999995,
+    "tvl": 4045294
+  },
+  {
+    "timestamp": 1759100461141,
+    "variableBorrowApy": 0.040915999999999994,
+    "tvl": 3920457
+  },
+  {
+    "timestamp": 1759186868246,
+    "variableBorrowApy": 0.042243,
+    "tvl": 3652456
+  },
+  {
+    "timestamp": 1759273282874,
+    "variableBorrowApy": 0.0438474,
+    "tvl": 3363481
+  },
+  {
+    "timestamp": 1759359660896,
+    "variableBorrowApy": 0.0435396,
+    "tvl": 3437648
+  },
+  {
+    "timestamp": 1759446059942,
+    "variableBorrowApy": 0.044265,
+    "tvl": 3308244
+  },
+  {
+    "timestamp": 1759532471682,
+    "variableBorrowApy": 0.043808,
+    "tvl": 3463569
+  },
+  {
+    "timestamp": 1759618894819,
+    "variableBorrowApy": 0.0447751,
+    "tvl": 3266481
+  },
+  {
+    "timestamp": 1759705262862,
+    "variableBorrowApy": 0.0451522,
+    "tvl": 3183304
+  },
+  {
+    "timestamp": 1759791662126,
+    "variableBorrowApy": 0.045564600000000004,
+    "tvl": 3103279
+  },
+  {
+    "timestamp": 1759878069874,
+    "variableBorrowApy": 0.0453622,
+    "tvl": 3136497
+  },
+  {
+    "timestamp": 1759964472774,
+    "variableBorrowApy": 0.0452364,
+    "tvl": 3160323
+  },
+  {
+    "timestamp": 1760050870717,
+    "variableBorrowApy": 0.0457383,
+    "tvl": 3078598
+  },
+  {
+    "timestamp": 1760137276751,
+    "variableBorrowApy": 0.0464152,
+    "tvl": 2956313
+  },
+  {
+    "timestamp": 1760223676290,
+    "variableBorrowApy": 0.0413661,
+    "tvl": 3899035
+  },
+  {
+    "timestamp": 1760310083573,
+    "variableBorrowApy": 0.0517576,
+    "tvl": 2095146
+  },
+  {
+    "timestamp": 1760396459902,
+    "variableBorrowApy": 0.0502869,
+    "tvl": 2373566
+  },
+  {
+    "timestamp": 1760482884568,
+    "variableBorrowApy": 0.0491862,
+    "tvl": 2579896
+  },
+  {
+    "timestamp": 1760569282304,
+    "variableBorrowApy": 0.0424833,
+    "tvl": 3801515
+  },
+  {
+    "timestamp": 1760655685113,
+    "variableBorrowApy": 0.040902900000000006,
+    "tvl": 4139726
+  },
+  {
+    "timestamp": 1760742072284,
+    "variableBorrowApy": 0.0398147,
+    "tvl": 4150395
+  },
+  {
+    "timestamp": 1760828488661,
+    "variableBorrowApy": 0.038206500000000004,
+    "tvl": 4460797
+  },
+  {
+    "timestamp": 1760914898631,
+    "variableBorrowApy": 0.038028900000000004,
+    "tvl": 4496258
+  },
+  {
+    "timestamp": 1761001260031,
+    "variableBorrowApy": 0.036715,
+    "tvl": 4806959
+  },
+  {
+    "timestamp": 1761087688941,
+    "variableBorrowApy": 0.036316299999999996,
+    "tvl": 4871385
+  },
+  {
+    "timestamp": 1761174075321,
+    "variableBorrowApy": 0.0369024,
+    "tvl": 4747384
+  },
+  {
+    "timestamp": 1761260487567,
+    "variableBorrowApy": 0.0348534,
+    "tvl": 5202149
+  },
+  {
+    "timestamp": 1761346865391,
+    "variableBorrowApy": 0.0321265,
+    "tvl": 5195242
+  },
+  {
+    "timestamp": 1761433513886,
+    "variableBorrowApy": 0.0321586,
+    "tvl": 5178141
+  },
+  {
+    "timestamp": 1761519735647,
+    "variableBorrowApy": 0.0333295,
+    "tvl": 4849032
+  },
+  {
+    "timestamp": 1761606139351,
+    "variableBorrowApy": 0.04472400000000001,
+    "tvl": 2572764
+  },
+  {
+    "timestamp": 1761692584283,
+    "variableBorrowApy": 0.0446253,
+    "tvl": 2599854
+  },
+  {
+    "timestamp": 1761778918049,
+    "variableBorrowApy": 0.044085200000000005,
+    "tvl": 2693714
+  },
+  {
+    "timestamp": 1761865319201,
+    "variableBorrowApy": 0.044701500000000005,
+    "tvl": 2559143
+  },
+  {
+    "timestamp": 1761951731347,
+    "variableBorrowApy": 0.0442404,
+    "tvl": 2645819
+  },
+  {
+    "timestamp": 1762038307797,
+    "variableBorrowApy": 0.0428971,
+    "tvl": 2895472
+  },
+  {
+    "timestamp": 1762124590725,
+    "variableBorrowApy": 0.0427424,
+    "tvl": 2918539
+  },
+  {
+    "timestamp": 1762210923767,
+    "variableBorrowApy": 0.1249087,
+    "tvl": 1275340
+  },
+  {
+    "timestamp": 1762297326448,
+    "variableBorrowApy": 0.1184065,
+    "tvl": 1275330
+  },
+  {
+    "timestamp": 1762383716717,
+    "variableBorrowApy": 0.047814800000000005,
+    "tvl": 1695042
+  },
+  {
+    "timestamp": 1762470118710,
+    "variableBorrowApy": 0.045663,
+    "tvl": 2054100
+  },
+  {
+    "timestamp": 1762556702563,
+    "variableBorrowApy": 0.045168299999999995,
+    "tvl": 2144609
+  },
+  {
+    "timestamp": 1762642960009,
+    "variableBorrowApy": 0.0352609,
+    "tvl": 4277812
+  },
+  {
+    "timestamp": 1762729604383,
+    "variableBorrowApy": 0.0353698,
+    "tvl": 4240996
+  },
+  {
+    "timestamp": 1762815708439,
+    "variableBorrowApy": 0.0354794,
+    "tvl": 4217039
+  },
+  {
+    "timestamp": 1762902114564,
+    "variableBorrowApy": 0.035327899999999995,
+    "tvl": 4258579
+  },
+  {
+    "timestamp": 1762988535322,
+    "variableBorrowApy": 0.0349779,
+    "tvl": 4361617
+  },
+  {
+    "timestamp": 1763074910970,
+    "variableBorrowApy": 0.0352671,
+    "tvl": 4292349
+  },
+  {
+    "timestamp": 1763161316995,
+    "variableBorrowApy": 0.035424699999999996,
+    "tvl": 4252102
+  },
+  {
+    "timestamp": 1763247716834,
+    "variableBorrowApy": 0.035760600000000003,
+    "tvl": 4171907
+  },
+  {
+    "timestamp": 1763334179947,
+    "variableBorrowApy": 0.0354709,
+    "tvl": 4241919
+  },
+  {
+    "timestamp": 1763420508010,
+    "variableBorrowApy": 0.0354873,
+    "tvl": 4224376
+  },
+  {
+    "timestamp": 1763506969761,
+    "variableBorrowApy": 0.0350208,
+    "tvl": 4306766
+  },
+  {
+    "timestamp": 1763593316148,
+    "variableBorrowApy": 0.034702199999999996,
+    "tvl": 4348208
+  },
+  {
+    "timestamp": 1763679716563,
+    "variableBorrowApy": 0.0337363,
+    "tvl": 4592911
+  },
+  {
+    "timestamp": 1763766097340,
+    "variableBorrowApy": 0.0342348,
+    "tvl": 4439304
+  },
+  {
+    "timestamp": 1763852642787,
+    "variableBorrowApy": 0.034322,
+    "tvl": 4430278
+  },
+  {
+    "timestamp": 1763938897084,
+    "variableBorrowApy": 0.0341722,
+    "tvl": 4449025
+  },
+  {
+    "timestamp": 1764025295725,
+    "variableBorrowApy": 0.0344691,
+    "tvl": 4391417
+  },
+  {
+    "timestamp": 1764111696500,
+    "variableBorrowApy": 0.0348494,
+    "tvl": 4312524
+  },
+  {
+    "timestamp": 1764198107181,
+    "variableBorrowApy": 0.0320146,
+    "tvl": 4267983
+  },
+  {
+    "timestamp": 1764284522316,
+    "variableBorrowApy": 0.0325332,
+    "tvl": 4152687
+  },
+  {
+    "timestamp": 1764370922068,
+    "variableBorrowApy": 0.0324572,
+    "tvl": 4185617
+  },
+  {
+    "timestamp": 1764457332899,
+    "variableBorrowApy": 0.0326495,
+    "tvl": 4135778
+  },
+  {
+    "timestamp": 1764543718090,
+    "variableBorrowApy": 0.0327845,
+    "tvl": 4082585
+  },
+  {
+    "timestamp": 1764630147821,
+    "variableBorrowApy": 0.0330716,
+    "tvl": 4006295
+  },
+  {
+    "timestamp": 1764716507650,
+    "variableBorrowApy": 0.0329802,
+    "tvl": 4023373
+  },
+  {
+    "timestamp": 1764802934799,
+    "variableBorrowApy": 0.0328516,
+    "tvl": 4069034
+  },
+  {
+    "timestamp": 1764889317561,
+    "variableBorrowApy": 0.0331256,
+    "tvl": 4007479
+  },
+  {
+    "timestamp": 1764975713722,
+    "variableBorrowApy": 0.0330001,
+    "tvl": 4021505
+  },
+  {
+    "timestamp": 1765062117842,
+    "variableBorrowApy": 0.033019599999999996,
+    "tvl": 4008014
+  },
+  {
+    "timestamp": 1765148517572,
+    "variableBorrowApy": 0.0331448,
+    "tvl": 3983669
+  },
+  {
+    "timestamp": 1765234921382,
+    "variableBorrowApy": 0.0336622,
+    "tvl": 3854248
+  },
+  {
+    "timestamp": 1765321316928,
+    "variableBorrowApy": 0.0334723,
+    "tvl": 3905770
+  },
+  {
+    "timestamp": 1765407719983,
+    "variableBorrowApy": 0.034143599999999996,
+    "tvl": 3728241
+  },
+  {
+    "timestamp": 1765494106334,
+    "variableBorrowApy": 0.034371399999999996,
+    "tvl": 3693904
+  },
+  {
+    "timestamp": 1765580516815,
+    "variableBorrowApy": 0.035361500000000004,
+    "tvl": 3438546
+  },
+  {
+    "timestamp": 1765666937852,
+    "variableBorrowApy": 0.0353978,
+    "tvl": 3428655
+  },
+  {
+    "timestamp": 1765753330983,
+    "variableBorrowApy": 0.0351618,
+    "tvl": 3489004
+  },
+  {
+    "timestamp": 1765839718542,
+    "variableBorrowApy": 0.0356306,
+    "tvl": 3367395
+  },
+  {
+    "timestamp": 1765926121838,
+    "variableBorrowApy": 0.0356673,
+    "tvl": 3354646
+  },
+  {
+    "timestamp": 1766012521258,
+    "variableBorrowApy": 0.0355034,
+    "tvl": 3382825
+  },
+  {
+    "timestamp": 1766098920765,
+    "variableBorrowApy": 0.0344844,
+    "tvl": 3591236
+  },
+  {
+    "timestamp": 1766185320425,
+    "variableBorrowApy": 0.0336768,
+    "tvl": 3807748
+  },
+  {
+    "timestamp": 1766271733118,
+    "variableBorrowApy": 0.0337228,
+    "tvl": 3815581
+  },
+  {
+    "timestamp": 1766358163195,
+    "variableBorrowApy": 0.0338858,
+    "tvl": 3797835
+  },
+  {
+    "timestamp": 1766444531307,
+    "variableBorrowApy": 0.0339791,
+    "tvl": 3786787
+  },
+  {
+    "timestamp": 1766530891630,
+    "variableBorrowApy": 0.0346399,
+    "tvl": 3602658
+  },
+  {
+    "timestamp": 1766617292137,
+    "variableBorrowApy": 0.0340865,
+    "tvl": 3746758
+  },
+  {
+    "timestamp": 1766703722446,
+    "variableBorrowApy": 0.0342027,
+    "tvl": 3717957
+  },
+  {
+    "timestamp": 1766790124177,
+    "variableBorrowApy": 0.0343319,
+    "tvl": 3683323
+  },
+  {
+    "timestamp": 1766876520201,
+    "variableBorrowApy": 0.0343181,
+    "tvl": 3689611
+  },
+  {
+    "timestamp": 1766962963853,
+    "variableBorrowApy": 0.035144299999999996,
+    "tvl": 3497590
+  },
+  {
+    "timestamp": 1767049387544,
+    "variableBorrowApy": 0.0346129,
+    "tvl": 3557747
+  },
+  {
+    "timestamp": 1767135738131,
+    "variableBorrowApy": 0.0347123,
+    "tvl": 3536264
+  },
+  {
+    "timestamp": 1767222118064,
+    "variableBorrowApy": 0.0344176,
+    "tvl": 3623935
+  },
+  {
+    "timestamp": 1767308492938,
+    "variableBorrowApy": 0.0337867,
+    "tvl": 3760751
+  },
+  {
+    "timestamp": 1767394889294,
+    "variableBorrowApy": 0.0340112,
+    "tvl": 3712171
+  },
+  {
+    "timestamp": 1767481317713,
+    "variableBorrowApy": 0.033894,
+    "tvl": 3737784
+  },
+  {
+    "timestamp": 1767567691751,
+    "variableBorrowApy": 0.0336614,
+    "tvl": 3770020
+  },
+  {
+    "timestamp": 1767654119204,
+    "variableBorrowApy": 0.0385369,
+    "tvl": 2139463
+  },
+  {
+    "timestamp": 1767740520780,
+    "variableBorrowApy": 0.03875,
+    "tvl": 2080676
+  },
+  {
+    "timestamp": 1767826918303,
+    "variableBorrowApy": 0.0380376,
+    "tvl": 2236809
+  },
+  {
+    "timestamp": 1767913320232,
+    "variableBorrowApy": 0.0379532,
+    "tvl": 2254831
+  },
+  {
+    "timestamp": 1767999719967,
+    "variableBorrowApy": 0.0378641,
+    "tvl": 2273905
+  },
+  {
+    "timestamp": 1768086137442,
+    "variableBorrowApy": 0.0379178,
+    "tvl": 2258105
+  },
+  {
+    "timestamp": 1768172554888,
+    "variableBorrowApy": 0.0377831,
+    "tvl": 2297106
+  },
+  {
+    "timestamp": 1768258924808,
+    "variableBorrowApy": 0.0374571,
+    "tvl": 2382208
+  },
+  {
+    "timestamp": 1768345297946,
+    "variableBorrowApy": 0.037664300000000005,
+    "tvl": 2342293
+  },
+  {
+    "timestamp": 1768431708692,
+    "variableBorrowApy": 0.0370186,
+    "tvl": 2483526
+  },
+  {
+    "timestamp": 1768518125619,
+    "variableBorrowApy": 0.0362822,
+    "tvl": 2650371
+  },
+  {
+    "timestamp": 1768604522469,
+    "variableBorrowApy": 0.0349441,
+    "tvl": 2977622
+  },
+  {
+    "timestamp": 1768690917053,
+    "variableBorrowApy": 0.0343967,
+    "tvl": 3120347
+  },
+  {
+    "timestamp": 1768777400177,
+    "variableBorrowApy": 0.0343738,
+    "tvl": 3121321
+  },
+  {
+    "timestamp": 1768863728403,
+    "variableBorrowApy": 0.0349874,
+    "tvl": 2982765
+  },
+  {
+    "timestamp": 1768950132830,
+    "variableBorrowApy": 0.0345825,
+    "tvl": 3089181
+  },
+  {
+    "timestamp": 1769036488916,
+    "variableBorrowApy": 0.034617300000000004,
+    "tvl": 3088976
+  },
+  {
+    "timestamp": 1769122923063,
+    "variableBorrowApy": 0.0343827,
+    "tvl": 3172010
+  },
+  {
+    "timestamp": 1769209333581,
+    "variableBorrowApy": 0.0343715,
+    "tvl": 3184583
+  },
+  {
+    "timestamp": 1769295726853,
+    "variableBorrowApy": 0.0341865,
+    "tvl": 3227062
+  },
+  {
+    "timestamp": 1769382090100,
+    "variableBorrowApy": 0.0338659,
+    "tvl": 3339584
+  },
+  {
+    "timestamp": 1769468526357,
+    "variableBorrowApy": 0.0337982,
+    "tvl": 3355953
+  },
+  {
+    "timestamp": 1769554889136,
+    "variableBorrowApy": 0.0336097,
+    "tvl": 3480607
+  },
+  {
+    "timestamp": 1769641317490,
+    "variableBorrowApy": 0.0341034,
+    "tvl": 3331477
+  },
+  {
+    "timestamp": 1769727696363,
+    "variableBorrowApy": 0.034108200000000005,
+    "tvl": 3346170
+  },
+  {
+    "timestamp": 1769814069198,
+    "variableBorrowApy": 0.033873,
+    "tvl": 3369256
+  },
+  {
+    "timestamp": 1769900587829,
+    "variableBorrowApy": 0.0329462,
+    "tvl": 3596282
+  },
+  {
+    "timestamp": 1769986931678,
+    "variableBorrowApy": 0.0330204,
+    "tvl": 3584932
+  },
+  {
+    "timestamp": 1770073297008,
+    "variableBorrowApy": 0.032441399999999995,
+    "tvl": 3718187
+  },
+  {
+    "timestamp": 1770159719755,
+    "variableBorrowApy": 0.0322909,
+    "tvl": 3735572
+  },
+  {
+    "timestamp": 1770246097312,
+    "variableBorrowApy": 0.0318626,
+    "tvl": 3887961
+  },
+  {
+    "timestamp": 1770332468464,
+    "variableBorrowApy": 0.031506400000000004,
+    "tvl": 3942728
+  },
+  {
+    "timestamp": 1770418868573,
+    "variableBorrowApy": 0.031349999999999996,
+    "tvl": 4001465
+  },
+  {
+    "timestamp": 1770505266557,
+    "variableBorrowApy": 0.031181800000000003,
+    "tvl": 3791946
+  },
+  {
+    "timestamp": 1770591681156,
+    "variableBorrowApy": 0.030975299999999997,
+    "tvl": 4119396
+  },
+  {
+    "timestamp": 1770678069673,
+    "variableBorrowApy": 0.030283400000000002,
+    "tvl": 4366878
+  },
+  {
+    "timestamp": 1770764484326,
+    "variableBorrowApy": 0.0303359,
+    "tvl": 4342212
+  },
+  {
+    "timestamp": 1770850868951,
+    "variableBorrowApy": 0.030823200000000002,
+    "tvl": 4171997
+  },
+  {
+    "timestamp": 1770937277790,
+    "variableBorrowApy": 0.0308585,
+    "tvl": 4164055
+  },
+  {
+    "timestamp": 1771023663142,
+    "variableBorrowApy": 0.0309045,
+    "tvl": 4135145
+  },
+  {
+    "timestamp": 1771110106517,
+    "variableBorrowApy": 0.0309738,
+    "tvl": 4118438
+  },
+  {
+    "timestamp": 1771196463716,
+    "variableBorrowApy": 0.0310592,
+    "tvl": 4109361
+  },
+  {
+    "timestamp": 1771282867128,
+    "variableBorrowApy": 0.0311593,
+    "tvl": 4065954
+  },
+  {
+    "timestamp": 1771369269816,
+    "variableBorrowApy": 0.031070700000000003,
+    "tvl": 4095611
+  },
+  {
+    "timestamp": 1771455689360,
+    "variableBorrowApy": 0.030237,
+    "tvl": 4329049
+  },
+  {
+    "timestamp": 1771542074061,
+    "variableBorrowApy": 0.0398981,
+    "tvl": 2097729
+  },
+  {
+    "timestamp": 1771628478342,
+    "variableBorrowApy": 0.0394247,
+    "tvl": 2211522
+  },
+  {
+    "timestamp": 1771714870291,
+    "variableBorrowApy": 0.0352493,
+    "tvl": 3349017
+  },
+  {
+    "timestamp": 1771801276613,
+    "variableBorrowApy": 0.0352781,
+    "tvl": 3346653
+  },
+  {
+    "timestamp": 1771887669766,
+    "variableBorrowApy": 0.035965699999999996,
+    "tvl": 3142161
+  },
+  {
+    "timestamp": 1771974068490,
+    "variableBorrowApy": 0.0358283,
+    "tvl": 3183241
+  },
+  {
+    "timestamp": 1772060471434,
+    "variableBorrowApy": 0.0352823,
+    "tvl": 3353095
+  },
+  {
+    "timestamp": 1772146871156,
+    "variableBorrowApy": 0.0347642,
+    "tvl": 3504445
+  },
+  {
+    "timestamp": 1772233262067,
+    "variableBorrowApy": 0.033959500000000004,
+    "tvl": 3762948
+  },
+  {
+    "timestamp": 1772319660617,
+    "variableBorrowApy": 0.0341572,
+    "tvl": 3704072
+  },
+  {
+    "timestamp": 1772406064463,
+    "variableBorrowApy": 0.0340619,
+    "tvl": 3732607
+  },
+  {
+    "timestamp": 1772492487528,
+    "variableBorrowApy": 0.0336254,
+    "tvl": 3836098
+  },
+  {
+    "timestamp": 1772578879271,
+    "variableBorrowApy": 0.0333143,
+    "tvl": 3884618
+  },
+  {
+    "timestamp": 1772665276821,
+    "variableBorrowApy": 0.033479800000000004,
+    "tvl": 3892334
+  },
+  {
+    "timestamp": 1772751680547,
+    "variableBorrowApy": 0.0328548,
+    "tvl": 4071923
+  },
+  {
+    "timestamp": 1772838083307,
+    "variableBorrowApy": 0.032925,
+    "tvl": 4058167
+  },
+  {
+    "timestamp": 1772924469209,
+    "variableBorrowApy": 0.0329476,
+    "tvl": 4051861
+  },
+  {
+    "timestamp": 1773010868761,
+    "variableBorrowApy": 0.0333196,
+    "tvl": 3905673
+  },
+  {
+    "timestamp": 1773097325735,
+    "variableBorrowApy": 0.0327608,
+    "tvl": 4118347
+  },
+  {
+    "timestamp": 1773183682669,
+    "variableBorrowApy": 0.0323585,
+    "tvl": 4245530
+  },
+  {
+    "timestamp": 1773270081963,
+    "variableBorrowApy": 0.0331618,
+    "tvl": 3958662
+  },
+  {
+    "timestamp": 1773356499043,
+    "variableBorrowApy": 0.033194,
+    "tvl": 3939338
+  },
+  {
+    "timestamp": 1773442968725,
+    "variableBorrowApy": 0.0332796,
+    "tvl": 3885509
+  },
+  {
+    "timestamp": 1773529298531,
+    "variableBorrowApy": 0.0339608,
+    "tvl": 3702083
+  },
+  {
+    "timestamp": 1773615723943,
+    "variableBorrowApy": 0.0338065,
+    "tvl": 3761926
+  },
+  {
+    "timestamp": 1773702129049,
+    "variableBorrowApy": 0.0333126,
+    "tvl": 3913393
+  },
+  {
+    "timestamp": 1773788483946,
+    "variableBorrowApy": 0.0336959,
+    "tvl": 3804827
+  },
+  {
+    "timestamp": 1773874863700,
+    "variableBorrowApy": 0.0335364,
+    "tvl": 3827969
+  },
+  {
+    "timestamp": 1773961280120,
+    "variableBorrowApy": 0.0335719,
+    "tvl": 3857148
+  },
+  {
+    "timestamp": 1774047668916,
+    "variableBorrowApy": 0.0317652,
+    "tvl": 4444973
+  },
+  {
+    "timestamp": 1774134095490,
+    "variableBorrowApy": 0.0314604,
+    "tvl": 4548806
+  },
+  {
+    "timestamp": 1774220470926,
+    "variableBorrowApy": 0.0310535,
+    "tvl": 4677606
+  },
+  {
+    "timestamp": 1774306878241,
+    "variableBorrowApy": 0.030798199999999998,
+    "tvl": 4801186
+  },
+  {
+    "timestamp": 1774382491549,
+    "variableBorrowApy": 0.03073,
+    "tvl": 4811528
+  }
+]

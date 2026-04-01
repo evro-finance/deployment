@@ -1,0 +1,4381 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-26T12:07:54.521Z",
+    "fromBlock": 42220254,
+    "toBlock": 45347934,
+    "activeDays": 182,
+    "totalCowVolumeEur": 31344235.72690297,
+    "totalCurveVolumeEur": 1725896.548221237,
+    "totalAmmVolumeEur": 0
+  },
+  "days": [
+    {
+      "date": "2025-09-26",
+      "cow_settlement": {
+        "volume_eur": 12646.040935793384,
+        "fees_eur": 0,
+        "trades": 314,
+        "intraday_volatility": 116407410141.33426,
+        "lvr_sigma": 116407410141.33426
+      },
+      "curve": {
+        "volume_eur": 249.8600892602911,
+        "fees_eur": 0.09994403570411645,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "cow_settlement": {
+        "volume_eur": 40208.2061016237,
+        "fees_eur": 0,
+        "trades": 710,
+        "intraday_volatility": 36557064185408.44,
+        "lvr_sigma": 36557064185408.44
+      },
+      "curve": {
+        "volume_eur": 7.6739604633312695,
+        "fees_eur": 0.003069584185332508,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "cow_settlement": {
+        "volume_eur": 117919.44879806836,
+        "fees_eur": 0,
+        "trades": 788,
+        "intraday_volatility": 142865965014.57526,
+        "lvr_sigma": 142865965014.57526
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "cow_settlement": {
+        "volume_eur": 480951.0054137161,
+        "fees_eur": 0,
+        "trades": 791,
+        "intraday_volatility": 103525144807.79834,
+        "lvr_sigma": 103525144807.79834
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "cow_settlement": {
+        "volume_eur": 85078.51917614415,
+        "fees_eur": 0,
+        "trades": 835,
+        "intraday_volatility": 33181761198223.973,
+        "lvr_sigma": 33181761198223.973
+      },
+      "curve": {
+        "volume_eur": 4022.4048961567855,
+        "fees_eur": 1.6089619584627144,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "cow_settlement": {
+        "volume_eur": 130553.66154516456,
+        "fees_eur": 0,
+        "trades": 1004,
+        "intraday_volatility": 159666114367.53738,
+        "lvr_sigma": 159666114367.53738
+      },
+      "curve": {
+        "volume_eur": 35613.13444850816,
+        "fees_eur": 14.245253779403265,
+        "trades": 4,
+        "intraday_volatility": 0.0004117766573475054,
+        "lvr_sigma": 0.0004117766573475054
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "cow_settlement": {
+        "volume_eur": 73983.87871382649,
+        "fees_eur": 0,
+        "trades": 934,
+        "intraday_volatility": 131745130755.83145,
+        "lvr_sigma": 131745130755.83145
+      },
+      "curve": {
+        "volume_eur": 61220.74543426104,
+        "fees_eur": 24.48829817370442,
+        "trades": 3,
+        "intraday_volatility": 0.0001346176255208202,
+        "lvr_sigma": 0.0001346176255208202
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "cow_settlement": {
+        "volume_eur": 319056.7314519477,
+        "fees_eur": 0,
+        "trades": 942,
+        "intraday_volatility": 30073233558008.176,
+        "lvr_sigma": 30073233558008.176
+      },
+      "curve": {
+        "volume_eur": 5970.478579575049,
+        "fees_eur": 2.3881914318300193,
+        "trades": 2,
+        "intraday_volatility": 0.001222133885761978,
+        "lvr_sigma": 0.001222133885761978
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "cow_settlement": {
+        "volume_eur": 324587.18274374417,
+        "fees_eur": 0,
+        "trades": 871,
+        "intraday_volatility": 127858314757.10307,
+        "lvr_sigma": 127858314757.10307
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "cow_settlement": {
+        "volume_eur": 236534.17048344988,
+        "fees_eur": 0,
+        "trades": 934,
+        "intraday_volatility": 120259201184.2785,
+        "lvr_sigma": 120259201184.2785
+      },
+      "curve": {
+        "volume_eur": 49977.00289560678,
+        "fees_eur": 19.99080115824271,
+        "trades": 3,
+        "intraday_volatility": 0.0011537732057404198,
+        "lvr_sigma": 0.0011537732057404198
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "cow_settlement": {
+        "volume_eur": 258210.94582192888,
+        "fees_eur": 0,
+        "trades": 849,
+        "intraday_volatility": 141058302616.22995,
+        "lvr_sigma": 141058302616.22995
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-07",
+      "cow_settlement": {
+        "volume_eur": 103615.93450768864,
+        "fees_eur": 0,
+        "trades": 880,
+        "intraday_volatility": 117126626473.13727,
+        "lvr_sigma": 117126626473.13727
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-08",
+      "cow_settlement": {
+        "volume_eur": 168205.84500834616,
+        "fees_eur": 0,
+        "trades": 963,
+        "intraday_volatility": 121467649213.14742,
+        "lvr_sigma": 121467649213.14742
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-09",
+      "cow_settlement": {
+        "volume_eur": 202825.72929561234,
+        "fees_eur": 0,
+        "trades": 1033,
+        "intraday_volatility": 31715529685683.5,
+        "lvr_sigma": 31715529685683.5
+      },
+      "curve": {
+        "volume_eur": 6702.956177957925,
+        "fees_eur": 2.6811824711831704,
+        "trades": 3,
+        "intraday_volatility": 0.0012511804644577606,
+        "lvr_sigma": 0.0012511804644577606
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-10",
+      "cow_settlement": {
+        "volume_eur": 70882.64390912755,
+        "fees_eur": 0,
+        "trades": 911,
+        "intraday_volatility": 48108627792732.68,
+        "lvr_sigma": 48108627792732.68
+      },
+      "curve": {
+        "volume_eur": 90499.20823752128,
+        "fees_eur": 36.19968329500851,
+        "trades": 2,
+        "intraday_volatility": 0.0011627038520526933,
+        "lvr_sigma": 0.0011627038520526933
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-11",
+      "cow_settlement": {
+        "volume_eur": 273347.5442765189,
+        "fees_eur": 0,
+        "trades": 928,
+        "intraday_volatility": 184878718603.1387,
+        "lvr_sigma": 184878718603.1387
+      },
+      "curve": {
+        "volume_eur": 77.29614479962814,
+        "fees_eur": 0.030918457919851254,
+        "trades": 3,
+        "intraday_volatility": 0.0004963067682760815,
+        "lvr_sigma": 0.0004963067682760815
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-12",
+      "cow_settlement": {
+        "volume_eur": 285038.6566611738,
+        "fees_eur": 0,
+        "trades": 983,
+        "intraday_volatility": 33729610556392.043,
+        "lvr_sigma": 33729610556392.043
+      },
+      "curve": {
+        "volume_eur": 534.2978105844894,
+        "fees_eur": 0.2137191242337958,
+        "trades": 3,
+        "intraday_volatility": 0.0004915749947756933,
+        "lvr_sigma": 0.0004915749947756933
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-13",
+      "cow_settlement": {
+        "volume_eur": 185292.660263222,
+        "fees_eur": 0,
+        "trades": 1223,
+        "intraday_volatility": 306776366428.2584,
+        "lvr_sigma": 306776366428.2584
+      },
+      "curve": {
+        "volume_eur": 1211.3660294389724,
+        "fees_eur": 0.48454641177558894,
+        "trades": 5,
+        "intraday_volatility": 0.0005262322984862138,
+        "lvr_sigma": 0.0005262322984862138
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-14",
+      "cow_settlement": {
+        "volume_eur": 176895.1512021256,
+        "fees_eur": 0,
+        "trades": 1015,
+        "intraday_volatility": 177285781022.46347,
+        "lvr_sigma": 177285781022.46347
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-15",
+      "cow_settlement": {
+        "volume_eur": 537887.6965599896,
+        "fees_eur": 0,
+        "trades": 1069,
+        "intraday_volatility": 167640657766.00696,
+        "lvr_sigma": 167640657766.00696
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-16",
+      "cow_settlement": {
+        "volume_eur": 660249.8536002566,
+        "fees_eur": 0,
+        "trades": 1327,
+        "intraday_volatility": 140579250451.63403,
+        "lvr_sigma": 140579250451.63403
+      },
+      "curve": {
+        "volume_eur": 155719.61529341622,
+        "fees_eur": 62.287846117366485,
+        "trades": 10,
+        "intraday_volatility": 0.0012741117663161749,
+        "lvr_sigma": 0.0012741117663161749
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-17",
+      "cow_settlement": {
+        "volume_eur": 456989.90467523376,
+        "fees_eur": 0,
+        "trades": 836,
+        "intraday_volatility": 47883206569108.03,
+        "lvr_sigma": 47883206569108.03
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-18",
+      "cow_settlement": {
+        "volume_eur": 84087.01092912622,
+        "fees_eur": 0,
+        "trades": 825,
+        "intraday_volatility": 133922972283.78777,
+        "lvr_sigma": 133922972283.78777
+      },
+      "curve": {
+        "volume_eur": 81080.07482896176,
+        "fees_eur": 32.4320299315847,
+        "trades": 10,
+        "intraday_volatility": 0.001791159473177547,
+        "lvr_sigma": 0.001791159473177547
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-19",
+      "cow_settlement": {
+        "volume_eur": 146462.40991271718,
+        "fees_eur": 0,
+        "trades": 936,
+        "intraday_volatility": 125945889023.63673,
+        "lvr_sigma": 125945889023.63673
+      },
+      "curve": {
+        "volume_eur": 16328.34365283525,
+        "fees_eur": 6.5313374611340995,
+        "trades": 4,
+        "intraday_volatility": 0.0015632290930036852,
+        "lvr_sigma": 0.0015632290930036852
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-20",
+      "cow_settlement": {
+        "volume_eur": 109146.96355407622,
+        "fees_eur": 0,
+        "trades": 1072,
+        "intraday_volatility": 216670370828.62662,
+        "lvr_sigma": 216670370828.62662
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-21",
+      "cow_settlement": {
+        "volume_eur": 128063.61992145903,
+        "fees_eur": 0,
+        "trades": 1026,
+        "intraday_volatility": 122352259107.73434,
+        "lvr_sigma": 122352259107.73434
+      },
+      "curve": {
+        "volume_eur": 11717.547794337845,
+        "fees_eur": 4.6870191177351375,
+        "trades": 2,
+        "intraday_volatility": 0.001783937044427586,
+        "lvr_sigma": 0.001783937044427586
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-22",
+      "cow_settlement": {
+        "volume_eur": 316341.1050596346,
+        "fees_eur": 0,
+        "trades": 1060,
+        "intraday_volatility": 127256326480.25504,
+        "lvr_sigma": 127256326480.25504
+      },
+      "curve": {
+        "volume_eur": 1,
+        "fees_eur": 0.0004,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-23",
+      "cow_settlement": {
+        "volume_eur": 140546.7908283475,
+        "fees_eur": 0,
+        "trades": 1052,
+        "intraday_volatility": 117236004654.57452,
+        "lvr_sigma": 117236004654.57452
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-24",
+      "cow_settlement": {
+        "volume_eur": 76846.27725697384,
+        "fees_eur": 0,
+        "trades": 795,
+        "intraday_volatility": 120479685322.26929,
+        "lvr_sigma": 120479685322.26929
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-25",
+      "cow_settlement": {
+        "volume_eur": 50949.34116451057,
+        "fees_eur": 0,
+        "trades": 860,
+        "intraday_volatility": 100544627582.8662,
+        "lvr_sigma": 100544627582.8662
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-26",
+      "cow_settlement": {
+        "volume_eur": 258261.81564043887,
+        "fees_eur": 0,
+        "trades": 958,
+        "intraday_volatility": 163577334217.94998,
+        "lvr_sigma": 163577334217.94998
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-27",
+      "cow_settlement": {
+        "volume_eur": 77158.55967393234,
+        "fees_eur": 0,
+        "trades": 754,
+        "intraday_volatility": 144851771217.24762,
+        "lvr_sigma": 144851771217.24762
+      },
+      "curve": {
+        "volume_eur": 9.558335291034817,
+        "fees_eur": 0.003823334116413927,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-28",
+      "cow_settlement": {
+        "volume_eur": 384055.1151651582,
+        "fees_eur": 0,
+        "trades": 975,
+        "intraday_volatility": 94945516559.47884,
+        "lvr_sigma": 94945516559.47884
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-29",
+      "cow_settlement": {
+        "volume_eur": 186083.88803720838,
+        "fees_eur": 0,
+        "trades": 925,
+        "intraday_volatility": 31134031465431.746,
+        "lvr_sigma": 31134031465431.746
+      },
+      "curve": {
+        "volume_eur": 3.481218085746708,
+        "fees_eur": 0.0013924872342986833,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-30",
+      "cow_settlement": {
+        "volume_eur": 121529.08408978714,
+        "fees_eur": 0,
+        "trades": 993,
+        "intraday_volatility": 97608472175.90298,
+        "lvr_sigma": 97608472175.90298
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-10-31",
+      "cow_settlement": {
+        "volume_eur": 134882.69846314003,
+        "fees_eur": 0,
+        "trades": 895,
+        "intraday_volatility": 32042466092015.027,
+        "lvr_sigma": 32042466092015.027
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-01",
+      "cow_settlement": {
+        "volume_eur": 137451.71977093065,
+        "fees_eur": 0,
+        "trades": 924,
+        "intraday_volatility": 111936358093.06935,
+        "lvr_sigma": 111936358093.06935
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-02",
+      "cow_settlement": {
+        "volume_eur": 167869.59373569457,
+        "fees_eur": 0,
+        "trades": 786,
+        "intraday_volatility": 85990687994.51321,
+        "lvr_sigma": 85990687994.51321
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-03",
+      "cow_settlement": {
+        "volume_eur": 146859.48659776445,
+        "fees_eur": 0,
+        "trades": 848,
+        "intraday_volatility": 92710139383.541,
+        "lvr_sigma": 92710139383.541
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-04",
+      "cow_settlement": {
+        "volume_eur": 129516.48943986834,
+        "fees_eur": 0,
+        "trades": 897,
+        "intraday_volatility": 144826459003.54172,
+        "lvr_sigma": 144826459003.54172
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-05",
+      "cow_settlement": {
+        "volume_eur": 306237.24965817085,
+        "fees_eur": 0,
+        "trades": 1042,
+        "intraday_volatility": 65435658119.34874,
+        "lvr_sigma": 65435658119.34874
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-06",
+      "cow_settlement": {
+        "volume_eur": 152502.51996172417,
+        "fees_eur": 0,
+        "trades": 1013,
+        "intraday_volatility": 29695750691016.082,
+        "lvr_sigma": 29695750691016.082
+      },
+      "curve": {
+        "volume_eur": 130000,
+        "fees_eur": 52,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-07",
+      "cow_settlement": {
+        "volume_eur": 123228.61047457319,
+        "fees_eur": 0,
+        "trades": 855,
+        "intraday_volatility": 109843931206.14209,
+        "lvr_sigma": 109843931206.14209
+      },
+      "curve": {
+        "volume_eur": 16978.601350609646,
+        "fees_eur": 6.791440540243858,
+        "trades": 3,
+        "intraday_volatility": 0.0005188473450645771,
+        "lvr_sigma": 0.0005188473450645771
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-08",
+      "cow_settlement": {
+        "volume_eur": 358229.457106609,
+        "fees_eur": 0,
+        "trades": 1026,
+        "intraday_volatility": 169769058854.44354,
+        "lvr_sigma": 169769058854.44354
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-09",
+      "cow_settlement": {
+        "volume_eur": 151196.37606183393,
+        "fees_eur": 0,
+        "trades": 959,
+        "intraday_volatility": 217862837994.17337,
+        "lvr_sigma": 217862837994.17337
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-10",
+      "cow_settlement": {
+        "volume_eur": 103990.42983229383,
+        "fees_eur": 0,
+        "trades": 951,
+        "intraday_volatility": 29235077431853.01,
+        "lvr_sigma": 29235077431853.01
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-11",
+      "cow_settlement": {
+        "volume_eur": 163601.97691548074,
+        "fees_eur": 0,
+        "trades": 992,
+        "intraday_volatility": 112988779961.00401,
+        "lvr_sigma": 112988779961.00401
+      },
+      "curve": {
+        "volume_eur": 6257.476751114529,
+        "fees_eur": 2.5029907004458116,
+        "trades": 2,
+        "intraday_volatility": 0.000013411998305568051,
+        "lvr_sigma": 0.000013411998305568051
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-12",
+      "cow_settlement": {
+        "volume_eur": 134072.04578140684,
+        "fees_eur": 0,
+        "trades": 1093,
+        "intraday_volatility": 118255409584.0117,
+        "lvr_sigma": 118255409584.0117
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-13",
+      "cow_settlement": {
+        "volume_eur": 155996.2071148157,
+        "fees_eur": 0,
+        "trades": 903,
+        "intraday_volatility": 138784010506.56964,
+        "lvr_sigma": 138784010506.56964
+      },
+      "curve": {
+        "volume_eur": 168.07722051907345,
+        "fees_eur": 0.06723088820762939,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-14",
+      "cow_settlement": {
+        "volume_eur": 132691.29974395438,
+        "fees_eur": 0,
+        "trades": 954,
+        "intraday_volatility": 114049459184.83832,
+        "lvr_sigma": 114049459184.83832
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-15",
+      "cow_settlement": {
+        "volume_eur": 62054.32252585382,
+        "fees_eur": 0,
+        "trades": 799,
+        "intraday_volatility": 123511993216.86919,
+        "lvr_sigma": 123511993216.86919
+      },
+      "curve": {
+        "volume_eur": 1349.7116751983403,
+        "fees_eur": 0.539884670079336,
+        "trades": 3,
+        "intraday_volatility": 0.0006579921670966933,
+        "lvr_sigma": 0.0006579921670966933
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-16",
+      "cow_settlement": {
+        "volume_eur": 115775.26429920082,
+        "fees_eur": 0,
+        "trades": 900,
+        "intraday_volatility": 136061068831.48763,
+        "lvr_sigma": 136061068831.48763
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-17",
+      "cow_settlement": {
+        "volume_eur": 81516.62350232324,
+        "fees_eur": 0,
+        "trades": 832,
+        "intraday_volatility": 129745627230.40016,
+        "lvr_sigma": 129745627230.40016
+      },
+      "curve": {
+        "volume_eur": 32814.53739853632,
+        "fees_eur": 13.125814959414527,
+        "trades": 3,
+        "intraday_volatility": 0.0007227750953029242,
+        "lvr_sigma": 0.0007227750953029242
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-18",
+      "cow_settlement": {
+        "volume_eur": 152800.3422185811,
+        "fees_eur": 0,
+        "trades": 988,
+        "intraday_volatility": 26517253589460.68,
+        "lvr_sigma": 26517253589460.68
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-19",
+      "cow_settlement": {
+        "volume_eur": 76049.5021130531,
+        "fees_eur": 0,
+        "trades": 1137,
+        "intraday_volatility": 126057446480.6371,
+        "lvr_sigma": 126057446480.6371
+      },
+      "curve": {
+        "volume_eur": 857.7037410408781,
+        "fees_eur": 0.3430814964163513,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-20",
+      "cow_settlement": {
+        "volume_eur": 134185.4101623211,
+        "fees_eur": 0,
+        "trades": 886,
+        "intraday_volatility": 99388799255.56166,
+        "lvr_sigma": 99388799255.56166
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-21",
+      "cow_settlement": {
+        "volume_eur": 351857.65302963107,
+        "fees_eur": 0,
+        "trades": 880,
+        "intraday_volatility": 137366335250.77748,
+        "lvr_sigma": 137366335250.77748
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-22",
+      "cow_settlement": {
+        "volume_eur": 85540.62157096143,
+        "fees_eur": 0,
+        "trades": 746,
+        "intraday_volatility": 29311276133505.945,
+        "lvr_sigma": 29311276133505.945
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-23",
+      "cow_settlement": {
+        "volume_eur": 65662.46300966409,
+        "fees_eur": 0,
+        "trades": 756,
+        "intraday_volatility": 136388465559.86124,
+        "lvr_sigma": 136388465559.86124
+      },
+      "curve": {
+        "volume_eur": 4306.969673927856,
+        "fees_eur": 1.7227878695711425,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-24",
+      "cow_settlement": {
+        "volume_eur": 347732.4559553547,
+        "fees_eur": 0,
+        "trades": 911,
+        "intraday_volatility": 161827200706.0103,
+        "lvr_sigma": 161827200706.0103
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-25",
+      "cow_settlement": {
+        "volume_eur": 481460.8941030797,
+        "fees_eur": 0,
+        "trades": 935,
+        "intraday_volatility": 155071858556.09625,
+        "lvr_sigma": 155071858556.09625
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-26",
+      "cow_settlement": {
+        "volume_eur": 331344.71204129327,
+        "fees_eur": 0,
+        "trades": 938,
+        "intraday_volatility": 112297073497.07114,
+        "lvr_sigma": 112297073497.07114
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-27",
+      "cow_settlement": {
+        "volume_eur": 321313.0857142105,
+        "fees_eur": 0,
+        "trades": 796,
+        "intraday_volatility": 121878403974.67151,
+        "lvr_sigma": 121878403974.67151
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-28",
+      "cow_settlement": {
+        "volume_eur": 297153.80802363367,
+        "fees_eur": 0,
+        "trades": 845,
+        "intraday_volatility": 160426569607.233,
+        "lvr_sigma": 160426569607.233
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-29",
+      "cow_settlement": {
+        "volume_eur": 197689.71456575478,
+        "fees_eur": 0,
+        "trades": 894,
+        "intraday_volatility": 237755828139.47913,
+        "lvr_sigma": 237755828139.47913
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-11-30",
+      "cow_settlement": {
+        "volume_eur": 74200.48321343106,
+        "fees_eur": 0,
+        "trades": 912,
+        "intraday_volatility": 155475008574.50476,
+        "lvr_sigma": 155475008574.50476
+      },
+      "curve": {
+        "volume_eur": 55022.679843437334,
+        "fees_eur": 22.009071937374934,
+        "trades": 4,
+        "intraday_volatility": 0.001096518528233871,
+        "lvr_sigma": 0.001096518528233871
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-01",
+      "cow_settlement": {
+        "volume_eur": 119284.98155701526,
+        "fees_eur": 0,
+        "trades": 928,
+        "intraday_volatility": 122037909697.2208,
+        "lvr_sigma": 122037909697.2208
+      },
+      "curve": {
+        "volume_eur": 66.019123809173,
+        "fees_eur": 0.0264076495236692,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-02",
+      "cow_settlement": {
+        "volume_eur": 110667.04513397622,
+        "fees_eur": 0,
+        "trades": 1062,
+        "intraday_volatility": 133146529469.26265,
+        "lvr_sigma": 133146529469.26265
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-03",
+      "cow_settlement": {
+        "volume_eur": 77940.33181018957,
+        "fees_eur": 0,
+        "trades": 918,
+        "intraday_volatility": 97819320807.7358,
+        "lvr_sigma": 97819320807.7358
+      },
+      "curve": {
+        "volume_eur": 140000,
+        "fees_eur": 56,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-04",
+      "cow_settlement": {
+        "volume_eur": 134439.19551502846,
+        "fees_eur": 0,
+        "trades": 664,
+        "intraday_volatility": 152054227271.9074,
+        "lvr_sigma": 152054227271.9074
+      },
+      "curve": {
+        "volume_eur": 7012.669063142745,
+        "fees_eur": 2.805067625257098,
+        "trades": 3,
+        "intraday_volatility": 0.000014192441944289457,
+        "lvr_sigma": 0.000014192441944289457
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-05",
+      "cow_settlement": {
+        "volume_eur": 107393.00085247232,
+        "fees_eur": 0,
+        "trades": 705,
+        "intraday_volatility": 170597958556.89096,
+        "lvr_sigma": 170597958556.89096
+      },
+      "curve": {
+        "volume_eur": 25798.741863148483,
+        "fees_eur": 10.319496745259395,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-06",
+      "cow_settlement": {
+        "volume_eur": 104336.97640985847,
+        "fees_eur": 0,
+        "trades": 693,
+        "intraday_volatility": 102552559292.94933,
+        "lvr_sigma": 102552559292.94933
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-07",
+      "cow_settlement": {
+        "volume_eur": 114614.7449807106,
+        "fees_eur": 0,
+        "trades": 760,
+        "intraday_volatility": 144655028439.54282,
+        "lvr_sigma": 144655028439.54282
+      },
+      "curve": {
+        "volume_eur": 20036.377540717607,
+        "fees_eur": 8.014551016287044,
+        "trades": 5,
+        "intraday_volatility": 0.000408710329239183,
+        "lvr_sigma": 0.000408710329239183
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-08",
+      "cow_settlement": {
+        "volume_eur": 215106.63504677854,
+        "fees_eur": 0,
+        "trades": 866,
+        "intraday_volatility": 26831706678347.26,
+        "lvr_sigma": 26831706678347.26
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-09",
+      "cow_settlement": {
+        "volume_eur": 209909.2891490311,
+        "fees_eur": 0,
+        "trades": 893,
+        "intraday_volatility": 80878616453.6428,
+        "lvr_sigma": 80878616453.6428
+      },
+      "curve": {
+        "volume_eur": 1498.8576402740214,
+        "fees_eur": 0.5995430561096086,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-10",
+      "cow_settlement": {
+        "volume_eur": 47643.4966429161,
+        "fees_eur": 0,
+        "trades": 867,
+        "intraday_volatility": 82049670638.37437,
+        "lvr_sigma": 82049670638.37437
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-11",
+      "cow_settlement": {
+        "volume_eur": 119832.84681285427,
+        "fees_eur": 0,
+        "trades": 793,
+        "intraday_volatility": 100270635515.11308,
+        "lvr_sigma": 100270635515.11308
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-12",
+      "cow_settlement": {
+        "volume_eur": 214366.06621633578,
+        "fees_eur": 0,
+        "trades": 709,
+        "intraday_volatility": 175572498678.77542,
+        "lvr_sigma": 175572498678.77542
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-13",
+      "cow_settlement": {
+        "volume_eur": 94971.88396792709,
+        "fees_eur": 0,
+        "trades": 741,
+        "intraday_volatility": 132091197793.5971,
+        "lvr_sigma": 132091197793.5971
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-14",
+      "cow_settlement": {
+        "volume_eur": 35852.16989051281,
+        "fees_eur": 0,
+        "trades": 725,
+        "intraday_volatility": 146788510442.0149,
+        "lvr_sigma": 146788510442.0149
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-15",
+      "cow_settlement": {
+        "volume_eur": 253206.7803767139,
+        "fees_eur": 0,
+        "trades": 1052,
+        "intraday_volatility": 82595990824.04929,
+        "lvr_sigma": 82595990824.04929
+      },
+      "curve": {
+        "volume_eur": 128132.1957536069,
+        "fees_eur": 51.252878301442756,
+        "trades": 5,
+        "intraday_volatility": 0.0003098459864459014,
+        "lvr_sigma": 0.0003098459864459014
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-16",
+      "cow_settlement": {
+        "volume_eur": 251083.99555760896,
+        "fees_eur": 0,
+        "trades": 1160,
+        "intraday_volatility": 126847385825.27463,
+        "lvr_sigma": 126847385825.27463
+      },
+      "curve": {
+        "volume_eur": 8962.581704126604,
+        "fees_eur": 3.5850326816506417,
+        "trades": 2,
+        "intraday_volatility": 0.0000170343428709252,
+        "lvr_sigma": 0.0000170343428709252
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-17",
+      "cow_settlement": {
+        "volume_eur": 223228.31387469414,
+        "fees_eur": 0,
+        "trades": 1040,
+        "intraday_volatility": 78833064138.17737,
+        "lvr_sigma": 78833064138.17737
+      },
+      "curve": {
+        "volume_eur": 1000.2272064962177,
+        "fees_eur": 0.40009088259848713,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-18",
+      "cow_settlement": {
+        "volume_eur": 183623.23696925928,
+        "fees_eur": 0,
+        "trades": 988,
+        "intraday_volatility": 138669371189.4929,
+        "lvr_sigma": 138669371189.4929
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-19",
+      "cow_settlement": {
+        "volume_eur": 334221.98795799766,
+        "fees_eur": 0,
+        "trades": 910,
+        "intraday_volatility": 165391114684.59424,
+        "lvr_sigma": 165391114684.59424
+      },
+      "curve": {
+        "volume_eur": 4006.6388498898723,
+        "fees_eur": 1.6026555399559492,
+        "trades": 2,
+        "intraday_volatility": 0.000007640307584322326,
+        "lvr_sigma": 0.000007640307584322326
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-20",
+      "cow_settlement": {
+        "volume_eur": 173386.80982400174,
+        "fees_eur": 0,
+        "trades": 926,
+        "intraday_volatility": 228904696868.59842,
+        "lvr_sigma": 228904696868.59842
+      },
+      "curve": {
+        "volume_eur": 37582.50369259674,
+        "fees_eur": 15.033001477038702,
+        "trades": 9,
+        "intraday_volatility": 0.00007923402508404923,
+        "lvr_sigma": 0.00007923402508404923
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-21",
+      "cow_settlement": {
+        "volume_eur": 306994.18748578033,
+        "fees_eur": 0,
+        "trades": 889,
+        "intraday_volatility": 126130710383.5864,
+        "lvr_sigma": 126130710383.5864
+      },
+      "curve": {
+        "volume_eur": 24284.737073496548,
+        "fees_eur": 9.713894829398619,
+        "trades": 6,
+        "intraday_volatility": 0.00005198696368123603,
+        "lvr_sigma": 0.00005198696368123603
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-22",
+      "cow_settlement": {
+        "volume_eur": 123147.92475461515,
+        "fees_eur": 0,
+        "trades": 993,
+        "intraday_volatility": 93066046484.7083,
+        "lvr_sigma": 93066046484.7083
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-23",
+      "cow_settlement": {
+        "volume_eur": 116930.4616415791,
+        "fees_eur": 0,
+        "trades": 1036,
+        "intraday_volatility": 130823947572.4054,
+        "lvr_sigma": 130823947572.4054
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-24",
+      "cow_settlement": {
+        "volume_eur": 50622.58819900632,
+        "fees_eur": 0,
+        "trades": 815,
+        "intraday_volatility": 128606442475.6202,
+        "lvr_sigma": 128606442475.6202
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-25",
+      "cow_settlement": {
+        "volume_eur": 258580.14329382667,
+        "fees_eur": 0,
+        "trades": 681,
+        "intraday_volatility": 120649286726.71109,
+        "lvr_sigma": 120649286726.71109
+      },
+      "curve": {
+        "volume_eur": 851.8059365209649,
+        "fees_eur": 0.340722374608386,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-26",
+      "cow_settlement": {
+        "volume_eur": 102105.56171013348,
+        "fees_eur": 0,
+        "trades": 605,
+        "intraday_volatility": 30117408375953.824,
+        "lvr_sigma": 30117408375953.824
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "cow_settlement": {
+        "volume_eur": 54339.179962309616,
+        "fees_eur": 0,
+        "trades": 585,
+        "intraday_volatility": 124896994447.45062,
+        "lvr_sigma": 124896994447.45062
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-28",
+      "cow_settlement": {
+        "volume_eur": 39252.31399917778,
+        "fees_eur": 0,
+        "trades": 399,
+        "intraday_volatility": 94303901814.98462,
+        "lvr_sigma": 94303901814.98462
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-29",
+      "cow_settlement": {
+        "volume_eur": 46231.65792950741,
+        "fees_eur": 0,
+        "trades": 659,
+        "intraday_volatility": 130440744700.78467,
+        "lvr_sigma": 130440744700.78467
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-30",
+      "cow_settlement": {
+        "volume_eur": 114592.35015441563,
+        "fees_eur": 0,
+        "trades": 655,
+        "intraday_volatility": 93132957882.09108,
+        "lvr_sigma": 93132957882.09108
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "cow_settlement": {
+        "volume_eur": 33490.65106583946,
+        "fees_eur": 0,
+        "trades": 661,
+        "intraday_volatility": 150592040563.22662,
+        "lvr_sigma": 150592040563.22662
+      },
+      "curve": {
+        "volume_eur": 113112.22662509333,
+        "fees_eur": 45.244890650037334,
+        "trades": 5,
+        "intraday_volatility": 0.0004131011099292743,
+        "lvr_sigma": 0.0004131011099292743
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-01",
+      "cow_settlement": {
+        "volume_eur": 132429.48395647286,
+        "fees_eur": 0,
+        "trades": 825,
+        "intraday_volatility": 140799871236.9346,
+        "lvr_sigma": 140799871236.9346
+      },
+      "curve": {
+        "volume_eur": 27412.69178804053,
+        "fees_eur": 10.965076715216213,
+        "trades": 2,
+        "intraday_volatility": 0.001059784144088749,
+        "lvr_sigma": 0.001059784144088749
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-02",
+      "cow_settlement": {
+        "volume_eur": 107603.59766151756,
+        "fees_eur": 0,
+        "trades": 1039,
+        "intraday_volatility": 311041116421.42615,
+        "lvr_sigma": 311041116421.42615
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-03",
+      "cow_settlement": {
+        "volume_eur": 106408.80754038252,
+        "fees_eur": 0,
+        "trades": 830,
+        "intraday_volatility": 116863841724.80075,
+        "lvr_sigma": 116863841724.80075
+      },
+      "curve": {
+        "volume_eur": 56.64014947967314,
+        "fees_eur": 0.022656059791869257,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-04",
+      "cow_settlement": {
+        "volume_eur": 48097.6198996938,
+        "fees_eur": 0,
+        "trades": 509,
+        "intraday_volatility": 165046318491.34,
+        "lvr_sigma": 165046318491.34
+      },
+      "curve": {
+        "volume_eur": 849.632317921393,
+        "fees_eur": 0.3398529271685572,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-05",
+      "cow_settlement": {
+        "volume_eur": 96706.06585690551,
+        "fees_eur": 0,
+        "trades": 820,
+        "intraday_volatility": 140577688021.96408,
+        "lvr_sigma": 140577688021.96408
+      },
+      "curve": {
+        "volume_eur": 17689.394190317398,
+        "fees_eur": 7.075757676126958,
+        "trades": 3,
+        "intraday_volatility": 0.00004934907841816956,
+        "lvr_sigma": 0.00004934907841816956
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-06",
+      "cow_settlement": {
+        "volume_eur": 56155.84901087547,
+        "fees_eur": 0,
+        "trades": 773,
+        "intraday_volatility": 27154320245847.77,
+        "lvr_sigma": 27154320245847.77
+      },
+      "curve": {
+        "volume_eur": 1000,
+        "fees_eur": 0.4,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-07",
+      "cow_settlement": {
+        "volume_eur": 66375.00481520861,
+        "fees_eur": 0,
+        "trades": 707,
+        "intraday_volatility": 50819799503367.11,
+        "lvr_sigma": 50819799503367.11
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-08",
+      "cow_settlement": {
+        "volume_eur": 128240.47581197182,
+        "fees_eur": 0,
+        "trades": 750,
+        "intraday_volatility": 41045088836357.81,
+        "lvr_sigma": 41045088836357.81
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-09",
+      "cow_settlement": {
+        "volume_eur": 136937.1796727204,
+        "fees_eur": 0,
+        "trades": 813,
+        "intraday_volatility": 261352210032.29782,
+        "lvr_sigma": 261352210032.29782
+      },
+      "curve": {
+        "volume_eur": 15502.304638968046,
+        "fees_eur": 6.200921855587218,
+        "trades": 4,
+        "intraday_volatility": 0.00004713418798110785,
+        "lvr_sigma": 0.00004713418798110785
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-10",
+      "cow_settlement": {
+        "volume_eur": 101181.42615644578,
+        "fees_eur": 0,
+        "trades": 739,
+        "intraday_volatility": 163136621834.23196,
+        "lvr_sigma": 163136621834.23196
+      },
+      "curve": {
+        "volume_eur": 608.2698390869648,
+        "fees_eur": 0.24330793563478592,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-11",
+      "cow_settlement": {
+        "volume_eur": 233961.2186538739,
+        "fees_eur": 0,
+        "trades": 1046,
+        "intraday_volatility": 123870825568.10228,
+        "lvr_sigma": 123870825568.10228
+      },
+      "curve": {
+        "volume_eur": 546.0144418113082,
+        "fees_eur": 0.21840577672452327,
+        "trades": 4,
+        "intraday_volatility": 0.000771574389757877,
+        "lvr_sigma": 0.000771574389757877
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-12",
+      "cow_settlement": {
+        "volume_eur": 161882.41661061716,
+        "fees_eur": 0,
+        "trades": 1039,
+        "intraday_volatility": 91700209463.03714,
+        "lvr_sigma": 91700209463.03714
+      },
+      "curve": {
+        "volume_eur": 901.2492153539181,
+        "fees_eur": 0.36049968614156724,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-13",
+      "cow_settlement": {
+        "volume_eur": 139528.6660386599,
+        "fees_eur": 0,
+        "trades": 1042,
+        "intraday_volatility": 24018682923094.85,
+        "lvr_sigma": 24018682923094.85
+      },
+      "curve": {
+        "volume_eur": 500,
+        "fees_eur": 0.2,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-14",
+      "cow_settlement": {
+        "volume_eur": 98485.63436893141,
+        "fees_eur": 0,
+        "trades": 734,
+        "intraday_volatility": 125011767920.49518,
+        "lvr_sigma": 125011767920.49518
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-15",
+      "cow_settlement": {
+        "volume_eur": 198591.56373179925,
+        "fees_eur": 0,
+        "trades": 665,
+        "intraday_volatility": 149676211281.98242,
+        "lvr_sigma": 149676211281.98242
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-16",
+      "cow_settlement": {
+        "volume_eur": 297218.99435995216,
+        "fees_eur": 0,
+        "trades": 775,
+        "intraday_volatility": 58097114583762.07,
+        "lvr_sigma": 58097114583762.07
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-17",
+      "cow_settlement": {
+        "volume_eur": 156201.04834855432,
+        "fees_eur": 0,
+        "trades": 783,
+        "intraday_volatility": 121396090868.28838,
+        "lvr_sigma": 121396090868.28838
+      },
+      "curve": {
+        "volume_eur": 2385.399654875937,
+        "fees_eur": 0.9541598619503748,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-18",
+      "cow_settlement": {
+        "volume_eur": 265821.23115387635,
+        "fees_eur": 0,
+        "trades": 1096,
+        "intraday_volatility": 101043875100.70494,
+        "lvr_sigma": 101043875100.70494
+      },
+      "curve": {
+        "volume_eur": 40170.59525548485,
+        "fees_eur": 16.06823810219394,
+        "trades": 3,
+        "intraday_volatility": 0.0005615415963595136,
+        "lvr_sigma": 0.0005615415963595136
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-19",
+      "cow_settlement": {
+        "volume_eur": 193106.46472714527,
+        "fees_eur": 0,
+        "trades": 1182,
+        "intraday_volatility": 108238123165.64305,
+        "lvr_sigma": 108238123165.64305
+      },
+      "curve": {
+        "volume_eur": 27536.726804990583,
+        "fees_eur": 11.014690721996233,
+        "trades": 6,
+        "intraday_volatility": 0.0004430939358835569,
+        "lvr_sigma": 0.0004430939358835569
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-20",
+      "cow_settlement": {
+        "volume_eur": 704259.8059561304,
+        "fees_eur": 0,
+        "trades": 1016,
+        "intraday_volatility": 90520822728.846,
+        "lvr_sigma": 90520822728.846
+      },
+      "curve": {
+        "volume_eur": 4164.020959955315,
+        "fees_eur": 1.6656083839821263,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-21",
+      "cow_settlement": {
+        "volume_eur": 238665.5938107555,
+        "fees_eur": 0,
+        "trades": 975,
+        "intraday_volatility": 25505233834358.926,
+        "lvr_sigma": 25505233834358.926
+      },
+      "curve": {
+        "volume_eur": 750,
+        "fees_eur": 0.3,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-22",
+      "cow_settlement": {
+        "volume_eur": 344774.27842887293,
+        "fees_eur": 0,
+        "trades": 1170,
+        "intraday_volatility": 107713043671.08719,
+        "lvr_sigma": 107713043671.08719
+      },
+      "curve": {
+        "volume_eur": 24399.14449739198,
+        "fees_eur": 9.759657798956791,
+        "trades": 3,
+        "intraday_volatility": 0.00071210541599028,
+        "lvr_sigma": 0.00071210541599028
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-23",
+      "cow_settlement": {
+        "volume_eur": 295754.52857946546,
+        "fees_eur": 0,
+        "trades": 1325,
+        "intraday_volatility": 80782635456.68935,
+        "lvr_sigma": 80782635456.68935
+      },
+      "curve": {
+        "volume_eur": 1382.2171403033713,
+        "fees_eur": 0.5528868561213485,
+        "trades": 2,
+        "intraday_volatility": 0.0005984393599222648,
+        "lvr_sigma": 0.0005984393599222648
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-24",
+      "cow_settlement": {
+        "volume_eur": 395825.09016021737,
+        "fees_eur": 0,
+        "trades": 1144,
+        "intraday_volatility": 115222498058.1571,
+        "lvr_sigma": 115222498058.1571
+      },
+      "curve": {
+        "volume_eur": 662.5940077098091,
+        "fees_eur": 0.26503760308392366,
+        "trades": 5,
+        "intraday_volatility": 0.0004811072965743142,
+        "lvr_sigma": 0.0004811072965743142
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-25",
+      "cow_settlement": {
+        "volume_eur": 168519.1396903677,
+        "fees_eur": 0,
+        "trades": 1103,
+        "intraday_volatility": 98265937568.69292,
+        "lvr_sigma": 98265937568.69292
+      },
+      "curve": {
+        "volume_eur": 1478.7957963687672,
+        "fees_eur": 0.5915183185475069,
+        "trades": 2,
+        "intraday_volatility": 0.0000030810249093682356,
+        "lvr_sigma": 0.0000030810249093682356
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-26",
+      "cow_settlement": {
+        "volume_eur": 119509.66299640462,
+        "fees_eur": 0,
+        "trades": 1084,
+        "intraday_volatility": 22776951552037.156,
+        "lvr_sigma": 22776951552037.156
+      },
+      "curve": {
+        "volume_eur": 237.46258304239018,
+        "fees_eur": 0.09498503321695607,
+        "trades": 2,
+        "intraday_volatility": 0.0006182070883651858,
+        "lvr_sigma": 0.0006182070883651858
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-27",
+      "cow_settlement": {
+        "volume_eur": 155593.84823320076,
+        "fees_eur": 0,
+        "trades": 903,
+        "intraday_volatility": 111184273651.99107,
+        "lvr_sigma": 111184273651.99107
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-28",
+      "cow_settlement": {
+        "volume_eur": 254182.53919660224,
+        "fees_eur": 0,
+        "trades": 1266,
+        "intraday_volatility": 104846984847.37973,
+        "lvr_sigma": 104846984847.37973
+      },
+      "curve": {
+        "volume_eur": 71.84412995657637,
+        "fees_eur": 0.02873765198263055,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-29",
+      "cow_settlement": {
+        "volume_eur": 341373.1810778666,
+        "fees_eur": 0,
+        "trades": 1135,
+        "intraday_volatility": 131782241762.23541,
+        "lvr_sigma": 131782241762.23541
+      },
+      "curve": {
+        "volume_eur": 52797.20585746605,
+        "fees_eur": 21.11888234298642,
+        "trades": 4,
+        "intraday_volatility": 0.0002882893897682904,
+        "lvr_sigma": 0.0002882893897682904
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-30",
+      "cow_settlement": {
+        "volume_eur": 172729.54639849815,
+        "fees_eur": 0,
+        "trades": 1070,
+        "intraday_volatility": 115821939404.78247,
+        "lvr_sigma": 115821939404.78247
+      },
+      "curve": {
+        "volume_eur": 33.139995401684416,
+        "fees_eur": 0.013255998160673767,
+        "trades": 2,
+        "intraday_volatility": 0.00023730199940652508,
+        "lvr_sigma": 0.00023730199940652508
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-01-31",
+      "cow_settlement": {
+        "volume_eur": 161800.59505844227,
+        "fees_eur": 0,
+        "trades": 1353,
+        "intraday_volatility": 341151539563.86273,
+        "lvr_sigma": 341151539563.86273
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-01",
+      "cow_settlement": {
+        "volume_eur": 224348.56624923908,
+        "fees_eur": 0,
+        "trades": 1471,
+        "intraday_volatility": 332459436874.34076,
+        "lvr_sigma": 332459436874.34076
+      },
+      "curve": {
+        "volume_eur": 245.21016495367712,
+        "fees_eur": 0.09808406598147086,
+        "trades": 3,
+        "intraday_volatility": 0.00022343073896666948,
+        "lvr_sigma": 0.00022343073896666948
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-02",
+      "cow_settlement": {
+        "volume_eur": 208800.9498438964,
+        "fees_eur": 0,
+        "trades": 1436,
+        "intraday_volatility": 338870571991.57434,
+        "lvr_sigma": 338870571991.57434
+      },
+      "curve": {
+        "volume_eur": 241.42231339321285,
+        "fees_eur": 0.09656892535728515,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-03",
+      "cow_settlement": {
+        "volume_eur": 156004.75376041836,
+        "fees_eur": 0,
+        "trades": 1316,
+        "intraday_volatility": 342388680764.6196,
+        "lvr_sigma": 342388680764.6196
+      },
+      "curve": {
+        "volume_eur": 1898.1597676625352,
+        "fees_eur": 0.7592639070650142,
+        "trades": 4,
+        "intraday_volatility": 0.0000026732826292927404,
+        "lvr_sigma": 0.0000026732826292927404
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-04",
+      "cow_settlement": {
+        "volume_eur": 288057.01508112025,
+        "fees_eur": 0,
+        "trades": 752,
+        "intraday_volatility": 256590581384.19757,
+        "lvr_sigma": 256590581384.19757
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-05",
+      "cow_settlement": {
+        "volume_eur": 161695.23029131736,
+        "fees_eur": 0,
+        "trades": 748,
+        "intraday_volatility": 145845125086.50333,
+        "lvr_sigma": 145845125086.50333
+      },
+      "curve": {
+        "volume_eur": 8447.99456369619,
+        "fees_eur": 3.379197825478476,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-06",
+      "cow_settlement": {
+        "volume_eur": 141309.7902131985,
+        "fees_eur": 0,
+        "trades": 840,
+        "intraday_volatility": 293085652126.325,
+        "lvr_sigma": 293085652126.325
+      },
+      "curve": {
+        "volume_eur": 0.6836921727655123,
+        "fees_eur": 0.00027347686910620495,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-07",
+      "cow_settlement": {
+        "volume_eur": 209671.2212367714,
+        "fees_eur": 0,
+        "trades": 831,
+        "intraday_volatility": 123375304704.50856,
+        "lvr_sigma": 123375304704.50856
+      },
+      "curve": {
+        "volume_eur": 3613.351116270055,
+        "fees_eur": 1.4453404465080222,
+        "trades": 2,
+        "intraday_volatility": 0.00000670764365345855,
+        "lvr_sigma": 0.00000670764365345855
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-08",
+      "cow_settlement": {
+        "volume_eur": 92807.32866838384,
+        "fees_eur": 0,
+        "trades": 853,
+        "intraday_volatility": 20361793935811.67,
+        "lvr_sigma": 20361793935811.67
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-09",
+      "cow_settlement": {
+        "volume_eur": 101000.61438164137,
+        "fees_eur": 0,
+        "trades": 649,
+        "intraday_volatility": 139094062633.3795,
+        "lvr_sigma": 139094062633.3795
+      },
+      "curve": {
+        "volume_eur": 394.2612020747492,
+        "fees_eur": 0.15770448082989968,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-10",
+      "cow_settlement": {
+        "volume_eur": 133829.6454360674,
+        "fees_eur": 0,
+        "trades": 773,
+        "intraday_volatility": 230737130700.50412,
+        "lvr_sigma": 230737130700.50412
+      },
+      "curve": {
+        "volume_eur": 2506.576346556768,
+        "fees_eur": 1.0026305386227072,
+        "trades": 2,
+        "intraday_volatility": 0.000004674005947391535,
+        "lvr_sigma": 0.000004674005947391535
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-11",
+      "cow_settlement": {
+        "volume_eur": 178727.39152583937,
+        "fees_eur": 0,
+        "trades": 787,
+        "intraday_volatility": 126797991681.32642,
+        "lvr_sigma": 126797991681.32642
+      },
+      "curve": {
+        "volume_eur": 5803.289987272696,
+        "fees_eur": 2.3213159949090785,
+        "trades": 3,
+        "intraday_volatility": 0.000008893036450356626,
+        "lvr_sigma": 0.000008893036450356626
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-12",
+      "cow_settlement": {
+        "volume_eur": 198869.11846604932,
+        "fees_eur": 0,
+        "trades": 1112,
+        "intraday_volatility": 96868155292.79976,
+        "lvr_sigma": 96868155292.79976
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-13",
+      "cow_settlement": {
+        "volume_eur": 109052.17611224741,
+        "fees_eur": 0,
+        "trades": 1075,
+        "intraday_volatility": 101854753469.2143,
+        "lvr_sigma": 101854753469.2143
+      },
+      "curve": {
+        "volume_eur": 9994.829901872978,
+        "fees_eur": 3.997931960749191,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-14",
+      "cow_settlement": {
+        "volume_eur": 154384.56711434913,
+        "fees_eur": 0,
+        "trades": 1160,
+        "intraday_volatility": 101175248027.86353,
+        "lvr_sigma": 101175248027.86353
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-15",
+      "cow_settlement": {
+        "volume_eur": 106897.43484601083,
+        "fees_eur": 0,
+        "trades": 1314,
+        "intraday_volatility": 69493995873.38689,
+        "lvr_sigma": 69493995873.38689
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "cow_settlement": {
+        "volume_eur": 112093.39662021428,
+        "fees_eur": 0,
+        "trades": 960,
+        "intraday_volatility": 19238256118640.113,
+        "lvr_sigma": 19238256118640.113
+      },
+      "curve": {
+        "volume_eur": 1091.1765130975803,
+        "fees_eur": 0.4364706052390321,
+        "trades": 2,
+        "intraday_volatility": 0.0000020942480765118177,
+        "lvr_sigma": 0.0000020942480765118177
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-17",
+      "cow_settlement": {
+        "volume_eur": 81485.82229649689,
+        "fees_eur": 0,
+        "trades": 1026,
+        "intraday_volatility": 110572142687.4606,
+        "lvr_sigma": 110572142687.4606
+      },
+      "curve": {
+        "volume_eur": 9999.380028423951,
+        "fees_eur": 3.9997520113695804,
+        "trades": 2,
+        "intraday_volatility": 0.0003819766614764908,
+        "lvr_sigma": 0.0003819766614764908
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-18",
+      "cow_settlement": {
+        "volume_eur": 184478.56737154187,
+        "fees_eur": 0,
+        "trades": 915,
+        "intraday_volatility": 91872116838.1222,
+        "lvr_sigma": 91872116838.1222
+      },
+      "curve": {
+        "volume_eur": 1988.7087754288898,
+        "fees_eur": 0.7954835101715559,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-19",
+      "cow_settlement": {
+        "volume_eur": 121458.33781333084,
+        "fees_eur": 0,
+        "trades": 770,
+        "intraday_volatility": 158155770565.2564,
+        "lvr_sigma": 158155770565.2564
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-20",
+      "cow_settlement": {
+        "volume_eur": 259488.43627946533,
+        "fees_eur": 0,
+        "trades": 829,
+        "intraday_volatility": 109238937317.58936,
+        "lvr_sigma": 109238937317.58936
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-21",
+      "cow_settlement": {
+        "volume_eur": 171916.55282815808,
+        "fees_eur": 0,
+        "trades": 708,
+        "intraday_volatility": 113951456687.25404,
+        "lvr_sigma": 113951456687.25404
+      },
+      "curve": {
+        "volume_eur": 89231.86901642132,
+        "fees_eur": 35.69274760656853,
+        "trades": 2,
+        "intraday_volatility": 0.0005132302783288911,
+        "lvr_sigma": 0.0005132302783288911
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-22",
+      "cow_settlement": {
+        "volume_eur": 87269.18282263132,
+        "fees_eur": 0,
+        "trades": 794,
+        "intraday_volatility": 84656969705.06657,
+        "lvr_sigma": 84656969705.06657
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-23",
+      "cow_settlement": {
+        "volume_eur": 55247.874863427416,
+        "fees_eur": 0,
+        "trades": 618,
+        "intraday_volatility": 126141695159.71454,
+        "lvr_sigma": 126141695159.71454
+      },
+      "curve": {
+        "volume_eur": 7.650334241413975,
+        "fees_eur": 0.00306013369656559,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-24",
+      "cow_settlement": {
+        "volume_eur": 65619.54024200885,
+        "fees_eur": 0,
+        "trades": 652,
+        "intraday_volatility": 122685045945.88832,
+        "lvr_sigma": 122685045945.88832
+      },
+      "curve": {
+        "volume_eur": 5.979507483065648,
+        "fees_eur": 0.002391802993226259,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-25",
+      "cow_settlement": {
+        "volume_eur": 115134.97291651356,
+        "fees_eur": 0,
+        "trades": 739,
+        "intraday_volatility": 289988059786.30676,
+        "lvr_sigma": 289988059786.30676
+      },
+      "curve": {
+        "volume_eur": 6000,
+        "fees_eur": 2.4000000000000004,
+        "trades": 2,
+        "intraday_volatility": 0.000011087203389825717,
+        "lvr_sigma": 0.000011087203389825717
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-26",
+      "cow_settlement": {
+        "volume_eur": 110844.1302039922,
+        "fees_eur": 0,
+        "trades": 682,
+        "intraday_volatility": 38067022376742.375,
+        "lvr_sigma": 38067022376742.375
+      },
+      "curve": {
+        "volume_eur": 1325.0793953820553,
+        "fees_eur": 0.5300317581528222,
+        "trades": 2,
+        "intraday_volatility": 0.000002452038714684246,
+        "lvr_sigma": 0.000002452038714684246
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-27",
+      "cow_settlement": {
+        "volume_eur": 143630.9800719598,
+        "fees_eur": 0,
+        "trades": 773,
+        "intraday_volatility": 163391679599.509,
+        "lvr_sigma": 163391679599.509
+      },
+      "curve": {
+        "volume_eur": 2091.9424321018564,
+        "fees_eur": 0.8367769728407426,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-02-28",
+      "cow_settlement": {
+        "volume_eur": 114231.53148949468,
+        "fees_eur": 0,
+        "trades": 812,
+        "intraday_volatility": 121087106196.69398,
+        "lvr_sigma": 121087106196.69398
+      },
+      "curve": {
+        "volume_eur": 699.7165447655466,
+        "fees_eur": 0.27988661790621866,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-01",
+      "cow_settlement": {
+        "volume_eur": 65525.22308313007,
+        "fees_eur": 0,
+        "trades": 837,
+        "intraday_volatility": 19593343005041.934,
+        "lvr_sigma": 19593343005041.934
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-02",
+      "cow_settlement": {
+        "volume_eur": 74301.11429831543,
+        "fees_eur": 0,
+        "trades": 630,
+        "intraday_volatility": 124848808312.41689,
+        "lvr_sigma": 124848808312.41689
+      },
+      "curve": {
+        "volume_eur": 190.19712385976578,
+        "fees_eur": 0.07607884954390631,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-03",
+      "cow_settlement": {
+        "volume_eur": 117299.79017537199,
+        "fees_eur": 0,
+        "trades": 663,
+        "intraday_volatility": 39409070832083.69,
+        "lvr_sigma": 39409070832083.69
+      },
+      "curve": {
+        "volume_eur": 1503.5691461994595,
+        "fees_eur": 0.6014276584797839,
+        "trades": 2,
+        "intraday_volatility": 0.0000027865976561791683,
+        "lvr_sigma": 0.0000027865976561791683
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-04",
+      "cow_settlement": {
+        "volume_eur": 220911.8892080682,
+        "fees_eur": 0,
+        "trades": 768,
+        "intraday_volatility": 30923068851472.78,
+        "lvr_sigma": 30923068851472.78
+      },
+      "curve": {
+        "volume_eur": 1833.9712022285426,
+        "fees_eur": 0.733588480891417,
+        "trades": 2,
+        "intraday_volatility": 0.0001942160903407597,
+        "lvr_sigma": 0.0001942160903407597
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-05",
+      "cow_settlement": {
+        "volume_eur": 83515.72695748793,
+        "fees_eur": 0,
+        "trades": 703,
+        "intraday_volatility": 127994755322.9424,
+        "lvr_sigma": 127994755322.9424
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-06",
+      "cow_settlement": {
+        "volume_eur": 86882.24989063344,
+        "fees_eur": 0,
+        "trades": 752,
+        "intraday_volatility": 103444390674.31323,
+        "lvr_sigma": 103444390674.31323
+      },
+      "curve": {
+        "volume_eur": 199.92027562323972,
+        "fees_eur": 0.0799681102492959,
+        "trades": 2,
+        "intraday_volatility": 3.708778849587091e-7,
+        "lvr_sigma": 3.708778849587091e-7
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-07",
+      "cow_settlement": {
+        "volume_eur": 65858.28309095404,
+        "fees_eur": 0,
+        "trades": 520,
+        "intraday_volatility": 200836214415.18948,
+        "lvr_sigma": 200836214415.18948
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-08",
+      "cow_settlement": {
+        "volume_eur": 61650.705213585476,
+        "fees_eur": 0,
+        "trades": 293,
+        "intraday_volatility": 212042136863.9851,
+        "lvr_sigma": 212042136863.9851
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-09",
+      "cow_settlement": {
+        "volume_eur": 152829.9561395068,
+        "fees_eur": 0,
+        "trades": 654,
+        "intraday_volatility": 155863521688.58737,
+        "lvr_sigma": 155863521688.58737
+      },
+      "curve": {
+        "volume_eur": 82.22349769129131,
+        "fees_eur": 0.03288939907651653,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-10",
+      "cow_settlement": {
+        "volume_eur": 59112.290462696794,
+        "fees_eur": 0,
+        "trades": 740,
+        "intraday_volatility": 155368374328.5286,
+        "lvr_sigma": 155368374328.5286
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-11",
+      "cow_settlement": {
+        "volume_eur": 370835.2310570288,
+        "fees_eur": 0,
+        "trades": 1054,
+        "intraday_volatility": 122948664693.3601,
+        "lvr_sigma": 122948664693.3601
+      },
+      "curve": {
+        "volume_eur": 70000.13333852155,
+        "fees_eur": 28.000053335408627,
+        "trades": 3,
+        "intraday_volatility": 0.000336463976602387,
+        "lvr_sigma": 0.000336463976602387
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-12",
+      "cow_settlement": {
+        "volume_eur": 307883.00249412324,
+        "fees_eur": 0,
+        "trades": 1103,
+        "intraday_volatility": 139272946684.69812,
+        "lvr_sigma": 139272946684.69812
+      },
+      "curve": {
+        "volume_eur": 1145.189220191484,
+        "fees_eur": 0.45807568807659366,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-13",
+      "cow_settlement": {
+        "volume_eur": 273495.4660309029,
+        "fees_eur": 0,
+        "trades": 1138,
+        "intraday_volatility": 125957235127.76204,
+        "lvr_sigma": 125957235127.76204
+      },
+      "curve": {
+        "volume_eur": 174.40050990533416,
+        "fees_eur": 0.06976020396213367,
+        "trades": 2,
+        "intraday_volatility": 0.0002653901444444329,
+        "lvr_sigma": 0.0002653901444444329
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-14",
+      "cow_settlement": {
+        "volume_eur": 302631.2067330073,
+        "fees_eur": 0,
+        "trades": 1157,
+        "intraday_volatility": 88604587751.48412,
+        "lvr_sigma": 88604587751.48412
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-15",
+      "cow_settlement": {
+        "volume_eur": 269807.5581346254,
+        "fees_eur": 0,
+        "trades": 947,
+        "intraday_volatility": 84968275140.59744,
+        "lvr_sigma": 84968275140.59744
+      },
+      "curve": {
+        "volume_eur": 56.741815169766426,
+        "fees_eur": 0.02269672606790657,
+        "trades": 2,
+        "intraday_volatility": 1.0650448950544344e-7,
+        "lvr_sigma": 1.0650448950544344e-7
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-16",
+      "cow_settlement": {
+        "volume_eur": 294719.39374953863,
+        "fees_eur": 0,
+        "trades": 989,
+        "intraday_volatility": 110087467899.79428,
+        "lvr_sigma": 110087467899.79428
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-17",
+      "cow_settlement": {
+        "volume_eur": 301829.9836475308,
+        "fees_eur": 0,
+        "trades": 930,
+        "intraday_volatility": 93833802525.67892,
+        "lvr_sigma": 93833802525.67892
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-18",
+      "cow_settlement": {
+        "volume_eur": 98336.71536507053,
+        "fees_eur": 0,
+        "trades": 737,
+        "intraday_volatility": 126423112654.72668,
+        "lvr_sigma": 126423112654.72668
+      },
+      "curve": {
+        "volume_eur": 299.8596987525667,
+        "fees_eur": 0.1199438795010267,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-19",
+      "cow_settlement": {
+        "volume_eur": 77510.69382195149,
+        "fees_eur": 0,
+        "trades": 744,
+        "intraday_volatility": 137142868888.30301,
+        "lvr_sigma": 137142868888.30301
+      },
+      "curve": {
+        "volume_eur": 299.8590227167304,
+        "fees_eur": 0.11994360908669217,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-20",
+      "cow_settlement": {
+        "volume_eur": 63384.0703121491,
+        "fees_eur": 0,
+        "trades": 767,
+        "intraday_volatility": 21754438868218.66,
+        "lvr_sigma": 21754438868218.66
+      },
+      "curve": {
+        "volume_eur": 1840.653373612488,
+        "fees_eur": 0.7362613494449952,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-21",
+      "cow_settlement": {
+        "volume_eur": 55321.74663396132,
+        "fees_eur": 0,
+        "trades": 865,
+        "intraday_volatility": 112723505838.25063,
+        "lvr_sigma": 112723505838.25063
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-22",
+      "cow_settlement": {
+        "volume_eur": 68957.72418432604,
+        "fees_eur": 0,
+        "trades": 605,
+        "intraday_volatility": 150693278819.16608,
+        "lvr_sigma": 150693278819.16608
+      },
+      "curve": {
+        "volume_eur": 499.81957520237955,
+        "fees_eur": 0.19992783008095183,
+        "trades": 1,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-23",
+      "cow_settlement": {
+        "volume_eur": 55332.67827202615,
+        "fees_eur": 0,
+        "trades": 652,
+        "intraday_volatility": 141586738598.8466,
+        "lvr_sigma": 141586738598.8466
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-24",
+      "cow_settlement": {
+        "volume_eur": 49448.471825313936,
+        "fees_eur": 0,
+        "trades": 672,
+        "intraday_volatility": 139093096166.02933,
+        "lvr_sigma": 139093096166.02933
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-25",
+      "cow_settlement": {
+        "volume_eur": 235651.98384891165,
+        "fees_eur": 0,
+        "trades": 965,
+        "intraday_volatility": 113452823643.46811,
+        "lvr_sigma": 113452823643.46811
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    },
+    {
+      "date": "2026-03-26",
+      "cow_settlement": {
+        "volume_eur": 38373.167437796896,
+        "fees_eur": 0,
+        "trades": 351,
+        "intraday_volatility": 129013994264.59079,
+        "lvr_sigma": 129013994264.59079
+      },
+      "curve": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      },
+      "cow_amm": {
+        "volume_eur": 0,
+        "fees_eur": 0,
+        "trades": 0,
+        "intraday_volatility": 0,
+        "lvr_sigma": 0
+      }
+    }
+  ]
+}

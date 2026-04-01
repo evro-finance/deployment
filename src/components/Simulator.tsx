@@ -1,18 +1,33 @@
+import { useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
-  PieChart, Pie, AreaChart, Area, CartesianGrid
+  PieChart, Pie, AreaChart, Area, CartesianGrid,
+  LineChart, Line, ReferenceLine
 } from 'recharts';
 import { fmt, fmtCompact, fmtPct, DISTRIBUTION_LABELS } from '../data/branches';
 import type { Calculations } from '../data/branches';
 import { get } from '../data/content';
+import { replayDeployment } from '../data/replay';
 
 interface SimulatorProps {
   totalCapital: number;
   onCapitalChange: (val: number) => void;
   calculations: Calculations;
+  weights: Record<string, number>;
+  crs: Record<string, number>;
 }
 
-export function Simulator({ totalCapital, onCapitalChange, calculations }: SimulatorProps) {
+const tooltipStyle = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '0.7rem',
+  background: 'rgba(29,28,31,0.95)',
+  border: '1px solid rgba(160,130,245,0.25)',
+  borderRadius: '6px',
+  color: '#E8E6ED',
+  backdropFilter: 'blur(8px)',
+};
+
+export function Simulator({ totalCapital, onCapitalChange, calculations, weights, crs }: SimulatorProps) {
   const barData = calculations.branchResults.map(b => ({
     name: b.name,
     allocated: b.allocatedCapital,
@@ -26,12 +41,55 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
     { name: 'Bridge Pool', value: calculations.distribution.bridge, color: DISTRIBUTION_LABELS[2].color },
   ].filter(d => d.value > 0);
 
-  // 12-month yield projection
-  const yieldData = Array.from({ length: 12 }, (_, i) => ({
-    month: `M${i + 1}`,
-    spYield: (calculations.spYieldTotal / 12) * (i + 1),
-    daoRevenue: (calculations.daoRevenueTotal / 12) * (i + 1),
+  // ── Historical Replay ──────────────────────────────────
+  const replay = useMemo(
+    () => replayDeployment(totalCapital, weights, crs),
+    [totalCapital, weights, crs]
+  );
+
+  // Sample for chart performance (every 3rd point)
+  const sampled = replay.snapshots.filter((_, i) => i % 3 === 0 || i === replay.snapshots.length - 1);
+  const tickInterval = Math.floor(sampled.length / 6);
+
+  // Real yield accumulation
+  const yieldData = sampled.map(s => ({
+    date: s.date,
+    spYield: s.cumulativeSpYield,
+    daoRevenue: s.cumulativeDaoRevenue,
   }));
+
+  // CR stress per branch
+  const crData = sampled.map(s => {
+    const pt: Record<string, unknown> = { date: s.date };
+    s.branches.forEach(b => { pt[b.id] = b.currentCR; });
+    return pt;
+  });
+
+  // Price performance
+  const priceData = sampled.map(s => {
+    const pt: Record<string, unknown> = { date: s.date };
+    s.branches.forEach(b => { pt[b.id] = b.priceChangePct; });
+    return pt;
+  });
+
+  // Color map from first snapshot
+  const branchColors: Record<string, string> = {};
+  if (replay.snapshots[0]) {
+    replay.snapshots[0].branches.forEach(b => { branchColors[b.id] = b.color; });
+  }
+  const branchIds = Object.keys(branchColors);
+
+  // Legend component
+  const ChartLegend = ({ items }: { items: { id: string; color: string; label: string }[] }) => (
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginTop: '12px' }}>
+      {items.map(d => (
+        <div key={d.id} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ width: 12, height: 3, borderRadius: 2, background: d.color }} />
+          <span className="label-sm">{d.label}</span>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <section className="section">
@@ -74,13 +132,13 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
       </div>
 
       {/* ── KPI Row ─────────────────────────────────────── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '40px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '16px', marginBottom: '40px' }}>
         <div className="glass-card stat-card">
           <span className="stat-label">Total EVRO Minted</span>
           <span className="stat-value">{fmtCompact(calculations.totalMinted)}</span>
         </div>
         <div className="glass-card stat-card">
-          <span className="stat-label">SP Yield Pool (75%)</span>
+          <span className="stat-label">SP Yield (75%)</span>
           <span className="stat-value" style={{ color: 'var(--evro-purple)' }}>
             {fmtCompact(calculations.spYieldTotal)}<span style={{ fontSize: '0.6em', color: 'var(--muted-foreground)' }}>/yr</span>
           </span>
@@ -91,10 +149,24 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
             {fmtCompact(calculations.daoRevenueTotal)}<span style={{ fontSize: '0.6em', color: 'var(--muted-foreground)' }}>/yr</span>
           </span>
         </div>
+        <div className="glass-card stat-card">
+          <span className="stat-label">Lowest CR Hit</span>
+          <span className="stat-value" style={{ color: replay.minCR.value < 1.3 ? 'var(--evro-pink)' : 'var(--evro-green)' }}>
+            {fmtPct(replay.minCR.value)}
+          </span>
+          <span className="label-sm" style={{ marginTop: '4px' }}>{replay.minCR.branchId?.toUpperCase()} · {replay.minCR.date}</span>
+        </div>
+        <div className="glass-card stat-card">
+          <span className="stat-label">Max Drawdown</span>
+          <span className="stat-value" style={{ color: 'var(--evro-pink)' }}>
+            -{replay.maxDrawdown.value.toFixed(1)}%
+          </span>
+          <span className="label-sm" style={{ marginTop: '4px' }}>{replay.maxDrawdown.branchId?.toUpperCase()} · {replay.maxDrawdown.date}</span>
+        </div>
       </div>
 
-      {/* ── Charts Row ──────────────────────────────────── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+      {/* ── Charts Row: Minting + Distribution ──────────── */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '24px', marginBottom: '24px' }}>
 
         {/* Minting Breakdown */}
         <div className="glass-card" style={{ padding: '24px' }}>
@@ -106,7 +178,7 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
                 <YAxis dataKey="name" type="category" width={55} tick={{ fontSize: 11, fontFamily: 'var(--font-heading)', fill: '#1D1C1F', fontWeight: 500 }} axisLine={false} tickLine={false} />
                 <Tooltip
                   formatter={(value: unknown) => [fmt(Number(value)), '']}
-                  contentStyle={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', background: '#fff', border: '1px solid rgba(160,130,245,0.15)', borderRadius: '4px' }}
+                  contentStyle={tooltipStyle}
                 />
                 <Bar dataKey="minted" name="EVRO Minted" radius={[0, 3, 3, 0]} barSize={18}>
                   {barData.map((entry, i) => (
@@ -140,7 +212,7 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
                 </Pie>
                 <Tooltip
                   formatter={(value: unknown) => [fmtCompact(Number(value)), '']}
-                  contentStyle={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', background: '#fff', border: '1px solid rgba(160,130,245,0.15)', borderRadius: '4px' }}
+                  contentStyle={tooltipStyle}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -156,34 +228,107 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
         </div>
       </div>
 
-      {/* ── Yield Projection ────────────────────────────── */}
+      {/* ── Historical Data Banner ─────────────────────── */}
+      <div style={{ 
+        padding: '16px 24px', 
+        marginBottom: '24px', 
+        background: 'linear-gradient(135deg, rgba(160,130,245,0.06), rgba(239,169,96,0.06))',
+        borderRadius: '8px',
+        border: '1px solid rgba(160,130,245,0.12)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+      }}>
+        <div style={{ 
+          width: 8, height: 8, borderRadius: '50%', 
+          background: 'var(--evro-green)', 
+          boxShadow: '0 0 6px rgba(74,222,128,0.4)',
+          flexShrink: 0,
+        }} />
+        <span className="label-sm" style={{ letterSpacing: '0.08em' }}>
+          CHARTS BELOW DRIVEN BY {replay.totalDays} DAYS OF REAL MARKET DATA — NOT PROJECTIONS
+        </span>
+      </div>
+
+      {/* ── Collateral Price Performance ──────────────────── */}
+      <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
+        <p className="label" style={{ marginBottom: '4px' }}>Collateral Price Performance</p>
+        <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
+          Percentage change from day of deployment. Each line is a real collateral asset on Gnosis Chain.
+        </p>
+        <div className="chart-container" style={{ height: '260px' }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={priceData} margin={{ left: 8, right: 16, top: 8, bottom: 4 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(160,130,245,0.06)" />
+              <XAxis dataKey="date" tick={{ fontSize: 9, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} interval={tickInterval} />
+              <YAxis tickFormatter={(v: number) => `${v.toFixed(0)}%`} tick={{ fontSize: 10, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} />
+              <Tooltip formatter={(value: unknown) => [`${Number(value).toFixed(1)}%`, '']} contentStyle={tooltipStyle} />
+              <ReferenceLine y={0} stroke="rgba(160,130,245,0.2)" strokeDasharray="4 4" />
+              {branchIds.map(id => (
+                <Line key={id} type="monotone" dataKey={id} stroke={branchColors[id]} strokeWidth={1.5} dot={false} name={id.toUpperCase()} />
+              ))}
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        <ChartLegend items={branchIds.map(id => ({ id, color: branchColors[id], label: id.toUpperCase() }))} />
+      </div>
+
+      {/* ── CR Stress Test ───────────────────────────────── */}
+      <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
+        <p className="label" style={{ marginBottom: '4px' }}>Collateral Ratio — Stress Test</p>
+        <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
+          How each branch's CR would have moved with real prices. The red zone marks liquidation proximity.
+        </p>
+        <div className="chart-container" style={{ height: '280px' }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={crData} margin={{ left: 8, right: 16, top: 8, bottom: 4 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(160,130,245,0.06)" />
+              <XAxis dataKey="date" tick={{ fontSize: 9, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} interval={tickInterval} />
+              <YAxis
+                domain={['auto', 'auto']}
+                tickFormatter={(v: number) => `${(v * 100).toFixed(0)}%`}
+                tick={{ fontSize: 10, fontFamily: 'var(--font-mono)', fill: '#95929E' }}
+                axisLine={false} tickLine={false}
+              />
+              <Tooltip formatter={(value: unknown) => [`${(Number(value) * 100).toFixed(1)}%`, '']} contentStyle={tooltipStyle} />
+              <ReferenceLine y={1.3} stroke="rgba(245,136,155,0.5)" strokeDasharray="4 4" label={{ value: 'MCR Zone', fontSize: 9, fill: '#F5889B', position: 'right' }} />
+              {branchIds.map(id => (
+                <Line key={id} type="monotone" dataKey={id} stroke={branchColors[id]} strokeWidth={1.5} dot={false} name={id.toUpperCase()} />
+              ))}
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        <ChartLegend items={branchIds.map(id => ({ id, color: branchColors[id], label: id.toUpperCase() }))} />
+      </div>
+
+      {/* ── Cumulative Yield — Real Data ──────────────────── */}
       <div className="glass-card" style={{ padding: '24px', marginBottom: '40px' }}>
-        <p className="label" style={{ marginBottom: '16px' }}>12-Month Cumulative Yield Projection</p>
+        <p className="label" style={{ marginBottom: '4px' }}>Cumulative Revenue — Historical Replay</p>
+        <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
+          Interest income accumulated day by day across all branches. The 75/25 split is applied live.
+        </p>
         <div className="chart-container">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={yieldData} margin={{ left: 8, right: 16, top: 8, bottom: 4 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(160,130,245,0.08)" />
-              <XAxis dataKey="month" tick={{ fontSize: 10, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(160,130,245,0.06)" />
+              <XAxis dataKey="date" tick={{ fontSize: 9, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} interval={tickInterval} />
               <YAxis tickFormatter={(v: number) => fmtCompact(v)} tick={{ fontSize: 10, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} />
               <Tooltip
-                formatter={(value: unknown, name: unknown) => [fmt(Number(value)), String(name) === 'spYield' ? 'SP Yield' : 'DAO Revenue']}
-                contentStyle={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', background: '#fff', border: '1px solid rgba(160,130,245,0.15)', borderRadius: '4px' }}
+                formatter={(value: unknown, name: unknown) => [
+                  fmtCompact(Number(value)),
+                  String(name) === 'spYield' ? 'SP Yield (75%)' : 'DAO Revenue (25%)'
+                ]}
+                contentStyle={tooltipStyle}
               />
-              <Area type="monotone" dataKey="spYield" name="spYield" stackId="1" stroke="#A082F5" fill="rgba(160,130,245,0.25)" strokeWidth={2} />
-              <Area type="monotone" dataKey="daoRevenue" name="daoRevenue" stackId="1" stroke="#EFA960" fill="rgba(239,169,96,0.2)" strokeWidth={2} />
+              <Area type="monotone" dataKey="spYield" name="spYield" stackId="1" stroke="#A082F5" fill="rgba(160,130,245,0.2)" strokeWidth={2} />
+              <Area type="monotone" dataKey="daoRevenue" name="daoRevenue" stackId="1" stroke="#EFA960" fill="rgba(239,169,96,0.15)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '12px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{ width: 12, height: 3, borderRadius: 2, background: '#A082F5' }} />
-            <span className="label-sm">SP Yield (75%)</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{ width: 12, height: 3, borderRadius: 2, background: '#EFA960' }} />
-            <span className="label-sm">DAO Revenue (25%)</span>
-          </div>
-        </div>
+        <ChartLegend items={[
+          { id: 'sp', color: '#A082F5', label: 'SP Yield (75%)' },
+          { id: 'dao', color: '#EFA960', label: 'DAO Revenue (25%)' },
+        ]} />
       </div>
 
       {/* ── Branch Detail Table ─────────────────────────── */}

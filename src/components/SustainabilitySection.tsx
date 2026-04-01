@@ -27,6 +27,16 @@ export function SustainabilitySection() {
         </div>
       </div>
 
+      {/* ── SP Acquisition Engine Note ────────────────── */}
+      {get('sustainability', 'sp-note') && (
+        <div className="glass-card" style={{ padding: '24px', marginBottom: '24px', borderLeft: '3px solid var(--evro-purple)' }}>
+          <p className="label" style={{ marginBottom: '8px', color: 'var(--evro-purple)' }}>Counter-Cyclical Yield</p>
+          <p className="body-text" style={{ fontSize: '0.9rem' }}>
+            {get('sustainability', 'sp-note')}
+          </p>
+        </div>
+      )}
+
       {/* ── RETVRN Token ─────────────────────────────── */}
       {get('sustainability', 'token-body') && (
         <div className="glass-card" style={{ padding: '24px', marginBottom: '24px', borderLeft: '3px solid var(--accent)' }}>

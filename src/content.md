@@ -1,16 +1,16 @@
 # hero
 
 ## title
-€5M Deployment Into Euro-Denominated Yield Infrastructure
+Deploy Into European **MEV-Protected** Yield Infrastructure
 
 ## subtitle
-EVRO Genesis · Capital Deployment Strategy
+EVRO Genesis · Capital Deployment Guide
 
 ## body
-This document specifies the deployment of €5,000,000 to initialize EVRO — a CDP-issued Euro stablecoin on Gnosis Chain, built on a Liquity v2 fork with asset-isolated minting and MEV-protected liquidity.
+EVRO is a CDP-issued Euro stablecoin on Gnosis Chain — asset-isolated minting, MEV-protected liquidity, real yield from day one. The architecture operates across two layers: **Layer 1 (Minting)** locks collateral across 6 isolated branches. **Layer 2 (Distribution)** deploys minted EVRO into 3 liquidity venues for market depth, peg stability, and swap routing.
 
 ## body2
-The architecture operates across two interdependent layers: **Layer 1 (Minting)** locks €5M across 6 isolated collateral branches to mint ~€2.85M–€3.29M EVRO. **Layer 2 (Distribution)** deploys minted EVRO into 3 liquidity venues to establish market depth, peg stability, and swap routing. Every number on this page is interactive.
+This is a deployment guide with interactive dashboards to model your position.
 
 ## meta
 Prepared for: GnosisDAO | Date: March 31, 2026 | Version: IDE-Assisted Final | Status: Ready for Submission Review
@@ -23,10 +23,10 @@ Prepared for: GnosisDAO | Date: March 31, 2026 | Version: IDE-Assisted Final | S
 European Capital On-Chain Is Dead Capital
 
 ## body
-European capital on-chain is dead capital. EURe yields approximately **0%**. The MakerDAO DSR pays **4%+** to USD holders. The only other Euro CDP — Angle Protocol (agEUR/EURA) — is in active wind-down following governance vote AIP-112, with redemptions closing March 1, 2027. The decentralized Euro CDP market will be empty.
+European capital on-chain is dead capital. EURe yields **0%**. USD stablecoin holders earn **4%+** through the DAI Savings Rate. The only other Euro CDP — Angle Protocol — is shutting down. The decentralized Euro CDP market will be empty.
 
 ## body2
-EVRO fills this gap: a Euro-denominated stablecoin backed by real yield — sDAI earning DSR, wstETH earning staking rewards, GNO earning validator income — and structurally protected from MEV extraction through batch auction settlement. The target is not speculative retail. The target is institutional and treasury capital seeking Euro-denominated yield without US regulatory exposure.
+EVRO fills this gap: a Euro stablecoin backed by real yield — sDAI earning the Savings Rate, wstETH earning staking rewards, GNO earning validator income — with MEV protection through batch auction settlement.
 
 ## stat-1-label
 Angle Protocol Supply (Peak)
@@ -54,13 +54,11 @@ EURe Native Yield
 Deployment Architecture
 
 ## body
-Capital is allocated across 6 collateral branches. Each branch is a standalone Liquity v2 smart contract with its own oracle, liquidation threshold, and interest rate. A failure in one branch cannot cascade into another. Drag the slider to model different deployment sizes.
+Drag the slider to model different deployment sizes.
 
 ## cr-strategy
-**Collateral Ratio Strategy:** CR targets are calibrated for monthly-check-in operators, not daily traders. The lower bound of each range suits an attentive manager; the upper bound suits a "deploy and go on holiday" operator.
 
 ## rate-strategy
-**Interest Rate Strategy:** Rates sit at the midpoint of market expectations. This balances borrowing cost against redemption queue positioning — remaining competitive while avoiding front-of-queue exposure.
 
 ---
 
@@ -70,25 +68,19 @@ Capital is allocated across 6 collateral branches. Each branch is a standalone L
 The Liquidity Architecture
 
 ## body
-Minted EVRO is deployed into three venues forming a hub-and-spoke backstop.
+Minted EVRO is deployed into three venues forming a hub-and-spoke backstop. Each venue serves a distinct structural role.
 
 ## sp-title
 Stability Pool
-
-## sp-allocation
-€1.0M EVRO
 
 ## sp-venue
 EVRO Protocol
 
 ## sp-desc
-Liquidation backstop. Earns 75% of all Trove interest income + discounted collateral from liquidation events.
+The protocol's liquidation backstop and primary yield source. Earns 75% of all Trove interest income plus discounted collateral from liquidation events. This is the economic engine of the protocol.
 
 ## anchor-title
 Anchor Pool
-
-## anchor-allocation
-€1.0M EVRO + sDAI
 
 ## anchor-pair
 sDAI/EVRO
@@ -97,13 +89,10 @@ sDAI/EVRO
 Balancer v3 + CoW Hooks
 
 ## anchor-desc
-Primary depth. LVR-protected via FM-AMM batch settlement. Stacks boosted lending yield on idle capital.
+Primary market depth and price discovery. LVR-protected via batch settlement — no value extracted by arb-bots. Stacks lending yield on idle pool tranches, creating two yield sources in one venue.
 
 ## bridge-title
 Bridge Pool
-
-## bridge-allocation
-€0.5M EVRO + EURe
 
 ## bridge-pair
 EURe/EVRO
@@ -112,19 +101,68 @@ EURe/EVRO
 Curve StableSwap
 
 ## bridge-desc
-Retail spend routing. Enables direct EURe ↔ EVRO swaps for downstream applications.
+Retail spend routing. Enables direct EURe ↔ EVRO swaps for downstream applications including Gnosis Pay integration paths. Curve lacks native MEV protection, so this venue is size-capped as a controlled cost-center.
 
 ## balancer-title
 Why Balancer v3 + CoW Hooks?
 
 ## balancer-body
-Balancer v3 with CoW Hooks is the mathematically superior anchor venue. It combines FM-AMM LVR protection with boosted lending yield on idle pool tranches — stacking two yield sources that no other single venue on Gnosis Chain currently offers. The CoW Hooks are immutable on-chain contracts; the protection persists independently of Balancer governance decisions.
+Balancer v3 with CoW Hooks combines LVR protection with lending yield on idle pool tranches — two yield sources in one venue, unique on Gnosis Chain. The CoW Hooks are immutable on-chain contracts; the protection persists regardless of Balancer governance.
 
 ## curve-title
 Why Curve for the Bridge?
 
 ## curve-body
-Curve lacks native MEV protection, meaning arb-bots extract value from the pool. By capping the allocation at €500k, this bleed is contained as a fixed cost-center — the price of enabling EURe/EVRO retail swap routing on Gnosis Chain.
+Curve lacks native MEV protection, meaning arb-bots extract value from the pool. By capping the allocation, this bleed is contained as a fixed cost-center — the price of enabling EURe/EVRO retail swap routing on Gnosis Chain.
+
+---
+
+# cohorts
+
+## title
+Who Benefits from EVRO?
+
+## body
+Three user profiles drive demand, each with a different conviction level and timeline.
+
+## cohort-1-title
+Borrowers Seeking Better Rates
+
+## cohort-1-conviction
+Highest Conviction
+
+## cohort-1-body
+Borrowers on Gnosis Chain currently pay interest rates well above what EVRO Troves offer. The gap is wider than the headline rate suggests — MEV extraction on unprotected venues adds hidden cost that doesn't show up in the UI.
+
+Migrating to an EVRO Trove gives borrowers three things: they set their own interest rate, their liquidity is MEV-protected, and each position is isolated in its own branch.
+
+Partnership conversations are active with growth agencies and infrastructure protocols to build the borrower pipeline. Contango — a looping layer on Gnosis Chain — can create leveraged EVRO positions once the protocol is listed on native money markets, adding a self-reinforcing demand channel.
+
+## cohort-2-title
+DAO Treasuries
+
+## cohort-2-conviction
+High Conviction
+
+## cohort-2-body
+DAOs holding idle wstETH or GNO can lock it as collateral, mint EVRO, and earn yield without changing their asset conviction. The question is whether the yield premium justifies adding another protocol to the stack.
+
+The sharpest case is GnosisDAO itself. The DAO lost ~$700k in legacy Balancer v2 pools due to oracle lag and LVR extraction — those pools now sit at $0 TVL. EVRO's Anchor Pool is the direct upgrade to the infrastructure that failed.
+
+Beyond GnosisDAO, Lido DAO has substantial idle wstETH on Gnosis Chain. Smaller ecosystem DAOs (Cow Protocol, Hopr, Gnosis Guild) run lean teams — EVRO's set-and-forget design fits their operational profile.
+
+If GnosisDAO deploys into the Anchor Pool, that becomes the reference case for every other DAO. Phase 1 needs to be operational first. The track record is the reference.
+
+## cohort-3-title
+Retail Spending via Gnosis Pay
+
+## cohort-3-conviction
+Long-Term
+
+## cohort-3-body
+This is not theoretical. [Zeal](https://www.zeal.app/) already connects Aave yield to Gnosis Pay spending — earn yield in DeFi, auto-swap to fiat when you tap your card. The infrastructure exists and is live.
+
+EVRO would be the European version. Instead of earning USD-denominated Aave yield, users earn Euro-denominated Stability Pool yield and spend in Euros. The user never holds idle EURe.
 
 ---
 
@@ -152,159 +190,25 @@ Interest rates are set defensively to avoid front-of-queue exposure.
 MEV / LVR Extraction
 
 ## risk-3-mitigation
-FM-AMM batch settlement via CoW Hooks on the Anchor Pool.
+Batch settlement via CoW Hooks on the Anchor Pool.
 
 ## risk-4-title
 Curve LVR Bleed
 
 ## risk-4-mitigation
-Capped at 500k to contain as a controlled cost-center for enabling EURe/EVRO retail swap routing.
+Allocation capped to contain bleed as a controlled cost-center.
 
 ## risk-5-title
 Oracle Lag
 
 ## risk-5-mitigation
-20-minute heartbeat window identified and addressed in adversarial model. CR buffers absorb moderate lag.
+CR buffers absorb moderate oracle lag.
 
 ## risk-6-title
 FX Risk (EUR/USD)
 
 ## risk-6-mitigation
-Stablecoin-collateral branches (sDAI, wXDAI) are exposed to EUR/USD oracle pricing. CR buffers absorb moderate FX moves.
-
-## sp-note
-When a Trove in any branch is liquidated, Stability Pool stakers absorb the debt and receive the liquidated collateral at a protocol discount. During market stress — precisely when other yield sources compress — the Stability Pool activates as a diversified asset acquisition engine, capturing discounted GNO, wstETH, sDAI, and other collateral across all 6 branches.
-
----
-
-# cohorts
-
-## title
-Who Benefits from EVRO?
-
-## body
-Four distinct user cohorts, ranked by conviction level and time-to-activation.
-
-## cohort-1-number
-Cohort 01
-
-## cohort-1-title
-Euro Borrowers Seeking Better Rates
-
-## cohort-1-conviction
-Highest
-
-## cohort-1-desc
-Borrowers of Euro-denominated stablecoins on Gnosis Chain currently face interest rates significantly above the rates available through EVRO Troves. The stated UI rate doesn't capture the full cost picture — when factoring in MEV extraction on unprotected venues and the absence of boosted yield mechanics, the effective cost delta is likely wider than the headline spread suggests.
-
-## cohort-1-detail
-For borrowers with material positions, migrating to an EVRO Trove offers self-sovereign rate setting — borrowers choose their own interest rate. MEV-protected liquidity — no value extraction from oracle lag or arb-bots. Collateral isolation — each position exists in its own branch with no cross-contamination risk. The precise breakeven point (including gas and slippage costs) requires further modeling, but the directional benefit is clear and on-chain verifiable.
-
-## cohort-2-number
-Cohort 02
-
-## cohort-2-title
-DAO Treasuries
-
-## cohort-2-conviction
-High
-
-## cohort-2-desc
-DAOs holding idle wstETH or GNO could lock it as collateral, mint EVRO, and earn protocol yield without changing their asset conviction. DAOs are crypto-native organizations that already live inside smart contract risk — the question is not whether they understand the mechanics, but whether the yield premium justifies adding another protocol to their stack.
-
-## cohort-2-detail
-GnosisDAO treasury alone holds significant GNO and stablecoin reserves. Even a 5% allocation to EVRO collateral branches would represent meaningful TVL. Lido DAO has substantial wstETH holdings on Gnosis Chain — currently unproductive. A collateral deployment at conservative CRs mints EVRO while retaining full ETH conviction. Smaller Gnosis-ecosystem DAOs (Cow Protocol, Hopr, Gnosis Guild) run lean teams with treasury management bandwidth constraints — EVRO's "set-and-forget" CR design is built for exactly this operational profile.
-
-## cohort-2-requirements
-What's required to unlock this: BD execution — no DAO has been approached yet. This is a sales and relationship problem, not a product problem. Institutional validation — EVRO is being built in direct partnership with GnosisDAO, which significantly shortens governance cycles for Gnosis-ecosystem DAOs. Governance timelines — DAO treasury deployments require governance votes. Lido's process alone takes months. This is a medium-term cohort that must be initiated early to close on time. The reference deployment — Phase 1 (the €5M NOCA deployment) creates the operational track record that treasury committees need to evaluate. Without it, there is nothing to pitch.
-
-## cohort-3-number
-Cohort 03
-
-## cohort-3-title
-GnosisDAO Treasury Recovery
-
-## cohort-3-conviction
-High
-
-## cohort-3-desc
-This isn't speculative. GnosisDAO already lost approximately $700k in the Karpatkey-era Balancer v2 pools due to oracle lag and LVR extraction. Those legacy pools are now in recovery mode with $0 TVL. The DAO's own treasury liquidity needs a new home.
-
-## cohort-3-detail
-EVRO's Anchor Pool (Balancer v3 + CoW Hooks) is the direct upgrade to the infrastructure that failed. The pitch is not "try our new thing" — it is "stop the bleeding and move your capital into the architecture specifically designed to fix the problem that cost you $700k."
-
-## cohort-3-requirements
-Why this is the strongest near-term POL case: GnosisDAO has the pain (documented losses), the capital (significant GNO + stablecoin reserves), and the governance access (EVRO is a Gnosis-native protocol). If GnosisDAO deploys its own treasury into the EVRO Anchor Pool, that becomes the reference case every other protocol points to. Subsequent POL targets — protocols building Euro-denominated settlement on Gnosis Chain — can then evaluate a venue with GnosisDAO's own money in it. What's required: Phase 1 must be deployed and operational first (the reference track record). A formal GIP (Gnosis Improvement Proposal) positioning the EVRO Anchor Pool as the successor to the legacy Balancer v2 treasury deployment.
-
-## cohort-4-number
-Cohort 04
-
-## cohort-4-title
-Retail Spending via Gnosis Pay
-
-## cohort-4-conviction
-Long-Term
-
-## cohort-4-desc
-A technical path exists to connect EVRO yield to everyday Euro spending through Gnosis Pay. The concept — internally called Idle Zero — allows a user's capital to earn Stability Pool yield while a permissionless keeper automatically swaps just enough EVRO to EURe to keep the Gnosis Pay card funded. The user never holds idle EURe.
-
-## cohort-4-detail
-The architecture leverages Gnosis Safe's existing modular framework (Zodiac) and can be built as open-source community tooling without requiring changes to Gnosis Pay itself. The keeper function can be decentralized via networks like Gelato, avoiding centralized operator licensing under MiCA. This is a buildable product path — not a whiteboard concept. As the EVRO ecosystem matures, any community developer or team could deploy this integration independently.
-
----
-
-# growth
-
-## title
-Growth Trajectory: The Bull Case
-
-## body
-The following trajectory represents the surviving thesis after rigorous analysis. Significant validation work remains at each phase, but the directional logic is sound and the underlying mechanics are on-chain verifiable.
-
-## phase-1-title
-The Infrastructure
-
-## phase-1-target
-€5M
-
-## phase-1-desc
-NOCA deposits collateral across 6 branches, mints EVRO, and deploys it into the three-venue architecture. The Stability Pool is seeded. The Anchor Pool has depth. The Bridge Pool enables EURe/EVRO routing. The infrastructure exists — properly buffered, properly incentivized.
-
-## phase-2-title
-Organic Migration + Leveraged Demand
-
-## phase-2-target
-€10–15M
-
-## phase-2-desc
-As the cost-of-borrowing delta between legacy venues and EVRO becomes undeniable, institutional borrowers begin evaluating migration. This is arithmetic convergence, not a marketing event. The Stability Pool deepens as second-mover capital enters.
-
-## phase-2-detail
-In parallel, pursuing an EVRO listing on Gnosis-native money markets (Aave v3 Gnosis, SparkLend) unlocks leveraged demand channels. Contango — a DeFi looping layer already deployed on Gnosis Chain — can atomically create leveraged EVRO positions once the listing exists. Early conversations with Contango's founding team are underway.
-
-## phase-2-impact
-If Contango routes even €2M of leveraged EVRO positions, that represents ~40% of the Phase 1 mandate as amplified demand. The Stability Pool carry trade (SP yield > borrow cost) creates a self-reinforcing loop: leveraged borrowers pay interest → SP depositors earn yield → deeper SP → more confidence → more borrowers.
-
-## phase-2-pathway
-Marc Zeller, an angel backer of Contango, also leads Aave governance (Aave Chan Initiative). This cross-portfolio alignment creates a named pathway for an EVRO listing proposal on the Aave Gnosis Market.
-
-## phase-3-title
-Treasury Adoption
-
-## phase-3-target
-€15–20M
-
-## phase-3-desc
-EVRO has a track record. The risk isolation architecture has held through at least one meaningful market cycle. DAO treasury committees can evaluate a protocol with operational history rather than a whitepaper. The pitch is collateral efficiency without conviction change.
-
-## phase-4-title
-Ecosystem Integration
-
-## phase-4-target
-€20–25M+
-
-## phase-4-desc
-EVRO matures into core Euro-denominated infrastructure within the Gnosis ecosystem. Community-driven POL commitments follow as protocols build around the deployed liquidity. If open-source tooling emerges that enables Gnosis Pay settlement routing through EVRO liquidity pools, retail transaction volume adds a new demand layer. This phase is aspirational and depends on execution across all prior phases.
+Stablecoin branches (sDAI, wXDAI) exposed to EUR/USD pricing. CR buffers absorb moderate FX moves.
 
 ---
 
@@ -322,6 +226,9 @@ The EVRO protocol generates revenue from borrowing interest — not from trading
 ## dao-share
 **25%** flows to the EVRO DAO via the interestRouter. The DAO — a Moloch v3 (Baal) instance on Gnosis Chain — governs how this stream is allocated: LP incentives, ecosystem partnerships, and protocol growth initiatives.
 
+## sp-note
+The Stability Pool also functions as a counter-cyclical asset acquisition engine. When a Trove in any branch is liquidated, SP stakers absorb the debt and receive the liquidated collateral at a protocol discount. During market stress — precisely when other yield sources compress — the Stability Pool activates, capturing discounted GNO, wstETH, sDAI, and other collateral across all 6 branches. This is not a secondary benefit. It is the structural reason the Stability Pool outperforms during volatility.
+
 ## token-body
 The governance token, **RETVRN**, has a fixed supply of **100,000,000** tokens distributed at launch across RaidGuild (30%), GnosisDAO (15%), and the DAO treasury (55%). RETVRN is not an emissions token. It is a governance token with revenue alignment. The name is the mandate: manage the interestRouter — the stream that turns deployed capital into sustained ecosystem depth.
 
@@ -336,71 +243,115 @@ At €25M TVL (Phase 4 target), the 25% stream becomes ~€237,500/yr — a self
 
 ---
 
-# kpis
+# growth
 
 ## title
-How We Measure Success
+A Path to Multiplying TVL
 
-## kpi-1-label
-Capital Utilization
+## body
+Four phases from Genesis deployment to ecosystem scale. Each phase unlocks the next.
 
-## kpi-1-target
->95% of €5M deployed
+## phase-1-title
+The Infrastructure
 
-## kpi-1-timeframe
-At launch
+## phase-1-target
+€5M
 
-## kpi-2-label
-EVRO Circulating Supply
+## phase-1-desc
+GnosisDAO seed capital launches the protocol and the EVRO DAO. This deployment is the unlock — every phase that follows depends on this infrastructure being live and earning.
 
-## kpi-2-target
-€2.85M – €3.29M
+*This is what's happening now.*
 
-## kpi-2-timeframe
-At launch
+## phase-2-title
+Organic Migration
 
-## kpi-3-label
-Anchor Pool Slippage
+## phase-2-target
+€10–15M
 
-## kpi-3-target
-<0.5% on standard trades
+## phase-2-desc
+LPs on legacy venues realize they're being extracted by bots. EVRO offers what they can't get elsewhere: real yield, rate sovereignty, and MEV protection.
 
-## kpi-3-timeframe
-Ongoing
+*The team: BD with extracted LPs, money market listings, partnership pipeline.*
 
-## kpi-4-label
-Cross-Branch Contagion
 
-## kpi-4-target
-Zero cascade events
 
-## kpi-4-timeframe
-Ongoing
+## phase-3-title
+Treasury Adoption
 
-## kpi-5-label
-Stability Pool APR
+## phase-3-target
+€15–20M
 
-## kpi-5-target
-~2.85% baseline
+## phase-3-desc
+The track record exists. DAOs evaluate real performance, not a whitepaper. Treasury capital enters for yield without changing asset conviction.
 
-## kpi-5-timeframe
-Interest share only
+*The team: performance reports, GIP proposals, treasury committee outreach.*
 
-## kpi-6-label
-Borrower Migration
+## phase-4-title
+Ecosystem Integration
 
-## kpi-6-target
-Rate delta modeled
+## phase-4-target
+€20–25M+
 
-## kpi-6-timeframe
-Before Phase 2
+## phase-4-desc
+EVRO becomes core Euro infrastructure on Gnosis. Protocols build around it. Retail spend routes through it.
+
+*The team: ecosystem support, open-source tooling, community integrations.*
+
+---
+
+# governance
+
+## title
+Post-Launch Governance Roadmap
+
+## body
+The 75/25 fee split is immutable. The DAO governs how the 25% is deployed. These are the moves planned post-launch.
+
+## move-1-title
+interestRouter Activation
+
+## move-1-desc
+First DAO proposal post-launch. Defines the initial allocation of the 25% revenue stream — LP incentives, ecosystem partnerships, and growth initiatives.
+
+## move-2-title
+Balancer Gauge Listing
+
+## move-2-desc
+Submit the sDAI/EVRO Anchor Pool for Balancer governance approval. If listed, BAL emissions flow to EVRO liquidity providers — stacking a third yield source on top of lending and LVR protection.
+
+## move-3-title
+Bribe Campaign Initialization
+
+## move-3-desc
+Fund veBAL/vlAURA bribes from DAO treasury to bootstrap gauge emissions and accelerate liquidity depth during the critical early growth window.
+
+## move-4-title
+Aave / SparkLend Listing
+
+## move-4-desc
+Submit an EVRO listing proposal on Gnosis-native money markets. Once listed, leveraged demand channels (including Contango) activate — creating amplified borrowing demand.
+
+## move-5-title
+veRETVRN Design Finalization
+
+## move-5-desc
+Lock duration, decay curve, minimum lock, and boost mechanics. This transforms RETVRN from a governance token into a vote-escrow instrument that directs emissions and accrues protocol value.
+
+## move-6-title
+Stakeholder Reporting Cadence
+
+## move-6-desc
+Joint execution status reporting — protocol health, DAO initiative transparency, and treasury performance. Transparency is not a feature; it is the operating standard.
+
+## architecture-body
+The governance architecture is layered: the EVRO Protocol enforces the immutable 75/25 split. The EVRO DAO (Moloch v3 / Baal on Gnosis Chain) allocates the 25% stream through proposals. RaidGuild (30% RETVRN) and GnosisDAO (15% RETVRN) are day-one governance participants. The remaining 55% sits in the DAO treasury for progressive distribution to aligned stakeholders.
 
 ---
 
 # footer
 
 ## line1
-EVRO Genesis · Capital Deployment Strategy · V5 · March 2026
+EVRO Genesis · Capital Deployment Guide · V5 · March 2026
 
 ## line2
 Prepared for GnosisDAO · IDE-Assisted Research · Harness 3.5

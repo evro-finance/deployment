@@ -1,0 +1,80 @@
+{
+  "Alpha": {
+    "name": "Playbook Alpha",
+    "netRealYield": "$839,779.80",
+    "hodlDelta": "$-4,329.10",
+    "efficiencyRatio": "1 : 433",
+    "stakingYield": "Simulated inline",
+    "netReturn": "-16.02%",
+    "rawNumbers": {
+      "activeValue": 839779.8033560729,
+      "hodlValue": 844108.9045506548,
+      "hodlDelta": -4329.101194581948
+    }
+  },
+  "Beta": {
+    "name": "Playbook Beta",
+    "netRealYield": "$952,186.81",
+    "hodlDelta": "$-1,733.97",
+    "efficiencyRatio": "1 : 173",
+    "stakingYield": "Simulated inline",
+    "netReturn": "-4.78%",
+    "rawNumbers": {
+      "activeValue": 952186.8126060566,
+      "hodlValue": 953920.7810837296,
+      "hodlDelta": -1733.9684776730137
+    }
+  },
+  "Gamma": {
+    "name": "Playbook Gamma",
+    "netRealYield": "$971,843.23",
+    "hodlDelta": "$-4,185.98",
+    "efficiencyRatio": "1 : 419",
+    "stakingYield": "Simulated inline",
+    "netReturn": "-2.82%",
+    "rawNumbers": {
+      "activeValue": 971843.2260872318,
+      "hodlValue": 976029.204911155,
+      "hodlDelta": -4185.978823923273
+    }
+  },
+  "Delta": {
+    "name": "Playbook Delta",
+    "netRealYield": "$888,794.31",
+    "hodlDelta": "$-3,531.16",
+    "efficiencyRatio": "1 : 353",
+    "stakingYield": "Simulated inline",
+    "netReturn": "-11.12%",
+    "rawNumbers": {
+      "activeValue": 888794.3078445008,
+      "hodlValue": 892325.4694561681,
+      "hodlDelta": -3531.1616116673686
+    }
+  },
+  "Epsilon": {
+    "name": "Playbook Epsilon",
+    "netRealYield": "$863,294.90",
+    "hodlDelta": "$-3,920.06",
+    "efficiencyRatio": "1 : 392",
+    "stakingYield": "Simulated inline",
+    "netReturn": "-13.67%",
+    "rawNumbers": {
+      "activeValue": 863294.904409008,
+      "hodlValue": 867214.9664349366,
+      "hodlDelta": -3920.062025928637
+    }
+  },
+  "Zeta": {
+    "name": "Playbook Zeta",
+    "netRealYield": "$885,806.39",
+    "hodlDelta": "$-3,170.22",
+    "efficiencyRatio": "1 : 317",
+    "stakingYield": "Simulated inline",
+    "netReturn": "-11.42%",
+    "rawNumbers": {
+      "activeValue": 885806.3927579982,
+      "hodlValue": 888976.6159553472,
+      "hodlDelta": -3170.223197348998
+    }
+  }
+}
