@@ -54,7 +54,7 @@ EURe Native Yield
 Deployment Architecture
 
 ## body
-Historical replay: if Gnosis had deployed this capital on Apr 1 2025, these are the returns it would have generated over the following 365 days — using real on-chain data from BOLD Stability Pool APY, sDAI/wstETH ratios, GNO staking yields, and CoW AMM batch-auction settlement fees.
+Drag the slider to model different deployment sizes.
 
 ## cr-strategy
 
