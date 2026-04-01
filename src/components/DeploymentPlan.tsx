@@ -280,7 +280,7 @@ export function DeploymentPlan({
   const [showShareModal, setShowShareModal] = useState(false);
 
   // ── Guided checklist flow ──
-  const CONTROL_ORDER: string[] = ['capital', 'posture', 'router'];
+  const CONTROL_ORDER: string[] = ['controls', 'branches', 'l2'];
 
   const activeControl = useMemo(() => {
     return CONTROL_ORDER.find(k => !locks[k]) ?? null;
@@ -295,7 +295,6 @@ export function DeploymentPlan({
 
     const nextIdx = CONTROL_ORDER.findIndex(k => !nextLocks[k]);
     if (nextIdx >= 0) {
-      // Scroll to next control
       const nextKey = CONTROL_ORDER[nextIdx];
       setTimeout(() => {
         document.getElementById(`ctrl-${nextKey}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -511,62 +510,54 @@ export function DeploymentPlan({
       {/* ── Controls + Output Row ── */}
       <div style={{ display: 'flex', gap: '20px', marginBottom: '24px', alignItems: 'stretch' }}>
         {/* ── Controls (30%) ── */}
-        <div className="glass-card" style={{ padding: '14px 18px', flex: '0 0 30%', minWidth: 0 }}>
-          {/* Reset + header */}
+        <div
+          id="ctrl-controls"
+          className={`glass-card control-section${activeControl === 'controls' ? ' control-section--active' : ''}${locks.controls ? ' control-section--locked' : ''}`}
+          style={{ padding: '14px 18px', flex: '0 0 30%', minWidth: 0 }}
+        >
+          {/* Header + Reset + Check */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
             <span className="label" style={{ fontSize: '0.55rem' }}>Controls</span>
-            <button className="btn-utility" onClick={onReset}>Reset to Defaults</button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <button className="btn-utility" onClick={onReset}>Reset</button>
+              <ControlCheck checked={locks.controls} onClick={() => handleCheck('controls')} />
+            </div>
           </div>
 
           {/* Capital */}
-          <div
-            id="ctrl-capital"
-            className={`control-section${activeControl === 'capital' ? ' control-section--active' : ''}${locks.capital ? ' control-section--locked' : ''}`}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-              <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'capital-label')}</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
-                <ControlCheck checked={locks.capital} onClick={() => handleCheck('capital')} />
-              </div>
-            </div>
-            <input
-              type="range" min={1_000_000} max={25_000_000} step={500_000}
-              value={totalCapital}
-              onChange={e => onCapitalChange(Number(e.target.value))}
-              style={{ margin: 0 }}
-              disabled={locks.capital}
-            />
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px', marginBottom: '4px' }}>
-              <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-min')}</span>
-              <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-max')}</span>
-            </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+            <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'capital-label')}</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
+          </div>
+          <input
+            type="range" min={1_000_000} max={25_000_000} step={500_000}
+            value={totalCapital}
+            onChange={e => onCapitalChange(Number(e.target.value))}
+            style={{ margin: 0 }}
+            disabled={locks.controls}
+          />
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px', marginBottom: '4px' }}>
+            <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-min')}</span>
+            <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-max')}</span>
           </div>
 
           {/* Posture */}
-          <div
-            id="ctrl-posture"
-            className={`control-section${activeControl === 'posture' ? ' control-section--active' : ''}${locks.posture ? ' control-section--locked' : ''}`}
-            style={{ borderTop: '1px solid rgba(160,130,245,0.06)' }}
-          >
+          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'posture-label')}</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
-                  color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A081F5',
-                }}>
-                  {posture < 0.35 ? get('deploy', 'posture-conservative') : posture > 0.65 ? get('deploy', 'posture-aggressive') : get('deploy', 'posture-balanced')}
-                </span>
-                <ControlCheck checked={locks.posture} onClick={() => handleCheck('posture')} />
-              </div>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
+                color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A081F5',
+              }}>
+                {posture < 0.35 ? get('deploy', 'posture-conservative') : posture > 0.65 ? get('deploy', 'posture-aggressive') : get('deploy', 'posture-balanced')}
+              </span>
             </div>
             <input
               type="range" min={0} max={1} step={0.05}
               value={posture}
               onChange={e => onPostureChange(Number(e.target.value))}
               style={{ margin: 0 }}
-              disabled={locks.posture}
+              disabled={locks.controls}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
               <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'posture-hint-left')}</span>
@@ -575,33 +566,26 @@ export function DeploymentPlan({
           </div>
 
           {/* Interest Router */}
-          <div
-            id="ctrl-router"
-            className={`control-section${activeControl === 'router' ? ' control-section--active' : ''}${locks.router ? ' control-section--locked' : ''}`}
-            style={{ borderTop: '1px solid rgba(160,130,245,0.06)' }}
-          >
+          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px', marginTop: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'router-label')}</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
-                  color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A081F5',
-                }}>
-                  {incentiveShare < 0.15
-                    ? get('deploy', 'router-summary-dao25')
-                    : incentiveShare > 0.85
-                      ? get('deploy', 'router-summary-all-lps')
-                      : fillTemplate(get('deploy', 'router-summary-partial'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
-                </span>
-                <ControlCheck checked={locks.router} onClick={() => handleCheck('router')} />
-              </div>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
+                color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A081F5',
+              }}>
+                {incentiveShare < 0.15
+                  ? get('deploy', 'router-summary-dao25')
+                  : incentiveShare > 0.85
+                    ? get('deploy', 'router-summary-all-lps')
+                    : fillTemplate(get('deploy', 'router-summary-partial'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
+              </span>
             </div>
             <input
               type="range" min={0} max={1} step={0.05}
               value={incentiveShare}
               onChange={e => onIncentiveChange(Number(e.target.value))}
               style={{ margin: 0 }}
-              disabled={locks.router}
+              disabled={locks.controls}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
               <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'router-end-dao')}</span>
@@ -613,57 +597,58 @@ export function DeploymentPlan({
         {/* ── Output Summary (70%) ── */}
         <div className="glass-card" style={{ padding: '20px 24px', flex: 1, minWidth: 0, display: 'flex', gap: '20px' }}>
           {/* Left: LP position KPIs */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: '0' }}>
             {/* Headline: APY */}
-            <div style={{ marginBottom: '14px' }}>
-              <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>{get('deploy', 'apy-label')}</span>
-              <span style={{
+            <div style={{ marginBottom: '16px', paddingBottom: '16px', borderBottom: '1px solid rgba(160,130,245,0.06)' }}>
+              <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '6px' }}>{get('deploy', 'apy-label')}</span>
+              <div style={{
                 fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 700,
                 color: '#A081F5', lineHeight: 1,
               }}>
                 {yieldTotals.annualizedPct.toFixed(1)}%
-              </span>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)', marginTop: '6px', lineHeight: 1.7 }}>
+              </div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)', marginTop: '8px', lineHeight: 1.7 }}>
                 {get('deploy', 'apy-footnote')}
               </div>
             </div>
 
-            {/* LP position yield (what {lpName} earns) */}
+            {/* LP position yield */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-              padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+              padding: '10px 0', borderBottom: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>
                 {fillTemplate(get('deploy', 'lp-position-label'), { days: String(yieldTotals.totalDays) })}
               </span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A081F5' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A081F5', marginLeft: '8px' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
             </div>
 
-            {/* DAO fee — the only real cost that leaves {lpName} */}
+            {/* DAO fee */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-              padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+              padding: '10px 0', borderBottom: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>
                 {fillTemplate(get('deploy', 'dao-fee-label'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
               </span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>−{fmtCompact(yieldTotals.daoRevenue)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted-foreground)', marginLeft: '8px' }}>−{fmtCompact(yieldTotals.daoRevenue)}</span>
             </div>
 
-            {/* Net to {lpName} */}
+            {/* Net to LP */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-              padding: '10px 0 0', borderTop: '1px solid rgba(160,130,245,0.15)',
+              padding: '12px 0 0',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>{get('deploy', 'net-lp-label')}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)', whiteSpace: 'nowrap' }}>{get('deploy', 'net-lp-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700,
-                color: '#EFA960',
+                color: '#EFA960', marginLeft: '8px',
               }}>
                 {(yieldTotals.evroTotal - yieldTotals.daoRevenue) > 0 ? '+' : ''}{fmtCompact(yieldTotals.evroTotal - yieldTotals.daoRevenue)}
               </span>
             </div>
           </div>
+
 
           {/* Right: capital deployment map */}
           <div style={{ flex: 1, borderLeft: '1px solid rgba(160,130,245,0.06)', paddingLeft: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -716,14 +701,20 @@ export function DeploymentPlan({
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>{get('deploy', 'map-line-reserve')}</span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>{fmtCompact(reserveAlloc)}</span>
             </div>
-
           </div>
         </div>
       </div>
 
-      {/* ── Branch Allocation Table ─────────────────────── */}
-      <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
-        <p className="label" style={{ marginBottom: '8px' }}>{get('deploy', 'branch-title')}</p>
+      {/* ── Branch Allocation Table ───────────────────── */}
+      <div
+        id="ctrl-branches"
+        className={`glass-card control-section${activeControl === 'branches' ? ' control-section--active' : ''}${locks.branches ? ' control-section--locked' : ''}`}
+        style={{ padding: '24px', marginBottom: '24px' }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+          <p className="label" style={{ margin: 0 }}>{get('deploy', 'branch-title')}</p>
+          <ControlCheck checked={locks.branches} onClick={() => handleCheck('branches')} />
+        </div>
         <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
           {get('deploy', 'branch-hint')}
         </p>
@@ -791,9 +782,16 @@ export function DeploymentPlan({
         }}
       />
 
-      {/* ── Layer 2: Liquidity Allocation Table ─────────── */}
-      <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
-        <p className="label" style={{ marginBottom: '4px' }}>{get('deploy', 'l2-card-title')}</p>
+      {/* ── Layer 2: Liquidity Allocation Table ───────── */}
+      <div
+        id="ctrl-l2"
+        className={`glass-card control-section${activeControl === 'l2' ? ' control-section--active' : ''}${locks.l2 ? ' control-section--locked' : ''}`}
+        style={{ padding: '24px', marginBottom: '24px' }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+          <p className="label" style={{ margin: 0 }}>{get('deploy', 'l2-card-title')}</p>
+          <ControlCheck checked={locks.l2} onClick={() => handleCheck('l2')} />
+        </div>
         <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
           {get('deploy', 'l2-card-hint')}
         </p>

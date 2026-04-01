@@ -159,46 +159,46 @@ export function RevenueReplay({
         </ResponsiveContainer>
       </div>
 
-      {/* SUCCESS STORY STRIP (Reflecting Top Hero Data) */}
-      <div style={{ 
-        marginTop: '16px', 
-        paddingTop: '16px', 
+      {/* SUCCESS STORY STRIP */}
+      <div style={{
+        marginTop: '20px',
+        paddingTop: '16px',
         borderTop: '1px solid rgba(160, 130, 245, 0.1)',
         display: 'flex',
         flexDirection: 'column',
-        gap: '12px'
+        gap: '16px',
       }}>
         {/* Net to LP Hero */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
           <span className="h4" style={{ margin: 0, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--foreground)' }}>
             Net to {lpName}
           </span>
-          <span style={{ 
-            fontFamily: 'var(--font-heading)', 
-            fontSize: '1.4rem', 
-            fontWeight: 700, 
-            color: 'var(--evro-orange)' 
+          <span style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: '1.4rem',
+            fontWeight: 700,
+            color: 'var(--evro-orange)',
           }}>
             +{fmtEur(t.evroTotal - t.daoRevenue)}
           </span>
         </div>
 
         {/* Secondary Details */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px' }}>
-          <div className="flex-col">
-            <span className="label-xs" style={{ color: 'var(--muted-foreground)' }}>ANNUALIZED YIELD</span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <span className="label-xs" style={{ color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>ANNUALIZED YIELD</span>
             <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--evro-lilac)' }}>
               {t.annualizedPct.toFixed(1)}%
             </span>
           </div>
-          <div className="flex-col" style={{ alignItems: 'center' }}>
-            <span className="label-xs" style={{ color: 'var(--muted-foreground)' }}>LP POSITION (365D)</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
+            <span className="label-xs" style={{ color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>LP POSITION (365D)</span>
             <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--evro-lilac)' }}>
               +{fmtEur(t.evroTotal)}
             </span>
           </div>
-          <div className="flex-col" style={{ alignItems: 'flex-end' }}>
-            <span className="label-xs" style={{ color: 'var(--muted-foreground)' }}>DAO FEE (25%)</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'flex-end' }}>
+            <span className="label-xs" style={{ color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>DAO FEE (25%)</span>
             <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>
               −{fmtEur(t.daoRevenue)}
             </span>

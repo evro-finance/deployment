@@ -87,7 +87,7 @@ function App() {
 
   // Lock state — which control sections are frozen
   const [locks, setLocks] = useState<Record<string, boolean>>({
-    capital: false, posture: false, branches: false, l2: false, router: false,
+    controls: false, branches: false, l2: false,
   });
 
   const toggleLock = useCallback((key: string) => {
