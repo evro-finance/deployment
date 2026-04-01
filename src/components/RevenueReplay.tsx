@@ -21,6 +21,8 @@ interface RevenueReplayProps {
     incentiveShare: number;
     /** The dynamic name of the liquidity provider (e.g. Gnosis or from URL) */
     lpName: string;
+    l2Locked?: boolean;
+    onToggleL2?: () => void;
   };
 }
 
@@ -87,7 +89,7 @@ export function RevenueReplay({
         LP bands + DAO cap ({fmtEur(t.evroTotal + t.daoRevenue)} total).{' '}
         Hover to inspect specific yield sources.
       </p>
-      <div className={chartInRow ? 'replay-chart-row__chart-area' : undefined} style={chartInRow ? undefined : { height: '320px', flex: 1 }}>
+      <div className={chartInRow ? 'replay-chart-row__chart-area' : undefined} style={chartInRow ? { background: 'rgba(22,20,30,0.03)', border: '1px solid rgba(160,130,245,0.18)', borderRadius: '8px', overflow: 'hidden' } : { height: '320px', flex: 1, background: 'rgba(22,20,30,0.03)', border: '1px solid rgba(160,130,245,0.18)', borderRadius: '8px', overflow: 'hidden' }}>
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart 
             data={chartData} 
@@ -96,43 +98,55 @@ export function RevenueReplay({
             <defs>
               {/* Band 1 (bottom): sDAI — most stable */}
               <linearGradient id="sdGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#7176CA" stopOpacity={0.55} />
-                <stop offset="95%" stopColor="#7176CA" stopOpacity={0.12} />
+                <stop offset="5%"  stopColor="#7176CA" stopOpacity={0.82} />
+                <stop offset="95%" stopColor="#7176CA" stopOpacity={0.35} />
               </linearGradient>
               {/* Band 2: Staking */}
               <linearGradient id="skGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#9CB1F4" stopOpacity={0.55} />
-                <stop offset="95%" stopColor="#9CB1F4" stopOpacity={0.12} />
+                <stop offset="5%"  stopColor="#9CB1F4" stopOpacity={0.82} />
+                <stop offset="95%" stopColor="#9CB1F4" stopOpacity={0.35} />
               </linearGradient>
               {/* Band 3: CoW AMM Fees */}
               <linearGradient id="cwGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#EFA960" stopOpacity={0.55} />
-                <stop offset="95%" stopColor="#EFA960" stopOpacity={0.12} />
+                <stop offset="5%"  stopColor="#EFA960" stopOpacity={0.82} />
+                <stop offset="95%" stopColor="#EFA960" stopOpacity={0.35} />
               </linearGradient>
               {/* Band 4: LVR Captured */}
               <linearGradient id="lvGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#81C784" stopOpacity={0.55} />
-                <stop offset="95%" stopColor="#81C784" stopOpacity={0.12} />
+                <stop offset="5%"  stopColor="#81C784" stopOpacity={0.82} />
+                <stop offset="95%" stopColor="#81C784" stopOpacity={0.35} />
               </linearGradient>
               {/* Band 5: SP Yield */}
               <linearGradient id="spGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#A081F5" stopOpacity={0.60} />
-                <stop offset="95%" stopColor="#A081F5" stopOpacity={0.12} />
+                <stop offset="5%"  stopColor="#A081F5" stopOpacity={0.88} />
+                <stop offset="95%" stopColor="#A081F5" stopOpacity={0.38} />
               </linearGradient>
               {/* Band 6: Router→LPs (grows with incentiveShare) */}
               <linearGradient id="rdGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#C4B0FF" stopOpacity={0.60} />
-                <stop offset="95%" stopColor="#C4B0FF" stopOpacity={0.12} />
+                <stop offset="5%"  stopColor="#C4B0FF" stopOpacity={0.88} />
+                <stop offset="95%" stopColor="#C4B0FF" stopOpacity={0.38} />
               </linearGradient>
               {/* Band 7 (cap): DAO Accrual — opacity driven by incentiveShare */}
               <linearGradient id="daoGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#95929E" stopOpacity={daoOpacity} />
+                <stop offset="5%"  stopColor="#95929E" stopOpacity={Math.min(0.65, daoOpacity)} />
                 <stop offset="95%" stopColor="#95929E" stopOpacity={daoOpacityFloor} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(160,130,245,0.06)" />
-            <XAxis dataKey="date" tick={{ fontSize: 9, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} interval={tickInterval} />
-            <YAxis tickFormatter={(v: number) => fmtEur(v)} tick={{ fontSize: 10, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(160,130,245,0.10)" />
+            <XAxis dataKey="date" tick={{ fontSize: 11, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} interval={tickInterval} />
+            <YAxis
+              tickFormatter={(v: number) => {
+                const abs = Math.abs(v);
+                if (abs >= 1_000_000) return `€${(v / 1_000_000).toFixed(1)}M`;
+                if (abs >= 1_000)     return `€${Math.round(v / 1_000)}k`;
+                return `€${v.toFixed(0)}`;
+              }}
+              tick={{ fontSize: 11, fontFamily: 'var(--font-mono)', fill: '#95929E' }}
+              axisLine={false}
+              tickLine={false}
+              tickCount={5}
+              width={52}
+            />
             <Tooltip
               itemSorter={() => -1} // Reverse order to show Top-to-Bottom (matching visual stack)
               formatter={(value: unknown, name: unknown) => {
@@ -147,14 +161,14 @@ export function RevenueReplay({
             <ReferenceLine y={0} stroke="rgba(160,160,160,0.3)" strokeDasharray="4 4" />
 
             {/* Stack order: stable at bottom, reactive at top */}
-            <Area type="monotone" dataKey="sDAI Yield"    stackId="evro" stroke="#7176CA" fill="url(#sdGrad)" strokeWidth={1.5} />
-            <Area type="monotone" dataKey="Staking Yield" stackId="evro" stroke="#9CB1F4" fill="url(#skGrad)" strokeWidth={1.5} />
-            <Area type="monotone" dataKey="CoW AMM Fees"  stackId="evro" stroke="#EFA960" fill="url(#cwGrad)" strokeWidth={1.5} />
-            <Area type="monotone" dataKey="LVR Captured"  stackId="evro" stroke="#81C784" fill="url(#lvGrad)" strokeWidth={1.5} />
-            <Area type="monotone" dataKey="SP Yield"      stackId="evro" stroke="#A081F5" fill="url(#spGrad)" strokeWidth={1.5} />
-            <Area type="monotone" dataKey="Router → LPs" stackId="evro" stroke="#C4B0FF" fill="url(#rdGrad)" strokeWidth={1.5} />
+            <Area type="monotone" dataKey="sDAI Yield"    stackId="evro" stroke="#7176CA" fill="url(#sdGrad)" strokeWidth={2} />
+            <Area type="monotone" dataKey="Staking Yield" stackId="evro" stroke="#9CB1F4" fill="url(#skGrad)" strokeWidth={2} />
+            <Area type="monotone" dataKey="CoW AMM Fees"  stackId="evro" stroke="#EFA960" fill="url(#cwGrad)" strokeWidth={2} />
+            <Area type="monotone" dataKey="LVR Captured"  stackId="evro" stroke="#81C784" fill="url(#lvGrad)" strokeWidth={2} />
+            <Area type="monotone" dataKey="SP Yield"      stackId="evro" stroke="#A081F5" fill="url(#spGrad)" strokeWidth={2} />
+            <Area type="monotone" dataKey="Router → LPs" stackId="evro" stroke="#C4B0FF" fill="url(#rdGrad)" strokeWidth={2} />
             {/* DAO cap: always visible, desaturates as incentiveShare → 1 */}
-            <Area type="monotone" dataKey="DAO Accrual"   stackId="evro" stroke="#95929E" fill="url(#daoGrad)" strokeWidth={1} strokeDasharray="3 3" />
+            <Area type="monotone" dataKey="DAO Accrual"   stackId="evro" stroke="#95929E" fill="url(#daoGrad)" strokeWidth={1.5} strokeDasharray="3 3" />
           </AreaChart>
         </ResponsiveContainer>
       </div>

@@ -243,8 +243,7 @@ function BranchWeightPiePanel({
   );
 }
 
-/** SVG check circle — empty circle → filled with white checkmark */
-function ControlCheck({ checked, onClick }: { checked: boolean; onClick: () => void }) {
+export function ControlCheck({ checked, onClick }: { checked: boolean; onClick: () => void }) {
   return (
     <button
       className={`control-check${checked ? ' control-check--checked' : ''}`}
@@ -777,9 +776,6 @@ export function DeploymentPlan({
         className={`control-section${activeControl === 'l2' ? ' control-section--active' : ''}${locks.l2 ? ' control-section--locked' : ''}`}
         style={{ marginBottom: '24px' }}
       >
-        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '4px' }}>
-          <ControlCheck checked={locks.l2} onClick={() => handleCheck('l2')} />
-        </div>
         <RevenueReplay
           embedded
           yieldResult={yieldResult}
@@ -796,6 +792,8 @@ export function DeploymentPlan({
             onAdjustL2: onAdjustL2Shares,
             incentiveShare,
             lpName,
+            l2Locked: locks.l2,
+            onToggleL2: () => handleCheck('l2')
           }}
         />
       </div>

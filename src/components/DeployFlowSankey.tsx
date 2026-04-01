@@ -20,6 +20,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { DISTRIBUTION_LABELS, type L2Shares } from '../data/branches';
+import { ControlCheck } from './DeploymentPlan';
 
 // ─── EVRO Palette (from tokens.css) ────────────────────────────────────────
 const C = {
@@ -387,6 +388,8 @@ interface DeployFlowSankeyProps {
   totalMinted:  number;
   l2Shares:     L2Shares;
   onAdjustL2:   (key: keyof L2Shares, target: number) => void;
+  l2Locked?:    boolean;
+  onToggleL2?:  () => void;
 }
 
 const L2_META: { key: keyof L2Shares; short: string }[] = [
@@ -625,7 +628,7 @@ function DeployFlowCanvas({
 
 // ─── Public export ────────────────────────────────────────────────────────────
 export function DeployFlowSankey({
-  branches, totalMinted, l2Shares, onAdjustL2,
+  branches, totalMinted, l2Shares, onAdjustL2, l2Locked, onToggleL2
 }: DeployFlowSankeyProps) {
   const glowId = useId().replace(/:/g, '');
 
@@ -633,9 +636,12 @@ export function DeployFlowSankey({
     <div className="deploy-flow-sankey">
 
       {/* Section header */}
-      <p className="label" style={{ marginBottom: 6, fontSize: '0.58rem' }}>
-        Deploy flow
-      </p>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+        <p className="label" style={{ margin: 0, fontSize: '0.58rem' }}>
+          Deploy flow
+        </p>
+        <ControlCheck checked={!!l2Locked} onClick={() => onToggleL2?.()} />
+      </div>
 
       {/* Tier labels — Isolation Doctrine marker */}
       <div className="deploy-flow-sankey__tier-labels">

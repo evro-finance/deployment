@@ -47,6 +47,25 @@ function App() {
   );
   const [l2Shares, setL2Shares] = useState<L2Shares>(DEFAULT_L2_SHARES);
 
+  const [locks, setLocks] = useState<Record<string, boolean>>({
+    controls: false,
+    branches: false,
+    l2: false,
+  });
+
+  const onToggleLock = useCallback((key: string) => {
+    setLocks(prev => ({ ...prev, [key]: !prev[key] }));
+  }, []);
+
+  const onReset = useCallback(() => {
+    setTotalCapital(DEFAULT_CAPITAL);
+    setIncentiveShare(0);
+    setPosture(0.5);
+    setBranchStates(Object.fromEntries(BRANCHES.map(b => [b.id, { weight: b.defaultWeight, cr: b.defaultCR, rate: b.interestRate }])));
+    setL2Shares(DEFAULT_L2_SHARES);
+    setLocks({ controls: false, branches: false, l2: false });
+  }, []);
+
   // When posture changes, recompute all CRs and rates
   const applyPosture = useCallback((p: number) => {
     setPosture(p);
@@ -152,6 +171,11 @@ function App() {
         yieldResult={yieldResult}
         l2Shares={l2Shares}
         onAdjustL2Shares={onAdjustL2Shares}
+        lpName="Gnosis"
+        shareUrl=""
+        locks={locks}
+        onToggleLock={onToggleLock}
+        onReset={onReset}
       />
 
       <Layer2Section />
