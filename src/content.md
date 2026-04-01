@@ -314,37 +314,53 @@ interestRouter Activation
 First DAO proposal post-launch. Defines the initial allocation of the 25% revenue stream — LP incentives, ecosystem partnerships, and growth initiatives.
 
 ## move-2-title
-Balancer Gauge Listing
-
-## move-2-desc
-Submit the sDAI/EVRO Anchor Pool for Balancer governance approval. If listed, BAL emissions flow to EVRO liquidity providers — stacking a third yield source on top of lending and LVR protection.
-
-## move-3-title
-Bribe Campaign Initialization
-
-## move-3-desc
-Fund veBAL/vlAURA bribes from DAO treasury to bootstrap gauge emissions and accelerate liquidity depth during the critical early growth window.
-
-## move-4-title
 Aave / SparkLend Listing
 
-## move-4-desc
-Submit an EVRO listing proposal on Gnosis-native money markets. Once listed, leveraged demand channels (including Contango) activate — creating amplified borrowing demand.
+## move-2-desc
+Submit an EVRO listing proposal on Gnosis-native money markets. Once listed, leveraged demand channels activate — creating amplified borrowing demand.
 
-## move-5-title
+## move-3-title
 veRETVRN Design Finalization
 
-## move-5-desc
-Lock duration, decay curve, minimum lock, and boost mechanics. This transforms RETVRN from a governance token into a vote-escrow instrument that directs emissions and accrues protocol value.
+## move-3-desc
+Lock duration, decay curve, minimum lock, and boost mechanics. This transforms RETVRN from a governance token into a vote-escrow instrument that directs the revenue stream.
 
-## move-6-title
+## move-4-title
 Stakeholder Reporting Cadence
 
-## move-6-desc
+## move-4-desc
 Joint execution status reporting — protocol health, DAO initiative transparency, and treasury performance. Transparency is not a feature; it is the operating standard.
+
+## move-5-title
+Alpha Growth Partnership
+
+## move-5-desc
+Formalize the borrower acquisition pipeline with Alpha Growth. Conversations with the team are active — scope covers LP outreach, protocol integrations, and growth campaign execution on Gnosis Chain.
+
+## move-6-title
+Contango Integration
+
+## move-6-desc
+Pursue Contango integration for leveraged EVRO positions. Conversations with the founding team are active — contingent on EVRO listing on a Gnosis-native money market (see Move 2).
 
 ## architecture-body
 The governance architecture is layered: the EVRO Protocol enforces the immutable 75/25 split. The EVRO DAO (Moloch v3 / Baal on Gnosis Chain) allocates the 25% stream through proposals. RaidGuild (30% RETVRN) and GnosisDAO (15% RETVRN) are day-one governance participants. The remaining 55% sits in the DAO treasury for progressive distribution to aligned stakeholders.
+
+---
+
+# cta
+
+## title
+Let's talk.
+
+## body
+The infrastructure is built. The capital plan is modeled. The next step is a conversation.
+
+## button
+Schedule a Call with the Team
+
+## link
+https://calendar.app.google/otE3KDr2rpppKGs39
 
 ---
 

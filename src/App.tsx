@@ -12,6 +12,7 @@ import { CohortSection } from './components/CohortSection';
 
 import { GrowthTimeline } from './components/GrowthTimeline';
 import { GovernanceSection } from './components/GovernanceSection';
+import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 
 export interface BranchState {
@@ -20,9 +21,22 @@ export interface BranchState {
   rate: number;
 }
 
+// Posture ranges — healthy buffers above minMCR, never kissing the minimum
+const POSTURE_RANGES: Record<string, { conservativeCR: number; aggressiveCR: number; conservativeRate: number; aggressiveRate: number }> = {
+  sdai:   { conservativeCR: 2.00, aggressiveCR: 1.40, conservativeRate: 0.020, aggressiveRate: 0.050 },
+  gno:    { conservativeCR: 2.50, aggressiveCR: 1.60, conservativeRate: 0.025, aggressiveRate: 0.065 },
+  wsteth: { conservativeCR: 2.20, aggressiveCR: 1.50, conservativeRate: 0.025, aggressiveRate: 0.060 },
+  wxdai:  { conservativeCR: 1.60, aggressiveCR: 1.15, conservativeRate: 0.015, aggressiveRate: 0.045 },
+  wbtc:   { conservativeCR: 2.50, aggressiveCR: 1.50, conservativeRate: 0.030, aggressiveRate: 0.070 },
+  osgno:  { conservativeCR: 2.50, aggressiveCR: 1.60, conservativeRate: 0.025, aggressiveRate: 0.060 },
+};
+
+function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
+
 function App() {
   const [totalCapital, setTotalCapital] = useState(DEFAULT_CAPITAL);
   const [incentivesToLps, setIncentivesToLps] = useState(false);
+  const [posture, setPosture] = useState(0.5); // 0 = conservative, 1 = aggressive
   const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(
     Object.fromEntries(BRANCHES.map(b => [b.id, {
       weight: b.defaultWeight,
@@ -30,6 +44,23 @@ function App() {
       rate: b.interestRate,
     }]))
   );
+
+  // When posture changes, recompute all CRs and rates
+  const applyPosture = useCallback((p: number) => {
+    setPosture(p);
+    setBranchStates(prev => {
+      const next: Record<string, BranchState> = {};
+      for (const b of BRANCHES) {
+        const r = POSTURE_RANGES[b.id];
+        next[b.id] = {
+          weight: prev[b.id].weight, // weights stay untouched
+          cr: Math.round(lerp(r.conservativeCR, r.aggressiveCR, p) * 20) / 20, // round to 0.05
+          rate: Math.round(lerp(r.conservativeRate, r.aggressiveRate, p) * 200) / 200, // round to 0.005
+        };
+      }
+      return next;
+    });
+  }, []);
 
   const updateBranch = useCallback((id: string, field: keyof BranchState, delta: number) => {
     setBranchStates(prev => {
@@ -89,6 +120,8 @@ function App() {
         onUpdateBranch={updateBranch}
         incentivesToLps={incentivesToLps}
         onToggleIncentives={setIncentivesToLps}
+        posture={posture}
+        onPostureChange={applyPosture}
       />
       <RevenueReplay
         totalCapital={totalCapital}
@@ -100,7 +133,7 @@ function App() {
 
       <GrowthTimeline />
       <GovernanceSection />
-
+      <CTASection />
       <Footer />
     </>
   );
