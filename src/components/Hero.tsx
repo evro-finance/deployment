@@ -21,6 +21,11 @@ export function Hero() {
         <p className="body-text animate-in delay-1" style={{ maxWidth: '620px' }}>
           {get('hero', 'body')}
         </p>
+        {get('hero', 'body2') && (
+          <p className="body-text animate-in delay-2" style={{ maxWidth: '620px', marginTop: '16px' }}
+             dangerouslySetInnerHTML={{ __html: get('hero', 'body2').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+          />
+        )}
       </div>
     </section>
   );

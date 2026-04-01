@@ -5,10 +5,11 @@ import { BRANCHES, DEFAULT_CAPITAL, calculateDeployment } from './data/branches'
 import { Hero } from './components/Hero';
 import { Problem } from './components/Problem';
 import { Simulator } from './components/Simulator';
+import { Layer2Section } from './components/Layer2Section';
 import { RiskSection } from './components/RiskSection';
 import { CohortSection } from './components/CohortSection';
+import { SustainabilitySection } from './components/SustainabilitySection';
 import { GrowthTimeline } from './components/GrowthTimeline';
-import { KPISection } from './components/KPISection';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -37,10 +38,11 @@ function App() {
         onCapitalChange={setTotalCapital}
         calculations={calculations}
       />
+      <Layer2Section />
       <RiskSection />
       <CohortSection />
+      <SustainabilitySection />
       <GrowthTimeline />
-      <KPISection />
       <Footer />
     </>
   );

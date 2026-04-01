@@ -42,6 +42,16 @@ export function Simulator({ totalCapital, onCapitalChange, calculations }: Simul
       <p className="body-text" style={{ marginBottom: '16px' }}>
         {get('simulator', 'body')}
       </p>
+      {get('simulator', 'cr-strategy') && (
+        <p className="body-text" style={{ marginBottom: '8px', fontSize: '0.9rem' }}
+           dangerouslySetInnerHTML={{ __html: get('simulator', 'cr-strategy').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+        />
+      )}
+      {get('simulator', 'rate-strategy') && (
+        <p className="body-text" style={{ marginBottom: '16px', fontSize: '0.9rem' }}
+           dangerouslySetInnerHTML={{ __html: get('simulator', 'rate-strategy').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+        />
+      )}
 
       {/* ── Capital Slider ──────────────────────────────── */}
       <div className="glass-card" style={{ padding: '32px', marginBottom: '24px' }}>
