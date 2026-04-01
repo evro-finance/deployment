@@ -278,14 +278,15 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
 
       {/* Label */}
       <div style={{
-        fontFamily:   isL2 ? 'var(--font-body)' : 'var(--font-heading)',
-        fontSize:     isL2 ? '0.58rem' : isMint ? '0.68rem' : '0.72rem',
-        fontWeight:   isL2 ? 600 : 700,
-        textTransform: isL2 ? 'none' : 'uppercase',
-        letterSpacing: isL2 ? '0' : '0.04em',
+        fontFamily:   isL2 ? 'var(--font-heading)' : 'var(--font-heading)',
+        fontSize:     isL2 ? '0.64rem' : isMint ? '0.68rem' : '0.72rem',
+        fontWeight:   700,
+        textTransform: 'uppercase' as const,
+        letterSpacing: isL2 ? '0.03em' : '0.04em',
         lineHeight:    1.2,
         paddingRight:  !isL2 ? '10px' : 0,
         textAlign:     isMint ? 'right' as const : undefined,
+        color:         isL2 ? accent : undefined,
       }}>
         {isMint ? (
           <>
@@ -323,11 +324,11 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
       {/* Sublabel */}
       <div style={{
         fontFamily:   'var(--font-mono)',
-        fontSize:     '0.5rem',
+        fontSize:     isL2 ? '0.45rem' : '0.5rem',
         fontWeight:   500,
-        opacity:      isL2 ? 0.8 : 0.75,
+        opacity:      isMint ? 0.75 : 1,
         marginTop:    3,
-        color:        isL2 ? accent : undefined,
+        color:        isL2 ? C.shark : undefined,
         letterSpacing: '0.02em',
       }}>
         {sublabel}
@@ -503,8 +504,8 @@ function buildGraph(
       type: 'sankeyCard',
       position: { x: l2StartX + i * (l2W + l2Gap), y: TIER_L2 },
       data: {
-        label:    d.id === 'reserve' ? 'Reserve' : d.name.replace(' Pool', ''),
-        sublabel: `${Math.round(share * 100)}% · ${fmtEur(amount)}`,
+        label:    `${Math.round(share * 100)}% · ${fmtEur(amount)}`,
+        sublabel: d.id === 'reserve' ? 'Reserve' : d.name.replace(' Pool', ''),
         accent:   d.color,
         tier:     'l2',
         showTarget: true,
