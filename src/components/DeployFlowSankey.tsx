@@ -189,6 +189,7 @@ type SankeyCardData = {
   sourceHandles?: string[];
   sourceHandlePositions?: Record<string, string>;
   targetHandles?: string[];
+  venue?: string;
 } & Record<string, unknown>;
 
 type SankeyCardNode = Node<SankeyCardData, 'sankeyCard'>;
@@ -242,6 +243,7 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
           : `0 2px 14px rgba(0,0,0,0.10)`,
         position: 'relative',
         overflow: 'visible',
+        ...(isL2 ? { display: 'flex', flexDirection: 'column' as const, minHeight: 74 } : {}),
       }}
     >
 
@@ -321,13 +323,29 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
         ) : label}
       </div>
 
+      {/* Venue / pair descriptor — middle tier */}
+      {isL2 && data.venue && (
+        <div style={{
+          fontFamily:   'var(--font-body)',
+          fontSize:     '0.5rem',
+          fontWeight:   500,
+          color:        'rgba(29,28,31,0.55)',
+          marginTop:    2,
+          marginBottom: 1,
+          lineHeight:   1.3,
+          letterSpacing: '0.01em',
+        }}>
+          {data.venue as string}
+        </div>
+      )}
+
       {/* Sublabel */}
       <div style={{
         fontFamily:   'var(--font-mono)',
         fontSize:     isL2 ? '0.45rem' : '0.5rem',
         fontWeight:   500,
         opacity:      isMint ? 0.75 : 1,
-        marginTop:    3,
+        marginTop:    isL2 ? 'auto' : 3,
         color:        isL2 ? C.shark : undefined,
         letterSpacing: '0.02em',
       }}>
@@ -377,6 +395,14 @@ const L2_META: { key: keyof L2Shares; short: string }[] = [
   { key: 'bridge',  short: 'Bridge' },
   { key: 'reserve', short: 'Reserve' },
 ];
+
+// ─── L2 venue descriptors ────────────────────────────────────────────────────
+const L2_VENUE_LABEL: Record<string, string> = {
+  sp:      'EVRO Protocol',
+  anchor:  'sDAI/EVRO · CoW AMM',
+  bridge:  'EURe/EVRO · Curve',
+  reserve: 'Operational buffer',
+};
 
 // ─── Graph builder ────────────────────────────────────────────────────────────
 function buildGraph(
@@ -506,6 +532,7 @@ function buildGraph(
       data: {
         label:    `${Math.round(share * 100)}% · ${fmtEur(amount)}`,
         sublabel: d.id === 'reserve' ? 'Reserve' : d.name.replace(' Pool', ''),
+        venue:    L2_VENUE_LABEL[d.id] ?? '',
         accent:   d.color,
         tier:     'l2',
         showTarget: true,
