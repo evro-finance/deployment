@@ -72,8 +72,8 @@ export function RevenueReplay({
           <AreaChart data={chartData} margin={{ left: 16, right: 16, top: 8, bottom: 4 }}>
             <defs>
               <linearGradient id="spGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#A082F5" stopOpacity={0.35} />
-                <stop offset="95%" stopColor="#A082F5" stopOpacity={0.05} />
+                <stop offset="5%" stopColor="#A081F5" stopOpacity={0.35} />
+                <stop offset="95%" stopColor="#A081F5" stopOpacity={0.05} />
               </linearGradient>
               <linearGradient id="sdGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#7176CA" stopOpacity={0.3} />
@@ -106,7 +106,7 @@ export function RevenueReplay({
             />
             <ReferenceLine y={0} stroke="rgba(160,160,160,0.3)" strokeDasharray="4 4" />
 
-            <Area type="monotone" dataKey="SP Yield" stackId="evro" stroke="#A082F5" fill="url(#spGrad)" strokeWidth={0} />
+            <Area type="monotone" dataKey="SP Yield" stackId="evro" stroke="#A081F5" fill="url(#spGrad)" strokeWidth={0} />
             <Area type="monotone" dataKey="sDAI Yield" stackId="evro" stroke="#7176CA" fill="url(#sdGrad)" strokeWidth={0} />
             <Area type="monotone" dataKey="Staking Yield" stackId="evro" stroke="#9CB1F4" fill="url(#skGrad)" strokeWidth={0} />
             <Area type="monotone" dataKey="CoW AMM Fees" stackId="evro" stroke="#EFA960" fill="url(#cwGrad)" strokeWidth={0} />
@@ -117,7 +117,7 @@ export function RevenueReplay({
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginTop: '12px' }}>
         {[
-          { label: 'SP', color: '#A082F5' },
+          { label: 'SP', color: '#A081F5' },
           { label: 'sDAI', color: '#7176CA' },
           { label: 'Staking', color: '#9CB1F4' },
           { label: 'CoW', color: '#EFA960' },

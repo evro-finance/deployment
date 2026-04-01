@@ -180,14 +180,14 @@ export function HistoricalReplay({ totalCapital, weights, crs }: HistoricalRepla
                 ]}
                 contentStyle={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', background: '#fff', border: '1px solid rgba(160,130,245,0.15)', borderRadius: '4px' }}
               />
-              <Area type="monotone" dataKey="spYield" name="spYield" stackId="1" stroke="#A082F5" fill="rgba(160,130,245,0.25)" strokeWidth={2} />
+              <Area type="monotone" dataKey="spYield" name="spYield" stackId="1" stroke="#A081F5" fill="rgba(160,129,245,0.25)" strokeWidth={2} />
               <Area type="monotone" dataKey="daoRevenue" name="daoRevenue" stackId="1" stroke="#EFA960" fill="rgba(239,169,96,0.2)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{ width: 12, height: 3, borderRadius: 2, background: '#A082F5' }} />
+            <div style={{ width: 12, height: 3, borderRadius: 2, background: '#A081F5' }} />
             <span className="label-sm">SP Yield (75%)</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

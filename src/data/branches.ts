@@ -14,7 +14,7 @@ export interface Branch {
 }
 
 export const BRANCHES: Branch[] = [
-  { id: 'sdai',   name: 'sDAI',   defaultWeight: 0.35, defaultCR: 1.55, minMCR: 1.30, interestRate: 0.035, color: '#A082F5' },
+  { id: 'sdai',   name: 'sDAI',   defaultWeight: 0.35, defaultCR: 1.55, minMCR: 1.30, interestRate: 0.035, color: '#A081F5' },
   { id: 'gno',    name: 'GNO',    defaultWeight: 0.20, defaultCR: 1.90, minMCR: 1.40, interestRate: 0.045, color: '#F5889B' },
   { id: 'wsteth', name: 'wstETH', defaultWeight: 0.15, defaultCR: 1.75, minMCR: 1.30, interestRate: 0.040, color: '#7176CA' },
   { id: 'wxdai',  name: 'wXDAI',  defaultWeight: 0.15, defaultCR: 1.25, minMCR: 1.10, interestRate: 0.030, color: '#9CB1F4' },
@@ -57,11 +57,12 @@ export const DEFAULT_L2_SHARES: L2Shares = {
   reserve: L2_MINTED_SHARE_RESERVE,
 };
 
+/** L2 venue fills (EVRO brand secondaries) — hexes must not repeat any `BRANCHES[].color`. */
 export const DISTRIBUTION_LABELS = [
-  { id: 'sp',      name: 'Stability Pool', color: '#A082F5' },
-  { id: 'anchor',  name: 'Anchor Pool',    color: '#7176CA' },
-  { id: 'bridge',  name: 'Bridge Pool',    color: '#F5889B' },
-  { id: 'reserve', name: 'NOCA Reserve',   color: '#EFA960' },
+  { id: 'sp',      name: 'Stability Pool', color: '#CDD6ED' },
+  { id: 'anchor',  name: 'Anchor Pool',    color: '#A3C0D7' },
+  { id: 'bridge',  name: 'Bridge Pool',    color: '#C6B8FA' },
+  { id: 'reserve', name: 'NOCA Reserve',   color: '#F8A9B5' },
 ];
 
 export interface BranchResult {

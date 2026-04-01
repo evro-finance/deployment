@@ -475,7 +475,7 @@ export function DeploymentPlan({
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'posture-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
-                color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A082F5',
+                color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A081F5',
               }}>
                 {posture < 0.35 ? get('deploy', 'posture-conservative') : posture > 0.65 ? get('deploy', 'posture-aggressive') : get('deploy', 'posture-balanced')}
               </span>
@@ -498,7 +498,7 @@ export function DeploymentPlan({
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'router-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
-                color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A082F5',
+                color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A081F5',
               }}>
                 {incentiveShare < 0.15
                   ? get('deploy', 'router-summary-dao25')
@@ -529,7 +529,7 @@ export function DeploymentPlan({
               <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>{get('deploy', 'apy-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 700,
-                color: '#A082F5', lineHeight: 1,
+                color: '#A081F5', lineHeight: 1,
               }}>
                 {yieldTotals.annualizedPct.toFixed(1)}%
               </span>
@@ -546,7 +546,7 @@ export function DeploymentPlan({
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>
                 {fillTemplate(get('deploy', 'lp-position-label'), { days: String(yieldTotals.totalDays) })}
               </span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A082F5' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A081F5' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
             </div>
 
             {/* DAO fee — the only real cost that leaves Gnosis */}
@@ -599,8 +599,8 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>{get('deploy', 'map-line-sp')}</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(spAlloc)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A081F5' }}>{get('deploy', 'map-line-sp')}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A081F5' }}>{fmtCompact(spAlloc)}</span>
             </div>
 
             <div style={{
@@ -779,7 +779,7 @@ export function DeploymentPlan({
         </p>
         <p className="body-text" style={{ fontSize: '0.88rem', marginBottom: '12px', color: 'var(--evro-shark-600)' }}>
           Over {yieldTotals.totalDays} days, {fmt(totalCapital)} deployed →{' '}
-          <strong style={{ color: '#A082F5', fontWeight: 600 }}>{fmtCompact(yieldTotals.evroTotal)}</strong> cumulative to LPs
+          <strong style={{ color: '#A081F5', fontWeight: 600 }}>{fmtCompact(yieldTotals.evroTotal)}</strong> cumulative to LPs
           {' '}({yieldTotals.annualizedPct.toFixed(1)}% annualized): SP {fmtCompact(yieldTotals.spYield)}, collateral{' '}
           {fmtCompact(yieldTotals.sdaiYield + yieldTotals.stakingYield)}, CoW/LVR{' '}
           {fmtCompact(yieldTotals.cowFees + yieldTotals.lvrCaptured)}, router→LP {fmtCompact(yieldTotals.redirectedToLp)}.

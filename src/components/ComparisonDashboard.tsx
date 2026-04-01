@@ -24,7 +24,7 @@ const tooltipStyle = {
 const COLORS = {
   curvePhantom: '#95929E',       // muted — the illusion
   curveTrue: '#F5889B',          // pink/red — the bleed
-  evro: '#A082F5',               // purple — the thesis
+  evro: '#A081F5',               // purple — the thesis
   hodlUsd: 'rgba(160,160,160,0.4)', // faint gray baseline
   hodlEth: '#7176CA',            // blue — ETH comparison
   lvrLeak: '#F5889B',            // pink — LVR damage

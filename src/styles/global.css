@@ -394,7 +394,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 /* ── Revenue replay: chart + deploy-flow rail ─────────────── */
 .replay-chart-row {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
   align-items: stretch;
 }
@@ -439,6 +439,28 @@ input[type="range"]::-webkit-slider-thumb:active {
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+
+/* React Flow needs an explicit height; rail grows with replay column */
+.deploy-flow-sankey__flow {
+  flex: 1;
+  min-height: 280px;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+/* Tiny edge labels (collateral) — border + tint + text all one accent */
+.deploy-flow-sankey__flow .deploy-flow-edge-pill {
+  font-family: var(--font-body);
+  font-size: 0.48rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .deploy-flow-sankey__bottom {
