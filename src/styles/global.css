@@ -876,14 +876,15 @@ input[type="range"]::-webkit-slider-thumb:active {
   background: linear-gradient(90deg, rgba(160,129,245,0.2), transparent);
 }
 
-/* ── Paragraph styles — staggered reveal ─────────────────── */
+/* Lexend Zetta fires on every bold span — instantaneous weight contrast */
 .narrative-showcase__para {
   position: relative;
   z-index: 1;
   font-family: var(--font-body);
   font-size: 1.15rem;
+  font-weight: 500;
   line-height: 1.85;
-  color: var(--evro-shark-600);
+  color: var(--evro-purple-deep);
   margin-bottom: 20px;
   opacity: 0;
   transform: translateY(16px);
@@ -892,11 +893,10 @@ input[type="range"]::-webkit-slider-thumb:active {
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Lexend Zetta fires on every bold span — instantaneous weight contrast */
 .narrative-showcase__para strong {
   font-family: var(--font-data);
   color: var(--foreground);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.01em;
 }
 
@@ -917,9 +917,15 @@ input[type="range"]::-webkit-slider-thumb:active {
   border-left: 2px solid rgba(160,129,245,0.25);
 }
 
-/* Yield numbers inside the accented paragraph snap to brand purple */
+/* Yield bolds: Zetta 800 + same purple→orange gradient as the 8.1% APY hero */
 .narrative-showcase__para--yield strong {
-  color: var(--evro-purple);
+  font-family: var(--font-data);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, var(--evro-purple), var(--evro-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ── Bottom Line — the hero moment ──────────────────────── */
@@ -949,14 +955,15 @@ input[type="range"]::-webkit-slider-thumb:active {
 .narrative-showcase__bottomline-prose {
   font-family: var(--font-body);
   font-size: 1.1rem;
+  font-weight: 500;
   line-height: 1.7;
-  color: var(--evro-shark-600);
+  color: var(--evro-purple-deep);
 }
 
 .narrative-showcase__bottomline-prose strong {
   font-family: var(--font-data);
   color: var(--foreground);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.01em;
 }
 
