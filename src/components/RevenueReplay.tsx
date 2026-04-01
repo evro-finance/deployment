@@ -14,7 +14,7 @@ interface BranchAlloc {
 interface RevenueReplayProps {
   totalCapital: number;
   branches: BranchAlloc[];
-  incentivesToLps: boolean;
+  incentiveShare: number;
   yieldResult: YieldResult;
 }
 
@@ -30,7 +30,7 @@ const fmtEur = (v: number) => {
   return `€${v.toFixed(0)}`;
 };
 
-export function RevenueReplay({ totalCapital, incentivesToLps, yieldResult }: RevenueReplayProps) {
+export function RevenueReplay({ totalCapital, incentiveShare, yieldResult }: RevenueReplayProps) {
   const result = yieldResult;
 
   const sampled = result.days.filter((_, i) => i % 2 === 0 || i === result.days.length - 1);
@@ -71,7 +71,7 @@ export function RevenueReplay({ totalCapital, incentivesToLps, yieldResult }: Re
             { label: 'SP Yield (L1)', value: fmtEur(t.spYield), color: '#A082F5', sub: `Avg ${t.avgSpApy.toFixed(1)}% APY` },
             { label: 'Collateral (L2)', value: fmtEur(t.sdaiYield + t.stakingYield), color: '#7176CA', sub: 'sDAI + wstETH + GNO' },
             { label: 'LP Revenue (L3)', value: fmtEur(t.cowFees + t.lvrCaptured), color: '#EFA960', sub: 'CoW fees + LVR' },
-            { label: 'DAO Share (L4)', value: incentivesToLps ? '→ LPs' : fmtEur(t.daoRevenue), color: incentivesToLps ? '#95929E' : '#4ADE80', sub: incentivesToLps ? 'First Era' : '25% of interest' },
+            { label: 'DAO Share (L4)', value: incentiveShare > 0.85 ? '→ LPs' : fmtEur(t.daoRevenue), color: incentiveShare > 0.85 ? '#95929E' : '#4ADE80', sub: incentiveShare > 0.85 ? 'First Era' : '25% of interest' },
           ].map(kpi => (
             <div key={kpi.label}>
               <div className="label-sm" style={{ marginBottom: '6px' }}>{kpi.label}</div>
@@ -136,7 +136,7 @@ export function RevenueReplay({ totalCapital, incentivesToLps, yieldResult }: Re
               <Area type="monotone" dataKey="Staking Yield" stackId="evro" stroke="#9CB1F4" fill="url(#skGrad)" strokeWidth={0} />
               <Area type="monotone" dataKey="CoW AMM Fees" stackId="evro" stroke="#EFA960" fill="url(#cwGrad)" strokeWidth={0} />
               <Area type="monotone" dataKey="LVR Captured" stackId="evro" stroke="#4ADE80" fill="url(#lvGrad)" strokeWidth={0} />
-              {!incentivesToLps && (
+              {!(incentiveShare > 0.85) && (
                 <Area type="monotone" dataKey="DAO Revenue" stackId="evro" stroke="#F5889B" fill="url(#daGrad)" strokeWidth={0} />
               )}
 
@@ -152,7 +152,7 @@ export function RevenueReplay({ totalCapital, incentivesToLps, yieldResult }: Re
             { label: 'Staking', color: '#9CB1F4' },
             { label: 'CoW Fees', color: '#EFA960' },
             { label: 'LVR', color: '#4ADE80' },
-            ...(!incentivesToLps ? [{ label: 'DAO', color: '#F5889B' }] : []),
+            ...(!(incentiveShare > 0.85) ? [{ label: 'DAO', color: '#F5889B' }] : []),
           ].map(d => (
             <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: 12, height: 8, borderRadius: 2, background: d.color, opacity: 0.6 }} />
@@ -217,20 +217,20 @@ export function RevenueReplay({ totalCapital, incentivesToLps, yieldResult }: Re
           {/* DAO / Interest Router */}
           <div style={{
             padding: '20px', borderRadius: '10px',
-            background: incentivesToLps
+            background: incentiveShare > 0.85
               ? 'linear-gradient(135deg, rgba(160,130,245,0.05), rgba(160,130,245,0.01))'
               : 'linear-gradient(135deg, rgba(74,222,128,0.08), rgba(74,222,128,0.02))',
-            border: `1px solid ${incentivesToLps ? 'rgba(160,130,245,0.1)' : 'rgba(74,222,128,0.15)'}`,
+            border: `1px solid ${incentiveShare > 0.85 ? 'rgba(160,130,245,0.1)' : 'rgba(74,222,128,0.15)'}`,
           }}>
-            <div className="label-sm" style={{ marginBottom: '4px', color: incentivesToLps ? '#95929E' : '#4ADE80' }}>
-              ◆ {incentivesToLps ? 'DAO (First Era → LPs)' : 'DAO Treasury'}
+            <div className="label-sm" style={{ marginBottom: '4px', color: incentiveShare > 0.85 ? '#95929E' : '#4ADE80' }}>
+              ◆ {incentiveShare > 0.85 ? 'DAO (First Era → LPs)' : 'DAO Treasury'}
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: incentivesToLps ? '#95929E' : '#4ADE80', marginBottom: '4px' }}>
-              {incentivesToLps ? '→ LPs' : fmtEur(t.daoRevenue)}
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: incentiveShare > 0.85 ? '#95929E' : '#4ADE80', marginBottom: '4px' }}>
+              {incentiveShare > 0.85 ? '→ LPs' : fmtEur(t.daoRevenue)}
             </div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--muted-foreground)', lineHeight: 1.6 }}>
               25% of borrower interest<br/>
-              {incentivesToLps ? 'Redirected to LPs during bootstrap' : 'Via interestRouter to governance'}
+              {incentiveShare > 0.85 ? 'Redirected to LPs during bootstrap' : 'Via interestRouter to governance'}
             </div>
           </div>
         </div>
@@ -349,7 +349,7 @@ export function RevenueReplay({ totalCapital, incentivesToLps, yieldResult }: Re
           The Stability Pool alone contributed <strong>{fmtEur(t.spYield)}</strong> (avg {t.avgSpApy.toFixed(1)}% APY, including liquidation gains).
           Collateral staking added <strong>{fmtEur(t.sdaiYield + t.stakingYield)}</strong>,
           and CoW AMM liquidity earned <strong>{fmtEur(t.cowFees + t.lvrCaptured)}</strong> in fees + LVR surplus.
-          {!incentivesToLps && <> The DAO would have accumulated <strong style={{ color: '#4ADE80' }}>{fmtEur(t.daoRevenue)}</strong> via the interestRouter.</>}
+          {!(incentiveShare > 0.85) && <> The DAO would have accumulated <strong style={{ color: '#4ADE80' }}>{fmtEur(t.daoRevenue)}</strong> via the interestRouter.</>}
         </p>
       </div>
     </section>

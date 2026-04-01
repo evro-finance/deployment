@@ -11,8 +11,8 @@ interface DeploymentPlanProps {
   onCapitalChange: (val: number) => void;
   branchStates: Record<string, BranchState>;
   onUpdateBranch: (id: string, field: keyof BranchState, delta: number) => void;
-  incentivesToLps: boolean;
-  onToggleIncentives: (val: boolean) => void;
+  incentiveShare: number;
+  onIncentiveChange: (val: number) => void;
   posture: number;
   onPostureChange: (val: number) => void;
   yieldTotals: YieldResult['totals'];
@@ -65,7 +65,7 @@ function Stepper({ value, onUp, onDown, format }: {
 export function DeploymentPlan({
   totalCapital, onCapitalChange,
   branchStates, onUpdateBranch,
-  incentivesToLps, onToggleIncentives,
+  incentiveShare, onIncentiveChange,
   posture, onPostureChange,
   yieldTotals,
 }: DeploymentPlanProps) {
@@ -98,12 +98,13 @@ export function DeploymentPlan({
       };
     });
 
-    const spShare = incentivesToLps ? totalInterest * 0.75 + totalInterest * 0.25 : totalInterest * 0.75;
-    const daoShare = incentivesToLps ? 0 : totalInterest * 0.25;
+    const spExtra = totalInterest * 0.25 * incentiveShare;
+    const spShare = totalInterest * 0.75 + spExtra;
+    const daoShare = totalInterest * 0.25 * (1 - incentiveShare);
     const spApr = totalMinted > 0 ? (spShare / totalMinted) * 100 : 0;
 
     return { branches, totalMinted, totalInterest, spShare, daoShare, spApr };
-  }, [branchStates, totalCapital, totalWeight, incentivesToLps]);
+  }, [branchStates, totalCapital, totalWeight, incentiveShare]);
 
   return (
     <section className="section">
@@ -128,10 +129,11 @@ export function DeploymentPlan({
       {/* ── Controls + Output Row ── */}
       <div style={{ display: 'flex', gap: '20px', marginBottom: '24px', alignItems: 'stretch' }}>
         {/* ── Controls (30%) ── */}
-        <div className="glass-card" style={{ padding: '16px 20px', flex: '0 0 30%', minWidth: 0 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-            <span className="label" style={{ fontSize: '0.65rem' }}>Capital</span>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
+        <div className="glass-card" style={{ padding: '14px 18px', flex: '0 0 30%', minWidth: 0 }}>
+          {/* Capital */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+            <span className="label" style={{ fontSize: '0.6rem' }}>Capital</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
           </div>
           <input
             type="range" min={1_000_000} max={25_000_000} step={500_000}
@@ -139,17 +141,18 @@ export function DeploymentPlan({
             onChange={e => onCapitalChange(Number(e.target.value))}
             style={{ margin: 0 }}
           />
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', marginBottom: '12px' }}>
-            <span className="label-sm" style={{ fontSize: '0.55rem' }}>€1M</span>
-            <span className="label-sm" style={{ fontSize: '0.55rem' }}>€25M</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px', marginBottom: '8px' }}>
+            <span className="label-sm" style={{ fontSize: '0.5rem' }}>€1M</span>
+            <span className="label-sm" style={{ fontSize: '0.5rem' }}>€25M</span>
           </div>
 
-          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '10px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <span className="label" style={{ fontSize: '0.65rem' }}>Posture</span>
+          {/* Posture */}
+          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+              <span className="label" style={{ fontSize: '0.6rem' }}>Posture</span>
               <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600,
-                color: posture < 0.35 ? '#4ADE80' : posture > 0.65 ? '#F5889B' : '#A082F5',
+                fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
+                color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A082F5',
               }}>
                 {posture < 0.35 ? 'Conservative' : posture > 0.65 ? 'Aggressive' : 'Balanced'}
               </span>
@@ -160,59 +163,89 @@ export function DeploymentPlan({
               onChange={e => onPostureChange(Number(e.target.value))}
               style={{ margin: 0 }}
             />
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
-              <span className="label-sm" style={{ fontSize: '0.55rem', color: '#4ADE80' }}>Conservative</span>
-              <span className="label-sm" style={{ fontSize: '0.55rem', color: '#F5889B' }}>Aggressive</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>↑ CR ↓ Rate</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#EFA960' }}>↓ CR ↑ Rate</span>
+            </div>
+          </div>
+
+          {/* Interest Router */}
+          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px', marginTop: '8px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+              <span className="label" style={{ fontSize: '0.6rem' }}>Interest Router</span>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
+                color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A082F5',
+              }}>
+                {incentiveShare < 0.15 ? '25% DAO' : incentiveShare > 0.85 ? 'All LPs' : `${Math.round((1 - incentiveShare) * 25)}% DAO`}
+              </span>
+            </div>
+            <input
+              type="range" min={0} max={1} step={0.05}
+              value={incentiveShare}
+              onChange={e => onIncentiveChange(Number(e.target.value))}
+              style={{ margin: 0 }}
+            />
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>DAO</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem', color: '#EFA960' }}>LPs</span>
             </div>
           </div>
         </div>
 
         {/* ── Output Summary (70%) ── */}
-        <div className="glass-card" style={{ padding: '20px 24px', flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          {/* Headline: APY */}
-          <div style={{ marginBottom: '16px' }}>
-            <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>Annualized Yield</span>
-            <span style={{
-              fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 700,
-              color: '#A082F5', lineHeight: 1,
+        <div className="glass-card" style={{ padding: '20px 24px', flex: 1, minWidth: 0, display: 'flex', gap: '20px' }}>
+          {/* Left: yield KPIs */}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            {/* Headline: APY */}
+            <div style={{ marginBottom: '16px' }}>
+              <span className="label" style={{ fontSize: '0.6rem', display: 'block', marginBottom: '4px' }}>Annualized Yield</span>
+              <span style={{
+                fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 700,
+                color: '#A082F5', lineHeight: 1,
+              }}>
+                {yieldTotals.annualizedPct.toFixed(1)}%
+              </span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--muted-foreground)', marginLeft: '8px' }}>
+                on {fmt(totalCapital)}
+              </span>
+            </div>
+
+            {/* Total Yield */}
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              {yieldTotals.annualizedPct.toFixed(1)}%
-            </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--muted-foreground)', marginLeft: '8px' }}>
-              on {fmt(totalCapital)}
-            </span>
-          </div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Total yield ({yieldTotals.totalDays}d)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A082F5' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
+            </div>
 
-          {/* Total Yield */}
-          <div style={{
-            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-            padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
-          }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Total yield ({yieldTotals.totalDays}d)</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#4ADE80' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
-          </div>
-
-          {/* Interest cost */}
-          <div style={{
-            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-            padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
-          }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Interest cost</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#F5889B' }}>−{fmtCompact(results.totalInterest)}</span>
-          </div>
-
-          {/* Net */}
-          <div style={{
-            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-            padding: '10px 0 0', borderTop: '1px solid rgba(160,130,245,0.15)',
-          }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>Net revenue</span>
-            <span style={{
-              fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700,
-              color: (yieldTotals.evroTotal - results.totalInterest) > 0 ? '#4ADE80' : '#F5889B',
+            {/* Interest cost */}
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              {(yieldTotals.evroTotal - results.totalInterest) > 0 ? '+' : ''}{fmtCompact(yieldTotals.evroTotal - results.totalInterest)}
-            </span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--muted-foreground)' }}>Interest cost</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>−{fmtCompact(results.totalInterest)}</span>
+            </div>
+
+            {/* Net */}
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '10px 0 0', borderTop: '1px solid rgba(160,130,245,0.15)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>Net revenue</span>
+              <span style={{
+                fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700,
+                color: '#EFA960',
+              }}>
+                {(yieldTotals.evroTotal - results.totalInterest) > 0 ? '+' : ''}{fmtCompact(yieldTotals.evroTotal - results.totalInterest)}
+              </span>
+            </div>
+          </div>
+
+          {/* Right: empty — next data points go here */}
+          <div style={{ flex: 1, borderLeft: '1px solid rgba(160,130,245,0.06)', paddingLeft: '20px' }}>
           </div>
         </div>
       </div>
@@ -297,31 +330,6 @@ export function DeploymentPlan({
       <div className="glass-card" style={{ padding: '28px 32px', marginBottom: '24px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <p className="label">Fee Structure (Interest Only)</p>
-          <label style={{
-            display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer',
-            fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--muted-foreground)',
-          }}>
-            <span>First Era: All incentives → LPs</span>
-            <div
-              onClick={() => onToggleIncentives(!incentivesToLps)}
-              style={{
-                width: 36, height: 20, borderRadius: 10, position: 'relative',
-                background: incentivesToLps
-                  ? 'linear-gradient(135deg, #A082F5, #7176CA)'
-                  : 'rgba(160,130,245,0.15)',
-                transition: 'all 0.2s ease', cursor: 'pointer',
-                border: '1px solid rgba(160,130,245,0.2)',
-              }}
-            >
-              <div style={{
-                width: 16, height: 16, borderRadius: '50%',
-                background: '#fff', position: 'absolute', top: 1,
-                left: incentivesToLps ? 17 : 1,
-                transition: 'left 0.2s ease',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
-              }} />
-            </div>
-          </label>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
@@ -340,7 +348,7 @@ export function DeploymentPlan({
           </div>
           <div>
             <div className="label-sm" style={{ marginBottom: '6px' }}>
-              Stability Pool (75%{incentivesToLps ? ' + 25% incentives' : ''})
+              Stability Pool ({Math.round(75 + incentiveShare * 25)}%)
             </div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: '#A082F5' }}>
               {fmtCompact(results.spShare)}
@@ -351,17 +359,17 @@ export function DeploymentPlan({
             </div>
           </div>
           <div>
-            <div className="label-sm" style={{ marginBottom: '6px' }}>DAO Revenue (25%)</div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: incentivesToLps ? 'var(--muted-foreground)' : '#EFA960' }}>
-              {incentivesToLps ? (
+            <div className="label-sm" style={{ marginBottom: '6px' }}>DAO Revenue ({Math.round((1 - incentiveShare) * 25)}%)</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: incentiveShare > 0.85 ? 'var(--muted-foreground)' : '#EFA960' }}>
+              {incentiveShare > 0.85 ? (
                 <span style={{ textDecoration: 'line-through', opacity: 0.5 }}>{fmtCompact(results.totalInterest * 0.25)}</span>
               ) : (
                 <>{fmtCompact(results.daoShare)}<span style={{ fontSize: '0.55em', color: 'var(--muted-foreground)', marginLeft: '4px' }}>/yr</span></>
               )}
             </div>
-            {incentivesToLps && (
+            {incentiveShare > 0.85 && (
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: '#A082F5', marginTop: '4px' }}>
-                → Redirected to SP stakers in First Era
+                → Redirected to SP stakers
               </div>
             )}
           </div>
@@ -380,7 +388,7 @@ export function DeploymentPlan({
           the protocol mints <strong>{fmtCompact(results.totalMinted)}</strong> EVRO across {results.branches.filter(b => b.allocated > 0).length} branches.
           Borrowers pay <strong>{fmtCompact(results.totalInterest)}</strong>/yr in interest
           at a blended rate of <strong>{results.totalMinted > 0 ? ((results.totalInterest / results.totalMinted) * 100).toFixed(1) : '0'}%</strong>.
-          {incentivesToLps ? (
+          {incentiveShare > 0.85 ? (
             <> In the First Era, <strong style={{ color: '#A082F5' }}>100%</strong> of interest income flows to Stability Pool stakers — earning <strong style={{ color: '#A082F5' }}>{results.spApr.toFixed(2)}% APR</strong>.</>
           ) : (
             <> <strong style={{ color: '#A082F5' }}>{fmtCompact(results.spShare)}</strong>/yr flows to SP stakers ({results.spApr.toFixed(2)}% APR).{' '}

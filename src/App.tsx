@@ -37,7 +37,7 @@ function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
 
 function App() {
   const [totalCapital, setTotalCapital] = useState(DEFAULT_CAPITAL);
-  const [incentivesToLps, setIncentivesToLps] = useState(false);
+  const [incentiveShare, setIncentiveShare] = useState(0); // 0 = DAO gets 25%, 1 = all to LPs
   const [posture, setPosture] = useState(0.5); // 0 = conservative, 1 = aggressive
   const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(
     Object.fromEntries(BRANCHES.map(b => [b.id, {
@@ -85,8 +85,8 @@ function App() {
 
   // Compute yield once, share between DeploymentPlan and RevenueReplay
   const yieldResult: YieldResult = useMemo(
-    () => computeYield(totalCapital, branchAllocations, incentivesToLps),
-    [totalCapital, branchAllocations, incentivesToLps]
+    () => computeYield(totalCapital, branchAllocations, incentiveShare),
+    [totalCapital, branchAllocations, incentiveShare]
   );
 
   useEffect(() => {
@@ -126,8 +126,8 @@ function App() {
         onCapitalChange={setTotalCapital}
         branchStates={branchStates}
         onUpdateBranch={updateBranch}
-        incentivesToLps={incentivesToLps}
-        onToggleIncentives={setIncentivesToLps}
+        incentiveShare={incentiveShare}
+        onIncentiveChange={setIncentiveShare}
         posture={posture}
         onPostureChange={applyPosture}
         yieldTotals={yieldResult.totals}
@@ -135,7 +135,7 @@ function App() {
       <RevenueReplay
         totalCapital={totalCapital}
         branches={branchAllocations}
-        incentivesToLps={incentivesToLps}
+        incentiveShare={incentiveShare}
         yieldResult={yieldResult}
       />
       <Layer2Section />

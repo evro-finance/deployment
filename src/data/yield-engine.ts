@@ -147,7 +147,7 @@ const dailyLvrRate = totalLvrCaptured / cowBasePool / periodDays; // LVR per €
 export function computeYield(
   totalCapital: number,
   branches: BranchAlloc[],
-  incentivesToLps: boolean = false,
+  incentiveShare: number = 0, // 0 = standard 75/25, 1 = 100% to LPs
 ): YieldResult {
   // Compute allocations from branches
   const totalWeight = branches.reduce((s, b) => s + b.weight, 0);
@@ -239,7 +239,7 @@ export function computeYield(
     // ── L4: DAO revenue (25% of borrower interest) ──
     // Interest is based on the user-set blended rate
     const interestDaily = totalMinted * (blendedRate / 365);
-    const daoDaily = incentivesToLps ? 0 : interestDaily * 0.25;
+    const daoDaily = interestDaily * 0.25 * (1 - incentiveShare);
     cumDao += daoDaily;
 
     // Note: the SP yield from L1 already includes the 75% interest portion
