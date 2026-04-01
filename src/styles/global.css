@@ -1428,7 +1428,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   }
 }
 
-/* Locked pane: freeze at peak glow — proud, not faded */
+/* Locked pane: freeze at peak glow with gray tint — proud, not faded */
 .control-section--locked {
   pointer-events: none;
   padding: 10px 8px;
@@ -1437,8 +1437,18 @@ input[type="range"]::-webkit-slider-thumb:active {
   box-shadow: 0 0 24px rgba(160,129,245,0.1), 0 0 0 1px rgba(160,129,245,0.08);
 }
 
+/* Gray out interactive children when locked */
+.control-section--locked input[type="range"],
+.control-section--locked button:not(.control-check),
+.control-section--locked .branch-weight-pie-panel,
+.control-section--locked .deploy-flow-sankey__sliders {
+  filter: grayscale(0.5) opacity(0.6);
+  cursor: default;
+}
+
 .control-section--locked .control-check {
   pointer-events: auto;
+  filter: none;
 }
 
 /* ── Check Circle ─────────────────────────────────────── */

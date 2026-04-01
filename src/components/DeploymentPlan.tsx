@@ -296,15 +296,22 @@ export function DeploymentPlan({
 
     const nextIdx = CONTROL_ORDER.findIndex(k => !nextLocks[k]);
     if (nextIdx >= 0) {
+      // Concierge scroll — let the lock animation land first, then glide
       const nextKey = CONTROL_ORDER[nextIdx];
       setTimeout(() => {
-        document.getElementById(`ctrl-${nextKey}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 200);
+        const el = document.getElementById(`ctrl-${nextKey}`);
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.25;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }, 800);
     } else {
-      // All checked — scroll to narrative
+      // All checked — gentle scroll to narrative after a beat
       setTimeout(() => {
-        document.querySelector('.narrative-showcase')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 400);
+        const el = document.querySelector('.narrative-showcase');
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY - 40;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }, 1000);
     }
   };
 
@@ -764,35 +771,38 @@ export function DeploymentPlan({
         )}
       </div>
 
-      <RevenueReplay
-        embedded
-        yieldResult={yieldResult}
-        deployFlow={{
-          branches: results.branches.map(b => ({
-            id: b.id,
-            name: b.name,
-            color: b.color,
-            allocated: b.allocated,
-            minted: b.minted,
-          })),
-          totalMinted: results.totalMinted,
-          l2Shares,
-          onAdjustL2: onAdjustL2Shares,
-          incentiveShare,
-          lpName,
-        }}
-      />
-
-      {/* ── Layer 2: Liquidity Allocation Table ───────── */}
+      {/* ── Deploy Flow + L2 Sliders (third control pane) ── */}
       <div
         id="ctrl-l2"
-        className={`glass-card control-section${activeControl === 'l2' ? ' control-section--active' : ''}${locks.l2 ? ' control-section--locked' : ''}`}
-        style={{ padding: '24px', marginBottom: '24px' }}
+        className={`control-section${activeControl === 'l2' ? ' control-section--active' : ''}${locks.l2 ? ' control-section--locked' : ''}`}
+        style={{ marginBottom: '24px' }}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-          <p className="label" style={{ margin: 0 }}>{get('deploy', 'l2-card-title')}</p>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '4px' }}>
           <ControlCheck checked={locks.l2} onClick={() => handleCheck('l2')} />
         </div>
+        <RevenueReplay
+          embedded
+          yieldResult={yieldResult}
+          deployFlow={{
+            branches: results.branches.map(b => ({
+              id: b.id,
+              name: b.name,
+              color: b.color,
+              allocated: b.allocated,
+              minted: b.minted,
+            })),
+            totalMinted: results.totalMinted,
+            l2Shares,
+            onAdjustL2: onAdjustL2Shares,
+            incentiveShare,
+            lpName,
+          }}
+        />
+      </div>
+
+      {/* ── Layer 2: Liquidity Allocation Table (read-only, no lock) ── */}
+      <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
+        <p className="label" style={{ marginBottom: '4px' }}>{get('deploy', 'l2-card-title')}</p>
         <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
           {get('deploy', 'l2-card-hint')}
         </p>
