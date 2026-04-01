@@ -187,6 +187,7 @@ type SankeyCardData = {
   showTarget?:  boolean;
   showSource?:  boolean;
   sourceHandles?: string[];
+  sourceHandlePositions?: Record<string, string>;
   targetHandles?: string[];
 } & Record<string, unknown>;
 
@@ -206,7 +207,7 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
   const {
     label, sublabel, accent, tier, health,
     showTarget = true, showSource = true,
-    sourceHandles, targetHandles,
+    sourceHandles, sourceHandlePositions, targetHandles,
   } = data;
 
   const isCapital = tier === 'capital';
@@ -338,7 +339,7 @@ function SankeyCardNode({ data }: NodeProps<SankeyCardNode>) {
             <Handle
               key={`out-${bid}`} id={`out-${bid}`}
               type="source" position={Position.Bottom}
-              style={{ left: handlePct(i, nSrc), transform: 'translateX(-50%)', width: 5, height: 5, border: 'none', background: 'rgba(160,129,245,0.4)' }}
+              style={{ left: sourceHandlePositions?.[bid] ?? handlePct(i, nSrc), transform: 'translateX(-50%)', width: isMint ? 8 : 5, height: isMint ? 8 : 5, border: 'none', background: 'rgba(160,129,245,0.4)' }}
             />
           ))
         : showSource && (
@@ -415,6 +416,27 @@ function buildGraph(
 
   // ── TIER 1: Minted EVRO ─────────────────────────────────────────────────
   const mintW = 168;
+
+  // Pre-compute L2 stroke widths so the source handles on the Mint card
+  // spread exactly to hug the combined thickness of all 4 outgoing edges.
+  const l2HandleGap = 3; // px between edge centre-lines at source
+  const l2StrokeWidths = DISTRIBUTION_LABELS.map(d => {
+    const share = l2Shares[d.id as keyof L2Shares];
+    return strokeW(Math.max(tm * share, EPS), tm, 5, 18);
+  });
+  const totalHandleSpread = l2StrokeWidths.reduce((s, w) => s + w, 0)
+    + (DISTRIBUTION_LABELS.length - 1) * l2HandleGap;
+  const handleStartX = mintW / 2 - totalHandleSpread / 2;
+  const mintSrcPositions: Record<string, string> = {};
+  let cumX = 0;
+  DISTRIBUTION_LABELS.forEach((d, i) => {
+    const sw = l2StrokeWidths[i];
+    const cx = handleStartX + cumX + sw / 2;
+    mintSrcPositions[`l2-${d.id}`] = `${(cx / mintW) * 100}%`;
+    cumX += sw + l2HandleGap;
+  });
+  const mintSrcIds = DISTRIBUTION_LABELS.map(d => `l2-${d.id}`);
+
   nodes.push({
     id: 'mint',
     type: 'sankeyCard',
@@ -426,8 +448,10 @@ function buildGraph(
       tier:     'mint',
       health:   'ok',
       showTarget:   false,
-      showSource:   true,
+      showSource:   false,
       targetHandles: branchIds,
+      sourceHandles: mintSrcIds,
+      sourceHandlePositions: mintSrcPositions,
     },
     style: { width: mintW },
   });
@@ -489,11 +513,12 @@ function buildGraph(
       style: { width: l2W },
     });
 
-    const flow = Math.max(tm * share, EPS);
+    const lSw  = l2StrokeWidths[i];
     edges.push({
       id:     `e-mint-l2-${d.id}`,
       source: 'mint',
       target: `l2-${d.id}`,
+      sourceHandle: `out-l2-${d.id}`,
       type:   'energy',
       animated: false,
       data: {
@@ -505,7 +530,7 @@ function buildGraph(
       },
       style: {
         stroke:      d.color,
-        strokeWidth: strokeW(flow, tm, 2, 8),
+        strokeWidth: lSw,
         ...edgeBase,
       },
     });
