@@ -19,6 +19,34 @@ import type { BranchState } from '../App';
 import type { YieldResult } from '../data/yield-engine';
 import { RevenueReplay } from './RevenueReplay';
 
+/**
+ * Custom gentle scroll function.
+ * Browser's native `smooth` behavior can feel "elastic" or snappy.
+ * This uses a Sine ease-in-out over a longer duration (1400ms) for a softer landing.
+ */
+function gentleScrollTo(targetTop: number, duration = 1400) {
+  const startY = window.scrollY;
+  const diff = targetTop - startY;
+  let startTime: number | null = null;
+
+  function step(timestamp: number) {
+    if (!startTime) startTime = timestamp;
+    const timeElapsed = timestamp - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    
+    // easeInOutSine is extremely gentle
+    const ease = -(Math.cos(Math.PI * progress) - 1) / 2;
+
+    window.scrollTo(0, startY + diff * ease);
+
+    if (timeElapsed < duration) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
 interface DeploymentPlanProps {
   totalCapital: number;
   onCapitalChange: (val: number) => void;
@@ -297,11 +325,13 @@ export function DeploymentPlan({
     if (nextIdx >= 0) {
       // Concierge scroll — let the lock animation land first, then glide
       const nextKey = CONTROL_ORDER[nextIdx];
+      // 800ms delay gives the UI time to register the lock visually
+      // before auto-scrolling to the next available module.
       setTimeout(() => {
         const el = document.getElementById(`ctrl-${nextKey}`);
         if (!el) return;
         const top = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.25;
-        window.scrollTo({ top, behavior: 'smooth' });
+        gentleScrollTo(top);
       }, 800);
     } else {
       // All checked — gentle scroll to narrative after a beat
@@ -309,7 +339,7 @@ export function DeploymentPlan({
         const el = document.querySelector('.narrative-showcase');
         if (!el) return;
         const top = el.getBoundingClientRect().top + window.scrollY - 40;
-        window.scrollTo({ top, behavior: 'smooth' });
+        gentleScrollTo(top);
       }, 1000);
     }
   };
