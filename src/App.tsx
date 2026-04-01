@@ -94,12 +94,17 @@ function App() {
   }, []);
 
   // Build branch allocations array for yield engine
-  const branchAllocations = BRANCHES.map(b => ({
-    id: b.id,
-    weight: branchStates[b.id].weight,
-    cr: branchStates[b.id].cr,
-    rate: branchStates[b.id].rate,
-  }));
+  // useMemo here is critical: without it, a new array reference is created every render,
+  // causing the yieldResult memo below to re-run on every scroll/hover even when nothing changed.
+  const branchAllocations = useMemo(
+    () => BRANCHES.map(b => ({
+      id: b.id,
+      weight: branchStates[b.id].weight,
+      cr: branchStates[b.id].cr,
+      rate: branchStates[b.id].rate,
+    })),
+    [branchStates]
+  );
 
   // Compute yield once, share between DeploymentPlan and RevenueReplay
   const yieldResult: YieldResult = useMemo(

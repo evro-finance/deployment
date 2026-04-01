@@ -37,10 +37,10 @@ export const BRIDGE_FIXED_EUR =   500_000;   // €0.5M
 export const FIXED_TOTAL_EUR  = SP_FIXED_EUR + ANCHOR_FIXED_EUR + BRIDGE_FIXED_EUR; // €2.5M
 
 /** Share of minted EVRO to each Layer 2 venue (sums to 1). Used by DeploymentPlan, yield replay, and distribution math. */
-export const L2_MINTED_SHARE_SP = 0.35;
+export const L2_MINTED_SHARE_SP = 0.40;
 export const L2_MINTED_SHARE_ANCHOR = 0.35;
-export const L2_MINTED_SHARE_BRIDGE = 0.18;
-export const L2_MINTED_SHARE_RESERVE = 0.12;
+export const L2_MINTED_SHARE_BRIDGE = 0.20;
+export const L2_MINTED_SHARE_RESERVE = 0.05;
 
 /** User-controlled Layer 2 split (must sum to 1). Defaults match PRD constants above. */
 export interface L2Shares {

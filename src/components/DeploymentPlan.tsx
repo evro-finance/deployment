@@ -696,6 +696,7 @@ export function DeploymentPlan({
           totalMinted: results.totalMinted,
           l2Shares,
           onAdjustL2: onAdjustL2Shares,
+          incentiveShare,
         }}
       />
 
