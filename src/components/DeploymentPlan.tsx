@@ -739,59 +739,128 @@ export function DeploymentPlan({
         </div>
       </div>
 
-      {/* ── Reactive Prose ──────────────────────────────── */}
-      <div style={{
-        padding: '20px 24px', borderRadius: '8px',
-        background: 'linear-gradient(135deg, rgba(160,130,245,0.04), rgba(239,169,96,0.04))',
-        border: '1px solid rgba(160,130,245,0.08)',
-        lineHeight: 1.85,
-      }}>
-        <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '14px' }}>
-          <span
-            dangerouslySetInnerHTML={{
-              __html: mdBold(fillTemplate(get('deploy', 'prose-line1'), {
+      {/* ── Reactive Prose ──────────────────────────── */}
+      {(() => {
+        // ─ Dynamic branch list (zero-weight branches excluded) ─
+        const activeBranches = results.branches.filter(b => b.rawWeight > 0);
+        const totalW = activeBranches.reduce((s, b) => s + b.rawWeight, 0);
+        const branchListWithWeights = activeBranches
+          .map(b => `<strong>${b.name}</strong> (${totalW > 0 ? Math.round((b.rawWeight / totalW) * 100) : 0}%)`)
+          .join(', ');
+
+        // ─ Collateral sources (only active branches, correct tokens) ─
+        const hasSDai  = (branchStates['sdai']?.weight  ?? 0) > 0 || (branchStates['wxdai']?.weight ?? 0) > 0;
+        const hasWstEth = (branchStates['wsteth']?.weight ?? 0) > 0;
+        const hasOsGno  = (branchStates['osgno']?.weight  ?? 0) > 0 || (branchStates['gno']?.weight ?? 0) > 0;
+        const hasWbtc   = (branchStates['wbtc']?.weight   ?? 0) > 0;
+        const collateralPhrases: string[] = [];
+        if (hasSDai)   collateralPhrases.push('sDAI compounded the Savings Rate');
+        if (hasWstEth) collateralPhrases.push('wstETH accrued staking rewards');
+        if (hasOsGno)  collateralPhrases.push('osGNO accrues validator income');
+        if (hasWbtc)   collateralPhrases.push('wBTC held its collateral position');
+        const collateralSources = collateralPhrases.length === 0
+          ? 'the collateral held its position'
+          : collateralPhrases.length === 1
+            ? collateralPhrases[0]
+            : collateralPhrases.slice(0, -1).join(', ') + ' and ' + collateralPhrases[collateralPhrases.length - 1];
+
+        // ─ Reserve conditional sentence ─
+        const reservePct = l2Shares.reserve;
+        const reserveKey = reservePct < 0.02
+          ? 'prose-reserve-low'
+          : reservePct > 0.06
+            ? 'prose-reserve-high'
+            : 'prose-reserve-mid';
+        const reserveSentence = mdBold(fillTemplate(get('deploy', reserveKey), {
+          reserveEuro: fmtCompact(reserveAlloc),
+        }));
+
+        // ─ Posture label ─
+        const postureLabel = posture < 0.35
+          ? get('deploy', 'posture-conservative')
+          : posture > 0.65
+            ? get('deploy', 'posture-aggressive')
+            : get('deploy', 'posture-balanced');
+
+        // ─ Shared vars ─
+        const clientName = 'liquidity provider';
+        const collateralYield = yieldTotals.sdaiYield + yieldTotals.stakingYield;
+        const cowYield = yieldTotals.cowFees + yieldTotals.lvrCaptured;
+        const netGnosis = yieldTotals.evroTotal - yieldTotals.daoRevenue;
+
+        return (
+          <div style={{
+            padding: '20px 24px', borderRadius: '8px',
+            background: 'linear-gradient(135deg, rgba(160,130,245,0.04), rgba(239,169,96,0.04))',
+            border: '1px solid rgba(160,130,245,0.08)',
+            lineHeight: 1.85,
+          }}>
+            {/* P1 */}
+            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+              dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p1'), {
+                clientName,
                 capital: fmt(totalCapital),
+                posture: postureLabel,
+                branchCount: String(activeBranches.length),
+                branchListWithWeights,
+              })) }}
+            />
+            {/* P2 */}
+            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+              dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p2'), {
                 minted: fmtCompact(results.totalMinted),
-                branchCount: String(results.branches.filter(b => b.allocated > 0).length),
-                interest: fmtCompact(results.totalInterest),
                 blendedRate: results.totalMinted > 0
                   ? ((results.totalInterest / results.totalMinted) * 100).toFixed(1)
                   : '0',
-              })),
-            }}
-          />
-          {incentiveShare > 0.85 ? (
-            <span
-              dangerouslySetInnerHTML={{
-                __html: mdBold(fillTemplate(get('deploy', 'prose-era-first'), { apr: results.spApr.toFixed(2) })),
+                totalInterest: fmtCompact(results.totalInterest),
+              })) }}
+            />
+            {/* P3 */}
+            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+              dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p3'), {
+                clientName,
+                spShare: fmtCompact(results.spShare),
+                spApr: results.spApr.toFixed(2),
+                daoShare: fmtCompact(results.daoShare),
+              })) }}
+            />
+            {/* P4 */}
+            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+              dangerouslySetInnerHTML={{ __html:
+                mdBold(fillTemplate(get('deploy', 'prose-p4-static'), {
+                  minted: fmtCompact(results.totalMinted),
+                  spEuro: fmtCompact(spAlloc),
+                  spPct: Math.round(l2Shares.sp * 100),
+                  anchorEuro: fmtCompact(anchorAlloc),
+                  anchorPct: Math.round(l2Shares.anchor * 100),
+                  bridgeEuro: fmtCompact(bridgeAlloc),
+                  bridgePct: Math.round(l2Shares.bridge * 100),
+                })) + ' ' + reserveSentence
               }}
             />
-          ) : (
-            <span
-              dangerouslySetInnerHTML={{
-                __html: mdBold(fillTemplate(get('deploy', 'prose-era-split'), {
-                  spShare: fmtCompact(results.spShare),
-                  apr: results.spApr.toFixed(2),
-                  daoShare: fmtCompact(results.daoShare),
-                })),
-              }}
+            {/* P5 */}
+            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '12px' }}
+              dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p5'), {
+                spYield: fmtCompact(yieldTotals.spYield),
+                collateralYield: fmtCompact(collateralYield),
+                collateralSources,
+                cowYield: fmtCompact(cowYield),
+                redirectYield: fmtCompact(yieldTotals.redirectedToLp),
+              })) }}
             />
-          )}
-        </p>
-        <p className="body-text" style={{ fontSize: '0.88rem', marginBottom: '12px', color: 'var(--evro-shark-600)' }}>
-          Over {yieldTotals.totalDays} days, {fmt(totalCapital)} deployed →{' '}
-          <strong style={{ color: '#A081F5', fontWeight: 600 }}>{fmtCompact(yieldTotals.evroTotal)}</strong> cumulative to LPs
-          {' '}({yieldTotals.annualizedPct.toFixed(1)}% annualized): SP {fmtCompact(yieldTotals.spYield)}, collateral{' '}
-          {fmtCompact(yieldTotals.sdaiYield + yieldTotals.stakingYield)}, CoW/LVR{' '}
-          {fmtCompact(yieldTotals.cowFees + yieldTotals.lvrCaptured)}, router→LP {fmtCompact(yieldTotals.redirectedToLp)}.
-          {incentiveShare <= 0.85 && (
-            <> DAO accrual {fmtCompact(yieldTotals.daoRevenue)}.</>
-          )}
-        </p>
-        <p style={{ margin: 0 }}>
-          <em style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)', lineHeight: 1.65 }}>{get('deploy', 'prose-footnote')}</em>
-        </p>
-      </div>
+            {/* P6 */}
+            <p className="body-text" style={{ fontSize: '0.92rem', marginBottom: '14px' }}
+              dangerouslySetInnerHTML={{ __html: mdBold(fillTemplate(get('deploy', 'prose-p6'), {
+                lpTotal: fmtCompact(yieldTotals.evroTotal),
+                clientName,
+                apy: yieldTotals.annualizedPct.toFixed(1),
+                daoRevenue: fmtCompact(yieldTotals.daoRevenue),
+                netGnosis: fmtCompact(netGnosis),
+              })) }}
+            />
+          </div>
+        );
+      })()}
     </section>
   );
 }

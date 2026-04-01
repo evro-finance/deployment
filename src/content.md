@@ -197,17 +197,34 @@ EVRO
 ## l2-col-role
 Role
 
-## prose-line1
-At **{{capital}}** deployed, the protocol mints **{{minted}}** EVRO across **{{branchCount}}** branches. Borrowers pay **{{interest}}**/yr in interest at a blended rate of **{{blendedRate}}%**.
+## prose-p1
+If **{{clientName}}** had deployed **{{capital}}** into EVRO one year ago with a **{{posture}}** posture, the capital would have been split across {{branchCount}} collateral branches — {{branchListWithWeights}} — weighted exactly as set here.
 
-## prose-era-first
- In the First Era, **100%** of interest income flows to SP depositors (EVRO) — earning **{{apr}}% APR**.
+## prose-p2
+And that unlocked **{{minted}}** EVRO — borrowers using those Troves paid **{{blendedRate}}%** per year, which added up to **{{totalInterest}}/yr** in interest income.
 
-## prose-era-split
- **{{spShare}}**/yr flows to SP stakers ({{apr}}% APR). **{{daoShare}}**/yr goes to the DAO via the interestRouter.
+## prose-p3
+For this simulation, we're assuming the DAO voted the interest router **{{clientName}}'s** way: **{{spShare}}/yr** flows to Stability Pool stakers at **{{spApr}}% APR**, and **{{daoShare}}/yr** goes to the EVRO DAO. In reality, that split is decided by governance.
 
-## prose-footnote
-Deployment narrative above is borrower interest only. The replay adds collateral, LP, and router yields from historical data.
+## prose-p4-static
+The **{{minted}}** EVRO didn't sit still. **{{spEuro}}** ({{spPct}}%) went into the Stability Pool — the liquidation backstop that also earns the 75% interest cut. **{{anchorEuro}}** ({{anchorPct}}%) went into the CoW AMM sDAI/EVRO Anchor Pool. **{{bridgeEuro}}** ({{bridgePct}}%) went into the Curve EURe/EVRO Bridge Pool for retail routing.
+
+## prose-reserve-low
+The remaining **{{reserveEuro}}** was kept minimal — almost everything was put to work immediately.
+
+## prose-reserve-mid
+The remaining **{{reserveEuro}}** became available for rebalancing, funding protocol and business development, and seeding new liquidity venues as they come online.
+
+## prose-reserve-high
+A meaningful **{{reserveEuro}}** was held back — deliberately conservative, prioritising optionality and the ability to seed new venues over full immediate deployment.
+
+## prose-p5
+Over the year, four things earned money simultaneously. The Stability Pool returned **{{spYield}}** from borrowing interest and liquidation gains. The collateral itself earned **{{collateralYield}}** — {{collateralSources}}. The CoW AMM Anchor Pool captured **{{cowYield}}** in batch-auction surplus that would have leaked to arb-bots on any other venue. And **{{redirectYield}}** came back through the interest router as extra incentive for liquidity provision.
+
+## prose-p6
+Add it up: **{{lpTotal}}** cumulative to **{{clientName}}** as liquidity provider — **{{apy}}% annualised**. The protocol took **{{daoRevenue}}** for the DAO treasury. Net to Gnosis: **+{{netGnosis}}**.
+
+
 
 ---
 
