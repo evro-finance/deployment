@@ -32,6 +32,7 @@ interface DeploymentPlanProps {
   yieldResult: YieldResult;
   l2Shares: L2Shares;
   onAdjustL2Shares: (key: keyof L2Shares, target: number) => void;
+  lpName: string;
 }
 
 const STEP_RATE = 0.005;
@@ -247,6 +248,7 @@ export function DeploymentPlan({
   yieldResult,
   l2Shares,
   onAdjustL2Shares,
+  lpName,
 }: DeploymentPlanProps) {
 
   const totalWeight = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
@@ -522,7 +524,7 @@ export function DeploymentPlan({
 
         {/* ── Output Summary (70%) ── */}
         <div className="glass-card" style={{ padding: '20px 24px', flex: 1, minWidth: 0, display: 'flex', gap: '20px' }}>
-          {/* Left: Gnosis position KPIs */}
+          {/* Left: LP position KPIs */}
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             {/* Headline: APY */}
             <div style={{ marginBottom: '14px' }}>
@@ -538,7 +540,7 @@ export function DeploymentPlan({
               </div>
             </div>
 
-            {/* LP position yield (what Gnosis earns) */}
+            {/* LP position yield (what {lpName} earns) */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
@@ -549,7 +551,7 @@ export function DeploymentPlan({
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: '#A081F5' }}>+{fmtCompact(yieldTotals.evroTotal)}</span>
             </div>
 
-            {/* DAO fee — the only real cost that leaves Gnosis */}
+            {/* DAO fee — the only real cost that leaves {lpName} */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '8px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
@@ -560,12 +562,12 @@ export function DeploymentPlan({
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>−{fmtCompact(yieldTotals.daoRevenue)}</span>
             </div>
 
-            {/* Net to Gnosis */}
+            {/* Net to {lpName} */}
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '10px 0 0', borderTop: '1px solid rgba(160,130,245,0.15)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>{get('deploy', 'net-gnosis-label')}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', fontWeight: 600, color: 'var(--foreground)' }}>{get('deploy', 'net-lp-label')}</span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700,
                 color: '#EFA960',
@@ -697,6 +699,7 @@ export function DeploymentPlan({
           l2Shares,
           onAdjustL2: onAdjustL2Shares,
           incentiveShare,
+          lpName,
         }}
       />
 
@@ -783,10 +786,10 @@ export function DeploymentPlan({
             : get('deploy', 'posture-balanced');
 
         // ─ Computed values ─
-        const clientName = 'liquidity provider';
+        const clientName = lpName;
         const collateralYield = yieldTotals.sdaiYield + yieldTotals.stakingYield;
         const cowYield = yieldTotals.cowFees + yieldTotals.lvrCaptured;
-        const netGnosis = yieldTotals.evroTotal - yieldTotals.daoRevenue;
+        const netLp = yieldTotals.evroTotal - yieldTotals.daoRevenue;
 
         return (
           <div
@@ -880,9 +883,9 @@ export function DeploymentPlan({
                 <span className="narrative-showcase__apy-value">
                   {yieldTotals.annualizedPct.toFixed(1)}%
                 </span>
-                <span className="narrative-showcase__net-label">Net to Gnosis</span>
+                <span className="narrative-showcase__net-label">Net to {lpName}</span>
                 <span className="narrative-showcase__net-value">
-                  +{fmtCompact(netGnosis)}
+                  +{fmtCompact(netLp)}
                 </span>
               </div>
             </div>

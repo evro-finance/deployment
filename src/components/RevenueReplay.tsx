@@ -19,13 +19,21 @@ interface RevenueReplayProps {
     onAdjustL2: (key: keyof L2Shares, target: number) => void;
     /** 0 = all to DAO, 1 = all to LPs — drives DAO band saturation */
     incentiveShare: number;
+    /** The dynamic name of the liquidity provider (e.g. Gnosis or from URL) */
+    lpName: string;
   };
 }
 
 const tooltipStyle: CSSProperties = {
-  fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
-  background: 'rgba(29,28,31,0.95)', border: '1px solid rgba(160,130,245,0.25)',
-  borderRadius: '6px', color: '#E8E6ED',
+  fontFamily: 'var(--font-mono)', 
+  fontSize: '0.72rem',
+  background: 'rgba(255, 255, 255, 0.92)',
+  backdropFilter: 'blur(10px)',
+  WebkitBackdropFilter: 'blur(10px)',
+  border: '1px solid rgba(160, 130, 245, 0.15)',
+  borderRadius: '8px', 
+  color: 'var(--evro-shark)',
+  boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
 };
 
 const fmtEur = (v: number) => {
@@ -41,6 +49,7 @@ export function RevenueReplay({
 }: RevenueReplayProps) {
   const result = yieldResult;
   const incentiveShare = deployFlow?.incentiveShare ?? 0;
+  const lpName = deployFlow?.lpName ?? 'Gnosis';
 
   const sampled = result.days.filter((_, i) => i % 2 === 0 || i === result.days.length - 1);
   const tickInterval = Math.floor(sampled.length / 7);
@@ -69,18 +78,21 @@ export function RevenueReplay({
   const chartCard = (
     <div
       className={chartInRow ? 'glass-card replay-chart-row__chart' : 'glass-card'}
-      style={{ padding: '20px', marginBottom: deployFlow && embedded ? 0 : '20px' }}
+      style={{ padding: '20px', marginBottom: deployFlow && embedded ? 0 : '20px', display: 'flex', flexDirection: 'column' }}
       role="region"
       aria-label="Historical yield replay, stacked cumulative"
     >
       <p className="label" style={{ marginBottom: '4px' }}>Cumulative yield — stacked</p>
       <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '12px', color: 'var(--muted-foreground)' }}>
         LP bands + DAO cap ({fmtEur(t.evroTotal + t.daoRevenue)} total).{' '}
-        The DAO band dims as you route more interest to LPs — it is a cost, not your yield.
+        Hover to inspect specific yield sources.
       </p>
-      <div className={chartInRow ? 'replay-chart-row__chart-area' : undefined} style={chartInRow ? undefined : { height: '320px' }}>
+      <div className={chartInRow ? 'replay-chart-row__chart-area' : undefined} style={chartInRow ? undefined : { height: '320px', flex: 1 }}>
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={chartData} margin={{ left: 16, right: 16, top: 8, bottom: 4 }}>
+          <AreaChart 
+            data={chartData} 
+            margin={{ left: 16, right: 16, top: 8, bottom: 4 }}
+          >
             <defs>
               {/* Band 1 (bottom): sDAI — most stable */}
               <linearGradient id="sdGrad" x1="0" y1="0" x2="0" y2="1">
@@ -122,6 +134,7 @@ export function RevenueReplay({
             <XAxis dataKey="date" tick={{ fontSize: 9, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} interval={tickInterval} />
             <YAxis tickFormatter={(v: number) => fmtEur(v)} tick={{ fontSize: 10, fontFamily: 'var(--font-mono)', fill: '#95929E' }} axisLine={false} tickLine={false} />
             <Tooltip
+              itemSorter={() => -1} // Reverse order to show Top-to-Bottom (matching visual stack)
               formatter={(value: unknown, name: unknown) => {
                 const label = String(name);
                 const val = fmtEur(Number(value));
@@ -145,27 +158,52 @@ export function RevenueReplay({
           </AreaChart>
         </ResponsiveContainer>
       </div>
-      {/* Legend: top → bottom read order (matches right edge of chart) */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginTop: '12px' }}>
-        {[
-          { label: 'DAO Accrual',  color: '#95929E', note: 'cost' },
-          { label: 'Router→LPs',   color: '#C4B0FF' },
-          { label: 'SP',           color: '#A081F5' },
-          { label: 'LVR',          color: '#81C784' },
-          { label: 'CoW',          color: '#EFA960' },
-          { label: 'Staking',      color: '#9CB1F4' },
-          { label: 'sDAI',         color: '#7176CA' },
-        ].map(d => (
-          <div key={d.label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{
-              width: 8, height: 8, borderRadius: '50%', background: d.color,
-              opacity: d.note === 'cost' ? Math.max(0.25, daoOpacity) : 0.85,
-            }} />
-            <span className="label-sm" style={{ color: d.note === 'cost' ? 'var(--muted-foreground)' : undefined }}>
-              {d.label}{d.note ? ` (${d.note})` : ''}
+
+      {/* SUCCESS STORY STRIP (Reflecting Top Hero Data) */}
+      <div style={{ 
+        marginTop: '16px', 
+        paddingTop: '16px', 
+        borderTop: '1px solid rgba(160, 130, 245, 0.1)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px'
+      }}>
+        {/* Net to LP Hero */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+          <span className="h4" style={{ margin: 0, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--foreground)' }}>
+            Net to {lpName}
+          </span>
+          <span style={{ 
+            fontFamily: 'var(--font-heading)', 
+            fontSize: '1.4rem', 
+            fontWeight: 700, 
+            color: 'var(--evro-orange)' 
+          }}>
+            +{fmtEur(t.evroTotal - t.daoRevenue)}
+          </span>
+        </div>
+
+        {/* Secondary Details */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px' }}>
+          <div className="flex-col">
+            <span className="label-xs" style={{ color: 'var(--muted-foreground)' }}>ANNUALIZED YIELD</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--evro-lilac)' }}>
+              {t.annualizedPct.toFixed(1)}%
             </span>
           </div>
-        ))}
+          <div className="flex-col" style={{ alignItems: 'center' }}>
+            <span className="label-xs" style={{ color: 'var(--muted-foreground)' }}>LP POSITION (365D)</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--evro-lilac)' }}>
+              +{fmtEur(t.evroTotal)}
+            </span>
+          </div>
+          <div className="flex-col" style={{ alignItems: 'flex-end' }}>
+            <span className="label-xs" style={{ color: 'var(--muted-foreground)' }}>DAO FEE (25%)</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>
+              −{fmtEur(t.daoRevenue)}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
