@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import './styles/tokens.css';
 import './styles/global.css';
 import { BRANCHES, DEFAULT_CAPITAL, calculateDeployment } from './data/branches';
@@ -25,6 +25,31 @@ function App() {
     () => calculateDeployment(totalCapital, weights, crs),
     [totalCapital, weights, crs]
   );
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    sections.forEach((section, i) => {
+      if (i === 0) {
+        section.classList.add('revealed');
+      } else {
+        observer.observe(section);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>

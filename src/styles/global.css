@@ -60,6 +60,15 @@ body {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: 0 var(--content-padding);
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section + .section {
