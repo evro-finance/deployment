@@ -37,16 +37,21 @@ function renderMarkdown(md: string): string {
   };
 
   const inlineFormat = (text: string): string => {
-    return text
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, href) => {
-        if (href.startsWith('#')) {
-          return `<a href="${href}">${label}</a>`;
-        }
-        return `<a href="${href}" target="_blank" rel="noopener">${label}</a>`;
-      });
+    // 1. Markdown links first (before bold can break bracket syntax)
+    let out = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, href) => {
+      if (href.startsWith('#')) {
+        return `<a href="${href}">${label}</a>`;
+      }
+      return `<a href="${href}" target="_blank" rel="noopener">${label}</a>`;
+    });
+    // 2. Bold & italic
+    out = out.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    out = out.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    // 3. Inline code
+    out = out.replace(/`([^`]+)`/g, '<code>$1</code>');
+    // 4. Auto-link bare URLs not already inside href=""
+    out = out.replace(/(?<!href="|">)(https?:\/\/[^\s<,)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    return out;
   };
 
   for (let i = 0; i < lines.length; i++) {

@@ -211,9 +211,9 @@ export function DeploymentPlan({
               }}>
                 {yieldTotals.annualizedPct.toFixed(1)}%
               </span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--muted-foreground)', marginLeft: '8px' }}>
-                on {fmt(totalCapital)}
-              </span>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)', marginTop: '6px', lineHeight: 1.7 }}>
+                SP yield · Collateral staking · CoW AMM fees
+              </div>
             </div>
 
             {/* LP position yield (what Gnosis earns) */}
