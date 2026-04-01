@@ -147,7 +147,7 @@ const dailyLvrRate = totalLvrCaptured / cowBasePool / periodDays; // LVR per €
 export function computeYield(
   totalCapital: number,
   branches: BranchAlloc[],
-  incentiveShare: number = 0, // 0 = standard 75/25, 1 = 100% to LPs
+  incentiveShare: number = 0, // 0 = EVRO gets 25%, 1 = all to LPs
 ): YieldResult {
   // Compute allocations from branches
   const totalWeight = branches.reduce((s, b) => s + b.weight, 0);
@@ -185,6 +185,7 @@ export function computeYield(
   let cumCow = 0;
   let cumLvr = 0;
   let cumDao = 0;
+  let cumRedirected = 0;
 
   const days: DayResult[] = [];
   // Get starting ratios for L2 cumulative computation
@@ -236,19 +237,18 @@ export function computeYield(
     const lvrDaily = anchorAlloc * dailyLvrRate;
     cumLvr += lvrDaily;
 
-    // ── L4: DAO revenue (25% of borrower interest) ──
-    // Interest is based on the user-set blended rate
+    // ── L4: Interest router (25% of borrower interest) ──
+    // From the LP perspective: EVRO's cut is a protocol fee that reduces LP yield
     const interestDaily = totalMinted * (blendedRate / 365);
-    const daoDaily = interestDaily * 0.25 * (1 - incentiveShare);
+    const interest25 = interestDaily * 0.25;
+    const daoDaily = interest25 * (1 - incentiveShare); // goes to EVRO (not LP yield)
+    const redirectedDaily = interest25 * incentiveShare; // stays with LPs
     cumDao += daoDaily;
+    cumRedirected += redirectedDaily;
 
-    // Note: the SP yield from L1 already includes the 75% interest portion
-    // (because BOLD SP APY = interest + liquidation gains)
-    // So we do NOT add interest again when computing evroTotal.
-    // The DAO 25% is separate — it comes from the borrower side, not the SP side.
-
-    const dailyTotal = spDaily + sdaiDaily + stakingDaily + cowDaily + lvrDaily + daoDaily;
-    const evroTotal = cumSp + cumSdai + cumStaking + cumCow + cumLvr + cumDao;
+    // LP yield = L1 + L2 + L3 + redirected portion of L4
+    const dailyTotal = spDaily + sdaiDaily + stakingDaily + cowDaily + lvrDaily + redirectedDaily;
+    const evroTotal = cumSp + cumSdai + cumStaking + cumCow + cumLvr + cumRedirected;
 
     days.push({
       date,
