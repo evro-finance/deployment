@@ -242,6 +242,23 @@ function BranchWeightPiePanel({
     </div>
   );
 }
+
+/** SVG check circle — empty circle → filled with white checkmark */
+function ControlCheck({ checked, onClick }: { checked: boolean; onClick: () => void }) {
+  return (
+    <button
+      className={`control-check${checked ? ' control-check--checked' : ''}`}
+      onClick={onClick}
+      title={checked ? 'Unlock' : 'Confirm'}
+    >
+      <svg viewBox="0 0 24 24">
+        <circle className="control-check__circle" cx="12" cy="12" r="10" />
+        <path className="control-check__tick" d="M7 12.5l3 3 7-7" />
+      </svg>
+    </button>
+  );
+}
+
 import { ShareModal } from './ShareModal';
 
 export function DeploymentPlan({
@@ -261,6 +278,35 @@ export function DeploymentPlan({
 }: DeploymentPlanProps) {
 
   const [showShareModal, setShowShareModal] = useState(false);
+
+  // ── Guided checklist flow ──
+  const CONTROL_ORDER: string[] = ['capital', 'posture', 'router'];
+
+  const activeControl = useMemo(() => {
+    return CONTROL_ORDER.find(k => !locks[k]) ?? null;
+  }, [locks]);
+
+  const handleCheck = (key: string) => {
+    onToggleLock(key);
+
+    // After toggling, find the next unchecked section
+    const nextLocks = { ...locks, [key]: !locks[key] };
+    if (!nextLocks[key]) return; // unchecking — no scroll
+
+    const nextIdx = CONTROL_ORDER.findIndex(k => !nextLocks[k]);
+    if (nextIdx >= 0) {
+      // Scroll to next control
+      const nextKey = CONTROL_ORDER[nextIdx];
+      setTimeout(() => {
+        document.getElementById(`ctrl-${nextKey}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 200);
+    } else {
+      // All checked — scroll to narrative
+      setTimeout(() => {
+        document.querySelector('.narrative-showcase')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
+    }
+  };
 
   const totalWeight = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
 
@@ -447,7 +493,7 @@ export function DeploymentPlan({
         {get('simulator', 'body')}
       </p>
       {get('simulator', 'methodology') && (
-        <p className="body-text" style={{ marginBottom: '8px', fontSize: '0.82rem', color: 'var(--muted-foreground)', fontStyle: 'italic' }}>
+        <p className="body-text" style={{ marginTop: '16px', marginBottom: '20px', fontSize: '0.82rem', color: 'var(--muted-foreground)', fontStyle: 'italic' }}>
           {get('simulator', 'methodology')}
         </p>
       )}
@@ -473,38 +519,46 @@ export function DeploymentPlan({
           </div>
 
           {/* Capital */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-            <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'capital-label')}</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
-              <button className={`lock-toggle ${locks.capital ? 'lock-toggle--locked' : ''}`} onClick={() => onToggleLock('capital')} title={locks.capital ? 'Unlock' : 'Lock'}>{locks.capital ? '✓' : '🔓'}</button>
+          <div
+            id="ctrl-capital"
+            className={`control-section${activeControl === 'capital' ? ' control-section--active' : ''}${locks.capital ? ' control-section--locked' : ''}`}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+              <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'capital-label')}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--accent)' }}>{fmt(totalCapital)}</span>
+                <ControlCheck checked={locks.capital} onClick={() => handleCheck('capital')} />
+              </div>
             </div>
-          </div>
-          <input
-            type="range" min={1_000_000} max={25_000_000} step={500_000}
-            value={totalCapital}
-            onChange={e => onCapitalChange(Number(e.target.value))}
-            style={{ margin: 0 }}
-            disabled={locks.capital}
-            className={locks.capital ? 'locked-section' : ''}
-          />
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px', marginBottom: '8px' }}>
-            <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-min')}</span>
-            <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-max')}</span>
+            <input
+              type="range" min={1_000_000} max={25_000_000} step={500_000}
+              value={totalCapital}
+              onChange={e => onCapitalChange(Number(e.target.value))}
+              style={{ margin: 0 }}
+              disabled={locks.capital}
+            />
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px', marginBottom: '4px' }}>
+              <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-min')}</span>
+              <span className="label-sm" style={{ fontSize: '0.5rem' }}>{get('deploy', 'capital-max')}</span>
+            </div>
           </div>
 
           {/* Posture */}
-          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px' }}>
+          <div
+            id="ctrl-posture"
+            className={`control-section${activeControl === 'posture' ? ' control-section--active' : ''}${locks.posture ? ' control-section--locked' : ''}`}
+            style={{ borderTop: '1px solid rgba(160,130,245,0.06)' }}
+          >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'posture-label')}</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <button className={`lock-toggle ${locks.posture ? 'lock-toggle--locked' : ''}`} onClick={() => onToggleLock('posture')} title={locks.posture ? 'Unlock' : 'Lock'}>{locks.posture ? '✓' : '🔓'}</button>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
-                color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A081F5',
-              }}>
-                {posture < 0.35 ? get('deploy', 'posture-conservative') : posture > 0.65 ? get('deploy', 'posture-aggressive') : get('deploy', 'posture-balanced')}
-              </span>
+                <span style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
+                  color: posture < 0.35 ? '#9CB1F4' : posture > 0.65 ? '#EFA960' : '#A081F5',
+                }}>
+                  {posture < 0.35 ? get('deploy', 'posture-conservative') : posture > 0.65 ? get('deploy', 'posture-aggressive') : get('deploy', 'posture-balanced')}
+                </span>
+                <ControlCheck checked={locks.posture} onClick={() => handleCheck('posture')} />
               </div>
             </div>
             <input
@@ -513,7 +567,6 @@ export function DeploymentPlan({
               onChange={e => onPostureChange(Number(e.target.value))}
               style={{ margin: 0 }}
               disabled={locks.posture}
-              className={locks.posture ? 'locked-section' : ''}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
               <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'posture-hint-left')}</span>
@@ -522,21 +575,25 @@ export function DeploymentPlan({
           </div>
 
           {/* Interest Router */}
-          <div style={{ borderTop: '1px solid rgba(160,130,245,0.06)', paddingTop: '8px', marginTop: '8px' }}>
+          <div
+            id="ctrl-router"
+            className={`control-section${activeControl === 'router' ? ' control-section--active' : ''}${locks.router ? ' control-section--locked' : ''}`}
+            style={{ borderTop: '1px solid rgba(160,130,245,0.06)' }}
+          >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
               <span className="label" style={{ fontSize: '0.6rem' }}>{get('deploy', 'router-label')}</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <button className={`lock-toggle ${locks.router ? 'lock-toggle--locked' : ''}`} onClick={() => onToggleLock('router')} title={locks.router ? 'Unlock' : 'Lock'}>{locks.router ? '✓' : '🔓'}</button>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
-                color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A081F5',
-              }}>
-                {incentiveShare < 0.15
-                  ? get('deploy', 'router-summary-dao25')
-                  : incentiveShare > 0.85
-                    ? get('deploy', 'router-summary-all-lps')
-                    : fillTemplate(get('deploy', 'router-summary-partial'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
-              </span>
+                <span style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 600,
+                  color: incentiveShare > 0.65 ? '#EFA960' : incentiveShare < 0.35 ? '#9CB1F4' : '#A081F5',
+                }}>
+                  {incentiveShare < 0.15
+                    ? get('deploy', 'router-summary-dao25')
+                    : incentiveShare > 0.85
+                      ? get('deploy', 'router-summary-all-lps')
+                      : fillTemplate(get('deploy', 'router-summary-partial'), { pct: String(Math.round((1 - incentiveShare) * 25)) })}
+                </span>
+                <ControlCheck checked={locks.router} onClick={() => handleCheck('router')} />
               </div>
             </div>
             <input
@@ -545,7 +602,6 @@ export function DeploymentPlan({
               onChange={e => onIncentiveChange(Number(e.target.value))}
               style={{ margin: 0 }}
               disabled={locks.router}
-              className={locks.router ? 'locked-section' : ''}
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2px' }}>
               <span className="label-sm" style={{ fontSize: '0.5rem', color: '#9CB1F4' }}>{get('deploy', 'router-end-dao')}</span>
@@ -839,6 +895,11 @@ export function DeploymentPlan({
             <div className="narrative-showcase__label">
               Deployment Narrative · Historical Replay
             </div>
+
+            {/* Intro header */}
+            <p className="heading-sm" style={{ marginBottom: '20px', color: 'var(--foreground)', fontWeight: 600 }}>
+              This simulation ran on one full year of real market data — accounting for yield volatility, collateral ratios, and fee capture. Here is what would have happened if you had deployed into EVRO one year ago.
+            </p>
 
             {/* P1 — Opening Bet */}
             <p className="narrative-showcase__para"

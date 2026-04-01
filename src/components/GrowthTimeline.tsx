@@ -7,7 +7,8 @@ export function GrowthTimeline() {
     <section className="section">
       <div className="label" style={{ marginBottom: '12px' }}>Growth Trajectory</div>
       <h2 className="heading-lg" style={{ marginBottom: '8px' }}>
-        {get('growth', 'title')}
+        A Path to Multiplying TVL<br />
+        <span style={{ color: 'var(--muted-foreground)', fontWeight: 300 }}>(And what your reserve percentage will be used for)</span>
       </h2>
       <p className="body-text" style={{ marginBottom: '40px' }}>
         {get('growth', 'body')}

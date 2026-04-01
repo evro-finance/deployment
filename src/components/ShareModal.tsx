@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { get } from '../data/content';
 import { fmt } from '../data/branches';
 
@@ -50,7 +51,7 @@ export function ShareModal({ isOpen, onClose, shareUrl, capital, apy }: ShareMod
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
   const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
 
-  return (
+  return createPortal(
     <div className="share-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="share-modal">
         <button className="share-modal__close" onClick={onClose}>×</button>
@@ -104,6 +105,7 @@ export function ShareModal({ isOpen, onClose, shareUrl, capital, apy }: ShareMod
           </a>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

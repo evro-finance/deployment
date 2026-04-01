@@ -38,7 +38,7 @@ export function Hero() {
         )}
         <div className="animate-in delay-3" style={{ marginTop: '32px', display: 'flex', alignItems: 'center', gap: '24px' }}>
           <a
-            className="btn-ghost"
+            className="btn-primary"
             href="https://app.evro.finance"
             target="_blank"
             rel="noopener noreferrer"

@@ -356,10 +356,10 @@ EVRO would be the European version. Instead of earning USD-denominated Aave yiel
 # growth
 
 ## title
-A Path to Multiplying TVL
+A Path to Multiplying TVL (And what your reserve percentage will be used for)
 
 ## body
-Four phases from Genesis deployment to ecosystem scale. Each phase unlocks the next. (And what your reserve percentage will be used for.)
+Four phases from Genesis deployment to ecosystem scale. Each phase unlocks the next.
 
 ## phase-1-title
 The Infrastructure
@@ -452,7 +452,7 @@ Contango Integration
 Pursue Contango integration for leveraged EVRO positions. Conversations with the founding team are active — contingent on EVRO listing on a Gnosis-native money market (see Move 2).
 
 ## architecture-body
-The governance architecture is layered: the EVRO Protocol enforces the immutable 75/25 split. The EVRO DAO (Moloch v3 / Baal on Gnosis Chain) allocates the 25% stream through proposals. RaidGuild (30% RETVRN) and GnosisDAO (15% RETVRN) are day-one governance participants. The remaining 55% sits in the DAO treasury for progressive distribution to aligned stakeholders.
+The EVRO Protocol enforces the immutable 75/25 split. The EVRO DAO (Moloch v3 / Baal on Gnosis Chain) allocates the 25% stream through proposals. RaidGuild (30% RETVRN) and GnosisDAO (15% RETVRN) are day-one governance participants. The remaining 55% sits in the DAO treasury for progressive distribution to aligned stakeholders. **Percentage of positions sent to the Reserve are the strongest alignment signal.**
 
 ---
 

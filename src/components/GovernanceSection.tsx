@@ -35,7 +35,13 @@ export function GovernanceSection() {
                 {String(n).padStart(2, '0')}
               </span>
               <div>
-                <p className="heading-sm" style={{ marginBottom: '6px' }}>{title}</p>
+                <p className="heading-sm" style={{ marginBottom: '6px' }}>
+                  {n === 5 ? (
+                    <><a href="https://alphagrowth.io/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid rgba(160,129,245,0.3)', transition: 'border-color 0.15s ease' }} onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--accent)')} onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(160,129,245,0.3)')}>Alpha Growth</a> Partnership</>
+                  ) : n === 6 ? (
+                    <><a href="https://contango.exchange/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid rgba(160,129,245,0.3)', transition: 'border-color 0.15s ease' }} onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--accent)')} onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(160,129,245,0.3)')}>Contango</a> Integration</>
+                  ) : title}
+                </p>
                 <p style={{ fontSize: '0.82rem', lineHeight: 1.5, color: 'var(--evro-shark-400)' }}
                    dangerouslySetInnerHTML={{ __html: desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
                 />
@@ -49,7 +55,7 @@ export function GovernanceSection() {
       {get('governance', 'architecture-body') && (
         <div style={{ borderLeft: '3px solid var(--accent)', paddingLeft: '20px' }}>
           <p className="body-text" style={{ fontSize: '0.9rem' }}
-             dangerouslySetInnerHTML={{ __html: get('governance', 'architecture-body').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+             dangerouslySetInnerHTML={{ __html: get('governance', 'architecture-body').replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--muted-foreground);font-weight:600">$1</strong>') }}
           />
         </div>
       )}

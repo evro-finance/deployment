@@ -831,18 +831,19 @@ input[type="range"]::-webkit-slider-thumb:active {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin-top: 40px;
+  margin: 60px auto 0;
   padding: 0;
   background: none;
   border: none;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--muted-foreground);
   transition: color 0.2s ease;
+  animation: bounceDown 2s ease-in-out infinite;
 }
 
 .hero-scroll-nudge:hover {
@@ -851,9 +852,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .hero-scroll-nudge__arrow {
   display: block;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1;
-  animation: bounceDown 2s ease-in-out infinite;
 }
 
 @keyframes bounceDown {
@@ -1401,42 +1401,98 @@ input[type="range"]::-webkit-slider-thumb:active {
   color: var(--evro-green);
 }
 
-/* ── Lock Toggle ────────────────────────────────────────── */
-.lock-toggle {
+/* ── Control Check — guided checklist flow ──────────────── */
+.control-section {
+  position: relative;
+  padding: 10px 0;
+  border-radius: 8px;
+  transition: box-shadow 0.4s ease, opacity 0.3s ease;
+}
+
+.control-section--active {
+  box-shadow: 0 0 0 1px rgba(160,129,245,0.2), 0 0 24px rgba(160,129,245,0.1);
+  border-radius: 8px;
+  padding: 10px 8px;
+  margin: 0 -8px;
+}
+
+.control-section--locked {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.control-section--locked .control-check {
+  pointer-events: auto;
+}
+
+.control-check {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: transparent;
-  color: var(--muted-foreground);
-  font-size: 0.6rem;
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: none;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
   flex-shrink: 0;
+  transition: transform 0.15s ease;
 }
 
-.lock-toggle:hover {
-  border-color: var(--border-strong);
-  color: var(--foreground);
+.control-check:hover {
+  transform: scale(1.1);
 }
 
-.lock-toggle--locked {
-  background: rgba(160,129,245,0.08);
-  border-color: var(--accent);
-  color: var(--accent);
+.control-check:active {
+  transform: scale(0.95);
 }
 
-.lock-toggle--locked:hover {
-  background: rgba(160,129,245,0.15);
+.control-check svg {
+  width: 26px;
+  height: 26px;
 }
 
-.locked-section {
-  opacity: 0.5;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
+/* Unchecked circle */
+.control-check__circle {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.control-check:hover .control-check__circle {
+  fill: rgba(160,129,245,0.06);
+}
+
+/* Checked state */
+.control-check--checked .control-check__circle {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.control-check__tick {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  transition: stroke-dashoffset 0.25s ease 0.05s;
+}
+
+.control-check--checked .control-check__tick {
+  stroke-dashoffset: 0;
+}
+
+/* Active section pulsing glow on the check */
+.control-section--active .control-check:not(.control-check--checked) svg {
+  animation: checkPulse 2s ease-in-out infinite;
+}
+
+@keyframes checkPulse {
+  0%, 100% { filter: drop-shadow(0 0 0px rgba(160,129,245,0)); }
+  50% { filter: drop-shadow(0 0 8px rgba(160,129,245,0.4)); }
 }
 
 /* ── Modal Animations ───────────────────────────────────── */
