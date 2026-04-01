@@ -35,9 +35,26 @@ const POSTURE_RANGES: Record<string, { conservativeCR: number; aggressiveCR: num
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
 
 function App() {
-  const [totalCapital, setTotalCapital] = useState(DEFAULT_CAPITAL);
-  const [incentiveShare, setIncentiveShare] = useState(0); // 0 = DAO gets 25%, 1 = all to LPs
-  const [posture, setPosture] = useState(0.5); // 0 = conservative, 1 = aggressive
+  const [totalCapital, setTotalCapital] = useState(() => {
+    if (typeof window === 'undefined') return DEFAULT_CAPITAL;
+    const params = new URLSearchParams(window.location.search);
+    const cap = params.get('cap');
+    return cap ? Number(cap) : DEFAULT_CAPITAL;
+  });
+
+  const [incentiveShare, setIncentiveShare] = useState(() => {
+    if (typeof window === 'undefined') return 0;
+    const params = new URLSearchParams(window.location.search);
+    const inc = params.get('inc');
+    return inc ? Math.max(0, Math.min(1, Number(inc))) : 0;
+  });
+
+  const [posture, setPosture] = useState(() => {
+    if (typeof window === 'undefined') return 0.5;
+    const params = new URLSearchParams(window.location.search);
+    const pst = params.get('pst');
+    return pst ? Math.max(0, Math.min(1, Number(pst))) : 0.5;
+  });
   
   const [lpName] = useState(() => {
     if (typeof window === 'undefined') return 'Gnosis';
@@ -45,13 +62,14 @@ function App() {
     return params.get('lp') || 'Gnosis';
   });
 
-  const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(
+  const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(() => 
     Object.fromEntries(BRANCHES.map(b => [b.id, {
       weight: b.defaultWeight,
       cr: b.defaultCR,
       rate: b.interestRate,
     }]))
   );
+
   const [l2Shares, setL2Shares] = useState<L2Shares>(DEFAULT_L2_SHARES);
 
   // When posture changes, recompute all CRs and rates
@@ -70,6 +88,15 @@ function App() {
       return next;
     });
   }, []);
+
+  // One-time effect: if we have a custom 'pst' in URL, apply corresponding branch params
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const pst = params.get('pst');
+    if (pst) {
+      applyPosture(Math.max(0, Math.min(1, Number(pst))));
+    }
+  }, [applyPosture]);
 
   const onAdjustL2Shares = useCallback((key: keyof L2Shares, target: number) => {
     const t = Math.max(0, Math.min(1, target));
