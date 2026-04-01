@@ -249,9 +249,17 @@ export function DeploymentPlan({
             </div>
           </div>
 
-          {/* Right: fee structure */}
+          {/* Right: capital deployment map */}
           <div style={{ flex: 1, borderLeft: '1px solid rgba(160,130,245,0.06)', paddingLeft: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <span className="label" style={{ fontSize: '0.55rem', display: 'block', marginBottom: '10px' }}>Fee Structure</span>
+            <span className="label" style={{ fontSize: '0.55rem', display: 'block', marginBottom: '10px' }}>Capital Map</span>
+
+            <div style={{
+              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>Collateral locked</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--foreground)' }}>{fmtCompact(totalCapital)}</span>
+            </div>
 
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
@@ -265,32 +273,24 @@ export function DeploymentPlan({
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>Interest income</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--foreground)' }}>{fmtCompact(results.totalInterest)}<span style={{ fontSize: '0.55em', color: 'var(--muted-foreground)' }}> /yr</span></span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#A082F5' }}>　→ Stability Pool (40%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(results.totalMinted * 0.40)}</span>
             </div>
 
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>→ Stability Pool ({Math.round(75 + incentiveShare * 25)}%)</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{fmtCompact(results.spShare)}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#EFA960' }}>　→ Anchor Pool (40%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#EFA960' }}>{fmtCompact(results.totalMinted * 0.40)}</span>
             </div>
 
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
               padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
             }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>→ DAO ({Math.round((1 - incentiveShare) * 25)}%)</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#EFA960' }}>{fmtCompact(results.daoShare)}</span>
-            </div>
-
-            <div style={{
-              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-              padding: '6px 0', borderTop: '1px solid rgba(160,130,245,0.06)',
-            }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>SP APR on EVRO</span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: '#A082F5' }}>{results.spApr.toFixed(2)}%</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--muted-foreground)' }}>　→ Reserve (20%)</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>{fmtCompact(results.totalMinted * 0.20)}</span>
             </div>
           </div>
         </div>
