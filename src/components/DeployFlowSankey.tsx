@@ -4,8 +4,8 @@ import { linkVertical } from 'd3-shape';
 import { DISTRIBUTION_LABELS, type L2Shares } from '../data/branches';
 
 /** d3-sankey lays out left→right; we transpose coords so flow reads top→bottom. */
-const LAYOUT_DEPTH = 320;
-const LAYOUT_BREADTH = 300;
+const LAYOUT_DEPTH = 230;
+const LAYOUT_BREADTH = 280;
 
 type SankeyNode = {
   id: string;
@@ -117,8 +117,8 @@ export function DeployFlowSankey({
 
     const layout = d3Sankey<SankeyNode, { value: number }>()
       .nodeId((d: SankeyNode) => d.id)
-      .nodeWidth(6)
-      .nodePadding(4)
+      .nodeWidth(33)
+      .nodePadding(8)
       .extent([[1, 4], [LAYOUT_DEPTH - 1, LAYOUT_BREADTH - 4]]);
 
     const g = layout({

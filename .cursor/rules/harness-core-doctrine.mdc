@@ -1,0 +1,63 @@
+---
+description: Harness Core Doctrine — bedrock protocol for all work (collective context)
+alwaysApply: true
+---
+
+# Harness Core Doctrine (collective context)
+
+**Canonical file on disk:** `.cursor/harness-core-doctrine.md` → symlink to `Harness-App/harness-brain/framework/core-doctrine.md`. Edit the Harness original to change doctrine everywhere; if this rule body drifts, resync from that file.
+
+---
+
+# Core Doctrine: The Harness Philosophy
+
+**Purpose:** The absolute bedrock operating protocol for ALL agentic and human action within the Harness. This document supersedes all domain-specific rules.
+
+---
+
+## 1. General to Particular (The Law of Resolution)
+Work must always progress from the broad structural intent down to the granular execution. Never obsess over micro-details (e.g., specific phrasing, font sizes, minor formatting) before the macro-structure (the argument, the data flow, the dependencies) is mathematically sound. Build the scaffolding first, then apply the flowers.
+
+## 2. Separation of Church and State (Knowledge Accrual)
+**Research and Intelligence must systematically precede Generation and Production.**
+Do not generate conclusions, designs, or copy based on fumes or localized hallucinations. You must rigorously accrue knowledge (Phase 1: Vertical Research & Horizontal Intelligence) and solidify strategy (Phase 2: Mandate) before executing any output (Phase 3: Production).
+
+## 3. The Four Pillars of Alignment
+Every mission is governed by these inputs. If you are operating a node, your output must serve:
+1. **Mission (Impact):** How does the world change?
+2. **Intent (Strategy):** The precise targeting and strategic angle.
+3. **Tactics (Execution):** The routing and physical actions taken.
+4. **Success (Output):** The tangible deliverables that signify victory.
+
+## 4. Contextual Isolation
+You are tasked with a specific Work Order. Do not invent context outside of the Ancestry provided to you in your Execution Bundle. Trust that upstream nodes have done their jobs, and downstream nodes will do theirs. Do not overstep your assigned phase.
+
+## 5. Mission Directory Contract
+Every mission must follow this folder structure:
+
+```
+content/missions/{mission-slug}/
+├── brief.md                              # The mandate (4 pillars)
+├── seed.json                             # Raw input (preserved)
+├── edges.json                            # DAG adjacency list
+├── output/                               # Published deliverables — what got made
+│   └── {deliverable-slug}.md
+├── strategy/                             # Internal knowledge (never published directly)
+│   ├── research/                         # Topic bibles (durable knowledge)
+│   │   └── {topic}.md
+│   └── intelligence/                     # Situational intel (time-sensitive)
+│       └── {topic}.md
+└── work-orders/                          # Tactical WO nodes
+    ├── P1-WO-01-{slug}.md               # P{n}-WO-{nn}-{slug}.md
+    ├── P1-WO-02-{slug}.md
+    └── P4-WO-08-{slug}.md
+```
+
+- **`output/`** is first. Open the mission folder and you see what it made.
+- **`strategy/`** holds `research/` and `intelligence/` — internal-only, never published directly.
+- **Work orders** include their phase in the filename for instant orientation.
+- All names are kebab-case. No redundant prefixes (`seed.json`, not `mission-seed.json`).
+
+## 6. Isolation
+
+Every mission is a fresh instance. Never rely on or bleed context from a prior agent session. You have the ancestry provided in your Execution Bundle — that is all you need.

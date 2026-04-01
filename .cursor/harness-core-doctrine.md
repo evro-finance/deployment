@@ -1,0 +1,1 @@
+/Users/elco/Desktop/Harness 3.5/Harness-App/harness-brain/framework/core-doctrine.md
