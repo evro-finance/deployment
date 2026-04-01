@@ -173,47 +173,98 @@ export function RevenueReplay({
         </ResponsiveContainer>
       </div>
 
-      {/* SUCCESS STORY STRIP */}
+      {/* ── Financial Receipt ── */}
       <div style={{
         marginTop: '20px',
-        paddingTop: '16px',
+        paddingTop: '20px',
         borderTop: '1px solid rgba(160, 130, 245, 0.1)',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '16px',
       }}>
-        {/* Net to LP Hero */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-          <span className="h4" style={{ margin: 0, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--foreground)' }}>
+        {/* Tier 1 — Hero Stat */}
+        <div style={{
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          paddingBottom: '18px',
+        }}>
+          <span style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.58rem',
+            fontWeight: 500,
+            textTransform: 'uppercase' as const,
+            letterSpacing: '0.16em',
+            color: 'var(--muted-foreground)',
+            marginBottom: '6px',
+          }}>
             Net to {lpName}
           </span>
           <span style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: '1.4rem',
-            fontWeight: 700,
-            color: 'var(--evro-orange)',
+            fontFamily: 'var(--font-data)',
+            fontWeight: 800,
+            fontSize: 'clamp(1.44rem, 2.8vw, 2.08rem)',
+            lineHeight: 1,
+            letterSpacing: '-0.03em',
+            background: 'linear-gradient(135deg, var(--evro-purple), var(--evro-orange))',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
           }}>
             +{fmtEur(t.evroTotal - t.daoRevenue)}
           </span>
         </div>
 
-        {/* Secondary Details */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <span className="label-xs" style={{ color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>ANNUALIZED YIELD</span>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--evro-lilac)' }}>
+        {/* Tier 2 — KPI Triptych */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr auto 1fr auto 1fr',
+          alignItems: 'center',
+          borderTop: '1px solid rgba(160, 130, 245, 0.08)',
+          paddingTop: '14px',
+        }}>
+          {/* Annualized Yield */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.52rem', fontWeight: 500,
+              textTransform: 'uppercase' as const, letterSpacing: '0.14em',
+              color: 'var(--muted-foreground)',
+            }}>Annualized</span>
+            <span style={{
+              fontFamily: 'var(--font-data)', fontSize: '1.15rem', fontWeight: 700,
+              letterSpacing: '-0.02em', color: '#A081F5',
+            }}>
               {t.annualizedPct.toFixed(1)}%
             </span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
-            <span className="label-xs" style={{ color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>LP POSITION (365D)</span>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--evro-lilac)' }}>
+
+          {/* Divider */}
+          <div style={{ width: '1px', height: '32px', background: 'rgba(160, 130, 245, 0.12)', margin: '0 12px' }} />
+
+          {/* LP Position */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'center' }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.52rem', fontWeight: 500,
+              textTransform: 'uppercase' as const, letterSpacing: '0.14em',
+              color: 'var(--muted-foreground)',
+            }}>LP Position · {t.totalDays}d</span>
+            <span style={{
+              fontFamily: 'var(--font-data)', fontSize: '1.15rem', fontWeight: 700,
+              letterSpacing: '-0.02em', color: '#A081F5',
+            }}>
               +{fmtEur(t.evroTotal)}
             </span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'flex-end' }}>
-            <span className="label-xs" style={{ color: 'var(--muted-foreground)', whiteSpace: 'nowrap' }}>DAO FEE (25%)</span>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 600, color: 'var(--muted-foreground)' }}>
+
+          {/* Divider */}
+          <div style={{ width: '1px', height: '32px', background: 'rgba(160, 130, 245, 0.12)', margin: '0 12px' }} />
+
+          {/* DAO Fee */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'flex-end' }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.52rem', fontWeight: 500,
+              textTransform: 'uppercase' as const, letterSpacing: '0.14em',
+              color: 'var(--muted-foreground)',
+            }}>DAO Fee ({Math.round((1 - incentiveShare) * 25)}%)</span>
+            <span style={{
+              fontFamily: 'var(--font-data)', fontSize: '1.05rem', fontWeight: 600,
+              letterSpacing: '-0.02em', color: 'var(--muted-foreground)',
+            }}>
               −{fmtEur(t.daoRevenue)}
             </span>
           </div>
@@ -231,6 +282,8 @@ export function RevenueReplay({
           totalMinted={deployFlow.totalMinted}
           l2Shares={deployFlow.l2Shares}
           onAdjustL2={deployFlow.onAdjustL2}
+          l2Locked={deployFlow.l2Locked}
+          onToggleL2={deployFlow.onToggleL2}
         />
       </div>
     </div>

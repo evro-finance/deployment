@@ -19,34 +19,6 @@ import type { BranchState } from '../App';
 import type { YieldResult } from '../data/yield-engine';
 import { RevenueReplay } from './RevenueReplay';
 
-/**
- * Custom gentle scroll function.
- * Browser's native `smooth` behavior can feel "elastic" or snappy.
- * This uses a Sine ease-in-out over a longer duration (1400ms) for a softer landing.
- */
-function gentleScrollTo(targetTop: number, duration = 1400) {
-  const startY = window.scrollY;
-  const diff = targetTop - startY;
-  let startTime: number | null = null;
-
-  function step(timestamp: number) {
-    if (!startTime) startTime = timestamp;
-    const timeElapsed = timestamp - startTime;
-    const progress = Math.min(timeElapsed / duration, 1);
-    
-    // easeInOutSine is extremely gentle
-    const ease = -(Math.cos(Math.PI * progress) - 1) / 2;
-
-    window.scrollTo(0, startY + diff * ease);
-
-    if (timeElapsed < duration) {
-      requestAnimationFrame(step);
-    }
-  }
-
-  requestAnimationFrame(step);
-}
-
 interface DeploymentPlanProps {
   totalCapital: number;
   onCapitalChange: (val: number) => void;
@@ -172,17 +144,18 @@ function buildLayer2TableColumns(): Layer2TableColumn[] {
   ];
 }
 
-function Stepper({ value, onUp, onDown, format }: {
+function Stepper({ value, onUp, onDown, format, disabled }: {
   value: number;
   onUp: () => void;
   onDown: () => void;
   format: (v: number) => string;
+  disabled?: boolean;
 }) {
   return (
     <div className="stepper">
-      <button type="button" className="stepper__btn" onClick={onDown} aria-label="Decrease">▾</button>
+      <button type="button" className="stepper__btn" onClick={onDown} disabled={disabled} aria-label="Decrease">▾</button>
       <span className="stepper__value">{format(value)}</span>
-      <button type="button" className="stepper__btn" onClick={onUp} aria-label="Increase">▴</button>
+      <button type="button" className="stepper__btn" onClick={onUp} disabled={disabled} aria-label="Increase">▴</button>
     </div>
   );
 }
@@ -191,10 +164,12 @@ function BranchWeightPiePanel({
   rows,
   branchStates,
   onUpdateBranch,
+  disabled,
 }: {
   rows: BranchPlanRow[];
   branchStates: Record<string, BranchState>;
   onUpdateBranch: (id: string, field: keyof BranchState, delta: number) => void;
+  disabled?: boolean;
 }) {
   const totalW = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
   const pieData = rows.map(b => ({
@@ -261,6 +236,7 @@ function BranchWeightPiePanel({
                 const cur = branchStates[b.id].weight;
                 onUpdateBranch(b.id, 'weight', v - cur);
               }}
+              disabled={disabled}
               aria-label={`${b.name} allocation weight`}
             />
             <span className="branch-weight-pie__slider-pct">{pct.toFixed(0)}%</span>
@@ -316,32 +292,6 @@ export function DeploymentPlan({
 
   const handleCheck = (key: string) => {
     onToggleLock(key);
-
-    // After toggling, find the next unchecked section
-    const nextLocks = { ...locks, [key]: !locks[key] };
-    if (!nextLocks[key]) return; // unchecking — no scroll
-
-    const nextIdx = CONTROL_ORDER.findIndex(k => !nextLocks[k]);
-    if (nextIdx >= 0) {
-      // Concierge scroll — let the lock animation land first, then glide
-      const nextKey = CONTROL_ORDER[nextIdx];
-      // 800ms delay gives the UI time to register the lock visually
-      // before auto-scrolling to the next available module.
-      setTimeout(() => {
-        const el = document.getElementById(`ctrl-${nextKey}`);
-        if (!el) return;
-        const top = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.25;
-        gentleScrollTo(top);
-      }, 800);
-    } else {
-      // All checked — gentle scroll to narrative after a beat
-      setTimeout(() => {
-        const el = document.querySelector('.narrative-showcase');
-        if (!el) return;
-        const top = el.getBoundingClientRect().top + window.scrollY - 40;
-        gentleScrollTo(top);
-      }, 1000);
-    }
   };
 
   const totalWeight = Object.values(branchStates).reduce((s, b) => s + b.weight, 0);
@@ -442,6 +392,7 @@ export function DeploymentPlan({
           onUp={() => onUpdateBranch(b.id, 'rate', STEP_RATE)}
           onDown={() => onUpdateBranch(b.id, 'rate', -STEP_RATE)}
           format={v => `${(v * 100).toFixed(1)}%`}
+          disabled={locks.branches}
         />
       ),
     },
@@ -470,7 +421,7 @@ export function DeploymentPlan({
         );
       },
     },
-  ], [onUpdateBranch, totalWeight]);
+  ], [onUpdateBranch, totalWeight, locks.branches]);
 
   /** Reorder this array to reorder Layer 2 rows — names/roles from content.md `# layer2` */
   const layer2Rows = useMemo((): Layer2VenueRow[] => [
@@ -760,6 +711,7 @@ export function DeploymentPlan({
             rows={results.branches}
             branchStates={branchStates}
             onUpdateBranch={onUpdateBranch}
+            disabled={locks.branches}
           />
           <div style={{ flex: '1 1 320px', minWidth: 0, overflowX: 'auto' }}>
             <table className="data-table" style={{ minWidth: '520px' }}>
@@ -800,71 +752,76 @@ export function DeploymentPlan({
         )}
       </div>
 
-      {/* ── Deploy Flow + L2 Sliders (third control pane) ── */}
-      <div
-        id="ctrl-l2"
-        className={`control-section${activeControl === 'l2' ? ' control-section--active' : ''}${locks.l2 ? ' control-section--locked' : ''}`}
-        style={{ marginBottom: '24px' }}
-      >
-        <RevenueReplay
-          embedded
-          yieldResult={yieldResult}
-          deployFlow={{
-            branches: results.branches.map(b => ({
-              id: b.id,
-              name: b.name,
-              color: b.color,
-              allocated: b.allocated,
-              minted: b.minted,
-            })),
-            totalMinted: results.totalMinted,
-            l2Shares,
-            onAdjustL2: onAdjustL2Shares,
-            incentiveShare,
-            lpName,
-            l2Locked: locks.l2,
-            onToggleL2: () => handleCheck('l2')
-          }}
-        />
-      </div>
+      {/* ── Deploy Flow + L2 Allocation (unified card family) ── */}
+      <div className="glass-card" style={{ padding: 0, marginBottom: '24px', overflow: 'hidden' }}>
 
-      {/* ── Layer 2: Liquidity Allocation Table (read-only, no lock) ── */}
-      <div className="glass-card" style={{ padding: '24px', marginBottom: '24px' }}>
-        <p className="label" style={{ marginBottom: '4px' }}>{get('deploy', 'l2-card-title')}</p>
-        <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
-          {get('deploy', 'l2-card-hint')}
-        </p>
-        <div style={{ overflowX: 'auto' }}>
-          <table className="data-table" style={{ minWidth: '640px' }}>
-            <thead>
-              <tr>
-                {layer2Columns.map(col => (
-                  <th
-                    key={col.id}
-                    style={{ textAlign: col.align, ...col.headerStyle }}
-                  >
-                    {col.header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {layer2Rows.map(row => (
-                <tr key={row.id} style={{ opacity: row.rowOpacity ?? 1 }}>
+        {/* Deploy Flow + Sankey + sliders */}
+        <div
+          id="ctrl-l2"
+          className={`control-section${activeControl === 'l2' ? ' control-section--active' : ''}${locks.l2 ? ' control-section--locked' : ''}`}
+          style={{ padding: 0 }}
+        >
+          <RevenueReplay
+            embedded
+            yieldResult={yieldResult}
+            deployFlow={{
+              branches: results.branches.map(b => ({
+                id: b.id,
+                name: b.name,
+                color: b.color,
+                allocated: b.allocated,
+                minted: b.minted,
+              })),
+              totalMinted: results.totalMinted,
+              l2Shares,
+              onAdjustL2: onAdjustL2Shares,
+              incentiveShare,
+              lpName,
+              l2Locked: locks.l2,
+              onToggleL2: () => handleCheck('l2')
+            }}
+          />
+        </div>
+
+        {/* ── Layer 2: Liquidity Allocation Table ── */}
+        <div style={{ padding: '24px', borderTop: '1px solid rgba(160,130,245,0.10)' }}>
+          <p className="label" style={{ marginBottom: '4px' }}>{get('deploy', 'l2-card-title')}</p>
+          <p className="body-text" style={{ fontSize: '0.72rem', marginBottom: '16px', color: 'var(--muted-foreground)' }}>
+            {get('deploy', 'l2-card-hint')}
+          </p>
+          <div style={{ overflowX: 'auto' }}>
+            <table className="data-table" style={{ minWidth: '640px' }}>
+              <thead>
+                <tr>
                   {layer2Columns.map(col => (
-                    <td
+                    <th
                       key={col.id}
-                      className={col.tdClassName}
-                      style={{ textAlign: col.align }}
+                      style={{ textAlign: col.align, ...col.headerStyle }}
                     >
-                      {col.cell(row)}
-                    </td>
+                      {col.header}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {layer2Rows.map(row => (
+                  <tr key={row.id} style={{ opacity: row.rowOpacity ?? 1 }}>
+                    {layer2Columns.map(col => (
+                      <td
+                        key={col.id}
+                        className={col.tdClassName}
+                        style={{ textAlign: col.align }}
+                      >
+                        {col.cell(row)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
+
       </div>
 
       {/* ── Narrative Showcase — "The Reason We Got Dressed" ─ */}

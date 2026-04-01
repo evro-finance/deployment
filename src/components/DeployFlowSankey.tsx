@@ -673,6 +673,7 @@ export function DeployFlowSankey({
                 min={0} max={1} step={0.01}
                 value={l2Shares[key]}
                 onChange={e => onAdjustL2(key, Number(e.target.value))}
+                disabled={!!l2Locked}
                 aria-label={`${short} share of minted EVRO`}
               />
               <span className="deploy-flow-sankey__slider-pct">
