@@ -34,7 +34,7 @@ European Capital On-Chain Shouldn't be Dead Capital
 The decentralized Euro CDP market will be empty.
 
 ## body
-European capital on-chain is dead capital. EURe yields **0%**. USD stablecoin holders earn **4%+** through the DAI Savings Rate but remain exposed to FX. The only other Euro CDP — Angle Protocol — is shutting down.
+European capital on-chain is dead capital. EURe yields **0%**. Despite high headline rates, USD stablecoin holders realized just **1.8%** on average through the DAI Savings Rate last year, while remaining exposed to FX. The only other Euro CDP — Angle Protocol — is shutting down.
 
 ## body2
 **EVRO fills this gap:** a Euro stablecoin backed by real yield — sDAI earning the Savings Rate, wstETH earning staking rewards, GNO earning validator income — with MEV protection through batch auction settlement (CoW Swap AMM).

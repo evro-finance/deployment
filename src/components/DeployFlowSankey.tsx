@@ -686,7 +686,7 @@ export function DeployFlowSankey({
           className="body-text"
           style={{ fontSize: '0.62rem', color: 'var(--muted-foreground)', margin: '8px 0 0', lineHeight: 1.45 }}
         >
-          Moving one slider redistributes the remainder across the other venues. Totals normalize to 100%.
+          Adjusting a slider cascades the difference to the adjacent venues below it (looping back to the top). Totals normalize to 100%.
         </p>
       </div>
     </div>

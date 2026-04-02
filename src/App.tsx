@@ -135,16 +135,34 @@ function App() {
     const t = Math.max(0, Math.min(1, target));
     setL2Shares(prev => {
       const keys: (keyof L2Shares)[] = ['sp', 'anchor', 'bridge', 'reserve'];
-      const others = keys.filter(k => k !== key);
-      const prevOthersSum = others.reduce((s, k) => s + prev[k], 0);
-      const next = { ...prev, [key]: t };
-      const remaining = 1 - t;
-      if (prevOthersSum <= 1e-12) {
-        const each = remaining / 3;
-        others.forEach(k => { next[k] = each; });
-      } else {
-        others.forEach(k => { next[k] = (prev[k] / prevOthersSum) * remaining; });
+      const next = { ...prev };
+      let diff = t - prev[key];
+      next[key] = t;
+
+      const idx = keys.indexOf(key);
+      let step = 1;
+
+      if (diff > 0) {
+        // Taking from subsequent venues
+        while (diff > 1e-9 && step < keys.length) {
+          const nextKey = keys[(idx + step) % keys.length];
+          const available = next[nextKey];
+          const take = Math.min(available, diff);
+          next[nextKey] -= take;
+          diff -= take;
+          step++;
+        }
+      } else if (diff < -1e-9) {
+        // Giving back entirely to the immediate next venue
+        const nextKey = keys[(idx + 1) % keys.length];
+        next[nextKey] += Math.abs(diff);
       }
+
+      // Cleanup floating point artifacts
+      keys.forEach(k => {
+        next[k] = Math.max(0, Math.min(1, next[k]));
+      });
+
       return next;
     });
   }, []);
