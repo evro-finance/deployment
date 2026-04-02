@@ -56,8 +56,30 @@ function App() {
   const [posture, setPosture] = useState(() => {
     if (typeof window === 'undefined') return 0.5;
     const params = new URLSearchParams(window.location.search);
+    // Legacy: explicit pst param takes priority
     const pst = params.get('pst');
-    return pst ? Math.max(0, Math.min(1, Number(pst))) : 0.5;
+    if (pst) return Math.max(0, Math.min(1, Number(pst)));
+    // Infer posture from explicit per-branch CR/rate params by inverting the lerp.
+    // We sample all branches that have explicit values and average the inferred t.
+    const samples: number[] = [];
+    for (const b of BRANCHES) {
+      const r = POSTURE_RANGES[b.id];
+      if (!r) continue;
+      const urlC = params.get(`${b.id}_c`);
+      const urlR = params.get(`${b.id}_r`);
+      if (urlC != null) {
+        const cr = Number(urlC) / 100;
+        const tCr = (cr - r.conservativeCR) / (r.aggressiveCR - r.conservativeCR);
+        samples.push(Math.max(0, Math.min(1, tCr)));
+      }
+      if (urlR != null) {
+        const rate = Number(urlR) / 1000;
+        const tRate = (rate - r.conservativeRate) / (r.aggressiveRate - r.conservativeRate);
+        samples.push(Math.max(0, Math.min(1, tRate)));
+      }
+    }
+    if (samples.length > 0) return samples.reduce((a, b) => a + b, 0) / samples.length;
+    return 0.5;
   });
   
   const [lpName] = useState(() => {
