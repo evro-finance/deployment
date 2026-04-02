@@ -199,7 +199,7 @@ function App() {
 
   // Build share URL with all state serialised
   const shareUrl = useMemo(() => {
-    const base = 'https://deployment.evro.finance';
+    const base = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : 'https://deployment.evro.finance';
     const p = new URLSearchParams();
     p.set('lp', lpName);
     p.set('cap', String(totalCapital));
