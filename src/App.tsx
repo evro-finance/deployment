@@ -215,6 +215,13 @@ function App() {
     return `${base}?${p.toString()}`;
   }, [lpName, totalCapital, posture, incentiveShare, branchStates, l2Shares]);
 
+  // Sync the current state back to the browser's address bar seamlessly
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', shareUrl);
+    }
+  }, [shareUrl]);
+
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(
