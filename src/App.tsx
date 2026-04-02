@@ -23,13 +23,17 @@ export interface BranchState {
 }
 
 // Posture ranges — healthy buffers above minMCR, never kissing the minimum
+// CR ranges: data-derived from engine drawdown analysis (drawdown-implied safe floor + buffer)
+// Rate ranges: Conservative = HIGH rate (redemption protection, set-and-forget)
+//              Aggressive   = LOW rate  (competitive borrowing, actively monitored)
+// Source: 365-day price engine + EUR/USD forex risk + CDP market benchmarks
 const POSTURE_RANGES: Record<string, { conservativeCR: number; aggressiveCR: number; conservativeRate: number; aggressiveRate: number }> = {
-  sdai:   { conservativeCR: 2.00, aggressiveCR: 1.40, conservativeRate: 0.020, aggressiveRate: 0.050 },
-  gno:    { conservativeCR: 2.50, aggressiveCR: 1.60, conservativeRate: 0.025, aggressiveRate: 0.065 },
-  wsteth: { conservativeCR: 2.20, aggressiveCR: 1.50, conservativeRate: 0.025, aggressiveRate: 0.060 },
-  wxdai:  { conservativeCR: 1.60, aggressiveCR: 1.15, conservativeRate: 0.015, aggressiveRate: 0.045 },
-  wbtc:   { conservativeCR: 2.50, aggressiveCR: 1.50, conservativeRate: 0.030, aggressiveRate: 0.070 },
-  osgno:  { conservativeCR: 2.50, aggressiveCR: 1.60, conservativeRate: 0.025, aggressiveRate: 0.060 },
+  sdai:   { conservativeCR: 2.20, aggressiveCR: 1.55, conservativeRate: 0.055, aggressiveRate: 0.025 },
+  gno:    { conservativeCR: 3.60, aggressiveCR: 2.30, conservativeRate: 0.065, aggressiveRate: 0.035 },
+  wsteth: { conservativeCR: 3.30, aggressiveCR: 2.55, conservativeRate: 0.060, aggressiveRate: 0.030 },
+  wxdai:  { conservativeCR: 1.85, aggressiveCR: 1.30, conservativeRate: 0.055, aggressiveRate: 0.025 },
+  wbtc:   { conservativeCR: 2.60, aggressiveCR: 1.70, conservativeRate: 0.060, aggressiveRate: 0.030 },
+  osgno:  { conservativeCR: 3.60, aggressiveCR: 2.30, conservativeRate: 0.065, aggressiveRate: 0.035 },
 };
 
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
@@ -65,11 +69,13 @@ function App() {
   const [branchStates, setBranchStates] = useState<Record<string, BranchState>>(() => {
     const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
     return Object.fromEntries(BRANCHES.map(b => {
-      const urlW = params?.get(b.id);
+      const urlW  = params?.get(b.id);
+      const urlC  = params?.get(`${b.id}_c`); // explicit CR (×100, e.g. 155 = 1.55)
+      const urlR  = params?.get(`${b.id}_r`); // explicit rate (×1000, e.g. 25 = 2.5%)
       return [b.id, {
         weight: urlW != null ? Number(urlW) / 100 : b.defaultWeight,
-        cr: b.defaultCR,
-        rate: b.interestRate,
+        cr:     urlC != null ? Number(urlC) / 100 : b.defaultCR,
+        rate:   urlR != null ? Number(urlR) / 1000 : b.interestRate,
       }];
     }));
   });
@@ -197,23 +203,25 @@ function App() {
     [totalCapital, branchAllocations, incentiveShare, l2Shares]
   );
 
-  // Build share URL with all state serialised
+  // Build share URL — all state serialised explicitly (no abstract posture shorthand)
   const shareUrl = useMemo(() => {
     const base = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : 'https://deployment.evro.finance';
     const p = new URLSearchParams();
     p.set('lp', lpName);
     p.set('cap', String(totalCapital));
-    p.set('pst', String(posture));
     p.set('inc', String(incentiveShare));
     for (const b of BRANCHES) {
-      p.set(b.id, String(Math.round(branchStates[b.id].weight * 100)));
+      const bs = branchStates[b.id];
+      p.set(b.id, String(Math.round(bs.weight * 100)));         // weight %
+      p.set(`${b.id}_c`, String(Math.round(bs.cr * 100)));      // CR ×100
+      p.set(`${b.id}_r`, String(Math.round(bs.rate * 1000)));   // rate ×1000
     }
     p.set('sp', String(Math.round(l2Shares.sp * 100)));
     p.set('anchor', String(Math.round(l2Shares.anchor * 100)));
     p.set('bridge', String(Math.round(l2Shares.bridge * 100)));
     p.set('reserve', String(Math.round(l2Shares.reserve * 100)));
     return `${base}?${p.toString()}`;
-  }, [lpName, totalCapital, posture, incentiveShare, branchStates, l2Shares]);
+  }, [lpName, totalCapital, incentiveShare, branchStates, l2Shares]);
 
   // Sync the current state back to the browser's address bar seamlessly
   useEffect(() => {
