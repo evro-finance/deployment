@@ -78,7 +78,7 @@ export function CanvasPage() {
         .bmc-canvas {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-          grid-template-rows: auto auto auto;
+          grid-template-rows: 1fr 1fr auto;
           gap: 1px;
           background: var(--border);
           border: 1px solid var(--border);
@@ -97,6 +97,12 @@ export function CanvasPage() {
         .bmc-canvas .bmc-cell-cost { grid-column: 1 / 4; grid-row: 3; }
         .bmc-canvas .bmc-cell-rev  { grid-column: 4 / 6; grid-row: 3; }
 
+        /* Every cell stretches its child block to fill */
+        .bmc-canvas > div {
+          display: flex;
+          min-height: 0;
+        }
+
         .bmc-block {
           background: var(--card);
           padding: 20px;
@@ -105,6 +111,7 @@ export function CanvasPage() {
           gap: 12px;
           border: 1px solid transparent;
           min-height: 0;
+          flex: 1;
         }
 
         .bmc-block__header {
